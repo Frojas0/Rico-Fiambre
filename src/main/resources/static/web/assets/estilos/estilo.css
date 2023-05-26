@@ -11,7 +11,7 @@ header {
     background-color: black;
     min-height: 50vw;
     /*Ajustar*/
-    height: 8vw;
+    /* height: 8vw; */
     /*Ajustar*/
     color: white;
 }
@@ -44,3 +44,14 @@ footer {
 .color3 { #7c4814 };
 .color4 { #a27264 };
 .color5 { #d1bcb4 }; */
+
+.carouselExampleAutoplaying{
+    height: 5rem;
+}
+
+.sobreNosotrosDIV{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
