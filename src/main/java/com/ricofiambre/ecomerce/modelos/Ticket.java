@@ -1,6 +1,5 @@
 package com.ricofiambre.ecomerce.modelos;
 
-import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;

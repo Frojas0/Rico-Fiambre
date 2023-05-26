@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Client {
+public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -19,15 +19,15 @@ public class Client {
     private String calle;
     private String ciudad;
     private int codPostal;
-    private int telefono;
+    private String telefono;
 
-    @OneToMany(mappedBy="ordenes", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
     private Set<Orden> ordenes = new HashSet<>();
 
     //CONSTRUCTORES
-    public Client(){}
+    public Cliente(){}
 
-    public Client(String nombre, String apellido, String email, String calle, String ciudad, int codPostal, int telefono) {
+    public Cliente(String nombre, String apellido, String email, String calle, String ciudad, int codPostal, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -45,7 +45,8 @@ public class Client {
     public String getCalle() {return calle;}
     public String getCiudad() {return ciudad;}
     public int getCodPostal() {return codPostal;}
-    public int getTelefono() {return telefono;}
+    public String getTelefono() {return telefono;}
+    public Set<Orden> getOrdenes() {return ordenes;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}
@@ -54,7 +55,8 @@ public class Client {
     public void setCalle(String calle) {this.calle = calle;}
     public void setCiudad(String ciudad) {this.ciudad = ciudad;}
     public void setCodPostal(int codPostal) {this.codPostal = codPostal;}
-    public void setTelefono(int telefono) {this.telefono = telefono;}
+    public void setTelefono(String telefono) {this.telefono = telefono;}
+    public void setOrdenes(Set<Orden> ordenes) {this.ordenes = ordenes;}
 
     //ADDERS
     public void addOrden(Orden orden) {

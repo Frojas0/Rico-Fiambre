@@ -2,10 +2,11 @@ package com.ricofiambre.ecomerce.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
 public class ProductoUni {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -17,6 +18,9 @@ public class ProductoUni {
     private double stock;
     private double precio;
     private PaisProducto origen;
+
+    @OneToMany(mappedBy="productoUni", fetch = FetchType.EAGER)
+    private Set<OrdenProductoUni> ordenProductoUnis = new HashSet<>();
 
     //CONSTRUCTORES
     public ProductoUni(){}
