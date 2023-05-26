@@ -1,0 +1,36 @@
+/* Estilo Normalizado */
+* {
+    font-family: Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    background-color: black;
+    min-height: 10vw;
+    /*Ajustar*/
+    height: 8vw;
+    /*Ajustar*/
+    color: white;
+}
+
+/* ---------- MAIN ---------- */
+
+main {
+    height: 80vw;
+    /*Ajustar*/
+    min-height: 80vw;
+    /*Ajustar*/
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    background-color: black;
+    height: 5vw;
+    /*Ajustar*/
+    min-height: 5vw;
+    /*Ajustar*/
+    color: white;
+}
