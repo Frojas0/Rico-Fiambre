@@ -2,11 +2,12 @@ package com.ricofiambre.ecomerce.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-public class ProductoUni {
+@Entity
+public class ProductoPeso {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -19,9 +20,9 @@ public class ProductoUni {
     private PaisProducto origen;
 
     //CONSTRUCTORES
-    public ProductoUni(){}
+    public ProductoPeso(){}
 
-    public ProductoUni(String nombre, TipoProducto tipo, String descripcion, double stock, double precio, PaisProducto origen) {
+    public ProductoPeso(String nombre, TipoProducto tipo, String descripcion, double stock, double precio, PaisProducto origen) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.descripcion = descripcion;
