@@ -1,19 +1,23 @@
 /* Estilo Normalizado */
 * {
-    font-family: Helvetica, Arial, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 /* ---------- HEADER ---------- */
 header {
     background-color: black;
-    min-height: 10vw;
+    min-height: 50vw;
     /*Ajustar*/
     height: 8vw;
     /*Ajustar*/
     color: white;
+}
+
+#logo01{
+    width: 5rem;
 }
 
 /* ---------- MAIN ---------- */
@@ -34,3 +38,9 @@ footer {
     /*Ajustar*/
     color: white;
 }
+
+/* .color1 { #f3bb14 };
+.color2 { #f4c43c };
+.color3 { #7c4814 };
+.color4 { #a27264 };
+.color5 { #d1bcb4 }; */
