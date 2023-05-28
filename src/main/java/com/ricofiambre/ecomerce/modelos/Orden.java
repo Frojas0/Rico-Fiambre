@@ -45,8 +45,8 @@ public class Orden {
     //GETTERS
     public long getId() {return id;}
     public LocalDateTime getFecha() {return fecha;}
-    public boolean isEnvio() {return envio;}
-    public boolean isPagado() {return pagado;}
+    public boolean getEnvio() {return envio;}
+    public boolean getPagado() {return pagado;}
     public double getTotal() {return total;}
     public Cliente getClient() {return cliente;}
     public Ticket getTicket() {return ticket;}
