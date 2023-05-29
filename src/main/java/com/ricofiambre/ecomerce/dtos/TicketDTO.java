@@ -1,6 +1,5 @@
 package com.ricofiambre.ecomerce.dtos;
 
-import com.ricofiambre.ecomerce.modelos.Orden;
 import com.ricofiambre.ecomerce.modelos.Ticket;
 
 public class TicketDTO {
@@ -11,6 +10,7 @@ public class TicketDTO {
 
     //CONSTRUCTOR
     public TicketDTO(Ticket ticket) {
+        this.id = ticket.getId();
         this.numero = ticket.getNumero();
         this.nombreDueñoTicket = ticket.getOrden().getClient().getNombre();
         this.apellidoDueñoTicket = ticket.getOrden().getClient().getApellido();

@@ -35,9 +35,9 @@ public class RicoFiambreApplication {
 			ProductoUni productoUni01 = (new ProductoUni("Salamin Paladini", TipoProducto.EMBUTIDO, "Salame de cerdo", 25, 1000, PaisProducto.ARGENTINA));
 
 			//CREACION DE ORDEN
-			Orden orden01 = (new Orden(LocalDateTime.now(),false,true,2000));
+			Orden orden01 = (new Orden(LocalDateTime.now(),false,true,2000, 789456413));
 			cliente01.addOrden(orden01);
-			Orden orden02 = (new Orden(LocalDateTime.now(), false, true, 14400));
+			Orden orden02 = (new Orden(LocalDateTime.now(), false, true, 14400, 45679123));
 			cliente02.addOrden(orden02);
 
 			//CREACION DE ORDENPRODUCTOUNI
@@ -47,7 +47,6 @@ public class RicoFiambreApplication {
 			orden01.addOrdenProductoUni(ordenProductoUni01);
 			//asignacion a producto
 			productoUni01.addOrdenProductoUni(ordenProductoUni01);
-
 
 			//CREACION DE ORDENPRODUCTOPESO
 			OrdenProductoPeso ordenProductoPeso01 = (new OrdenProductoPeso(3,14400));
@@ -74,6 +73,17 @@ public class RicoFiambreApplication {
 			//orden producto
 			ordenProductoPesoRepositorio.save(ordenProductoPeso01);
 			ordenProductoUniRepositorio.save(ordenProductoUni01);
+
+
+			//CREACION DE TICKET
+			Ticket ticket01 = (new Ticket(123123123));
+			Ticket ticket02 = (new Ticket(423142342));
+			//asignacion a orden
+			ticket01.addOrden(orden01);
+			ticket02.addOrden(orden02);
+			//ticket
+			ticketRepositorio.save(ticket01);
+			ticketRepositorio.save(ticket02);
 		};
 	}
 }

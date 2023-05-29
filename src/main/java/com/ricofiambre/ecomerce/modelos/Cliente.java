@@ -1,5 +1,6 @@
 package com.ricofiambre.ecomerce.modelos;
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -68,31 +69,3 @@ public class Cliente {
         ordenes.add(orden);
     }
 }
-
-//@Entity
-//public class Client {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-//    @GenericGenerator(name = "native", strategy = "native")
-//    private long id;
-//    private String firstName;
-//    private String lastName;
-//    private String email;
-//    private String password;
-//
-//    @OneToMany(mappedBy="client", fetch=FetchType.EAGER)
-//    private Set<Account> accounts = new HashSet<>();
-//    @OneToMany(mappedBy="client", fetch=FetchType.EAGER)
-//    private Set<ClientLoan> clientLoans = new HashSet<>();
-//
-//    @OneToMany(mappedBy="cardHolder", fetch=FetchType.EAGER)
-//    private Set<Card> cards = new HashSet<>();
-//
-//    public Client() { }
-//
-//    public Client(String first, String last, String mail, String password) {
-//        this.firstName = first;
-//        this.lastName = last;
-//        this.email = mail;
-//        this.password = password;
-//    }

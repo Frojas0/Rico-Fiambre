@@ -2,6 +2,7 @@ package com.ricofiambre.ecomerce.dtos;
 
 import com.ricofiambre.ecomerce.modelos.Cliente;
 import com.ricofiambre.ecomerce.modelos.Orden;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.HashSet;
 import java.util.Set;
