@@ -8,12 +8,18 @@
 
 /* ---------- HEADER ---------- */
 header {
-    background-color: black;
-    min-height: 50vw;
+    /* background-color: black; */
     /*Ajustar*/
-    height: 8vw;
+    /* height: 8vw; */
     /*Ajustar*/
     color: white;
+    background-color: #f6be5f;
+
+}
+
+.navbar, .container-fluid{
+    background-color: #f6be5f !important;
+
 }
 
 #logo01{
@@ -23,20 +29,27 @@ header {
 /* ---------- MAIN ---------- */
 
 main {
-    height: 80vw;
+    /* height: 80vw; */
     /*Ajustar*/
-    min-height: 80vw;
+    min-height: 70vw;
     /*Ajustar*/
+    /* background-color:  #754d25; */
+    background-color: whitesmoke;
+    color: black;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    background-color: black;
-    height: 5vw;
+    background-color: #b36311;
     /*Ajustar*/
-    min-height: 5vw;
+
     /*Ajustar*/
     color: white;
+    padding: 1rem;
+}
+
+.tarjetas {
+    height: 2rem
 }
 
 /* .color1 { #f3bb14 };
