@@ -8,12 +8,12 @@
 
 /* ---------- HEADER ---------- */
 header {
-    background-color: black;
-    min-height: 50vw;
+    /* background-color: black; */
     /*Ajustar*/
-    height: 2vw;
+    /* height: 8vw; */
     /*Ajustar*/
     color: white;
+    background-color: #603509;
 }
 
 #logo01{
@@ -27,17 +27,24 @@ main {
     /*Ajustar*/
     min-height: 80vw;
     /*Ajustar*/
+    background-color: #f6be5f;
+    color: black;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    background-color: black;
-    height: 5vw;
+    background-color: #b36311;
     /*Ajustar*/
-    min-height: 5vw;
+
     /*Ajustar*/
     color: white;
+    padding: 1rem;
 }
+
+.tarjetas {
+    height: 2rem
+}
+
 
 /* .color1 { #f3bb14 };
 .color2 { #f4c43c };
