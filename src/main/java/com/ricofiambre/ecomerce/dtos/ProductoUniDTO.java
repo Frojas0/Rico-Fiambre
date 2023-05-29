@@ -1,12 +1,8 @@
 package com.ricofiambre.ecomerce.dtos;
 
-import com.ricofiambre.ecomerce.modelos.OrdenProductoUni;
 import com.ricofiambre.ecomerce.modelos.PaisProducto;
 import com.ricofiambre.ecomerce.modelos.ProductoUni;
 import com.ricofiambre.ecomerce.modelos.TipoProducto;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class ProductoUniDTO {
     private long id;
@@ -29,7 +25,6 @@ public class ProductoUniDTO {
     }
 
     //GETTERS
-
     public long getId() {return id;}
     public String getNombre() {return nombre;}
     public TipoProducto getTipo() {return tipo;}

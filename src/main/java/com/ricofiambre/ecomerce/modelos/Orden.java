@@ -64,4 +64,15 @@ public class Orden {
     public void setCliente(Cliente cliente) {this.cliente = cliente;}
     public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
     public void setOrdenProductoPesos(Set<OrdenProductoPeso> ordenProductoPesos) {this.ordenProductoPesos = ordenProductoPesos;}
+
+    //ADDER
+    public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni){
+        ordenProductoUni.setOrden(this);
+        ordenProductoUnis.add(ordenProductoUni);
+    }
+    public void addOrdenProductoPeso(OrdenProductoPeso ordenProductoPeso) {
+        ordenProductoPeso.setOrden(this);
+        ordenProductoPesos.add(ordenProductoPeso);
+    }
+
 }

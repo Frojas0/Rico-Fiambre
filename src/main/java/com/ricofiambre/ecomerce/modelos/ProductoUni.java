@@ -15,7 +15,7 @@ public class ProductoUni {
     private String nombre;
     private TipoProducto tipo;
     private String descripcion;
-    private double stock;
+    private int stock;
     private double precio;
     private PaisProducto origen;
 
@@ -25,7 +25,7 @@ public class ProductoUni {
     //CONSTRUCTORES
     public ProductoUni(){}
 
-    public ProductoUni(String nombre, TipoProducto tipo, String descripcion, double stock, double precio, PaisProducto origen) {
+    public ProductoUni(String nombre, TipoProducto tipo, String descripcion, int stock, double precio, PaisProducto origen) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.descripcion = descripcion;
@@ -39,15 +39,23 @@ public class ProductoUni {
     public String getNombre() {return nombre;}
     public TipoProducto getTipo() {return tipo;}
     public String getDescripcion() {return descripcion;}
-    public double getStock() {return stock;}
+    public int getStock() {return stock;}
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
+    public Set<OrdenProductoUni> getOrdenProductoUnis() {return ordenProductoUnis;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}
     public void setTipo(TipoProducto tipo) {this.tipo = tipo;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
-    public void setStock(double stock) {this.stock = stock;}
+    public void setStock(int stock) {this.stock = stock;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setOrigen(PaisProducto origen) {this.origen = origen;}
+    public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
+
+    //ADDERS
+    public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni) {
+        ordenProductoUni.setProductoUni(this);
+        ordenProductoUnis.add(ordenProductoUni);
+    }
 }

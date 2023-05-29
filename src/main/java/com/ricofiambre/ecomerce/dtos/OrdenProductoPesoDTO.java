@@ -7,8 +7,7 @@ import com.ricofiambre.ecomerce.modelos.ProductoPeso;
 public class OrdenProductoPesoDTO {
     private long id;
     private double cantidadKg;
-    private Orden orden;
-    private ProductoPesoDTO productoPeso;
+    private double total;
 
 
     //CONSTRUCTOR
@@ -16,13 +15,11 @@ public class OrdenProductoPesoDTO {
     public OrdenProductoPesoDTO(OrdenProductoPeso ordenProductoPeso) {
         this.id = ordenProductoPeso.getId();
         this.cantidadKg = ordenProductoPeso.getCantidadKg();
-        this.orden = ordenProductoPeso.getOrden();
-        this.productoPeso = new ProductoPesoDTO(ordenProductoPeso.getProductoPeso());
+        this.total = ordenProductoPeso.getTotal();
     }
 
     //GETTERS
     public long getId() {return id;}
     public double getCantidadKg() {return cantidadKg;}
-    public Orden getOrden() {return orden;}
-    public ProductoPesoDTO getProductoPeso() {return productoPeso;}
+    public double getTotal() {return total;}
 }

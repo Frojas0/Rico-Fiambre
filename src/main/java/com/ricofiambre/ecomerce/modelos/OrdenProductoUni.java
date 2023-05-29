@@ -25,11 +25,9 @@ public class OrdenProductoUni {
     //CONSTRUCTORES
     public OrdenProductoUni(){}
 
-    public OrdenProductoUni(int cantidadUni, double total, Orden orden, ProductoUni productoUni) {
+    public OrdenProductoUni(int cantidadUni, double total) {
         this.cantidadUni = cantidadUni;
         this.total = total;
-        this.orden = orden;
-        this.productoUni = productoUni;
     }
 
     //GETTERS
