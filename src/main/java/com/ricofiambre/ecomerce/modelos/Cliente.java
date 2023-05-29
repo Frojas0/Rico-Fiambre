@@ -1,5 +1,6 @@
 package com.ricofiambre.ecomerce.modelos;
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Cliente {
     private String ciudad;
     private int codPostal;
     private String telefono;
+    private String contrasena;
 
     @OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
     private Set<Orden> ordenes = new HashSet<>();
@@ -27,7 +29,7 @@ public class Cliente {
     //CONSTRUCTORES
     public Cliente(){}
 
-    public Cliente(String nombre, String apellido, String email, String calle, String ciudad, int codPostal, String telefono) {
+    public Cliente(String nombre, String apellido, String email, String calle, String ciudad, int codPostal, String telefono, String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -35,6 +37,7 @@ public class Cliente {
         this.ciudad = ciudad;
         this.codPostal = codPostal;
         this.telefono = telefono;
+        this.contrasena = contrasena;
     }
 
     //GETTERS
@@ -46,6 +49,7 @@ public class Cliente {
     public String getCiudad() {return ciudad;}
     public int getCodPostal() {return codPostal;}
     public String getTelefono() {return telefono;}
+    public String getContrasena(){return  contrasena;}
     public Set<Orden> getOrdenes() {return ordenes;}
 
     //SETTERS
@@ -57,6 +61,7 @@ public class Cliente {
     public void setCodPostal(int codPostal) {this.codPostal = codPostal;}
     public void setTelefono(String telefono) {this.telefono = telefono;}
     public void setOrdenes(Set<Orden> ordenes) {this.ordenes = ordenes;}
+    public void setContrasena(String contrasena) {this.contrasena = contrasena;}
 
     //ADDERS
     public void addOrden(Orden orden) {
@@ -64,31 +69,3 @@ public class Cliente {
         ordenes.add(orden);
     }
 }
-
-//@Entity
-//public class Client {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-//    @GenericGenerator(name = "native", strategy = "native")
-//    private long id;
-//    private String firstName;
-//    private String lastName;
-//    private String email;
-//    private String password;
-//
-//    @OneToMany(mappedBy="client", fetch=FetchType.EAGER)
-//    private Set<Account> accounts = new HashSet<>();
-//    @OneToMany(mappedBy="client", fetch=FetchType.EAGER)
-//    private Set<ClientLoan> clientLoans = new HashSet<>();
-//
-//    @OneToMany(mappedBy="cardHolder", fetch=FetchType.EAGER)
-//    private Set<Card> cards = new HashSet<>();
-//
-//    public Client() { }
-//
-//    public Client(String first, String last, String mail, String password) {
-//        this.firstName = first;
-//        this.lastName = last;
-//        this.email = mail;
-//        this.password = password;
-//    }

@@ -1,5 +1,6 @@
 package com.ricofiambre.ecomerce.modelos;
 
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,11 +14,11 @@ public class Orden {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
+    private long numeroDeOrden;
     private LocalDateTime fecha;
     private boolean envio;
     private boolean pagado;
     private double total;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idCliente")
     private Cliente cliente;
@@ -35,7 +36,8 @@ public class Orden {
     //CONSTRUCTORES
     public Orden(){}
 
-    public Orden(LocalDateTime fecha, boolean envio, boolean pagado, double total) {
+    public Orden(LocalDateTime fecha, boolean envio, boolean pagado, double total, long numeroDeOrden) {
+        this.numeroDeOrden = numeroDeOrden;
         this.fecha = fecha;
         this.envio = envio;
         this.pagado = pagado;
@@ -45,12 +47,13 @@ public class Orden {
     //GETTERS
     public long getId() {return id;}
     public LocalDateTime getFecha() {return fecha;}
-    public boolean isEnvio() {return envio;}
-    public boolean isPagado() {return pagado;}
+    public boolean getEnvio() {return envio;}
+    public boolean getPagado() {return pagado;}
     public double getTotal() {return total;}
     public Cliente getClient() {return cliente;}
     public Ticket getTicket() {return ticket;}
     public Cliente getCliente() {return cliente;}
+    public long getNumeroDeOrden(){return numeroDeOrden;}
     public Set<OrdenProductoUni> getOrdenProductoUnis() {return ordenProductoUnis;}
     public Set<OrdenProductoPeso> getOrdenProductoPesos() {return ordenProductoPesos;}
 
@@ -62,6 +65,18 @@ public class Orden {
     public void setClient(Cliente cliente) {this.cliente = cliente;}
     public void setTicket(Ticket ticket) {this.ticket = ticket;}
     public void setCliente(Cliente cliente) {this.cliente = cliente;}
+    public void setNumeroDeOrden(long numeroDeOrden){this.numeroDeOrden = numeroDeOrden;}
     public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
     public void setOrdenProductoPesos(Set<OrdenProductoPeso> ordenProductoPesos) {this.ordenProductoPesos = ordenProductoPesos;}
+
+    //ADDER
+    public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni){
+        ordenProductoUni.setOrden(this);
+        ordenProductoUnis.add(ordenProductoUni);
+    }
+    public void addOrdenProductoPeso(OrdenProductoPeso ordenProductoPeso) {
+        ordenProductoPeso.setOrden(this);
+        ordenProductoPesos.add(ordenProductoPeso);
+    }
+
 }

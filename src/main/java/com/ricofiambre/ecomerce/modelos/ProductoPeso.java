@@ -43,6 +43,7 @@ public class ProductoPeso {
     public double getStock() {return stock;}
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
+    public Set<OrdenProductoPeso> getOrdenProductoPesos() {return ordenProductoPesos;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}
@@ -51,4 +52,11 @@ public class ProductoPeso {
     public void setStock(double stock) {this.stock = stock;}
     public void setPrecio(double precio) {this.precio = precio;}
     public void setOrigen(PaisProducto origen) {this.origen = origen;}
+    public void setOrdenProductoPesos(Set<OrdenProductoPeso> ordenProductoPesos) {this.ordenProductoPesos = ordenProductoPesos;}
+
+    //ADDERS
+    public void addOrdenProductoPeso(OrdenProductoPeso ordenProductoPeso) {
+        ordenProductoPeso.setProductoPeso(this);
+        ordenProductoPesos.add(ordenProductoPeso);
+    }
 }

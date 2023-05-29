@@ -12,8 +12,8 @@ public class Ticket {
     private long id;
     private long numero;
 
-    @OneToOne
-    @JoinColumn(name = "idOrden")
+    @OneToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "ticket")
     private Orden orden;
 
     //CONSTRUCTORES
@@ -26,6 +26,7 @@ public class Ticket {
     //GETTERS
     public long getId() {return id;}
     public long getNumero() {return numero;}
+
     public Orden getOrden() {return orden;}
 
     //SETTERS
