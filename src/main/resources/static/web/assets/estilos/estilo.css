@@ -52,8 +52,29 @@ footer {
     height: 2rem
 }
 
+.tarjetas {
+    height: 2rem;
+}
+
+
 /* .color1 { #f3bb14 };
 .color2 { #f4c43c };
 .color3 { #7c4814 };
 .color4 { #a27264 };
 .color5 { #d1bcb4 }; */
+
+
+
+
+.sobreNosotrosDIV{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.imgCarrousel{
+    object-fit: contain;
+    width: 20%;
+    width: 100%;
+}
