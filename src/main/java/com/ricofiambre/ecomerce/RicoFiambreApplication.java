@@ -3,6 +3,7 @@ package com.ricofiambre.ecomerce;
 import com.ricofiambre.ecomerce.controladores.OrdenProductoPesoControlador;
 import com.ricofiambre.ecomerce.modelos.*;
 import com.ricofiambre.ecomerce.repositorios.*;
+import com.ricofiambre.ecomerce.utilidades.TicketUtilidad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,21 +24,21 @@ public class RicoFiambreApplication {
 	@Bean
 	public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, OrdenRepositorio ordenRepositorio, ProductoPesoRepositorio productoPesoRepositorio, ProductoUniRepositorio productoUniRepositorio, TicketRepositorio ticketRepositorio, OrdenProductoPesoRepositorio ordenProductoPesoRepositorio, OrdenProductoUniRepositorio ordenProductoUniRepositorio) {
 		return (args) -> {
-
 			//CREACION DE CLIENTES
 			Cliente cliente01 = (new Cliente("Juanjo", "Sepaso","juanjo@mail.com","Av. Siempreviva 123", "Springfield", 2400, "2604-112233", passwordEncoder.encode("Juanjo123")));
-			Cliente cliente02 = (new Cliente("Melba", "Morel","melba@mindhub.com","Av. Nuncaviva 321", "Shelbyville", 5600, "2604-112247", passwordEncoder.encode("melba123")));
+			Cliente cliente02 = (new Cliente("Melba", "Morel","melba@mindhub.com","Av. Nuncaviva 321", "Shelbyville", 5600, "2604-112247", passwordEncoder.encode("Melba123")));
+			Cliente admin01 = (new Cliente("admin", "istrador","admin@admin.com","Av. Todo Permitido 322", "Usa", 5600, "2604-312123", passwordEncoder.encode("Admin123")));
 
 			//CREACION DE PRODUCTO POR PESO
-			ProductoPeso productoPeso01 = (new ProductoPeso("Queso Azul", TipoProducto.LACTEO,"Queso que tienen en su pasta cultivos de Penicillium añadidos al producto final",10.0,4800.0, PaisProducto.EUROPEO));
+			ProductoPeso productoPeso01 = (new ProductoPeso("QUESO AZUL", TipoProducto.LACTEO,"Queso que tienen en su pasta cultivos de Penicillium añadidos al producto final",10.0,4800.0, PaisProducto.EUROPEO, 9.0));
 
 			//CREACION DE PRODUCTO POR UNIDAD
-			ProductoUni productoUni01 = (new ProductoUni("Salamin Paladini", TipoProducto.EMBUTIDO, "Salame de cerdo", 25, 1000, PaisProducto.ARGENTINA));
+			ProductoUni productoUni01 = (new ProductoUni("SALAMIN PURO", TipoProducto.EMBUTIDO, "Salame de cerdo", 25, 1000, PaisProducto.ARGENTINA, 7.2));
 
 			//CREACION DE ORDEN
-			Orden orden01 = (new Orden(LocalDateTime.now(),false,true,2000, 789456413));
+			Orden orden01 = (new Orden(LocalDateTime.now(),false,true,2000, "00000001"));
 			cliente01.addOrden(orden01);
-			Orden orden02 = (new Orden(LocalDateTime.now(), false, true, 14400, 45679123));
+			Orden orden02 = (new Orden(LocalDateTime.now(), false, true, 14400, "00000002"));
 			cliente02.addOrden(orden02);
 
 			//CREACION DE ORDENPRODUCTOUNI
@@ -61,6 +62,7 @@ public class RicoFiambreApplication {
 			//cliente
 			clienteRepositorio.save(cliente01);
 			clienteRepositorio.save(cliente02);
+			clienteRepositorio.save(admin01);
 
 			//orden
 			ordenRepositorio.save(orden01);
@@ -76,8 +78,8 @@ public class RicoFiambreApplication {
 
 
 			//CREACION DE TICKET
-			Ticket ticket01 = (new Ticket(123123123));
-			Ticket ticket02 = (new Ticket(423142342));
+			Ticket ticket01 = (new Ticket("00012345"));
+			Ticket ticket02 = (new Ticket("00152321"));
 			//asignacion a orden
 			ticket01.addOrden(orden01);
 			ticket02.addOrden(orden02);

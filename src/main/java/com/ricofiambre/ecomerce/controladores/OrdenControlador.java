@@ -28,6 +28,8 @@ public class OrdenControlador {
         List<OrdenDTO> ordenesCliente = cliente.getOrdenes().stream().map(ordenes -> new OrdenDTO(ordenes)).collect(Collectors.toList());
         return ordenesCliente;
     }
+//    @GetMapping("/api/ticket-compra")
+//    public
 
 
 //    @GetMapping("/api/ordenes-cliente")
