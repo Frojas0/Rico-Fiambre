@@ -53,17 +53,34 @@ footer {
 .color5 { #d1bcb4 }; */
 
 
-
-
-.sobreNosotrosDIV{
+.BeneficiosDIV{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: white;
 }
 
-.imgCarrousel{
-    object-fit: contain;
-    width: 20%;
+.sobreNosotrosDIV{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: pink;
+    text-align: center;
+    padding: 1rem; 
+}   
+
+#imgCarrousel{
+    object-fit: cover;
+    height: 600px;
     width: 100%;
+    transition:ease-in;
+}
+
+#sectionSobre{
+    padding: 1rem;
+    width: 30%;
 }
