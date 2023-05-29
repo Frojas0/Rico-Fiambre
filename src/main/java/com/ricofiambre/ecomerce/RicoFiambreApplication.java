@@ -1,5 +1,6 @@
 package com.ricofiambre.ecomerce;
 
+import com.ricofiambre.ecomerce.controladores.OrdenProductoPesoControlador;
 import com.ricofiambre.ecomerce.modelos.*;
 import com.ricofiambre.ecomerce.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,12 @@ public class RicoFiambreApplication {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Bean
-	public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, OrdenRepositorio ordenRepositorio, ProductoPesoRepositorio productoPesoRepositorio, ProductoUniRepositorio productoUniRepositorio, TicketRepositorio ticketRepositorio) {
+	public CommandLineRunner initData(ClienteRepositorio clienteRepositorio, OrdenRepositorio ordenRepositorio, ProductoPesoRepositorio productoPesoRepositorio, ProductoUniRepositorio productoUniRepositorio, TicketRepositorio ticketRepositorio, OrdenProductoPesoRepositorio ordenProductoPesoRepositorio, OrdenProductoUniRepositorio ordenProductoUniRepositorio) {
 		return (args) -> {
+
 			//CREACION DE CLIENTES
-			Cliente cliente01 = (new Cliente("Juanjo", "Sepaso","juanjo@mail.com","Av. Siempreviva", "Springfield", 2400, "2604-112233", passwordEncoder.encode("Juanjo123")));
-			Cliente cliente02 = (new Cliente("Melba", "Morel","melba@mindhub.com","Av. Siempreviva", "Springfield", 5600, "2604-112247", passwordEncoder.encode("melba123")));
+			Cliente cliente01 = (new Cliente("Juanjo", "Sepaso","juanjo@mail.com","Av. Siempreviva 123", "Springfield", 2400, "2604-112233", passwordEncoder.encode("Juanjo123")));
+			Cliente cliente02 = (new Cliente("Melba", "Morel","melba@mindhub.com","Av. Nuncaviva 321", "Shelbyville", 5600, "2604-112247", passwordEncoder.encode("melba123")));
 
 			//CREACION DE PRODUCTO POR PESO
 			ProductoPeso productoPeso01 = (new ProductoPeso("Queso Azul", TipoProducto.LACTEO,"Queso que tienen en su pasta cultivos de Penicillium añadidos al producto final",10.0,4800.0, PaisProducto.EUROPEO));
@@ -56,10 +58,6 @@ public class RicoFiambreApplication {
 			productoPeso01.addOrdenProductoPeso(ordenProductoPeso01);
 
 
-
-
-
-
 			//GUARDADO DE DATOS
 			//cliente
 			clienteRepositorio.save(cliente01);
@@ -73,6 +71,9 @@ public class RicoFiambreApplication {
 			productoPesoRepositorio.save(productoPeso01);
 			productoUniRepositorio.save(productoUni01);
 
+			//orden producto
+			ordenProductoPesoRepositorio.save(ordenProductoPeso01);
+			ordenProductoUniRepositorio.save(ordenProductoUni01);
 		};
 	}
 }

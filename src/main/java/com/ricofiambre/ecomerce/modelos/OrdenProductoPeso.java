@@ -12,15 +12,12 @@ public class OrdenProductoPeso {
     private long id;
     private double cantidadKg;
     private double total;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idOrden")
     private Orden orden;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="idProductoPeso")
     private ProductoPeso productoPeso;
-
 
     //CONSTRUCTORES
     public OrdenProductoPeso(){}
