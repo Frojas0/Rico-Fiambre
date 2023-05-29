@@ -8,12 +8,18 @@
 
 /* ---------- HEADER ---------- */
 header {
-    background-color: black;
-    min-height: 50vw;
+    /* background-color: black; */
     /*Ajustar*/
-    height: 2vw;
+    /* height: 8vw; */
     /*Ajustar*/
     color: white;
+    background-color: #f6be5f;
+
+}
+
+.navbar, .container-fluid{
+    background-color: #f6be5f !important;
+
 }
 
 #logo01{
@@ -23,21 +29,33 @@ header {
 /* ---------- MAIN ---------- */
 
 main {
-    height: 80vw;
+    /* height: 80vw; */
     /*Ajustar*/
-    min-height: 80vw;
+    min-height: 70vw;
     /*Ajustar*/
+    /* background-color:  #754d25; */
+    background-color: whitesmoke;
+    color: black;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    background-color: black;
-    height: 5vw;
+    background-color: #b36311;
     /*Ajustar*/
-    min-height: 5vw;
+
     /*Ajustar*/
     color: white;
+    padding: 1rem;
 }
+
+.tarjetas {
+    height: 2rem
+}
+
+.tarjetas {
+    height: 2rem;
+}
+
 
 /* .color1 { #f3bb14 };
 .color2 { #f4c43c };
@@ -46,17 +64,34 @@ footer {
 .color5 { #d1bcb4 }; */
 
 
-
-
-.sobreNosotrosDIV{
+.BeneficiosDIV{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    background-color: white;
 }
 
-.imgCarrousel{
-    object-fit: contain;
-    width: 20%;
+.sobreNosotrosDIV{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: pink;
+    text-align: center;
+    padding: 1rem; 
+}   
+
+#imgCarrousel{
+    object-fit: cover;
+    height: 600px;
     width: 100%;
+    transition:ease-in;
+}
+
+#sectionSobre{
+    padding: 1rem;
+    width: 30%;
 }
