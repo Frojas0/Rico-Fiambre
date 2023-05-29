@@ -8,7 +8,15 @@
 
 /* ---------- HEADER ---------- */
 header {
+<<<<<<< HEAD
     color: black;
+=======
+    /* background-color: black; */
+    /*Ajustar*/
+    /* height: 8vw; */
+    min-height: 10vh;   /*Ajustar*/
+    color: white;
+>>>>>>> be4b5f2eefa55071b6cd29d49630794982cb2cb8
     background-color: #f6be5f;
 
 }
@@ -26,7 +34,15 @@ header {
 /* ---------- MAIN ---------- */
 
 main {
+<<<<<<< HEAD
     min-height: 70vw;
+=======
+    /* height: 80vw; */
+    /*Ajustar*/
+    /* min-height: 70vw; */
+    /*Ajustar*/
+    /* background-color:  #754d25; */
+>>>>>>> be4b5f2eefa55071b6cd29d49630794982cb2cb8
     background-color: whitesmoke;
     color: black;
 }
