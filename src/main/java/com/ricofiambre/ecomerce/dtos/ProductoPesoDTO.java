@@ -4,6 +4,8 @@ import com.ricofiambre.ecomerce.modelos.PaisProducto;
 import com.ricofiambre.ecomerce.modelos.ProductoPeso;
 import com.ricofiambre.ecomerce.modelos.TipoProducto;
 
+import java.util.List;
+
 public class ProductoPesoDTO {
     private long id;
     private String nombre;
@@ -12,6 +14,8 @@ public class ProductoPesoDTO {
     private double stock;
     private double precio;
     private PaisProducto origen;
+    private double puntuaciones;
+
 
     //CONSTRUCTOR
     public ProductoPesoDTO (ProductoPeso productoPeso){
@@ -22,6 +26,7 @@ public class ProductoPesoDTO {
         this.stock = productoPeso.getStock();
         this.precio = productoPeso.getPrecio();
         this.origen = productoPeso.getOrigen();
+        this.puntuaciones = productoPeso.getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
     }
     //GETTERS
 
@@ -32,4 +37,5 @@ public class ProductoPesoDTO {
     public double getStock() {return stock;}
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
+    public double getPuntuaciones() {return puntuaciones;}
 }

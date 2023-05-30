@@ -9,7 +9,7 @@ public class TicketMuestraDTO {
     private String nombreFiambreria;
     private String direccion;
     private long id;
-    private long numero;
+    private String numero;
     private String nombreDueñoTicket;
     private String apellidoDueñoTicket;
     private List<String> productosCompradosPeso;
@@ -17,10 +17,8 @@ public class TicketMuestraDTO {
 
     //CONSTRUCTOR
     public TicketMuestraDTO(Ticket ticket) {
-        this.direccion = "Direccion de la fiambreria 123";
-//        this.id = ticket.getId();
-        this.nombreFiambreria = "Rico Fiambre";
         this.productosCompradosPeso = ticket.getOrden().getOrdenProductoPesos().stream().map(producto -> producto.getProductoPeso().getNombre()).collect(Collectors.toList());
+        this.productosCompradosUnidad = ticket.getOrden().getOrdenProductoUnis().stream().map(producto1 -> producto1.getProductoUni().getNombre()).collect(Collectors.toList());
         this.numero = ticket.getNumero();
         this.nombreDueñoTicket = ticket.getOrden().getClient().getNombre();
         this.apellidoDueñoTicket = ticket.getOrden().getClient().getApellido();
@@ -29,7 +27,7 @@ public class TicketMuestraDTO {
     //GETTERS
 //    public long getId() {return id;}
 
-    public long getNumero() {return numero;}
+    public String getNumero() {return numero;}
     public String getNombreDueñoTicket() {return nombreDueñoTicket;}
     public String getApellidoDueñoTicket() {return apellidoDueñoTicket;}
 

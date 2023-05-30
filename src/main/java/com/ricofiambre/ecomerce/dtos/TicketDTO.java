@@ -4,7 +4,7 @@ import com.ricofiambre.ecomerce.modelos.Ticket;
 
 public class TicketDTO {
     private long id;
-    private long numero;
+    private String numero;
     private String nombreDueñoTicket;
     private String apellidoDueñoTicket;
 
@@ -18,7 +18,7 @@ public class TicketDTO {
 
     //GETTERS
     public long getId() {return id;}
-    public long getNumero() {return numero;}
+    public String getNumero() {return numero;}
     public String getNombreDueñoTicket() {return nombreDueñoTicket;}
     public String getApellidoDueñoTicket() {return apellidoDueñoTicket;}
 }
