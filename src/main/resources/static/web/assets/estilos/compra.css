@@ -72,7 +72,7 @@ footer {
 /************************* CARRITO COMPRA **************************/
 
 .payment-info {
-    background: blue;
+    background: #b36311;
     padding: 10px;
     border-radius: 6px;
     color: #fff;
@@ -130,7 +130,7 @@ footer {
   
   label.radio input:checked + span {
     border-color: #fff;
-    background-color: blue;
+    background-color: #aa8259;
     color: #fff;
   }
   
@@ -177,6 +177,10 @@ footer {
     font-size: 11px;
   }
 
+  #cabalLogo{
+    padding-top: 5px;
+  }
+
   /************************* OTROS/*/
 
     .section-header {
@@ -187,10 +191,10 @@ footer {
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 6px;
-    background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/pexels-chevanon-photography-323503.jpg);
+    background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/carrito\ de\ compras.jpg);
     background-size: cover;
     background-position-x: 65%;
-    background-position-y: 55%;
+    background-position-y: 45%;
     height: 100%;
     ;
   }
