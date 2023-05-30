@@ -1,0 +1,51 @@
+/* Estilo Normalizado */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    color: black;
+    background-color: #f6be5f;
+
+}
+
+.navbar,
+.container-fluid {
+    background-color: #f6be5f !important;
+
+}
+
+#logo01 {
+    width: 5rem;
+}
+
+/* ---------- MAIN ---------- */
+
+main {
+    min-height: 70vw;
+    background-color: whitesmoke;
+    color: black;
+}
+
+
+/* ---------- FOOTER ---------- */
+footer {
+    background-color: #b36311;
+    color: white;
+    padding: 1rem;
+}
+
+.tarjetas {
+    height: 2rem;
+    padding: 0.1rem;;
+}
+
+/* ---------- FORMULARIO LOGIN---------- */
+#logo-login-register{
+    width: 15rem;
+}
+

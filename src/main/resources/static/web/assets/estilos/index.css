@@ -8,11 +8,15 @@
 
 /* ---------- HEADER ---------- */
 header {
+<<<<<<< HEAD
+    color: black;
+=======
     /* background-color: black; */
     /*Ajustar*/
     /* height: 8vw; */
-    /*Ajustar*/
+    min-height: 10vh;   /*Ajustar*/
     color: white;
+>>>>>>> be4b5f2eefa55071b6cd29d49630794982cb2cb8
     background-color: #f6be5f;
 
 }
@@ -30,59 +34,17 @@ header {
 /* ---------- MAIN ---------- */
 
 main {
+<<<<<<< HEAD
+    min-height: 70vw;
+=======
     /* height: 80vw; */
     /*Ajustar*/
-    min-height: 70vw;
+    /* min-height: 70vw; */
     /*Ajustar*/
     /* background-color:  #754d25; */
+>>>>>>> be4b5f2eefa55071b6cd29d49630794982cb2cb8
     background-color: whitesmoke;
     color: black;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-    background-color: #b36311;
-    /*Ajustar*/
-
-    /*Ajustar*/
-    color: white;
-    padding: 1rem;
-}
-
-.tarjetas {
-    height: 2rem
-}
-
-.tarjetas {
-    height: 2rem;
-}
-
-
-/* .color1 { #f3bb14 };
-.color2 { #f4c43c };
-.color3 { #7c4814 };
-.color4 { #a27264 };
-.color5 { #d1bcb4 }; */
-
-
-.BeneficiosDIV {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: white;
-}
-
-.sobreNosotrosDIV {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    background-color: pink;
-    text-align: center;
-    padding: 1rem;
 }
 
 #imgCarrousel {
@@ -96,3 +58,16 @@ footer {
     padding: 1rem;
     width: 30%;
 }
+
+/* ---------- FOOTER ---------- */
+footer {
+    background-color: #b36311;
+    color: white;
+    padding: 1rem;
+}
+
+.tarjetas {
+    height: 2rem;
+    padding: 0.1rem;;
+}
+
