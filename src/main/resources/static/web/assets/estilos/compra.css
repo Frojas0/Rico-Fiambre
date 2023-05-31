@@ -72,10 +72,10 @@ footer {
 /************************* CARRITO COMPRA **************************/
 
 .payment-info {
-    background: blue;
+    background: whitesmoke;
     padding: 10px;
     border-radius: 6px;
-    color: #fff;
+    color: black;
     font-weight: bold;
   }
   
@@ -119,7 +119,7 @@ footer {
   
   label.radio span {
     padding: 1px 12px;
-    border: 2px solid #ada9a9;
+    border: 2px solid #ddd8d8;
     display: inline-block;
     color: #8f37aa;
     border-radius: 3px;
@@ -129,19 +129,19 @@ footer {
   }
   
   label.radio input:checked + span {
-    border-color: #fff;
-    background-color: blue;
+    border-color: #ffffff2f;
+    background-color: rgba(129, 129, 129, 0.541);
     color: #fff;
   }
   
   .credit-inputs {
-    background: rgb(102,102,221);
-    color: #fff !important;
-    border-color: rgb(102,102,221);
+    background: #ffffff2f;
+    color: black !important;
+    border-color: #ffffff2f;
   }
   
   .credit-inputs::placeholder {
-    color: #fff;
+    color: black;
     font-size: 13px;
   }
   
@@ -151,8 +151,8 @@ footer {
   }
   
   .form-control.credit-inputs:focus {
-    background: rgb(102,102,221);
-    border: rgb(102,102,221);
+    background: #0000002f;
+    border: #ffffff2f;
   }
   
   .line {
@@ -177,6 +177,10 @@ footer {
     font-size: 11px;
   }
 
+  #cabalLogo{
+    padding-top: 5px;
+  }
+
   /************************* OTROS/*/
 
     .section-header {
@@ -187,10 +191,10 @@ footer {
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 6px;
-    background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/pexels-chevanon-photography-323503.jpg);
+    background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/carrito\ de\ compras.jpg);
     background-size: cover;
     background-position-x: 65%;
-    background-position-y: 55%;
+    background-position-y: 45%;
     height: 100%;
     ;
   }

@@ -67,65 +67,78 @@
             </nav>
           </header>
         <main>
-            <h1 class="section-header">Carrito de Compras</h1>
+            <h1 class="section-header">Ejecutar Pago</h1>
             <div class="container mt-5 p-3 rounded cart">
                 <div class="row no-gutters">
                     <div class="col-md-8">
                         <div class="product-details mr-2">
                             <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></div>
                             <hr>
-                            <h6 class="mb-0">Shopping cart</h6>
-                            <div class="d-flex justify-content-between"><span>You have 4 items in your cart</span>
-                                <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
-                                    <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                            <!-- <h6 class="mb-0">Shopping cart</h6> -->
+                            <div class="d-flex justify-content-between"><span>Tienes 4 items en tu carrito</span>
+                                <div class="d-flex flex-row align-items-center"><span class="text-black-50">Organizar por:</span>
+                                    <div class="price ml-2"><span class="mr-1">Precio</span><i class="fa fa-angle-down"></i></div>
                                 </div>
                             </div>
+                            <template>
+                                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
+                                        <div class="ml-2"><span class="font-weight-bold d-block">Picada para 4</span><span class="spec">mortadela, chorizo aleman, salami, quezo suizo</span></div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                                </div>
+                            </template>
+
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
-                                    <div class="ml-2"><span class="font-weight-bold d-block">Iphone 11 pro</span><span class="spec">256GB, Navy Blue</span></div>
+                                    <div class="ml-2"><span class="font-weight-bold d-block">Picada para 5 personas</span><span class="spec">mortadela, chorizo aleman, salami, quezo suizo, uvas, aceitunas</span></div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/GQnIUfs.jpg" width="40">
-                                    <div class="ml-2"><span class="font-weight-bold d-block">One pro 7T</span><span class="spec">256GB, Navy Blue</span></div>
+                                    <div class="ml-2"><span class="font-weight-bold d-block">Queso Mozarella</span><span class="spec">10 kg</span></div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/o2fKskJ.jpg" width="40">
-                                    <div class="ml-2"><span class="font-weight-bold d-block">Google pixel 4 XL</span><span class="spec">256GB, Axe black</span></div>
+                                    <div class="ml-2"><span class="font-weight-bold d-block">Jamon Serrano</span><span class="spec">5 kg</span></div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$800</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/Tja5H1c.jpg" width="40">
-                                    <div class="ml-2"><span class="font-weight-bold d-block">Samsung galaxy Note 10&nbsp;</span><span class="spec">256GB, Navy Blue</span></div>
+                                    <div class="ml-2"><span class="font-weight-bold d-block">Servicio de Catering&nbsp;</span><span class="spec">Servicio de Catering para 15 personas</span></div>
                                 </div>
-                                <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$999</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                                <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$20000</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="payment-info">
-                            <div class="d-flex justify-content-between align-items-center"><span>Card details</span><img class="rounded" src="https://i.imgur.com/WU501C8.jpg" width="30"></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png"/></span> </label>
+                            <div class="d-flex justify-content-between align-items-center"><span>Detalles Tarjeta</span></div><span class="type d-block mt-3 mb-1">Card type</span><label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30" src="https://img.icons8.com/color/48/000000/mastercard.png"/></span> </label>
         
         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/visa.png"/></span> </label>
         
         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/ultraviolet/48/000000/amex.png"/></span> </label>
         
-        
-        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png"/></span> </label>
-                            <div><label class="credit-card-label">Name on card</label><input type="text" class="form-control credit-inputs" placeholder="Name"></div>
-                            <div><label class="credit-card-label">Card number</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
+        <!-- <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" src="https://img.icons8.com/officel/48/000000/paypal.png"/></span> </label> -->
+
+        <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" height="30" src="./assets/imagenes/tarjeta3.png"/></span> </label>
+
+        <label class="radio"> <input type="radio" name="card" value="payment" id="cabalLogo"> <span><img width="30" height="30" src="./assets/imagenes/Nuevo_logo_cabal.gif"/></span> </label>
+
+                            <div><label class="credit-card-label">Nombre en la Tarjeta</label><input type="text" class="form-control credit-inputs" placeholder="Nombre"></div>
+                            <div><label class="credit-card-label">Numero de la Tarjeta</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
                             <div class="row">
-                                <div class="col-md-6"><label class="credit-card-label">Date</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                                <div class="col-md-6"><label class="credit-card-label">Fecha</label><input type="text" class="form-control credit-inputs" placeholder="12/24"></div>
                                 <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text" class="form-control credit-inputs" placeholder="342"></div>
                             </div>
                             <hr class="line">
                             <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$3000.00</span></div>
-                            <div class="d-flex justify-content-between information"><span>Shipping</span><span>$20.00</span></div>
-                            <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00</span><span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
+                            <div class="d-flex justify-content-between information"><span>Envio</span><span>$20.00</span></div>
+                            <div class="d-flex justify-content-between information"><span>Total(Incl. Impuestos)</span><span>$3020.00</span></div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button"><span>$3020.00 </span><span> Procesar<i class="fa fa-long-arrow-right ml-1"></i></span></button></div>
                     </div>
                 </div>
             </div>
