@@ -95,7 +95,7 @@
                     <div class="col-md-6 col-lg-7 d-flex align-items-center">
                       <div class="card-body p-4 p-lg-5 text-black">
         
-                        <form>
+                        <form @submit.prevent="iniciarSesion()">
                           <div class="d-flex align-items-center mb-3 pb-1 justify-content-center">
                             <img src="./Assets/imagenes/logo04.png" alt="..." id="logo-login-register">
                             <!-- <span class="h1 fw-bold mb-0">Rico fiambre</span> -->
@@ -105,11 +105,11 @@
         
                           <div class="form-outline mb-2">
                             <input type="email" id="form2Example17" class="form-control form-control-lg" v-model="email" required/>
-                            <label class="form-label" for="form2Example17">Correo</label>
+                            <label class="form-label" for="form2Example17">Email</label>
                           </div>
         
                           <div class="form-outline mb-2">
-                            <input type="password" id="form2Example27" class="form-control form-control-lg" v-model="password" required/>
+                            <input type="password" id="form2Example27" class="form-control form-control-lg" v-model="contrasena" required/>
                             <label class="form-label" for="form2Example27">Contraseña</label>
                           </div>
         
