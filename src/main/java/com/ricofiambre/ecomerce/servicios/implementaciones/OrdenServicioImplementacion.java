@@ -1,6 +1,7 @@
 package com.ricofiambre.ecomerce.servicios.implementaciones;
 
 import com.ricofiambre.ecomerce.dtos.OrdenDTO;
+import com.ricofiambre.ecomerce.modelos.Cliente;
 import com.ricofiambre.ecomerce.modelos.Orden;
 import com.ricofiambre.ecomerce.repositorios.OrdenRepositorio;
 import com.ricofiambre.ecomerce.servicios.OrdenServicio;
@@ -24,5 +25,20 @@ public class OrdenServicioImplementacion implements OrdenServicio {
     @Override
     public List<OrdenDTO> getOrdenes(){
         return ordenRepositorio.findAll().stream().map(orden -> new OrdenDTO(orden)).collect(Collectors.toList());
+    }
+
+    @Override
+    public Orden findByNumeroDeOrden (String numeroDeOrden) {
+        return ordenRepositorio.findByNumeroDeOrden(numeroDeOrden);
+    }
+
+    @Override
+    public void saveNewOrden(Orden orden) {
+        ordenRepositorio.save(orden);
+    }
+
+    @Override
+    public void deleteOrden(Orden orden){
+        ordenRepositorio.delete(orden);
     }
 }

@@ -1,9 +1,7 @@
 package com.ricofiambre.ecomerce;
 
-import com.ricofiambre.ecomerce.controladores.OrdenProductoPesoControlador;
 import com.ricofiambre.ecomerce.modelos.*;
 import com.ricofiambre.ecomerce.repositorios.*;
-import com.ricofiambre.ecomerce.utilidades.TicketUtilidad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
