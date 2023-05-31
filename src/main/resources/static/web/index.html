@@ -20,7 +20,7 @@
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <img src="./assets/imagenes/logo01.png" alt="..." id="logo01">
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,16 +28,19 @@
           <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              <a class="nav-link" href="#">Productos</a>
-              <a class="nav-link" href="#">Contacto</a>
+              <a class="nav-link" href="./productos.html">Productos</a>
+              <a class="nav-link" href="./contacto.html">Contacto</a>
             </div>
-            <div class="d-flex justify-content-between">
-              <div class="input-group-sm mb-3 d-flex">
+
+            <img src="./assets/imagenes/logo04.png" alt="..." id="logo01">
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="input-group-sm d-flex">
                 <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
                   aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="25"
-                    height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20"
+                    height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
@@ -46,14 +49,14 @@
                 </button>
               </div>
 
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="30"
+              <a href="./login.html" style="padding: 0.5rem;"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="30"
                 height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                 <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                 <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-              </svg>
+              </svg></a>
 
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="30"
                 height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
@@ -73,28 +76,31 @@
       <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img id="imgCarrousel" src="./assets/imagenes/fiambre-tienda-1.jpeg" class="d-block w-100" alt="...">
+            <img id="imgCarrousel" src="./assets/imagenes/opcion-1.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img id="imgCarrousel" src="./assets/imagenes/fiambre-2.jpeg" class="d-block w-100" alt="...">
+            <img id="imgCarrousel" src="./assets/imagenes/opcion-3.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img id="imgCarrousel" src="./assets/imagenes/fiambre-3.jpg" class="d-block w-100" alt="...">
+            <img id="imgCarrousel" src="./assets/imagenes/opcion-2.jpg" class="d-block w-100" alt="...">
           </div>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
           data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="BeneficiosDIV">
-        <div id="divPublicidad1">
+
+      <div class="BeneficiosDIV d-flex justify-content-around flex-wrap" style="background-color: whitesmoke;">
+        <div class="d-flex flex-column align-items-center" id="divPublicidad1">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck" width="44" height="44"
             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -103,21 +109,10 @@
             <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
             <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
           </svg>
-          <p>ENVIAMOS DE LUNES A SABADO</p>
+          <p>ENVIOS DE LUNES A SABADOS</p>
         </div>
-        <div id="divPublicidad2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="44"
-            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-            <path d="M3 10l18 0" />
-            <path d="M7 15l.01 0" />
-            <path d="M11 15l2 0" />
-          </svg>
-          <p>TARJETAS DE CREDITO O EFFECTIVO</p>
-        </div>
-        <div id="divPublicidad3">
+
+        <div class="d-flex flex-column align-items-center" id="divPublicidad3">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-lock" width="44" height="44"
             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
             stroke-linejoin="round">
@@ -129,22 +124,100 @@
           </svg>
           <p>TUS DATOS ESTAN PROTEGIDOS CUANDO HACES COMPRAS</p>
         </div>
+
+        <div class="d-flex flex-column align-items-center" id="divPublicidad2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="44"
+            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+            <path d="M3 10l18 0" />
+            <path d="M7 15l.01 0" />
+            <path d="M11 15l2 0" />
+          </svg>
+          <p>TARJETAS DE CREDITO O EFECTIVO</p>
+        </div>
+
       </div>
-      <div class="sobreNosotrosDIV">
-        <section id=sectionSobre>
+      <div class="sobreNosotrosDIV d-flex justify-content-around flex-wrap" style="background-color: #dbd6d4;">
+        <section class="d-flex flex-column align-items-center" id=sectionSobre>
           <h4>Vision</h4>
           <p>Ser una empresa lider en la venta de Fiambres para Argentina y todo el mundo.</p>
         </section>
-        <section id=sectionSobre>
+
+        <section class="d-flex flex-column align-items-center" id=sectionSobre>
           <h4>Mision</h4>
-          <p>Proveer a los clientes con los prudctos de fiambre mas frescos y de la mejor calidad. Esto por medio de
-            alianzas con otras empresas para llevar el mejor servicio</p>
+          <p>Proveer a los clientes con los pruductos de fiambre mas frescos y de la mejor calidad. Esto por medio de
+            alianzas con otras empresas para llevar el mejor servicio.</p>
         </section>
-        <section id=sectionSobre>
-          <h4>Vision</h4>
-          <p>En rica picada, nos imaguinamos como la merjon Fiambreria de Aegentina y del mundo. Atendiendo clientes con
-            una granm sonrisa</p>
+
+        <section class="d-flex flex-column align-items-center" id=sectionSobre>
+          <h4>Valores</h4>
+          <p>En rica picada, nos imaginamos como la mejor fiambreria de Argentina y del mundo. Atendiendo clientes con
+            una gran sonrisa.</p>
         </section>
+      </div>
+
+      <div class="d-flex justify-content-around flex-wrap p-2 gap-3">
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/1.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 2/3 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Paté de tomate seco, jamón crudo, aceitunas verdes y queso brio.</p>
+            <h5 class="d-flex justify-content-center">$10.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/2.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 5/6 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Paté de tomate seco, jamón crudo, aceitunas verdes y queso brio.</p>
+            <h5 class="d-flex justify-content-center">$22.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/4.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 2/3 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Uvas verdes, jamón crudo, queso blanco con ciboulette, aceitunas verdes y negras, salamin y queso roquefort.</p>
+            <h5 class="d-flex justify-content-center">$12.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/3.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 5/6 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Uvas verdes, jamón crudo, queso blanco con ciboulette, aceitunas verdes y negras, salamin y queso roquefort.</p>
+            <h5 class="d-flex justify-content-center">$24.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/5.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 2/3 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Panes saborizados, salchichón con jamon, aceitunas verdes y queso blanco.</p>
+            <h5 class="d-flex justify-content-center">$9.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/imagenes/6.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">PICADA PARA 5/6 PERSONAS</h5>
+            <p class="card-text" style="height: 6rem;">Panes saborizados, salchichón con jamon, aceitunas verdes y queso blanco.</p>
+            <h5 class="d-flex justify-content-center">$20.000</h5>
+            <a href="#" class="btn btn-primary d-flex justify-content-center" style="background-color: #b36311;">Agregar al carrito</a>
+          </div>
+        </div>
       </div>
 
     </main>
