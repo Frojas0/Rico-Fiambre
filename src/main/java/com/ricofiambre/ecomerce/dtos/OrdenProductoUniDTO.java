@@ -8,6 +8,7 @@ public class OrdenProductoUniDTO {
     private double precioUnidad;
     private double total;
     private double puntuacion;
+    private double descuento;
 
     //CONSTRUCTOR
     public OrdenProductoUniDTO(OrdenProductoUni ordenProductoUni) {
@@ -17,6 +18,7 @@ public class OrdenProductoUniDTO {
         this.precioUnidad = ordenProductoUni.getProductoUni().getPrecio();
         this.total = ordenProductoUni.getTotal();
         this.puntuacion = ordenProductoUni.getProductoUni().getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        this.descuento = ((ordenProductoUni.getProductoUni().getDescuento()) * 100) -100;
     }
 
     //GETTERS
@@ -26,4 +28,5 @@ public class OrdenProductoUniDTO {
     public double getPrecioUnidad() {return precioUnidad;}
     public double getTotal() {return total;}
     public double getPuntuacion() {return puntuacion;}
+    public double getDescuento() {return descuento;}
 }

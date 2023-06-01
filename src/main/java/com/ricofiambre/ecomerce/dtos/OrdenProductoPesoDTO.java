@@ -11,6 +11,7 @@ public class OrdenProductoPesoDTO {
     private double precioKg;
     private double total;
     private double puntuacion;
+    private double descuento;
 
     //CONSTRUCTOR
     public OrdenProductoPesoDTO(OrdenProductoPeso ordenProductoPeso) {
@@ -20,6 +21,7 @@ public class OrdenProductoPesoDTO {
         this.nombreProductoPeso = ordenProductoPeso.getProductoPeso().getNombre();
         this.total = ordenProductoPeso.getTotal();
         this.puntuacion = ordenProductoPeso.getProductoPeso().getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        this.descuento = (((ordenProductoPeso.getProductoPeso().getDescuento()) * 100) -100) * -1;
     }
 
     //GETTERS
@@ -29,5 +31,5 @@ public class OrdenProductoPesoDTO {
     public double getPrecioKg() {return precioKg;}
     public double getTotal() {return total;}
     public double getPuntuacion() {return puntuacion;}
-
+    public double getDescuento() {return descuento;}
 }
