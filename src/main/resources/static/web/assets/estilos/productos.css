@@ -16,7 +16,6 @@
 .navbar,
 .container-fluid {
   background-color: #f6be5f !important;
-
 }
 
 #logo01 {
@@ -26,9 +25,13 @@
 /* ---------- MAIN ---------- */
 
 main {
-  min-height: 40vw;
+  /* min-height: 80vh; */
   background-color: whitesmoke;
   color: black;
+  padding: 4rem 0 3rem;
+  width: 100%;
+  min-height: 80vh;
+  z-index: 1;
 }
 
 
@@ -42,6 +45,7 @@ footer {
   /*Ajustar*/
   color: white;
   padding: 1rem;
+  
 }
 
 
@@ -84,16 +88,17 @@ body {
   color: var(--text-color);
 }
 .container {
-  max-width: 1068px;
-  margin: auto;
+  max-width: 100%;
+  /* margin: auto; */
   width: 100%;
+  margin-top: 2rem;
 }
 section {
   padding: 4rem 0 3rem;
 }
 /* Header */
 header {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -101,6 +106,7 @@ header {
   z-index: 100;
   color: black;
   background-color: #f6be5f;
+  min-height: 10vh;
 }
 .nav {
   display: flex;
@@ -108,6 +114,8 @@ header {
   justify-content: space-between;
   /* padding: 20px 0; */
 }
+
+
 .logo {
   font-size: 1.1rem;
   color: var(--text-color);
@@ -128,6 +136,7 @@ header {
   background: var(--bg-color);
   box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
   transition: 0.3s;
+  z-index: 2;
 }
 .cart.active {
   right: 0;
@@ -149,7 +158,19 @@ header {
   width: 100px;
   height: 100px;
   object-fit: contain;
-  padding: 10px;
+  /* padding: 10px; */
+}
+.cart-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+.item-cart{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ justify-content: space-between;
 }
 .detail-box {
   display: grid;
@@ -165,7 +186,7 @@ header {
 .cart-quantity {
   border: 1px solid var(--text-color);
   outline-color: var(--main-color);
-  width: 2.4rem;
+  width: 5rem;
   text-align: center;
   font-size: 1rem;
 }
@@ -173,6 +194,17 @@ header {
   font-size: 24px;
   color: var(--main-color);
   cursor: pointer;
+}
+.plus-less-arrows{
+  height: 26px;
+  width: 26px;
+}
+.MasOMenos{
+  /* height: 50px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
 }
 .total {
   display: flex;
@@ -221,10 +253,17 @@ header {
 /* Shop Content */
 .shop-content {
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(220px, auto));
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+
 }
 .product-box {
+  height: 300px;
+  width: 275px;
+  margin: 1.5rem;
   position: relative;
 }
 .product-box:hover {
@@ -234,7 +273,7 @@ header {
 }
 .product-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   margin-bottom: 0.5rem;
 }
 .product-title {

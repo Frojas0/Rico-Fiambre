@@ -8,19 +8,55 @@
 
 /* ---------- HEADER ---------- */
 header {
-    color: black;
+    min-height: 19vh;
     background-color: #f6be5f;
-
 }
 
-.navbar,
-.container-fluid {
+#header-nav {
     background-color: #f6be5f !important;
-
+    min-height: 14vh;
+    z-index: 1;
 }
 
-#logo01 {
-    width: 5rem;
+.navbar {
+    height: 15vh;
+    width: 95vw;
+}
+
+.logo-header {
+    width: 7rem;
+}
+
+.nav-link {
+    color: #2c3e50 !important;
+}
+
+#navbarNav {
+    justify-content: end;
+    align-items: center;
+}
+
+.navbar-nav {
+    background-color: #f6be5f;
+    font-size: 120%;
+    gap: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    align-items: center !important;
+}
+
+a:hover {
+    color: white !important;
+    transition: all 0.3s;
+}
+
+.active {
+    color: white !important;
+}
+
+.outButton:hover {
+    color: white !important;
+    transition: all 0.3s;
 }
 
 /* ---------- MAIN ---------- */
@@ -50,8 +86,8 @@ footer {
     padding: 1rem;
 }
 
-.tarjetas {
+/* .tarjetas {
     height: 2rem;
     padding: 0.1rem;;
-}
+} */
 
