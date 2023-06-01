@@ -41,7 +41,6 @@
 }
 
 main {
-  /* min-height: 80vh; */
   background-color: whitesmoke;
   color: black;
   /* padding: 4rem 0 3rem; */
@@ -50,7 +49,6 @@ main {
   z-index: 1;
   padding-bottom: 3%;
 }
-
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -113,41 +111,6 @@ body {
 section {
   padding: 4rem 0 3rem;
 }
-/* Header */
-/* header { */
-  /* position: fixed; */
-  /* top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
-  z-index: 100;
-  color: black;
-  background-color: #f6be5f;
-  min-height: 10vh;
-}
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; */
-  /* padding: 20px 0; 
-}*/
-/* 
-#header-nav {
-  background-color: #f6be5f !important;
-  min-height: 14vh;
-  z-index: 1;
-}
-
-.navbar {
-  height: 15vh;
-  width: 95vw;
-}
-
-.logo {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  font-weight: 400;
-} */
 
 header {
   min-height: 19vh;
@@ -223,7 +186,6 @@ a:hover {
   font-size: 1.8rem;
   cursor: pointer;
 }
-/* Cart */
 
 /* Cart */
 .cart {
