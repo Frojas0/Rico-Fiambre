@@ -2,15 +2,16 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
-
+            itemsParaPagar: []
         }
     },
     created() {
-        this.metodoejemplo()
+        this.traerDatos()
     },
     methods: {
-        metodoejemplo() {
-
+        traerDatos() {
+            this.itemsParaPagar = JSON.parse(localStorage.getItem('carritoDeCompras'))
+            console.log(this.itemsParaPagar)
         }
     }
 })
