@@ -76,6 +76,11 @@ main {
     font-family: inherit;
     transition: box-shadow 0.2s linear, border-color 0.25s ease-out;
   }
+
+  .form-check-input{
+    width: 2rem !important;
+    height: 2rem !important;
+  }
   
   .form input:focus {
     outline: none;

@@ -21,7 +21,7 @@ const app = createApp({
             
             .catch(error => Swal.fire({
                 title: 'Error',
-                text: 'error.response',
+                text: error.response.data,
                 icon: 'error'
             }))
         }
