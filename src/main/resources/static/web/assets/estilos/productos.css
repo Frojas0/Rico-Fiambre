@@ -233,6 +233,9 @@ header {
 .btn-buy:hover {
   background: var(--text-color);
 }
+.aComprar{
+  text-decoration: none;
+}
 #close-cart {
   position: absolute;
   top: 1rem;

@@ -80,16 +80,16 @@
                                     <div class="price ml-2"><span class="mr-1">Precio</span><i class="fa fa-angle-down"></i></div>
                                 </div>
                             </div>
-                            <template>
+                            <template v-for="item of itemsParaPagar" >
                                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                                    <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
-                                        <div class="ml-2"><span class="font-weight-bold d-block">Picada para 4</span><span class="spec">mortadela, chorizo aleman, salami, quezo suizo</span></div>
+                                    <div class="d-flex flex-row"><img class="rounded" v-bind:src="item.imagen" width="40">
+                                        <div class="ml-2"><span class="font-weight-bold d-block">item.nombre</span><span class="spec">--Descripcion--</span></div>
                                     </div>
-                                    <div class="d-flex flex-row align-items-center"><span class="d-block">2</span><span class="d-block ml-5 font-weight-bold">$900</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
+                                    <div class="d-flex flex-row align-items-center"><span class="d-block">{{item.cantidad}}</span><span class="d-block ml-5 font-weight-bold">${{item.precio}}</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
                                 </div>
                             </template>
 
-                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                            <!--<div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
                                 <div class="d-flex flex-row"><img class="rounded" src="https://i.imgur.com/QRwjbm5.jpg" width="40">
                                     <div class="ml-2"><span class="font-weight-bold d-block">Picada para 5 personas</span><span class="spec">mortadela, chorizo aleman, salami, quezo suizo, uvas, aceitunas</span></div>
                                 </div>
@@ -112,7 +112,7 @@
                                     <div class="ml-2"><span class="font-weight-bold d-block">Servicio de Catering&nbsp;</span><span class="spec">Servicio de Catering para 15 personas</span></div>
                                 </div>
                                 <div class="d-flex flex-row align-items-center"><span class="d-block">1</span><span class="d-block ml-5 font-weight-bold">$20000</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -127,7 +127,6 @@
 
         <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" height="30" src="./assets/imagenes/tarjeta3.png"/></span> </label>
 
-        <label class="radio"> <input type="radio" name="card" value="payment" id="cabalLogo"> <span><img width="30" height="30" src="./assets/imagenes/Nuevo_logo_cabal.gif"/></span> </label>
 
                             <div><label class="credit-card-label">Nombre en la Tarjeta</label><input type="text" class="form-control credit-inputs" placeholder="Nombre"></div>
                             <div><label class="credit-card-label">Numero de la Tarjeta</label><input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></div>
