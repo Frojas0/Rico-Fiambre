@@ -110,7 +110,7 @@ footer {
 
 
 
-/************************* CARRITO COMPRA **************************/
+/************************* PAGINA COMPRA **************************/
 
 .payment-info {
     background: whitesmoke;
@@ -145,6 +145,11 @@ footer {
     font-weight: 400;
     font-size: 10px;
   }
+
+  .item-description{
+    gap: 1rem;
+  }
+
   
   label.radio {
     cursor: pointer;
