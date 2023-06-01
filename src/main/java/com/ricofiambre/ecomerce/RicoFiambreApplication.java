@@ -28,10 +28,10 @@ public class RicoFiambreApplication {
 			Cliente admin01 = (new Cliente("admin", "istrador","admin@admin.com","Av. Todo Permitido 322", "Usa", 5600, "2604-312123", passwordEncoder.encode("Admin123")));
 
 			//CREACION DE PRODUCTO POR PESO
-			ProductoPeso productoPeso01 = (new ProductoPeso("QUESO AZUL", TipoProducto.LACTEO,"Queso que tienen en su pasta cultivos de Penicillium añadidos al producto final",10.0,4800.0, PaisProducto.EUROPEO, 9.0));
+			ProductoPeso productoPeso01 = (new ProductoPeso("QUESO AZUL", TipoProducto.LACTEO,"Queso que tienen en su pasta cultivos de Penicillium añadidos al producto final",10.0,4800.0, PaisProducto.EUROPEO, 9.0,"https://i.blogs.es/a7e81d/istock-861963944/840_560.jpg"));
 
 			//CREACION DE PRODUCTO POR UNIDAD
-			ProductoUni productoUni01 = (new ProductoUni("SALAMIN PURO", TipoProducto.EMBUTIDO, "Salame de cerdo", 25, 1000, PaisProducto.ARGENTINA, 7.2));
+			ProductoUni productoUni01 = (new ProductoUni("SALAMIN PURO", TipoProducto.EMBUTIDO, "Salame de cerdo", 25, 1000, PaisProducto.ARGENTINA, 7.2,"http://www.lafrancisca.com/public/images/productos/thumbs/16-salamin-picado-grueso-20220830221302.jpg"));
 
 			//CREACION DE ORDEN
 			Orden orden01 = (new Orden(LocalDateTime.now(),false,true,2000, "00000001"));

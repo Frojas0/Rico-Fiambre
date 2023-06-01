@@ -20,6 +20,8 @@ public class ProductoUni {
     private int stock;
     private double precio;
     private PaisProducto origen;
+    private String url;
+    private double descuento;
     @ElementCollection
     private List<Double> puntuaciones = new ArrayList<>();
     @OneToMany(mappedBy="productoUni", fetch = FetchType.EAGER)
@@ -28,7 +30,7 @@ public class ProductoUni {
     //CONSTRUCTORES
     public ProductoUni(){}
 
-    public ProductoUni(String nombre, TipoProducto tipo, String descripcion, int stock, double precio, PaisProducto origen, double puntuacion) {
+    public ProductoUni(String nombre, TipoProducto tipo, String descripcion, int stock, double precio, PaisProducto origen, double puntuacion,String url) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.descripcion = descripcion;
@@ -36,6 +38,8 @@ public class ProductoUni {
         this.precio = precio;
         this.origen = origen;
         this.puntuaciones.add(puntuacion);
+        this.url = url;
+        this.descuento = 1;
     }
 
     //GETTERS
@@ -48,6 +52,8 @@ public class ProductoUni {
     public PaisProducto getOrigen() {return origen;}
     public Set<OrdenProductoUni> getOrdenProductoUnis() {return ordenProductoUnis;}
     public List<Double> getPuntuaciones() {return puntuaciones;}
+    public String getUrl() {return url;}
+    public double getDescuento() {return descuento;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}
@@ -58,6 +64,8 @@ public class ProductoUni {
     public void setOrigen(PaisProducto origen) {this.origen = origen;}
     public void setOrdenProductoUnis(Set<OrdenProductoUni> ordenProductoUnis) {this.ordenProductoUnis = ordenProductoUnis;}
     public void setPuntuaciones(List<Double> puntuaciones) {this.puntuaciones = puntuaciones;}
+    public void setUrl(String url) {this.url = url;}
+    public void setDescuento(double descuento) {this.descuento = descuento;}
 
     //ADDERS
     public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni) {

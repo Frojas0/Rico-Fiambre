@@ -15,6 +15,8 @@ public class ProductoPesoDTO {
     private double precio;
     private PaisProducto origen;
     private double puntuaciones;
+    private String url;
+    private double descuento;
 
 
     //CONSTRUCTOR
@@ -27,9 +29,10 @@ public class ProductoPesoDTO {
         this.precio = productoPeso.getPrecio();
         this.origen = productoPeso.getOrigen();
         this.puntuaciones = productoPeso.getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        this.url = productoPeso.getUrl();
+        this.descuento = productoPeso.getDescuento();
     }
     //GETTERS
-
     public long getId() {return id;}
     public String getNombre() {return nombre;}
     public TipoProducto getTipo() {return tipo;}
@@ -38,4 +41,7 @@ public class ProductoPesoDTO {
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
     public double getPuntuaciones() {return puntuaciones;}
+    public String getUrl() {return url;}
+    public double getDescuento() {return descuento;}
+
 }
