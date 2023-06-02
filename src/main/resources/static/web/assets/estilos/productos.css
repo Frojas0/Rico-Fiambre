@@ -350,12 +350,13 @@ section {
   border: 1px solid #D3D3D3;
   height: 25rem;
   width: 18rem;
+  background-color: #eae6e6;
 }
 
 .product-box:hover {
-  scale: 1.02;
+  scale: 1.2;
   border: 1px solid var(--text-color);
-  transition: 0.4s;
+  transition: 1s;
 }
 
 .product-img {

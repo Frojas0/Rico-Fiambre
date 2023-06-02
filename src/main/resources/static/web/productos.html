@@ -48,8 +48,11 @@
               </li> -->
 
               <div class="input-group-sm d-flex">
-                <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
-                  aria-describedby="button-addon2">
+                <div>
+                  <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
+                    aria-describedby="button-addon2" v-model="busquedaSeleccionada">
+                    {{filtro}}
+                </div>
                 <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
                     id="button-addon2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
@@ -75,7 +78,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                  <a class="nav-link" href="#" @click="abrirCarrito"><svg xmlns="http://www.w3.org/2000/svg"
                       class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
                       viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
                       stroke-linejoin="round">
@@ -99,15 +102,14 @@
         <!-- Cart-Icon -->
         <!-- <i class='bx bx-shopping-bag' id="cart-icon"></i> -->
         <!-- Cart -->
-        <div class="cart" style="padding: 1rem; width: 30vw;">
+        <div class="cart col-sm-8 col-md-4 col-12 " >
           <h2 class="cart-title">Your Cart</h2>
           <!-- Content -->
           <div class="cart-content">
-
             <template v-for="items of carritoPendientes">
               <div class="item-cart">
-                <img v-bind:src="items.imagen" alt="" class="cart-img">
-                <div class="detail-box">
+                <img v-bind:src="items.url" alt="" class="cart-img">
+                <div class="detail-box" style="border: 1px solid red; width: 100%; margin-left: 1rem;">
                   <div class="cart-product-title">{{items.nombre}}</div>
                   <div class="cart-price">${{items.precio}}</div>
                   <!-- <input type="number" v-bind:value="items.cantidad" class="cart-quantity"> -->
@@ -122,7 +124,7 @@
                           fill="#000000"></path>
                       </g>
                     </svg>
-                    <label class="cart-quantity" style="width: 30rem;">1500gr</label>
+                    <label class="cart-quantity" style="width: 30rem;">1500g</label>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                       v-on:click="cantidadMenos(items.nombre)">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -171,19 +173,25 @@
             </div>
             <div>
               <h2 class="product-title">{{producto.nombre}}</h2>
-              <div style="display: flex; justify-content: space-between;">
+              <div style="display: flex; justify-content: space-between;" v-if="producto.esPorPeso">
+                <span class="price">kg: {{producto.precio.toLocaleString("es-AR", { style:
+                  "currency", currency:
+                  "ARS" })}} </span>
+              </div>
+              <div style="display: flex; justify-content: space-between;" v-else>
                 <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
                   "currency", currency:
-                  "ARS" })}}</span>
-                <!------------------------------------- BOTON MODAL----------------------------------------------------------------------------------------------------- -->
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" v-on:click="mostrarDetails(producto.nombre)">modal</button> -->
-                <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                  "ARS" })}} </span>
               </div>
               <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
                 <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
-                <div>
+                <div v-if="producto.esPorPeso">
                   <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
-                    style="width: 6rem; text-align: end;" />gr
+                    style="width: 6rem; text-align: end;" placeholder="150g"/>g
+                </div>
+                <div v-else>
+                  <input type="number" id="quantity" name="quantity" min="0" max="100000" step="1"
+                  style="width: 6rem; text-align: end;" placeholder="2 unidades"/>u
                 </div>
                 <i class='bx bx-shopping-bag add-cart'
                   v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i>
@@ -194,29 +202,6 @@
       </div>
       <button v-on:click="mostrarProductosPorPeso">MOSTRAR PRODUCTOS POR PESO</button>
       <button v-on:click="mostrarProductosPorUnidad">MOSTRAR PRODUCTOS POR UNIDAD</button>
-
-
-      <!-- ----------------------------------------- MODAL --------------------------------------------------------------------- -->
-      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title" id="exampleModalLabel" style="font-size: 1rem !important;">PRODUCTO</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <img :src="listaModalDetalles.url" :alt="listaModalDetalles.nombre" style="width: 30%;">
-                {{listaModalDetalles.nombre}}
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-      <!-- -----------------------------------------  FIN MODAL --------------------------------------------------------------------- -->
 
 
       <!-- </section> -->
