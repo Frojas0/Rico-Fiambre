@@ -1,7 +1,6 @@
 package com.ricofiambre.ecomerce.controladores;
 
 import com.ricofiambre.ecomerce.dtos.CarritoCompraDTO;
-import com.ricofiambre.ecomerce.dtos.ModificarProductoDTO;
 import com.ricofiambre.ecomerce.dtos.ProductoPesoDTO;
 import com.ricofiambre.ecomerce.dtos.ProductoUniDTO;
 import com.ricofiambre.ecomerce.modelos.*;
@@ -120,7 +119,6 @@ public class ProductoControlador {
         }
 
         ResponseEntity<Object> pagarConTarjeta = PagarConTarjetaUtilidad.pagarConTarjeta(carritoCompraDTO, totalCompra);
-
 
         if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED){
             orden.setTotal(totalCompra);
