@@ -64,6 +64,12 @@ header {
     color: #f6be5f !important;
 }
 
+/* ---------- CONTROLES VIDEO ---------- */
+
+video::-webkit-media-controls {
+    display: none;
+}
+
 /* ---------- MAIN ---------- */
 
 body {
