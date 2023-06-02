@@ -27,4 +27,8 @@ public class ProductoPesoServicioImplementacion implements ProductoPesoServicio 
     public List<ProductoPesoDTO> getProductoPeso(){
         return productoPesoRepositorio.findAll().stream().map(prod -> new ProductoPesoDTO(prod)).collect(Collectors.toList());
     }
+    @Override
+    public void deleteProductoPeso(ProductoPeso productoPeso){
+       productoPesoRepositorio.delete(productoPeso);
+    }
 }

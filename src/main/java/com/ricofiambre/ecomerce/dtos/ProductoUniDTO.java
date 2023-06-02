@@ -18,6 +18,7 @@ public class ProductoUniDTO {
     private double puntuaciones;
     private String url;
     private double descuento;
+    private boolean estaActivo;
 
     //CONSTRUCTOR
     public ProductoUniDTO(ProductoUni productoUni) {
@@ -31,6 +32,8 @@ public class ProductoUniDTO {
         this.puntuaciones = productoUni.getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
         this.url = productoUni.getUrl();
         this.descuento = productoUni.getDescuento();
+        this.estaActivo = productoUni.getEstaActivo();
+
     }
 
     //GETTERS
@@ -44,4 +47,5 @@ public class ProductoUniDTO {
     public double getPuntuaciones() {return puntuaciones;}
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
+    public boolean getEstaActivo() {return estaActivo;}
 }

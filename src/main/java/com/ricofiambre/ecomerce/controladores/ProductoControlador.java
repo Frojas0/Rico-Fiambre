@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class ProductoControlador {
@@ -35,11 +36,11 @@ public class ProductoControlador {
 
     @GetMapping("/api/productoPeso")
     public List<ProductoPesoDTO> getProductoPeso() {
-        return productoPesoServicio.getProductoPeso();
+        return productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
     }
     @GetMapping("/api/productoUni")
     public List<ProductoUniDTO> getProductoUni() {
-        return productoUniServicio.getProductoUni();
+        return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
     }
 
 
@@ -86,9 +87,10 @@ public class ProductoControlador {
                 totalCompra += cantidadPrecio1;
 
                 if (productoPeso.getStock()-Double.parseDouble(parteCantidad) < 0){
-//                    ordenServicio.deleteOrden(orden);
-//                    return new ResponseEntity<>("No hay suficiente stock de: " + partes[0], HttpStatus.FORBIDDEN);
                     throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
+                }
+                if (!productoPeso.getEstaActivo()){
+                    throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
                 }
 
                 OrdenProductoPeso ordenProductoPeso = (new OrdenProductoPeso(Double.parseDouble(parteCantidad), cantidadPrecio1));
@@ -102,11 +104,11 @@ public class ProductoControlador {
                 totalCompra += cantidadPrecio;
 
                 if (productoUni.getStock()-Integer.parseInt(parteCantidad) < 0){
-//                    ordenServicio.deleteOrden(orden);
-//                    return new ResponseEntity<>("No hay suficiente stock de: " + partes[0], HttpStatus.FORBIDDEN);
                     throw new RuntimeException("No hay suficiente stock de: " + parteNombre);
                 }
-
+                if (!productoUni.getEstaActivo()){
+                    throw new RuntimeException("Este producto ha sido eliminado: " + parteNombre);
+                }
                 OrdenProductoUni ordenProductoUni = (new OrdenProductoUni(Integer.parseInt(parteCantidad), cantidadPrecio));
                 productoUni.setStock(productoUni.getStock()-Integer.parseInt(parteCantidad));
                 orden.addOrdenProductoUni(ordenProductoUni);
@@ -118,12 +120,10 @@ public class ProductoControlador {
 
         ResponseEntity<Object> pagarConTarjeta = PagarConTarjetaUtilidad.pagarConTarjeta(carritoCompraDTO, totalCompra);
 
-
         if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED){
             orden.setTotal(totalCompra);
             ordenServicio.saveNewOrden(orden);
         } else {
-//            return new ResponseEntity<>("Sucedió un error al realizar el pago.", HttpStatus.FORBIDDEN);
             throw new RuntimeException("Se produjo un error");
         }
 
@@ -154,116 +154,17 @@ public class ProductoControlador {
         ProductoUni productoUni = productoUniServicio.findByNombre(nombreProd);
         ProductoPeso productoPeso = productoPesoServicio.findByNombre(nombreProd);
 
-        if (productoUni != null){
+        if (productoUni != null && productoUni.getEstaActivo()){
             productoUni.addPuntuacion(valor);
             productoUniServicio.saveProductoUni(productoUni);
-        } else if(productoPeso != null){
+        } else if(productoPeso != null && productoPeso.getEstaActivo()){
             productoPeso.addPuntuacion(valor);
             productoPesoServicio.saveProductoPeso(productoPeso);
         } else {
-            return new ResponseEntity<>("Ese producto no existe", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Ese producto no existe, o ha sido eliminado.", HttpStatus.FORBIDDEN);
         }
 
         return new ResponseEntity<>("Gracias por valorar el producto!", (HttpStatus.CREATED));
-    }
-
-
-//    CREAR UN NUEVO PRODUCTO - ADMIN
-    @PostMapping("/api/crear-producto")
-    public ResponseEntity<Object> crearProductos(Authentication authentication,
-                                                 @RequestParam String nombre,
-                                                 @RequestParam String tipoProducto,
-                                                 @RequestParam String descripcion,
-                                                 @RequestParam double stock,
-                                                 @RequestParam double precio,
-                                                 @RequestParam String paisProducto,
-                                                 @RequestParam boolean esPorPeso,
-                                                 @RequestParam String url){
-
-        if (!authentication.getName().equals("admin@admin.com")){
-            return new ResponseEntity<>("No tienes permiso para crear productos", HttpStatus.FORBIDDEN);
-        }
-        if (productoPesoServicio.findByNombre(nombre) != null || productoUniServicio.findByNombre(nombre) != null){
-            return new ResponseEntity<>("El producto a crear ya existe", HttpStatus.FORBIDDEN);
-        }
-        if (nombre.isBlank()) {
-            return new ResponseEntity<>("Falta el nombre del producto", HttpStatus.FORBIDDEN);
-        }
-        if (tipoProducto.isBlank()) {
-            return new ResponseEntity<>("Falta el tipo de producto", HttpStatus.FORBIDDEN);
-        }
-        if (descripcion.isBlank()) {
-            return new ResponseEntity<>("Falta la descripcion del producto", HttpStatus.FORBIDDEN);
-        }
-        if (stock <= 0) {
-            return new ResponseEntity<>("El stock no puede ser cero ni negativo", HttpStatus.FORBIDDEN);
-        }
-        if (precio <= 0) {
-            return new ResponseEntity<>("El precio no puede ser 0 ni negativo", HttpStatus.FORBIDDEN);
-        }
-        if (paisProducto.isBlank()) {
-            return new ResponseEntity<>("Falta el pais de proveniencia del producto", HttpStatus.FORBIDDEN);
-        }
-        if (url.isBlank()){
-            return new ResponseEntity<>("Debes proporcionar la URL de la imagen", HttpStatus.FORBIDDEN);
-        }
-
-        String tipo = tipoProducto.toUpperCase();
-        String pais = paisProducto.toUpperCase();
-        String nombreMayuscula = nombre.toUpperCase();
-        
-        if (esPorPeso){
-            ProductoPeso nuevoProductoPeso = (new ProductoPeso(nombreMayuscula, TipoProducto.valueOf(tipo), descripcion,stock,precio, PaisProducto.valueOf(pais), 5.0,url));
-            productoPesoServicio.saveProductoPeso(nuevoProductoPeso);
-        } else if (!esPorPeso){
-            int stockInt = (int) stock;
-            ProductoUni nuevoProductoUni = (new ProductoUni(nombreMayuscula, TipoProducto.valueOf(tipo), descripcion, stockInt,precio, PaisProducto.valueOf(pais), 5.0,url));
-            productoUniServicio.saveProductoUni(nuevoProductoUni);
-        } else {
-            return new ResponseEntity<>("Tienes que especificar si es por Kg o por unidad", HttpStatus.FORBIDDEN);
-        }
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-
-
-//    MODIFICAR EL STOCK - ADMIN
-    @PostMapping("/api/modificar-stock")
-    public ResponseEntity<Object> modificarStock(Authentication authentication,
-                                                 @RequestParam String nombreProducto,
-                                                 @RequestParam double cantidad) {
-        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
-
-        if (!cliente.getEmail().equals("admin@admin.com")){
-            return new ResponseEntity<>("Esta acción debe ser realizada por un administrador", HttpStatus.FORBIDDEN);
-        }
-        if (nombreProducto.isBlank()){
-            return new ResponseEntity<>("Falta el nombre", HttpStatus.FORBIDDEN);
-        }
-
-        String nombre = nombreProducto.toUpperCase();
-        ProductoUni productoUni = productoUniServicio.findByNombre(nombre);
-        ProductoPeso productoPeso = productoPesoServicio.findByNombre(nombre);
-
-        if (productoUni != null){
-            if (productoUni.getStock() + cantidad < 0){
-                return new ResponseEntity<>("La cantidad a restar es mayor que el stock del producto", HttpStatus.FORBIDDEN);
-            }
-            productoUni.setStock((int) (productoUni.getStock()+cantidad));
-            productoUniServicio.saveProductoUni(productoUni);
-
-        }else if(productoPeso != null){
-            if (productoPeso.getStock() + cantidad < 0){
-                return new ResponseEntity<>("La cantidad a restar es mayor que el stock del producto", HttpStatus.FORBIDDEN);
-            }
-            productoPeso.setStock(productoPeso.getStock()+cantidad);
-            productoPesoServicio.saveProductoPeso(productoPeso);
-
-        }else{
-            return new ResponseEntity<>("El producto "+nombreProducto+" no existe", HttpStatus.FORBIDDEN);
-        }
-
-        return new ResponseEntity<>("Stock actualizado", (HttpStatus.CREATED));
     }
 }
 

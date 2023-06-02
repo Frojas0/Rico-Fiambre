@@ -24,4 +24,8 @@ public class ProductoUniServicioImplementacion implements ProductoUniServicio {
     public List<ProductoUniDTO> getProductoUni(){
         return productoUniRepositorio.findAll().stream().map(prod -> new ProductoUniDTO(prod)).collect(Collectors.toList());
     }
+    @Override
+    public void deleteProductoUni(ProductoUni productoUni){
+        productoUniRepositorio.delete(productoUni);
+    }
 }

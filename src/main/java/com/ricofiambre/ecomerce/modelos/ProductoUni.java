@@ -22,6 +22,7 @@ public class ProductoUni {
     private PaisProducto origen;
     private String url;
     private double descuento;
+    private boolean estaActivo;
     @ElementCollection
     private List<Double> puntuaciones = new ArrayList<>();
     @OneToMany(mappedBy="productoUni", fetch = FetchType.EAGER)
@@ -40,6 +41,7 @@ public class ProductoUni {
         this.puntuaciones.add(puntuacion);
         this.url = url;
         this.descuento = 1;
+        this.estaActivo = true;
     }
 
     //GETTERS
@@ -54,6 +56,7 @@ public class ProductoUni {
     public List<Double> getPuntuaciones() {return puntuaciones;}
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
+    public boolean getEstaActivo() {return estaActivo;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}
@@ -66,6 +69,7 @@ public class ProductoUni {
     public void setPuntuaciones(List<Double> puntuaciones) {this.puntuaciones = puntuaciones;}
     public void setUrl(String url) {this.url = url;}
     public void setDescuento(double descuento) {this.descuento = descuento;}
+    public void setEstaActivo(boolean estaActivo) {this.estaActivo = estaActivo;}
 
     //ADDERS
     public void addOrdenProductoUni(OrdenProductoUni ordenProductoUni) {
