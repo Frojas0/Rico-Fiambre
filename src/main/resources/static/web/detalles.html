@@ -70,10 +70,9 @@
 
                 <li class="nav-item">
                   <a class="nav-link" href="#">
-                                      <svg xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart svg-hover"
+                      width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                       <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
@@ -90,58 +89,59 @@
     </header>
     <main>
 
+      <div>
+        <div class="foto-redes">
+          <img v-bind:src="productoFiltrado.url" alt="">
+          <div>
+            FACEBOOK
+            TWITTER
+            INSTAGRAM
+          </div>
+        </div>
+        <div class="ingredientes">
+          <h5>Ingredientes</h5>
+          <p>{{productoFiltrado.descripcion}}</p>
+        </div>
         <div>
-          <div class="foto-redes">
-            <img v-bind:src="productoFiltrado.url" alt="">
-            <div>
-              FACEBOOK
-              TWITTER
-              INSTAGRAM
-            </div>
-          </div>
-          <div class="ingredientes">
-            <h5>Ingredientes</h5>
-            <p>{{productoFiltrado.descripcion}}</p>
-          </div>
-          <div>
-            <h2>PICADA SELECCIÓN DE QUESOS (PARA 2/3)</h2>
-            <h3>$15.250</h3>
-            <p>Ver Medio de Pagos????</p>
-          </div>
-          <div>
-            <h6>CANTIDAD</h6>
-            <input type="number">
-            <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-              <div class="alt-send-button">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="24" height="24"
+          <h2>PICADA SELECCIÓN DE QUESOS (PARA 2/3)</h2>
+          <h3>$15.250</h3>
+          <p>Ver Medio de Pagos????</p>
+        </div>
+        <div>
+          <h6>CANTIDAD</h6>
+          <input type="number">
+          <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+            <div class="alt-send-button">
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="24" height="24"
                   viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
                   stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M10 14l11 -11" />
                   <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
                 </svg> -->
-                <svg xmlns="http://www.w3.org/2000/svg"
-                class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart svg-hover"
+                width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                 <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                 <path d="M17 17h-11v-14h-2" />
                 <path d="M6 5l14 1l-1 7h-13" />
               </svg>
-                <span class="send-text">SEND</span>
-                <!-- <i class="fa fa-paper-plane"></i> -->
-              </div>
-            </button>
-          </div>
+              <span class="send-text">SEND</span>
+              <!-- <i class="fa fa-paper-plane"></i> -->
+            </div>
+          </button>
         </div>
+      </div>
 
-        <div>
-          <h3>PRODUCTOS RELACIONADOS</h3>
-          <!-- v-if=productoFiltrado.tipo === producto.tipo -->
-          <template v-for="producto of todosLosProductos" >
-            <div class="product-box" style="display: flex; justify-content: space-between !important; flex-direction: column;" v-if="producto.tipo === productoFiltrado.tipo">
+      <div>
+        <h3>PRODUCTOS RELACIONADOS</h3>
+        <!-- v-if=productoFiltrado.tipo === producto.tipo -->
+        <template v-for="producto of todosLosProductos">
+          <div class="product-box"
+            style="display: flex; justify-content: space-between !important; flex-direction: column;"
+            v-if="producto.tipo === productoFiltrado.tipo">
             <div>
               IMAGEN
               <img v-bind:src="producto.url" alt="" class="product-img">
@@ -165,7 +165,7 @@
             </div>
           </div>
         </template>
-        </div>
+      </div>
     </main>
     <footer>
       <div class="d-flex justify-content-between flex-wrap">
