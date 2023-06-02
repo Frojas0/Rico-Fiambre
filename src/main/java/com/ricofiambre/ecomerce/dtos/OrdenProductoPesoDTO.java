@@ -21,7 +21,7 @@ public class OrdenProductoPesoDTO {
         this.nombreProductoPeso = ordenProductoPeso.getProductoPeso().getNombre();
         this.total = ordenProductoPeso.getTotal();
         this.puntuacion = ordenProductoPeso.getProductoPeso().getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
-        this.descuento = (((ordenProductoPeso.getProductoPeso().getDescuento()) * 100) -100) * -1;
+        this.descuento = ((ordenProductoPeso.getProductoPeso().getDescuento()) * 100) -100;
     }
 
     //GETTERS

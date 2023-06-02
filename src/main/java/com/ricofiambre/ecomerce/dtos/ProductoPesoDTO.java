@@ -17,7 +17,7 @@ public class ProductoPesoDTO {
     private double puntuaciones;
     private String url;
     private double descuento;
-
+    private boolean estaActivo;
 
     //CONSTRUCTOR
     public ProductoPesoDTO (ProductoPeso productoPeso){
@@ -31,6 +31,7 @@ public class ProductoPesoDTO {
         this.puntuaciones = productoPeso.getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
         this.url = productoPeso.getUrl();
         this.descuento = productoPeso.getDescuento();
+        this.estaActivo = productoPeso.getEstaActivo();
     }
     //GETTERS
     public long getId() {return id;}
@@ -43,5 +44,5 @@ public class ProductoPesoDTO {
     public double getPuntuaciones() {return puntuaciones;}
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
-
+    public boolean getEstaActivo() {return estaActivo;}
 }

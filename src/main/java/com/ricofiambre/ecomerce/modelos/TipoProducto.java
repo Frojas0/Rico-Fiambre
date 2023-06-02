@@ -6,5 +6,11 @@ public enum TipoProducto {
     ENCURTIDO,
     BEBIDAALC,
     BEBIDA,
-
+    PANIFICADO,
+    ACEITE,
+    POSTRE,
+    ENSALADA,
+    APTOCELIACO,
+    APTOVEGANO,
+PICADA
 }
