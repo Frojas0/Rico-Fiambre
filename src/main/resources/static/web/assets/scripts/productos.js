@@ -1,8 +1,10 @@
 const { createApp } = Vue;
-
-// let cartIcon = document.querySelector("#cart-icon");
-// let cart = document.querySelector(".cart");
-// let closeCart = document.querySelector("#close-cart");
+const params = new URLSearchParams(location.search)
+let nombreURL = ""
+try {
+  nombreURL = params.get("nombre").toUpperCase()
+} catch (error) {
+}
 
 const app = createApp({
     data() {
@@ -14,12 +16,30 @@ const app = createApp({
           precioPro: undefined,
           carritoPendientes:[],
           totalItems:0,
-          listaModalDetalles: []
+          listaModalDetalles: [],
+          busquedaSeleccionada: undefined
         }
     },
     created() {
+      if (nombreURL === null || nombreURL === undefined || nombreURL === "") {
         this.ejecutarPrograma()
-
+      } else {
+        axios.get('/api/productoPeso')
+        .then(response => {
+          this.todosLosProductos = this.todosLosProductos.concat(response.data);
+        })
+        .then(response => {
+          console.log(this.productos)
+        })
+      
+      axios.get('/api/productoUni')
+        .then(response => {
+          this.todosLosProductos = this.todosLosProductos.concat(response.data);
+        })
+        .then(response => {
+          this.productos = this.todosLosProductos.filter(producto => producto.nombre.includes(nombreURL))
+        })
+      }
     },
     methods: {
         ejecutarPrograma() {
@@ -38,8 +58,10 @@ const app = createApp({
             this.productos = this.todosLosProductos
           })
           .then(response => {
-            console.log(this.productos)
+            console.log(nombreURL)
+            this.productos = this.todosLosProductos
           })
+
         },
         mostrarProductosPorPeso(){
           this.productos = this.todosLosProductos
@@ -74,9 +96,12 @@ const app = createApp({
         abrirCarrito(){
             let cart = document.querySelector(".cart");
             cart.classList.add('active');
-            console.log(cart)
-        },
+            // console.log(cart)
 
+
+            this.carritoPendientes = JSON.parse(localStorage.getItem('carritoDeCompras')) || []
+            console.log(JSON.parse(localStorage.getItem('carritoDeCompras')) || [])
+        },
         cerrarCarrito(){
             let cart = document.querySelector(".cart");
             cart.classList.remove("active");
@@ -128,7 +153,7 @@ const app = createApp({
 
             addCartClicked(imagen, nombre, precio) {
             let itemNuevo = {
-              imagen: imagen,
+              url: imagen,
               nombre: nombre,
               precio: precio,
               cantidad: 1
@@ -160,7 +185,16 @@ const app = createApp({
       computed:{
           actualizarLocalStorage(){
             localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-          }
+          },
+          filtro() {
+            
+            try {
+              this.productos = this.todosLosProductos.filter(producto => producto.nombre.toUpperCase().includes(this.busquedaSeleccionada.toUpperCase()))
+            } catch (error) {
+            }
+          
+          
+          },
       }
 })
 app.mount('#vueApp')

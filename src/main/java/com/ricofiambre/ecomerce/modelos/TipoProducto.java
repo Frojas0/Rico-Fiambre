@@ -1,5 +1,8 @@
 package com.ricofiambre.ecomerce.modelos;
 
+import java.util.Arrays;
+import java.util.List;
+
 public enum TipoProducto {
     LACTEO,
     EMBUTIDO,
@@ -7,10 +10,11 @@ public enum TipoProducto {
     BEBIDAALC,
     BEBIDA,
     PANIFICADO,
-    ACEITE,
     POSTRE,
     ENSALADA,
-    APTOCELIACO,
-    APTOVEGANO,
-PICADA
+    PICADA;
+
+    public static List<TipoProducto> obtenerTiposDeProducto() {
+        return Arrays.asList(TipoProducto.values());
+    }
 }

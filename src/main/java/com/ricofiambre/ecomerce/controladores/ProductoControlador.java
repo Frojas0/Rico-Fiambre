@@ -43,8 +43,13 @@ public class ProductoControlador {
         return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
     }
 
-    //    COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
+    @GetMapping("/api/tipos-producto")
+    public List<TipoProducto> getTiposDeProducto() {
+        return TipoProducto.obtenerTiposDeProducto();
+    }
 
+
+    //    COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
     @Transactional
     @PostMapping("/api/carrito-compra")
     public ResponseEntity<Object> compraProducto(Authentication authentication, @RequestBody CarritoCompraDTO carritoCompraDTO){
