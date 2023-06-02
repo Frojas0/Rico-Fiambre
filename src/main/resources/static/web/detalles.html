@@ -139,6 +139,32 @@
 
         <div>
           <h3>PRODUCTOS RELACIONADOS</h3>
+          <!-- v-if=productoFiltrado.tipo === producto.tipo -->
+          <template v-for="producto of todosLosProductos" >
+            <div class="product-box" style="display: flex; justify-content: space-between !important; flex-direction: column;" v-if="producto.tipo === productoFiltrado.tipo">
+            <div>
+              IMAGEN
+              <img v-bind:src="producto.url" alt="" class="product-img">
+            </div>
+            <div>
+              <h2 class="product-title">{{producto.nombre}}</h2>
+              <div style="display: flex; justify-content: space-between;">
+                <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                  "currency", currency:
+                  "ARS" })}}</span>
+              </div>
+              <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
+                <div>
+                  <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
+                    style="width: 6rem; text-align: end;" />gr
+                </div>
+                <i class='bx bx-shopping-bag add-cart'
+                  v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i>
+              </div>
+            </div>
+          </div>
+        </template>
         </div>
     </main>
     <footer>
