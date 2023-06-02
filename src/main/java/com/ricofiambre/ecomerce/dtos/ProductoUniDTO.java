@@ -4,6 +4,9 @@ import com.ricofiambre.ecomerce.modelos.PaisProducto;
 import com.ricofiambre.ecomerce.modelos.ProductoUni;
 import com.ricofiambre.ecomerce.modelos.TipoProducto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductoUniDTO {
     private long id;
     private String nombre;
@@ -12,6 +15,10 @@ public class ProductoUniDTO {
     private double stock;
     private double precio;
     private PaisProducto origen;
+    private double puntuaciones;
+    private String url;
+    private double descuento;
+    private boolean estaActivo;
 
     //CONSTRUCTOR
     public ProductoUniDTO(ProductoUni productoUni) {
@@ -22,6 +29,11 @@ public class ProductoUniDTO {
         this.stock = productoUni.getStock();
         this.precio = productoUni.getPrecio();
         this.origen = productoUni.getOrigen();
+        this.puntuaciones = productoUni.getPuntuaciones().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
+        this.url = productoUni.getUrl();
+        this.descuento = productoUni.getDescuento();
+        this.estaActivo = productoUni.getEstaActivo();
+
     }
 
     //GETTERS
@@ -32,4 +44,8 @@ public class ProductoUniDTO {
     public double getStock() {return stock;}
     public double getPrecio() {return precio;}
     public PaisProducto getOrigen() {return origen;}
+    public double getPuntuaciones() {return puntuaciones;}
+    public String getUrl() {return url;}
+    public double getDescuento() {return descuento;}
+    public boolean getEstaActivo() {return estaActivo;}
 }

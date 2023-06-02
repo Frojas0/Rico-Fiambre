@@ -1,12 +1,10 @@
 package com.ricofiambre.ecomerce.modelos;
 
 public enum PaisProducto {
-    ARGENTINA,
-    FRANCIA,
-    ESPANA,
+    NACIONAL,
     EUROPEO,
     ASIATICO,
     SUDAMERICANO,
-    NORTEAMERICANO
+    NORTEAMERICANO,
 
 }

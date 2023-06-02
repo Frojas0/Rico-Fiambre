@@ -10,7 +10,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
-    private long numero;
+    private String numero;
 
     @OneToOne(fetch=FetchType.EAGER)
     @JoinColumn(name = "ticket")
@@ -19,18 +19,18 @@ public class Ticket {
     //CONSTRUCTORES
     public Ticket(){}
 
-    public Ticket(long numero) {
+    public Ticket(String numero) {
         this.numero = numero;
     }
 
     //GETTERS
     public long getId() {return id;}
-    public long getNumero() {return numero;}
+    public String getNumero() {return numero;}
 
     public Orden getOrden() {return orden;}
 
     //SETTERS
-    public void setNumero(long numero) {this.numero = numero;}
+    public void setNumero(String numero) {this.numero = numero;}
     public void setOrden(Orden orden) {this.orden = orden;}
 
     //ADDERS

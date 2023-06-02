@@ -13,7 +13,6 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long id;
-
     private String nombre;
     private String apellido;
     private String email;
