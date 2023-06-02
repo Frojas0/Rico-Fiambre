@@ -24,16 +24,31 @@
 
 /* ---------- MAIN ---------- */
 
-main {
-  /* min-height: 80vh; */
-  background-color: whitesmoke;
-  color: black;
-  padding: 4rem 0 3rem;
-  width: 100%;
-  min-height: 80vh;
-  z-index: 1;
+.section-title {
+  text-align: center;
+  /* margin: 0 auto; */
+  padding: 60px 0;
+  font: 300 60px 'Oswald', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/pexels-chevanon-photography-323503.jpg);
+  background-size: cover;
+  background-position-x: 65%;
+  background-position-y: 55%;
+  height: 100%;
+  ;
 }
 
+main {
+  background-color: whitesmoke;
+  color: black;
+  /* padding: 4rem 0 3rem; */
+  width: 100%;
+  min-height: 70vh;
+  z-index: 1;
+  padding-bottom: 3%;
+}
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -45,7 +60,6 @@ footer {
   /*Ajustar*/
   color: white;
   padding: 1rem;
-  
 }
 
 
@@ -92,39 +106,87 @@ body {
   /* margin: auto; */
   width: 100%;
   margin-top: 2rem;
+  margin-bottom: 2rem
 }
 section {
   padding: 4rem 0 3rem;
 }
-/* Header */
+
 header {
-  /* position: fixed; */
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
-  z-index: 100;
-  color: black;
+  min-height: 19vh;
   background-color: #f6be5f;
-  min-height: 10vh;
 }
-.nav {
-  display: flex;
+
+#header-nav {
+  background-color: #f6be5f !important;
+  min-height: 14vh;
+  z-index: 1;
+}
+
+.navbar {
+  height: 15vh;
+  width: 95vw;
+}
+
+.logo-header {
+  width: 7rem;
+}
+
+.nav-link {
+  color: #2c3e50 !important;
+}
+
+#navbarNav {
+  justify-content: end;
   align-items: center;
-  justify-content: space-between;
-  /* padding: 20px 0; */
+}
+
+.navbar-nav {
+  background-color: #f6be5f;
+  font-size: 120%;
+  gap: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  align-items: center !important;
 }
 
 
-.logo {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  font-weight: 400;
+a:hover {
+  color: white !important;
+  transition: all 0.3s;
 }
+
+.active {
+  color: white !important;
+}
+
+.outButton:hover {
+  color: white !important;
+  transition: all 0.3s;
+}
+
+.section-title {
+  text-align: center;
+  /* margin: 0 auto; */
+  padding: 60px 0;
+  font: 300 60px 'Oswald', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  background: linear-gradient( rgba(0, 0, 0, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/fondo-titulo-productos.jpg);
+  background-size: cover;
+  background-position-x: 30%;
+  background-position-y: 20%;
+  height: 100%;
+}
+
+
+/* ---------------------------------------------- */
 #cart-icon {
   font-size: 1.8rem;
   cursor: pointer;
 }
+
 /* Cart */
 .cart {
   position: fixed;
@@ -136,7 +198,7 @@ header {
   background: var(--bg-color);
   box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
   transition: 0.3s;
-  z-index: 2;
+  z-index:2;
 }
 .cart.active {
   right: 0;
@@ -146,6 +208,7 @@ header {
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 2rem;
+  color: black;
 }
 .cart-box {
   display: grid;
@@ -154,23 +217,20 @@ header {
   gap: 1rem;
   margin-top: 1rem;
 }
-.cart-img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  /* padding: 10px; */
-}
-.cart-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /* align-items: center; */
-}
 .item-cart{
+  color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
  justify-content: space-between;
+
+
+}
+.cart-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  padding: 10px;
 }
 .detail-box {
   display: grid;
@@ -186,7 +246,7 @@ header {
 .cart-quantity {
   border: 1px solid var(--text-color);
   outline-color: var(--main-color);
-  width: 5rem;
+  width: 2.4rem;
   text-align: center;
   font-size: 1rem;
 }
@@ -195,22 +255,12 @@ header {
   color: var(--main-color);
   cursor: pointer;
 }
-.plus-less-arrows{
-  height: 26px;
-  width: 26px;
-}
-.MasOMenos{
-  /* height: 50px; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 5px;
-}
 .total {
   display: flex;
   justify-content: flex-end;
   margin-top: 1.5rem;
   border-top: 1px solid var(--text-color);
+  color: black;
 }
 .total-title {
   font-size: 1rem;
@@ -253,17 +303,11 @@ header {
 /* Shop Content */
 .shop-content {
   display: grid;
-  justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(220px, auto));
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  width: 100%;
-
+  padding: 3%;
 }
 .product-box {
-  height: 300px;
-  width: 275px;
-  margin: 1.5rem;
   position: relative;
 }
 .product-box:hover {
@@ -273,7 +317,7 @@ header {
 }
 .product-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   margin-bottom: 0.5rem;
 }
 .product-title {
@@ -331,4 +375,26 @@ header {
   .cart {
     width: 280px;
   }
+}
+
+
+.MasOMenos{
+  /* height: 50px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  width: 100px;
+}
+
+.cart-quantity {
+  border: 1px solid var(--text-color);
+  outline-color: var(--main-color);
+  width: 5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.aComprar{
+  text-decoration: none;
 }
