@@ -43,7 +43,6 @@ public class ProductoControlador {
         return productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
     }
 
-
     //    COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
 
     @Transactional

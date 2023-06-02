@@ -18,6 +18,7 @@ public class ProductoPesoDTO {
     private String url;
     private double descuento;
     private boolean estaActivo;
+    private boolean esPorPeso;
 
     //CONSTRUCTOR
     public ProductoPesoDTO (ProductoPeso productoPeso){
@@ -32,6 +33,7 @@ public class ProductoPesoDTO {
         this.url = productoPeso.getUrl();
         this.descuento = productoPeso.getDescuento();
         this.estaActivo = productoPeso.getEstaActivo();
+        this.esPorPeso = productoPeso.esPorPeso();
     }
     //GETTERS
     public long getId() {return id;}
@@ -45,4 +47,6 @@ public class ProductoPesoDTO {
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
     public boolean getEstaActivo() {return estaActivo;}
+
+    public boolean isEsPorPeso() {return esPorPeso;}
 }

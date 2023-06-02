@@ -302,16 +302,25 @@ a:hover {
 }
 /* Shop Content */
 .shop-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, auto));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, auto)); */
   gap: 1.5rem;
   padding: 3%;
 }
-.product-box {
+/* .product-box {
   position: relative;
+} */
+.product-box {
+  border: 1px solid #D3D3D3;
+  height: 25rem;
+  width: 18rem;
 }
 .product-box:hover {
-  padding: 10px;
+  scale: 1.02;
   border: 1px solid var(--text-color);
   transition: 0.4s;
 }
@@ -321,18 +330,16 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 .product-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 400;
   margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
 }
 .price {
-  font-weight: 500;
+  font-weight: 300;
+  margin-left: 0.5rem;
 }
 .add-cart {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   background: var(--text-color);
   color: var(--bg-color);
   padding: 10px;
@@ -398,3 +405,16 @@ a:hover {
 .aComprar{
   text-decoration: none;
 }
+
+
+/* CAMBIOS */
+/* @media (max-width: 7680px) {
+  .product-box {
+    height: 29rem;
+  }
+}
+@media (max-width: 600px) {
+  .product-box {
+    height: 33rem;
+  }
+} */

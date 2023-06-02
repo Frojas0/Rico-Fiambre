@@ -23,6 +23,7 @@ public class ProductoPeso {
     private String url;
     private double descuento;
     private boolean estaActivo;
+    private boolean esPorPeso;
     @ElementCollection
     private List<Double> puntuaciones = new ArrayList<>();
     @OneToMany(mappedBy="productoPeso", fetch = FetchType.EAGER)
@@ -42,6 +43,7 @@ public class ProductoPeso {
         this.url = url;
         this.descuento = 1;
         this.estaActivo = true;
+        this.esPorPeso = true;
     }
 
     //GETTERS
@@ -57,6 +59,7 @@ public class ProductoPeso {
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
     public boolean getEstaActivo() {return estaActivo;}
+    public boolean esPorPeso() {return esPorPeso;}
 
     //SETTERS
     public void setNombre(String nombre) {this.nombre = nombre;}

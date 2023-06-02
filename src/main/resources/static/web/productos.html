@@ -9,7 +9,11 @@
     <link rel="shortcut icon" href="./assets/imagenes/logo02.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/estilos/productos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -92,7 +96,7 @@
         <!-- Cart-Icon -->
         <!-- <i class='bx bx-shopping-bag' id="cart-icon"></i> -->
         <!-- Cart -->
-        <div class="cart">
+        <div class="cart" style="padding: 1rem; width: 30vw;">
             <h2 class="cart-title">Your Cart</h2>
             <!-- Content -->
             <div class="cart-content">
@@ -106,7 +110,7 @@
                         <!-- <input type="number" v-bind:value="items.cantidad" class="cart-quantity"> -->
                         <div class="MasOMenos">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" v-on:click="cantidadMas(items.nombre)"><g id="SVGRepo_bgCarrier" stroke-width="0" ></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z" fill="#000000"></path> </g></svg>
-                        <label class="cart-quantity">{{items.cantidad}}</label>
+                        <label class="cart-quantity" style="width: 30rem;">1500gr</label>
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" v-on:click="cantidadMenos(items.nombre)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z" fill="#000000"></path> </g></svg>  
                       </div>
                         <!-- v-bind:value="items.cantidad"  -->
@@ -137,46 +141,59 @@
           <!-- --------------------------------------------------------------------------------------- -->
           <!-- {{productos}} -->
           <!-- INGRESAR POR CARTA -->
-          <template v-for="producto in productos">
-              <div class="product-box">
-                  <img v-bind:src="producto.imagen" alt="" class="product-img">
+          <template v-for="producto in productos" >
+          <div class="product-box" style="display: flex; justify-content: space-between !important; flex-direction: column;">
+                <div>
+                  <img v-bind:src="producto.url" alt="" class="product-img">
+                </div>
+                <div>
                   <h2 class="product-title">{{producto.nombre}}</h2>
-                  <span class="price">${{producto.precio}}</span>
-                  <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked(producto.imagen,producto.nombre,producto.precio)"></i>
+                  <div style="display: flex; justify-content: space-between;">
+                    <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                      "currency", currency:
+                      "ARS" })}}</span>
+<!------------------------------------- BOTON MODAL----------------------------------------------------------------------------------------------------- -->
+                    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" v-on:click="mostrarDetails(producto.nombre)">modal</button> -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                  </div>
+                  <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+                    <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
+                    <div>
+                      <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50" style="width: 6rem; text-align: end;"/>gr
+                    </div>
+                    <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i>
+                  </div>
+                </div>
               </div>
           </template>
-
-          <!-- ------------------------------------------------------------------------------------------------------------- -->
-
-           <!-- Box 1 -->
-            <!-- <div class="product-box">
-                <img src="./assets/imagenes/1.png" alt="" class="product-img">
-                <h2 class="product-title">PICADA 1</h2>
-                <span class="price">$25</span>
-                <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked"></i>
-            </div> -->
-            <!-- Box 2 -->
-            <!-- <div class="product-box">
-                <img src="./assets/imagenes/2.png" alt="" class="product-img">
-                <h2 class="product-title">PICADA 2</h2>
-                <span class="price">$100</span>
-                <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked"></i>
-            </div> -->
-            <!-- Box 3 -->
-            <!-- <div class="product-box">
-                <img src="./assets/imagenes/3.png" alt="" class="product-img">
-                <h2 class="product-title">PICADA 3</h2>
-                <span class="price">$45</span>
-                <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked"></i>
-            </div> -->
-            <!-- Box 4 -->
-            <!-- <div class="product-box">
-                <img src="./assets/imagenes/4.png" alt="" class="product-img">
-                <h2 class="product-title">PICADA 4</h2>
-                <span class="price">$24.04</span>
-                <i class='bx bx-shopping-bag add-cart' v-on:click="addCartClicked"></i> -->
-            <!-- </div> -->
         </div>
+        <button v-on:click="mostrarProductosPorPeso">MOSTRAR PRODUCTOS POR PESO</button>
+        <button v-on:click="mostrarProductosPorUnidad">MOSTRAR PRODUCTOS POR UNIDAD</button>
+
+
+<!-- ----------------------------------------- MODAL --------------------------------------------------------------------- -->
+        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel" style="font-size: 1rem !important;">PRODUCTO</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <img :src="listaModalDetalles.url" :alt="listaModalDetalles.nombre" style="width: 30%;">
+                {{listaModalDetalles.nombre}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        
+<!-- -----------------------------------------  FIN MODAL --------------------------------------------------------------------- -->
+
+
     <!-- </section> -->
     </main>
     <footer>

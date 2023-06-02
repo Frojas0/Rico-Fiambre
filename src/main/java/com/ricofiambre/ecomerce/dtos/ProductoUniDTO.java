@@ -19,6 +19,7 @@ public class ProductoUniDTO {
     private String url;
     private double descuento;
     private boolean estaActivo;
+    private boolean esPorPeso;
 
     //CONSTRUCTOR
     public ProductoUniDTO(ProductoUni productoUni) {
@@ -33,7 +34,7 @@ public class ProductoUniDTO {
         this.url = productoUni.getUrl();
         this.descuento = productoUni.getDescuento();
         this.estaActivo = productoUni.getEstaActivo();
-
+        this.esPorPeso = productoUni.esPorPeso();
     }
 
     //GETTERS
@@ -48,4 +49,6 @@ public class ProductoUniDTO {
     public String getUrl() {return url;}
     public double getDescuento() {return descuento;}
     public boolean getEstaActivo() {return estaActivo;}
+
+    public boolean isEsPorPeso() {return esPorPeso;}
 }
