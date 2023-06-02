@@ -28,26 +28,26 @@ data(){
 
                     this.getFilterData()
 
-
-
-
                 })
             })
     },
 
     getFilterData(){
-        console.log(this.productosPeso)
-        console.log(this.productoUni)
-
         for(let element of this.productosPeso){
-            if(element.nombre === "JAMON CRUDO"){
+            if(element.nombre === "HUEVO FRITO"){
                 this.productoFiltrado = element
             }
         }
 
+        if(this.productoFiltrado === undefined){
+            for(let element of this.productoUni){
+                if(element.nombre === "CERVEZA CORONA LATA 269ml"){
+                    this.productoFiltrado = element
+                }
+            }
+        }
         console.log(this.productoFiltrado)
     }
-
     
 
 },
