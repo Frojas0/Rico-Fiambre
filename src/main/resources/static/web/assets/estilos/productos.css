@@ -1,25 +1,88 @@
 /* Estilo Normalizado */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    scroll-padding-top: 2rem;
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    list-style: none;
-    text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  scroll-padding-top: 2rem;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
 }
 
 /* ---------- HEADER ---------- */
 
-.navbar,
-.container-fluid {
-  background-color: #f6be5f !important;
+header {
+  min-height: 15vh;
+  background-color: black;
 }
 
-#logo01 {
-  width: 5rem;
+#header-nav {
+  background-color: black !important;
+  min-height: 14vh;
+  z-index: 1;
+}
+
+.navbar {
+  height: 15vh;
+  width: 100%;
+}
+
+.logo-header {
+  width: 10rem;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#navbarNav {
+  justify-content: end;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.container-fluid {
+  background-color: black;
+}
+
+.navbar-nav {
+  background-color: black;
+  font-size: 120%;
+  gap: 1rem;
+  align-items: center !important;
+  padding: 1rem;
+  margin-bottom: .5rem;
+}
+
+.estilo-hover:hover {
+  color: #f6be5f !important;
+  transition: all 0.3s;
+}
+
+.svg-hover:hover {
+  stroke: #f6be5f !important;
+  transition: all 0.3s;
+}
+
+.active {
+  color: #f6be5f !important;
+}
+
+/* ---------- MAIN ---------- */
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  min-height: 80vh;
+  /* Ajustar */
+  /* background-color:  #754d25; */
+  background-color: whitesmoke;
+  color: black;
 }
 
 /* ---------- MAIN ---------- */
@@ -32,7 +95,7 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/pexels-chevanon-photography-323503.jpg);
+  background: linear-gradient(rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26)), url(../imagenes/pexels-chevanon-photography-323503.jpg);
   background-size: cover;
   background-position-x: 65%;
   background-position-y: 55%;
@@ -65,15 +128,16 @@ footer {
 
 .tarjetas {
   height: 2rem;
-  padding: 0.1rem;;
+  padding: 0.1rem;
+  ;
 }
 
 /* ---------- FORMULARIO LOGIN---------- */
-#logo-login-register{
+#logo-login-register {
   width: 15rem;
 }
 
-#vueApp{
+#vueApp {
   height: 100%;
 }
 
@@ -95,12 +159,14 @@ footer {
   --text-color: #171427;
   --bg-color: #fff;
 }
+
 /* img {
    width: 100%; 
 } */
 body {
   color: var(--text-color);
 }
+
 .container {
   max-width: 100%;
   /* margin: auto; */
@@ -108,61 +174,9 @@ body {
   margin-top: 2rem;
   margin-bottom: 2rem
 }
+
 section {
   padding: 4rem 0 3rem;
-}
-
-header {
-  min-height: 19vh;
-  background-color: #f6be5f;
-}
-
-#header-nav {
-  background-color: #f6be5f !important;
-  min-height: 14vh;
-  z-index: 1;
-}
-
-.navbar {
-  height: 15vh;
-  width: 95vw;
-}
-
-.logo-header {
-  width: 7rem;
-}
-
-.nav-link {
-  color: #2c3e50 !important;
-}
-
-#navbarNav {
-  justify-content: end;
-  align-items: center;
-}
-
-.navbar-nav {
-  background-color: #f6be5f;
-  font-size: 120%;
-  gap: 1rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  align-items: center !important;
-}
-
-
-a:hover {
-  color: white !important;
-  transition: all 0.3s;
-}
-
-.active {
-  color: white !important;
-}
-
-.outButton:hover {
-  color: white !important;
-  transition: all 0.3s;
 }
 
 .section-title {
@@ -173,7 +187,7 @@ a:hover {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  background: linear-gradient( rgba(0, 0, 0, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/fondo-titulo-productos.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.199), rgba(255, 245, 245, 0.26)), url(../imagenes/fondo-titulo-productos.jpg);
   background-size: cover;
   background-position-x: 30%;
   background-position-y: 20%;
@@ -198,11 +212,13 @@ a:hover {
   background: var(--bg-color);
   box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
   transition: 0.3s;
-  z-index:2;
+  z-index: 2;
 }
+
 .cart.active {
   right: 0;
 }
+
 .cart-title {
   text-align: center;
   font-size: 1.5rem;
@@ -210,6 +226,7 @@ a:hover {
   margin-top: 2rem;
   color: black;
 }
+
 .cart-box {
   display: grid;
   grid-template-columns: 32% 50% 18%;
@@ -217,32 +234,38 @@ a:hover {
   gap: 1rem;
   margin-top: 1rem;
 }
-.item-cart{
+
+.item-cart {
   color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
- justify-content: space-between;
+  justify-content: space-between;
 
 
 }
+
 .cart-img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   padding: 10px;
 }
+
 .detail-box {
   display: grid;
   row-gap: 0.5rem;
 }
+
 .cart-product-title {
   font-size: 1rem;
   text-transform: uppercase;
 }
+
 .cart-price {
   font-weight: 500;
 }
+
 .cart-quantity {
   border: 1px solid var(--text-color);
   outline-color: var(--main-color);
@@ -250,11 +273,13 @@ a:hover {
   text-align: center;
   font-size: 1rem;
 }
+
 .cart-remove {
   font-size: 24px;
   color: var(--main-color);
   cursor: pointer;
 }
+
 .total {
   display: flex;
   justify-content: flex-end;
@@ -262,13 +287,16 @@ a:hover {
   border-top: 1px solid var(--text-color);
   color: black;
 }
+
 .total-title {
   font-size: 1rem;
   font-weight: 600;
 }
+
 .total-price {
   margin-left: 0.5rem;
 }
+
 .btn-buy {
   display: flex;
   margin: 1.5rem auto 0 auto;
@@ -280,9 +308,11 @@ a:hover {
   font-weight: 500;
   cursor: pointer;
 }
+
 .btn-buy:hover {
   background: var(--text-color);
 }
+
 #close-cart {
   position: absolute;
   top: 1rem;
@@ -291,15 +321,18 @@ a:hover {
   color: var(--text-color);
   cursor: pointer;
 }
+
 .section-title {
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 1.5rem;
 }
+
 .shop {
   margin-top: 2rem;
 }
+
 /* Shop Content */
 .shop-content {
   display: flex;
@@ -311,6 +344,7 @@ a:hover {
   gap: 1.5rem;
   padding: 3%;
 }
+
 /* .product-box {
   position: relative;
 } */
@@ -319,73 +353,88 @@ a:hover {
   height: 25rem;
   width: 18rem;
 }
+
 .product-box:hover {
   scale: 1.02;
   border: 1px solid var(--text-color);
   transition: 0.4s;
 }
+
 .product-img {
   width: 100%;
   height: auto;
   margin-bottom: 0.5rem;
 }
+
 .product-title {
   font-size: 1rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
 }
+
 .price {
   font-weight: 300;
   margin-left: 0.5rem;
 }
+
 .add-cart {
   background: var(--text-color);
   color: var(--bg-color);
   padding: 10px;
   cursor: pointer;
 }
+
 .add-cart:hover {
   background: hsl(249, 32%, 17%);
 }
+
 /* Breakpoints / Making Responsive */
 @media (max-width: 1080px) {
   .nav {
     padding: 15px;
   }
+
   section {
     padding: 3rem 0 2rem;
   }
+
   .container {
     margin: 0 auto;
     width: 90%;
   }
+
   .shop {
     margin-top: 2rem !important;
   }
 }
+
 @media (max-width: 400px) {
   .nav {
     padding: 11px;
   }
+
   .logo {
     font-size: 1rem;
   }
+
   .cart {
     width: 320px;
   }
 }
+
 @media (max-width: 360px) {
   .shop {
     margin-top: 1rem !important;
   }
+
   .cart {
     width: 280px;
   }
 }
 
 
-.MasOMenos{
+.MasOMenos {
   /* height: 50px; */
   display: flex;
   flex-direction: row;
@@ -402,7 +451,7 @@ a:hover {
   font-size: 1rem;
 }
 
-.aComprar{
+.aComprar {
   text-decoration: none;
 }
 

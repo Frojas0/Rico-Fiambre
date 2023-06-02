@@ -1,106 +1,127 @@
 /* Estilo Normalizado */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /* ---------- HEADER ---------- */
 header {
-  min-height: 19vh;
-  background-color: #f6be5f;
+  min-height: 15vh;
+  background-color: black;
 }
 
 #header-nav {
-  background-color: #f6be5f !important;
+  background-color: black !important;
   min-height: 14vh;
   z-index: 1;
 }
 
 .navbar {
   height: 15vh;
-  width: 95vw;
+  width: 100%;
 }
 
 .logo-header {
-  width: 7rem;
+  width: 10rem;
 }
 
 .nav-link {
-  color: #2c3e50 !important;
+  color: white !important;
 }
 
 #navbarNav {
   justify-content: end;
   align-items: center;
+  font-size: 1rem;
+}
+
+.container-fluid {
+  background-color: black;
 }
 
 .navbar-nav {
-  background-color: #f6be5f;
+  background-color: black;
   font-size: 120%;
   gap: 1rem;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
   align-items: center !important;
+  padding: 1rem;
+  margin-bottom: .5rem;
 }
 
-a:hover {
-  color: white !important;
+.estilo-hover:hover {
+  color: #f6be5f !important;
+  transition: all 0.3s;
+}
+
+.svg-hover:hover {
+  stroke: #f6be5f !important;
   transition: all 0.3s;
 }
 
 .active {
-  color: white !important;
+  color: #f6be5f !important;
 }
 
-.outButton:hover {
-  color: white !important;
-  transition: all 0.3s;
-}
 /* ---------- MAIN ---------- */
 
-body{
-    height: 100%;
-    width: 100%;
+body {
+  height: 100%;
+  width: 100%;
 }
 
 main {
-    min-height: 80vh;
-    /* Ajustar */
-    /* background-color:  #754d25; */
-    background-color: whitesmoke;
-    color: black;
+  min-height: 80vh;
+  /* Ajustar */
+  /* background-color:  #754d25; */
+  background-color: whitesmoke;
+  color: black;
+}
+
+/* ---------- MAIN ---------- */
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  min-height: 80vh;
+  /* Ajustar */
+  /* background-color:  #754d25; */
+  background-color: whitesmoke;
+  color: black;
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    background-color: #b36311;
-    min-height: 10vh;
-    /* height: 1; */
-    /*Ajustar*/
+  background-color: #b36311;
+  min-height: 10vh;
+  /* height: 1; */
+  /*Ajustar*/
 
-    /*Ajustar*/
-    color: white;
-    padding: 1rem;
+  /*Ajustar*/
+  color: white;
+  padding: 1rem;
 }
 
-#vueApp{
-    height: 100%;
+#vueApp {
+  height: 100%;
 }
 
 
 .tarjetas {
-    height: 2rem
+  height: 2rem
 }
 
 .tarjetas {
-    height: 2rem;
+  height: 2rem;
 }
 
 .navbar,
 .container-fluid {
-    background-color: #f6be5f !important;
+  background-color: #f6be5f !important;
 
 }
 
@@ -113,134 +134,134 @@ footer {
 /************************* PAGINA COMPRA **************************/
 
 .payment-info {
-    background: whitesmoke;
-    padding: 10px;
-    border-radius: 6px;
-    color: black;
-    font-weight: bold;
-  }
-  
-  .product-details {
-    padding: 10px;
-  }
-  
-  body {
-    background: #eee;
-  }
-  
-  .cart {
-    background: #fff;
-  }
-  
-  .p-about {
-    font-size: 12px;
-  }
-  
-  .table-shadow {
-    -webkit-box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
-    box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.42);
-  }
-  
-  .type {
-    font-weight: 400;
-    font-size: 10px;
-  }
+  background: whitesmoke;
+  padding: 10px;
+  border-radius: 6px;
+  color: black;
+  font-weight: bold;
+}
 
-  .item-description{
-    gap: 1rem;
-  }
+.product-details {
+  padding: 10px;
+}
 
-  
-  label.radio {
-    cursor: pointer;
-  }
-  
-  label.radio input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  
-  label.radio span {
-    padding: 1px 12px;
-    border: 2px solid #ddd8d8;
-    display: inline-block;
-    color: #8f37aa;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 300;
-  }
-  
-  label.radio input:checked + span {
-    border-color: #ffffff2f;
-    background-color: rgba(129, 129, 129, 0.541);
-    color: #fff;
-  }
-  
-  .credit-inputs {
-    background: #ffffff2f;
-    color: black !important;
-    border-color: #ffffff2f;
-  }
-  
-  .credit-inputs::placeholder {
-    color: black;
-    font-size: 13px;
-  }
-  
-  .credit-card-label {
-    font-size: 9px;
-    font-weight: 300;
-  }
-  
-  .form-control.credit-inputs:focus {
-    background: #0000002f;
-    border: #ffffff2f;
-  }
-  
-  .line {
-    border-bottom: 1px solid rgb(102,102,221);
-  }
-  
-  .information span {
-    font-size: 12px;
-    font-weight: 500;
-  }
-  
-  .information {
-    margin-bottom: 5px;
-  }
-  
-  .items {
-    -webkit-box-shadow: 5px 5px 4px -1px rgba(0,0,0,0.25);
-    box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
-  }
-  
-  .spec {
-    font-size: 11px;
-  }
+body {
+  background: #eee;
+}
 
-  #cabalLogo{
-    padding-top: 5px;
-  }
+.cart {
+  background: #fff;
+}
 
-  /************************* OTROS/*/
+.p-about {
+  font-size: 12px;
+}
 
-    .section-header {
-    text-align: center;
-    margin: 0 auto;
-    padding: 60px 0;
-    font: 300 60px 'Oswald', sans-serif;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    background: linear-gradient( rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26) ), url(../imagenes/carrito\ de\ compras.jpg);
-    background-size: cover;
-    background-position-x: 65%;
-    background-position-y: 45%;
-    height: 100%;
-    ;
-  }
+.table-shadow {
+  -webkit-box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+  box-shadow: 5px 5px 15px -2px rgba(0, 0, 0, 0.42);
+}
+
+.type {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.item-description {
+  gap: 1rem;
+}
+
+
+label.radio {
+  cursor: pointer;
+}
+
+label.radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+label.radio span {
+  padding: 1px 12px;
+  border: 2px solid #ddd8d8;
+  display: inline-block;
+  color: #8f37aa;
+  border-radius: 3px;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+label.radio input:checked+span {
+  border-color: #ffffff2f;
+  background-color: rgba(129, 129, 129, 0.541);
+  color: #fff;
+}
+
+.credit-inputs {
+  background: #ffffff2f;
+  color: black !important;
+  border-color: #ffffff2f;
+}
+
+.credit-inputs::placeholder {
+  color: black;
+  font-size: 13px;
+}
+
+.credit-card-label {
+  font-size: 9px;
+  font-weight: 300;
+}
+
+.form-control.credit-inputs:focus {
+  background: #0000002f;
+  border: #ffffff2f;
+}
+
+.line {
+  border-bottom: 1px solid rgb(102, 102, 221);
+}
+
+.information span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.information {
+  margin-bottom: 5px;
+}
+
+.items {
+  -webkit-box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.25);
+  box-shadow: 5px 5px 4px -1px rgba(0, 0, 0, 0.08);
+}
+
+.spec {
+  font-size: 11px;
+}
+
+#cabalLogo {
+  padding-top: 5px;
+}
+
+/************************* OTROS/*/
+
+.section-header {
+  text-align: center;
+  margin: 0 auto;
+  padding: 60px 0;
+  font: 300 60px 'Oswald', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  background: linear-gradient(rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26)), url(../imagenes/carrito\ de\ compras.jpg);
+  background-size: cover;
+  background-position-x: 65%;
+  background-position-y: 45%;
+  height: 100%;
+  ;
+}
