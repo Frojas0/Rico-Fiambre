@@ -84,3 +84,8 @@ main {
     background-color: whitesmoke;
     color: black;
 }
+
+img{
+    width: 10rem;
+    height: 10rem;
+}

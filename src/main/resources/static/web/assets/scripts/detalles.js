@@ -1,55 +1,69 @@
-const {createApp} = Vue
+// const params =  new URLSearchParams(location.search)
+// let nombre = params.get("nombre")
+let nombre = "JAMON CRUDO"
 
+const {createApp} = Vue
 const app = createApp({
 data(){
         return {
             productosPeso: [],
             productoUni: [],
             nombreParams: undefined,
-            productoFiltrado: undefined
+            productoFiltrado: undefined,
+            tipoProducto: undefined,
+            todosLosProductos: []
         }
     },
 
     created(){
-        const params =  new URLSearchParams(location.search)
-        this.nombreParams = params.get("nombre")
-        this.getData()
-
+        this.nombreParams = nombre
+        this.getProductoPeso()
+        this.getProductoUni()
     },
 
     methods:{
-    async getData(){
+    getProductoPeso(){
             axios.get('/api/productoPeso')
             .then(elemento =>{
                 this.productosPeso = elemento.data
-                axios.get('/api/productoUni')
-                .then(elemento =>{
-                    this.productoUni = elemento.data
-
-                    this.getFilterData()
-
-                })
+                console.log(this.productosPeso)
             })
+    },
+
+    getProductoUni(){
+        axios.get('/api/productoUni')
+        .then(elemento =>{
+            this.productoUni = elemento.data
+            console.log(this.productoUni)
+            this.getFilterData()
+        })
     },
 
     getFilterData(){
         for(let element of this.productosPeso){
-            if(element.nombre === "HUEVO FRITO"){
-                this.productoFiltrado = element
-            }
+            this.todosLosProductos.push(element)
         }
 
-        if(this.productoFiltrado === undefined){
-            for(let element of this.productoUni){
-                if(element.nombre === "CERVEZA CORONA LATA 269ml"){
-                    this.productoFiltrado = element
-                }
-            }
+        for(let element of this.productoUni){
+            this.todosLosProductos.push(element)
+
         }
-        console.log(this.productoFiltrado)
-    }
-    
+        console.log(this.todosLosProductos)
+        
+        this.productoEncontrado()
+    },
+
+    productoEncontrado(){
+        this.todosLosProductos.forEach(element => {
+            if(element.nombre === nombre){
+                this.productoFiltrado = element
+                
+            }
+        });
+    console.log(this.productoFiltrado)
+    },
 
 },
+
 })
 app.mount('#vueApp')
