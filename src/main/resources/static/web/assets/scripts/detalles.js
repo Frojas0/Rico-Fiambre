@@ -1,55 +1,54 @@
-const {createApp} = Vue
+// const params =  new URLSearchParams(location.search)
+// let nombre = params.get("nombre")
+let nombre = "JAMON COCIDO NATURAL"
 
+const { createApp } = Vue
 const app = createApp({
-data(){
+    data() {
         return {
             productosPeso: [],
             productoUni: [],
-            nombreParams: undefined,
-            productoFiltrado: undefined
+            // nombreParams: undefined,
+            productoFiltrado: undefined,
+            tipoProducto: undefined,
+            todosLosProductos: []
         }
     },
 
-    created(){
-        const params =  new URLSearchParams(location.search)
-        this.nombreParams = params.get("nombre")
-        this.getData()
-
+    created() {
+        this.getProductoPeso()
+        this.getProductoUni()
     },
 
-    methods:{
-    async getData(){
+    methods: {
+        getProductoPeso() {
             axios.get('/api/productoPeso')
-            .then(elemento =>{
-                this.productosPeso = elemento.data
-                axios.get('/api/productoUni')
-                .then(elemento =>{
-                    this.productoUni = elemento.data
-
-                    this.getFilterData()
-
+                .then(res => {
+                    this.todosLosProductos = this.todosLosProductos.concat(res.data)
+                    console.log(this.todosLosProductos);
+                    this.encontrarProducto();
                 })
-            })
-    },
+        },
 
-    getFilterData(){
-        for(let element of this.productosPeso){
-            if(element.nombre === "HUEVO FRITO"){
-                this.productoFiltrado = element
-            }
-        }
+        getProductoUni() {
+            axios.get('/api/productoUni')
+                .then(res => {
+                    this.todosLosProductos = this.todosLosProductos.concat(res.data)
+                    console.log(this.todosLosProductos);
+                    this.encontrarProducto();
+                })
+        },
 
-        if(this.productoFiltrado === undefined){
-            for(let element of this.productoUni){
-                if(element.nombre === "CERVEZA CORONA LATA 269ml"){
+        encontrarProducto() {
+            this.todosLosProductos.forEach(element => {
+                if (element.nombre === nombre) {
                     this.productoFiltrado = element
                 }
-            }
-        }
-        console.log(this.productoFiltrado)
-    }
-    
+            });
+            // console.log(this.productoFiltrado)
+        },
 
-},
+    },
+
 })
 app.mount('#vueApp')

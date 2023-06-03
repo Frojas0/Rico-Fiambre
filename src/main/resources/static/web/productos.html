@@ -51,7 +51,7 @@
                 <div>
                   <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
                     aria-describedby="button-addon2" v-model="busquedaSeleccionada">
-                    {{filtro}}
+                  {{filtro}}
                 </div>
                 <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
                     id="button-addon2">
@@ -102,7 +102,7 @@
         <!-- Cart-Icon -->
         <!-- <i class='bx bx-shopping-bag' id="cart-icon"></i> -->
         <!-- Cart -->
-        <div class="cart col-sm-8 col-md-4 col-12 " >
+        <div class="cart col-sm-8 col-md-4 col-12 ">
           <h2 class="cart-title">Your Cart</h2>
           <!-- Content -->
           <div class="cart-content">
@@ -187,11 +187,11 @@
                 <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
                 <div v-if="producto.esPorPeso">
                   <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
-                    style="width: 6rem; text-align: end;" placeholder="150g"/>g
+                    style="width: 6rem; text-align: end;" placeholder="150g" />g
                 </div>
                 <div v-else>
                   <input type="number" id="quantity" name="quantity" min="0" max="100000" step="1"
-                  style="width: 6rem; text-align: end;" placeholder="2 unidades"/>u
+                    style="width: 6rem; text-align: end;" placeholder="2 unidades" />u
                 </div>
                 <i class='bx bx-shopping-bag add-cart'
                   v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i>
