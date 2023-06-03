@@ -24,12 +24,12 @@
                 </button>
                 <div class=" collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav">
-      
+
                     <li class="nav-item">
-                      <a class="nav-link estilo-hover active" href="./productos.html">PRODUCTOS</a>
+                      <a class="nav-link estilo-hover" href="./productos.html">PRODUCTOS</a>
                     </li>
-      
-                    
+
+
                     <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                       <li class="nav-item">
                         <a class="nav-link" href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -44,46 +44,160 @@
                 </div>
               </div>
             </nav>
-          </header>
+        </header>
 
-        <main>
-            <div class="d-flex flex-column flex-wrap justify-content-center">           
-                <div class="contact-form d-flex flex-column align-items-center">
+        <main >
+            <!-- CREAR PRODUCTO -->
+            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
+                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
                     <span class="heading">Administrar productos</span>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
                         <button type="submit">Crear</button>
                         <button type="submit">Modificar</button>
                         <button type="submit">Desactivar producto</button>
                         <button type="submit">Activar producto</button>
                     </div>
-                    <form class="p-3">
-                        <div class="d-flex gap-2">
-                            <label for="name">Nombre producto:</label>
-                            <input type="text" required="">
-
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option disabled value>Selecciona el tipo de producto</option>
-                                <template  v-for="">
-                                    <option :value=""></option>
-                                </template>
-                            </select>
-                        </div>
+                    <form class="d-flex justify-content-center p-3">
                         
-                        <div class="d-flex gap-2">
-                            <label for="descripcion">Descripcion:</label>
-                            <input id="descripcion" name="descripcion" required=""></input>
-                            
-                            <label for="stock">Stock:</label>
-                            <input type="number" id="stock" required="">
+                        <label for="name">Nombre:</label>
+                        <input type="text" required="">
 
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option disabled value>Selecciona el tipo de producto</option>
+                            <template  v-for="">
+                                <option :value=""></option>
+                            </template>
+                        </select>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="descripcion">Descripcion:</label>
+                                <input  type="text" id="descripcion" name="descripcion" required=""></input>
+                            </div>
+
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="stock">Stock:</label>
+                                <input type="number" id="stock" required="">
+                            </div>
                         </div>
 
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="paisProducto">Pais producto:</label>
+                                <input type="text" id="paisProducto" required="">
+
+                            </div>
+
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="stock">Precio:</label>
+                                <input type="number" id="stock" required="">
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Es por peso</label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">No es por peso</label>
+                            </div>
+                        </div>
+                        <label for="imagen-producto">Imagen del producto:</label>
+                        <input type="text" id="imagen-producto" required="">
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit">Añadir producto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- MODIFICAR PRODUCTO -->
+            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
+                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
+                    <span class="heading">Administrar productos</span>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <button type="submit">Crear</button>
+                        <button type="submit">Modificar</button>
+                        <button type="submit">Desactivar producto</button>
+                        <button type="submit">Activar producto</button>
+                    </div>
+                    <form class="d-flex justify-content-center p-3">
                         
-                        <label for="stock">Precio:</label>
-                        <input type="number" id="stock" required="">
+                        <label for="name">Nombre actual:</label>
+                        <input type="text" required="">
 
+                        <label for="name">Nuevo nombre:</label>
+                        <input type="text" required="">
 
-                        <button type="submit">Submit</button>
+                        <div class="d-flex flex-wrap gap-2">
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="stock">Precio:</label>
+                                <input type="number" id="stock" required="">
+                                
+                            </div>
+
+                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
+                                <label for="stock">Stock:</label>
+                                <input type="number" id="stock" required="">
+                            </div>
+                        </div>
+
+                        <label for="descripcion">Descripcion:</label>
+                        <input  type="text" id="descripcion" name="descripcion" required=""></input>
+
+                        <label for="imagen-producto">Imagen del producto:</label>
+                        <input type="text" id="imagen-producto" required="">
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit">Añadir producto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- DESACTIVAR PRODUCTO -->
+            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
+                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
+                    <span class="heading">Administrar productos</span>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <button type="submit">Crear</button>
+                        <button type="submit">Modificar</button>
+                        <button type="submit">Desactivar producto</button>
+                        <button type="submit">Activar producto</button>
+                    </div>
+                    <form class="d-flex justify-content-center p-3">
+                        
+                        <label for="name">Nombre:</label>
+                        <input type="text" required="">
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit">Añadir producto</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- ACTIVAR PRODUCTO -->
+            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
+                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
+                    <span class="heading">Administrar productos</span>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <button type="submit">Crear</button>
+                        <button type="submit">Modificar</button>
+                        <button type="submit">Desactivar producto</button>
+                        <button type="submit">Activar producto</button>
+                    </div>
+                    <form class="d-flex justify-content-center p-3">
+                        
+                        <label for="name">Nombre:</label>
+                        <input type="text" required="">
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit">Añadir producto</button>
+                        </div>
                     </form>
                 </div>
             </div>
