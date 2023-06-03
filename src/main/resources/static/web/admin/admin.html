@@ -52,22 +52,22 @@
                 <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
                     <span class="heading">Administrar productos</span>
                     <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <button type="submit">Crear</button>
-                        <button type="submit">Modificar</button>
-                        <button type="submit">Desactivar producto</button>
-                        <button type="submit">Activar producto</button>
+                        <button @click="seleccionarFormCrear" type="submit">Crear</button>
+                        <button @click="seleccionarFormModificar" type="submit">Modificar</button>
+                        <button @click="seleccionarFormDesactivar" type="submit">Desactivar producto</button>
+                        <button @click="seleccionarFormActivar" type="submit">Activar producto</button>
                     </div>
-                    <form class="d-flex justify-content-center p-3">
+                    <form v-if="mostrarFormCrear" class="d-flex justify-content-center p-3">
                         
                         <label for="name">Nombre:</label>
                         <input type="text" required="">
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <!-- <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                             <option disabled value>Selecciona el tipo de producto</option>
                             <template  v-for="">
                                 <option :value=""></option>
                             </template>
-                        </select>
+                        </select> -->
 
                         <div class="d-flex flex-wrap gap-2">
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
@@ -112,20 +112,9 @@
                             <button type="submit">Añadir producto</button>
                         </div>
                     </form>
-                </div>
-            </div>
-            
-            <!-- MODIFICAR PRODUCTO -->
-            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
-                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
-                    <span class="heading">Administrar productos</span>
-                    <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <button type="submit">Crear</button>
-                        <button type="submit">Modificar</button>
-                        <button type="submit">Desactivar producto</button>
-                        <button type="submit">Activar producto</button>
-                    </div>
-                    <form class="d-flex justify-content-center p-3">
+
+                    <!-- MODIFICAR PRODUCTO -->
+                    <form v-if="mostrarFormModificar" class="d-flex justify-content-center p-3">
                         
                         <label for="name">Nombre actual:</label>
                         <input type="text" required="">
@@ -156,20 +145,9 @@
                             <button type="submit">Añadir producto</button>
                         </div>
                     </form>
-                </div>
-            </div>
 
-            <!-- DESACTIVAR PRODUCTO -->
-            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
-                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
-                    <span class="heading">Administrar productos</span>
-                    <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <button type="submit">Crear</button>
-                        <button type="submit">Modificar</button>
-                        <button type="submit">Desactivar producto</button>
-                        <button type="submit">Activar producto</button>
-                    </div>
-                    <form class="d-flex justify-content-center p-3">
+                    <!-- DESACTIVAR PRODUCTO -->
+                    <form v-if="mostrarFormDesactivar" class="d-flex justify-content-center p-3">
                         
                         <label for="name">Nombre:</label>
                         <input type="text" required="">
@@ -178,19 +156,9 @@
                             <button type="submit">Añadir producto</button>
                         </div>
                     </form>
-                </div>
-            </div>
-            <!-- ACTIVAR PRODUCTO -->
-            <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
-                <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
-                    <span class="heading">Administrar productos</span>
-                    <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <button type="submit">Crear</button>
-                        <button type="submit">Modificar</button>
-                        <button type="submit">Desactivar producto</button>
-                        <button type="submit">Activar producto</button>
-                    </div>
-                    <form class="d-flex justify-content-center p-3">
+
+                    <!-- ACTIVAR PRODUCTO -->
+                    <form v-if="mostrarFormActivar" class="d-flex justify-content-center p-3">
                         
                         <label for="name">Nombre:</label>
                         <input type="text" required="">
