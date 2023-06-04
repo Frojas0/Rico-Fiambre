@@ -1,6 +1,6 @@
-// const params =  new URLSearchParams(location.search)
-// let nombre = params.get("nombre")
-let nombre = "JAMON COCIDO NATURAL"
+const params = new URLSearchParams(location.search)
+let nombre = params.get("nombre")
+// let nombre = "JAMON COCIDO NATURAL"
 
 const { createApp } = Vue
 const app = createApp({
