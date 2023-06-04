@@ -24,12 +24,12 @@ public class AdminControlador {
     private ProductoUniServicio productoUniServicio;
 
     //OBTENER PRODUCTOS ACTIVOS
-    @GetMapping("/api/productos-activos")
-    public List<Object> getProductosActivos(Authentication authentication){
-        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
-        
-        return
-    }
+//    @GetMapping("/api/productos-activos")
+//    public List<Object> getProductosActivos(Authentication authentication){
+//        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
+//
+//        return
+//    }
     //CREAR DESCUENTO EN PRODUCTO
     @PostMapping("/api/crear-descuento-producto")
     public ResponseEntity<Object> descuentoProducto(Authentication authentication,
