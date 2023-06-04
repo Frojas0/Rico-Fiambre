@@ -43,6 +43,104 @@
       </div>
     </div>
     <div v-else>
+      <!-- Cart -->
+      <div class="cart col-sm-8 col-md-4 col-12 blurCarrito">
+        <h2 class="cart-title">Tu carrito</h2>
+        <!-- Content -->
+
+        <div v-if="carritoPendientes.length > 0">
+          <div class="cart-content">
+            <template v-for="items of carritoPendientes">
+              <div class="item-cart">
+                <img v-bind:src="items.url" alt="" class="cart-img">
+                <div class="detail-box" style=" width: 100%; margin-left: 1rem;">
+                  <div class="cart-product-title">{{items.nombre}}</div>
+                  <div class="cart-price">{{items.precio.toLocaleString("es-AR", { style:
+                    "currency", currency:
+                    "ARS" })}}</div>
+                  <!-- <input type="number" v-bind:value="items.cantidad" class="cart-quantity"> -->
+                  <div>
+                    <div class="MasOMenos" v-if="items.esPorPeso">
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        v-on:click="cantidadMas(items.nombre, 50)">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z"
+                            fill="#000000"></path>
+                        </g>
+                      </svg>
+                      <label class="cart-quantity" style="width: 30rem;"
+                        v-if="items.esPorPeso">{{items.cantidad}}g</label>
+                      <label class="cart-quantity" style="width: 30rem;" v-else>{{items.cantidad}}u</label>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        v-on:click="cantidadMenos(items.nombre, 50)">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z"
+                            fill="#000000"></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="MasOMenos" v-else>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        v-on:click="cantidadMas(items.nombre, 1)">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z"
+                            fill="#000000"></path>
+                        </g>
+                      </svg>
+                      <label class="cart-quantity" style="width: 30rem;">{{items.cantidad}}</label>
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        v-on:click="cantidadMenos(items.nombre, 1)">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z"
+                            fill="#000000"></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <!-- v-bind:value="items.cantidad"  -->
+                </div>
+                <!-- Remove Cart -->
+                <i class='bx bxs-trash-alt cart-remove' v-on:click="removeCartItem(items.nombre)"></i>
+              </div>
+            </template>
+          </div>
+          <!-- Total -->
+          <div class="total">
+            <div class="total-title">Total</div>
+            <div class="total-price">{{totalItems.toLocaleString("es-AR", { style:
+              "currency", currency:
+              "ARS" })}} </div>
+          </div>
+          <!-- Buy Button -->
+          <a><button type="button" class="btn-buy" v-on:click="irAComprar">Comprar</button></a>
+        </div>
+        <div v-else style="height: 67vh; display: flex; align-items: center; justify-content: center;">
+          <p>NO TIENES PRODUCTOS EN TU CARRO</p>
+        </div>
+        <!-- Cart Close -->
+        <i class='bx bx-x' id="close-cart" v-on:click="cerrarCarrito"></i>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="blur">
       <!-- Header -->
       <header class="d-flex justify-content-center align-items-center">
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header-nav">
@@ -82,22 +180,22 @@
                 </div>
 
                 <!-- <div class="input-group-sm d-flex">
-                  <div>
-                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
-                      aria-describedby="button-addon2" v-model="busquedaSeleccionada">
-                    {{filtro}}
-                  </div>
-                  <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
-                      id="button-addon2">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
-                        width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                        <path d="M21 21l-6 -6" />
-                      </svg>
-                    </button></a>
-                </div> -->
+              <div>
+                <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
+                  aria-describedby="button-addon2" v-model="busquedaSeleccionada">
+                {{filtro}}
+              </div>
+              <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
+                  id="button-addon2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
+                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                    <path d="M21 21l-6 -6" />
+                  </svg>
+                </button></a>
+            </div> -->
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                   <li class="nav-item">
                     <a class="nav-link" href="#"><svg viewBox="0 0 24 24" fill="#0000"
@@ -165,212 +263,123 @@
             </select>
           </div>
         </div>
-
-
-
-
-
-
-
         <div class="nav container">
-          <!-- Cart -->
-          <div class="cart col-sm-8 col-md-4 col-12 ">
-            <h2 class="cart-title">Tu carrito</h2>
-            <!-- Content -->
 
-            <div v-if="carritoPendientes.length > 0">
-              <div class="cart-content">
-                <template v-for="items of carritoPendientes">
-                  <div class="item-cart">
-                    <img v-bind:src="items.url" alt="" class="cart-img">
-                    <div class="detail-box" style=" width: 100%; margin-left: 1rem;">
-                      <div class="cart-product-title">{{items.nombre}}</div>
-                      <div class="cart-price">{{items.precio.toLocaleString("es-AR", { style:
-                        "currency", currency:
-                        "ARS" })}}</div>
-                      <!-- <input type="number" v-bind:value="items.cantidad" class="cart-quantity"> -->
-                      <div>
-                        <div class="MasOMenos" v-if="items.esPorPeso">
-                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            v-on:click="cantidadMas(items.nombre, 50)">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z"
-                                fill="#000000"></path>
-                            </g>
-                          </svg>
-                          <label class="cart-quantity" style="width: 30rem;"
-                            v-if="items.esPorPeso">{{items.cantidad}}g</label>
-                          <label class="cart-quantity" style="width: 30rem;" v-else>{{items.cantidad}}u</label>
-                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            v-on:click="cantidadMenos(items.nombre, 50)">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z"
-                                fill="#000000"></path>
-                            </g>
-                          </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div class="contenedorProductos">
+            <template v-for="producto in productos" v-if="productos.length > 0" :key="index">
+              <div class="product-box"
+                style="display: flex; justify-content: space-between !important; flex-direction: column;">
+                <div>
+                  <a :href="`./detalles.html?nombre=`+producto.nombre"><img v-bind:src="producto.url"
+                      :alt="producto.nombre" class="product-img"></a>
+                </div>
+                <div class="d-flex flex-column gap-1 justify-content-between" style="height: 100%;">
+                  <h2 class="product-title">{{producto.nombre}}</h2>
+                  <div style="display: flex; justify-content: space-between;" v-if="producto.esPorPeso">
+                    <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                      "currency", currency:
+                      "ARS" })}} /Kg</span>
+                  </div>
+                  <div style="display: flex; justify-content: space-between;" v-else>
+                    <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                      "currency", currency:
+                      "ARS" })}} </span>
+                  </div>
+                  <div class="d-flex justify-content-around">
+                    <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
+                    <div v-if="producto.esPorPeso">
+                      <form
+                        @submit.prevent="addCartClicked(producto.url, producto.nombre, producto.precio, producto.esPorPeso)"
+                        style="margin-right: 1rem;">
+                        <input type="number" name="quantity" min="50" max="100000" step="50"
+                          style="width: 6rem; text-align: end;" placeholder="150"
+                          @change="actualizarCantidad($event.target.value)" required />g
+                        <div class="d-flex justify-content-center">
+                          <button type="submit" class="botonCarrito d-flex justify-content-center align-items-center">
+                            <div class="default-btn">
+                              <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
+                                stroke-width="2" stroke="white" height="25" width="25" viewBox="0 0 24 24">
+                                <circle r="1" cy="21" cx="9"></circle>
+                                <circle r="1" cy="21" cx="20"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                              </svg>
+                            </div>
+                            <div class="hover-btn">
+                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30"
+                                width="30">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                  <path
+                                    d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
+                                    fill="#f6be5f"></path>
+                                </g>
+                              </svg>
+                            </div>
+                          </button>
                         </div>
-                        <div class="MasOMenos" v-else>
-                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            v-on:click="cantidadMas(items.nombre, 1)">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z"
-                                fill="#000000"></path>
-                            </g>
-                          </svg>
-                          <label class="cart-quantity" style="width: 30rem;">{{items.cantidad}}</label>
-                          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            v-on:click="cantidadMenos(items.nombre, 1)">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z"
-                                fill="#000000"></path>
-                            </g>
-                          </svg>
-                        </div>
-                      </div>
-                      <!-- v-bind:value="items.cantidad"  -->
+                      </form>
                     </div>
-                    <!-- Remove Cart -->
-                    <i class='bx bxs-trash-alt cart-remove' v-on:click="removeCartItem(items.nombre)"></i>
-                  </div>
-                </template>
-              </div>
-              <!-- Total -->
-              <div class="total">
-                <div class="total-title">Total</div>
-                <div class="total-price">{{totalItems.toLocaleString("es-AR", { style:
-                  "currency", currency:
-                  "ARS" })}} </div>
-              </div>
-              <!-- Buy Button -->
-              <a><button type="button" class="btn-buy" v-on:click="irAComprar">Comprar</button></a>
-            </div>
-            <div v-else style="height: 67vh; display: flex; align-items: center; justify-content: center;">
-              <p>NO TIENES PRODUCTOS EN TU CARRO</p>
-            </div>
-            <!-- Cart Close -->
-            <i class='bx bx-x' id="close-cart" v-on:click="cerrarCarrito"></i>
+                    <div v-else>
+                      <form
+                        @submit.prevent="addCartClicked(producto.url, producto.nombre, producto.precio, producto.esPorPeso)"
+                        style="margin-right: 1rem;">
+                        <input type="number" name="quantity" min="1" max="100000" step="1"
+                          style="width: 6rem; text-align: end;" placeholder="2 unidades"
+                          @change="actualizarCantidad($event.target.value)" required />u
+                        <div class="d-flex justify-content-center">
+                          <button type="submit" class="botonCarrito d-flex justify-content-center align-items-center">
+                            <div class="default-btn">
+                              <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
+                                stroke-width="2" stroke="white" height="25" width="25" viewBox="0 0 24 24">
+                                <circle r="1" cy="21" cx="9"></circle>
+                                <circle r="1" cy="21" cx="20"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                              </svg>
+                            </div>
+                            <div class="hover-btn">
+                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30"
+                                width="30">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                  <path
+                                    d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
+                                    fill="#f6be5f"></path>
+                                </g>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </form>
 
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </template>
+            <div v-else style="height: 50vh; display: flex; align-items: center;">
+              <h2>PRODUCTO NO ENCONTRADO</h2>
+            </div>
           </div>
-        </div>
-
-
-
-
-
-
-
-
-
-        <div class="contenedorProductos">
-          <template v-for="producto in productos" v-if="productos.length > 0" :key="index">
-            <div class="product-box"
-              style="display: flex; justify-content: space-between !important; flex-direction: column;">
-              <div>
-                <a :href="`./detalles.html?nombre=`+producto.nombre"><img v-bind:src="producto.url"
-                    :alt="producto.nombre" class="product-img"></a>
-              </div>
-              <div class="d-flex flex-column gap-1 justify-content-between" style="height: 100%;">
-                <h2 class="product-title">{{producto.nombre}}</h2>
-                <div style="display: flex; justify-content: space-between;" v-if="producto.esPorPeso">
-                  <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
-                    "currency", currency:
-                    "ARS" })}} /Kg</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;" v-else>
-                  <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
-                    "currency", currency:
-                    "ARS" })}} </span>
-                </div>
-                <div class="d-flex justify-content-around">
-                  <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
-                  <div v-if="producto.esPorPeso">
-                    <form
-                      @submit.prevent="addCartClicked(producto.url, producto.nombre, producto.precio, producto.esPorPeso)"
-                      style="margin-right: 1rem;">
-                      <input type="number" name="quantity" min="50" max="100000" step="50"
-                        style="width: 6rem; text-align: end;" placeholder="150"
-                        @change="actualizarCantidad($event.target.value)" required />g
-                      <div class="d-flex justify-content-center">
-                        <button type="submit" class="botonCarrito d-flex justify-content-center align-items-center">
-                          <div class="default-btn">
-                            <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
-                              stroke-width="2" stroke="white" height="25" width="25" viewBox="0 0 24 24">
-                              <circle r="1" cy="21" cx="9"></circle>
-                              <circle r="1" cy="21" cx="20"></circle>
-                              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                          </div>
-                          <div class="hover-btn">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30"
-                              width="30">
-                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                              <g id="SVGRepo_iconCarrier">
-                                <path
-                                  d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
-                                  fill="#f6be5f"></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                  <div v-else>
-                    <form
-                      @submit.prevent="addCartClicked(producto.url, producto.nombre, producto.precio, producto.esPorPeso)"
-                      style="margin-right: 1rem;">
-                      <input type="number" name="quantity" min="1" max="100000" step="1"
-                        style="width: 6rem; text-align: end;" placeholder="2 unidades"
-                        @change="actualizarCantidad($event.target.value)" required />u
-                      <div class="d-flex justify-content-center">
-                        <button type="submit" class="botonCarrito d-flex justify-content-center align-items-center">
-                          <div class="default-btn">
-                            <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none"
-                              stroke-width="2" stroke="white" height="25" width="25" viewBox="0 0 24 24">
-                              <circle r="1" cy="21" cx="9"></circle>
-                              <circle r="1" cy="21" cx="20"></circle>
-                              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
-                          </div>
-                          <div class="hover-btn">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30"
-                              width="30">
-                              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                              <g id="SVGRepo_iconCarrier">
-                                <path
-                                  d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
-                                  fill="#f6be5f"></path>
-                              </g>
-                            </svg>
-                          </div>
-                        </button>
-                      </div>
-                    </form>
-
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </template>
-          <div v-else style="height: 50vh; display: flex; align-items: center;">
-            <h2>PRODUCTO NO ENCONTRADO</h2>
-          </div>
-        </div>
 
       </main>
 
@@ -379,6 +388,8 @@
 
       </footer>
     </div>
+
+  </div>
 
   </div>
 </body>

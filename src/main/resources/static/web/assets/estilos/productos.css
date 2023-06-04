@@ -869,3 +869,7 @@ section {
     opacity: 1;
   }
 } */
+
+.blur {
+  filter: blur(5px);
+}

@@ -52,8 +52,7 @@ public class ProductoControlador {
         return PaisProducto.obtenerPaisProducto();
     }
 
-
-    //    COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
+    //COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
     @Transactional
     @PostMapping("/api/carrito-compra")
     public ResponseEntity<Object> compraProducto(Authentication authentication, @RequestBody CarritoCompraDTO carritoCompraDTO){
