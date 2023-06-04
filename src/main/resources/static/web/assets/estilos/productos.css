@@ -56,6 +56,7 @@ header {
   margin-bottom: .5rem;
 }
 
+
 .estilo-hover:hover {
   color: #f6be5f !important;
   transition: all 0.3s;
