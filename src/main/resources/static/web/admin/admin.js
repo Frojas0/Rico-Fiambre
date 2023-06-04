@@ -29,17 +29,11 @@ const app = createApp({
     },
     created() {
         this.cargarProductosUnidad(),
-<<<<<<< HEAD
         this.cargarProductosPeso(),
         this.cargarTiposProductos(),
         this.cargarPaisesProductos(),
         this.cargarProductosActivos(),
         this.cargarProductosInactivos()
-=======
-            this.cargarProductosPeso(),
-            this.cargarTiposProductos(),
-            this.cargarPaisesProductos()
->>>>>>> 87a7d3fca7fdaf9ce24d32e837c97c2883069cc2
     },
 
     methods: {
@@ -61,7 +55,6 @@ const app = createApp({
                 .catch(error => console.log("error"))
         },
 
-<<<<<<< HEAD
         cargarProductosActivos(){
             axios.get("/api/productos-activos")
             .then(response => {
@@ -81,9 +74,6 @@ const app = createApp({
         },
 
         cargarTiposProductos(){
-=======
-        cargarTiposProductos() {
->>>>>>> 87a7d3fca7fdaf9ce24d32e837c97c2883069cc2
             axios.get("/api/tipos-producto")
                 .then(response => {
                     this.tiposProductos = response.data;
@@ -187,9 +177,6 @@ const app = createApp({
                 }))
         },
 
-<<<<<<< HEAD
-        seleccionarFormCrear() {
-=======
         cerrarSesion(){
             Swal.fire({
                 title: '¿Estas seguro de salir?',
@@ -213,7 +200,6 @@ const app = createApp({
         },
 
         seleccionarFormCrear(){
->>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
             this.mostrarFormCrear = true;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormActivar = false;
