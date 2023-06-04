@@ -25,136 +25,137 @@ const app = createApp({
 
         }
     },
-    created(){
+    created() {
         this.cargarProductosUnidad(),
-        this.cargarProductosPeso(),
-        this.cargarTiposProductos(),
-        this.cargarPaisesProductos()
+            this.cargarProductosPeso(),
+            this.cargarTiposProductos(),
+            this.cargarPaisesProductos()
     },
 
     methods: {
-        cargarProductosUnidad(){
+        cargarProductosUnidad() {
             axios.get("/api/productoUni")
-            .then(response => {
-                this.productosUnidad = response.data;
-                console.log(this.productosUnidad)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.productosUnidad = response.data;
+                    console.log(this.productosUnidad)
+                })
+                .catch(error => console.log("error"))
         },
 
-        cargarProductosPeso(){
+        cargarProductosPeso() {
             axios.get("/api/productoPeso")
-            .then(response => {
-                this.productosPeso = response.data;
-                console.log(this.productosPeso)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.productosPeso = response.data;
+                    console.log(this.productosPeso)
+                })
+                .catch(error => console.log("error"))
         },
 
-        cargarTiposProductos(){
+        cargarTiposProductos() {
             axios.get("/api/tipos-producto")
-            .then(response => {
-                this.tiposProductos = response.data;
-                console.log(this.tiposProductos)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.tiposProductos = response.data;
+                    console.log(this.tiposProductos)
+                })
+                .catch(error => console.log("error"))
         },
 
-        cargarPaisesProductos(){
+        cargarPaisesProductos() {
             axios.get("/api/pais-producto")
-            .then(response => {
-                this.paisesProductos = response.data;
-                console.log(this.paisesProductos)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.paisesProductos = response.data;
+                    console.log(this.paisesProductos)
+                })
+                .catch(error => console.log("error"))
         },
 
-        crearProducto(){
-            axios.post('/api/crear-producto','nombre=' + this.nombreActual 
-            + '&tipoProducto=' + this.tipoProducto + 
-            '&descripcion=' + this.descripcion + 
-            '&stock=' + this.stock + 
-            '&precio=' + this.precio + 
-            '&paisProducto=' + this.paisProducto + 
-            '&esPorPeso=' + this.esPorPeso + 
-            '&url=' + this.imagen)
-            .then(response => {
-                console.log("producto creado")
-                window.location.href = "/web/admin/admin.html"
-            })
-            
-            .catch(error => Swal.fire({
-                title: 'Error',
-                text: error.response.data,
-                icon: 'error'
-            }))
+        crearProducto() {
+            axios.post('/api/crear-producto', 'nombre=' + this.nombreActual
+                + '&tipoProducto=' + this.tipoProducto +
+                '&descripcion=' + this.descripcion +
+                '&stock=' + this.stock +
+                '&precio=' + this.precio +
+                '&paisProducto=' + this.paisProducto +
+                '&esPorPeso=' + this.esPorPeso +
+                '&url=' + this.imagen)
+                .then(response => {
+                    console.log("producto creado")
+                    window.location.href = "/web/admin/admin.html"
+                })
+
+                .catch(error => Swal.fire({
+                    title: 'Error',
+                    text: error.response.data,
+                    icon: 'error'
+                }))
         },
 
-        crearDescuentoProducto(){
-            axios.post('/api/crear-descuento-producto','nombreProducto=' + this.nombreActual + '&valorDescuento=' + this.valorDescuento)
-            .then(response => {
-                console.log("producto con descuento")
-                window.location.href = "/web/admin/admin.html"
-            })
-            
-            .catch(error => Swal.fire({
-                title: 'Error',
-                text: error.response.data,
-                icon: 'error'
-            }))
+        crearDescuentoProducto() {
+            axios.post('/api/crear-descuento-producto', 'nombreProducto=' + this.nombreActual + '&valorDescuento=' + this.valorDescuento)
+                .then(response => {
+                    console.log("producto con descuento")
+                    window.location.href = "/web/admin/admin.html"
+                })
+
+                .catch(error => Swal.fire({
+                    title: 'Error',
+                    text: error.response.data,
+                    icon: 'error'
+                }))
         },
 
-        modificarProducto(){
-            axios.post('/api/modificar-producto',{
+        modificarProducto() {
+            axios.post('/api/modificar-producto', {
                 "nombre": this.nombreActual,
                 "nuevoNombre": this.nuevoNombre,
                 "tipo": this.tipoProducto,
                 "descripcion": this.descripcion,
-                "stock": this.stock, 
+                "stock": this.stock,
                 "precio": this.precio,
                 "origen": this.paisProducto,
-                "url": this.imagen})
-            .then(response => {
-                console.log("producto modificado")
-                window.location.href = "/web/admin/admin.html"
+                "url": this.imagen
             })
-            
-            .catch(error => Swal.fire({
-                title: 'Error',
-                text: error.response.data,
-                icon: 'error'
-            }))
+                .then(response => {
+                    console.log("producto modificado")
+                    window.location.href = "/web/admin/admin.html"
+                })
+
+                .catch(error => Swal.fire({
+                    title: 'Error',
+                    text: error.response.data,
+                    icon: 'error'
+                }))
         },
 
-        desactivarProducto(){
-            axios.post('/api/desactivar-producto','nombre=' + this.nombreActual)
-            .then(response => {
-                console.log("producto desactivado")
-                window.location.href = "/web/admin/admin.html"
-            })
-            
-            .catch(error => Swal.fire({
-                title: 'Error',
-                text: error.response.data,
-                icon: 'error'
-            }))
+        desactivarProducto() {
+            axios.post('/api/desactivar-producto', 'nombre=' + this.nombreActual)
+                .then(response => {
+                    console.log("producto desactivado")
+                    window.location.href = "/web/admin/admin.html"
+                })
+
+                .catch(error => Swal.fire({
+                    title: 'Error',
+                    text: error.response.data,
+                    icon: 'error'
+                }))
         },
 
-        activarProducto(){
-            axios.post('/api/activar-producto','nombre=' + this.nombreActual)
-            .then(response => {
-                console.log("producto activado")
-                window.location.href = "/web/admin/admin.html"
-            })
-            
-            .catch(error => Swal.fire({
-                title: 'Error',
-                text: error.response.data,
-                icon: 'error'
-            }))
+        activarProducto() {
+            axios.post('/api/activar-producto', 'nombre=' + this.nombreActual)
+                .then(response => {
+                    console.log("producto activado")
+                    window.location.href = "/web/admin/admin.html"
+                })
+
+                .catch(error => Swal.fire({
+                    title: 'Error',
+                    text: error.response.data,
+                    icon: 'error'
+                }))
         },
 
-        seleccionarFormCrear(){
+        seleccionarFormCrear() {
             this.mostrarFormCrear = true;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormActivar = false;
@@ -162,7 +163,7 @@ const app = createApp({
             this.mostrarFormModificar = false;
         },
 
-        seleccionarFormCrearDescuento(){
+        seleccionarFormCrearDescuento() {
             this.mostrarFormCrear = false;
             this.mostrarFormCrearDescuento = true;
             this.mostrarFormActivar = false;
@@ -170,7 +171,7 @@ const app = createApp({
             this.mostrarFormModificar = false;
         },
 
-        seleccionarFormModificar(){
+        seleccionarFormModificar() {
             this.mostrarFormCrear = false;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = true;
@@ -178,7 +179,7 @@ const app = createApp({
             this.mostrarFormActivar = false;
         },
 
-        seleccionarFormDesactivar(){
+        seleccionarFormDesactivar() {
             this.mostrarFormCrear = false;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = false;
@@ -186,7 +187,7 @@ const app = createApp({
             this.mostrarFormActivar = false;
         },
 
-        seleccionarFormActivar(){
+        seleccionarFormActivar() {
             this.mostrarFormCrear = false;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = false;
