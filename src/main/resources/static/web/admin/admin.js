@@ -4,11 +4,14 @@ const app = createApp({
     data() {
         return {
             mostrarFormCrear: false,
+            mostrarFormCrearDescuento: false,
             mostrarFormModificar: false,
             mostrarFormDesactivar: false,
             mostrarFormActivar: false,
             productosPeso: [],
             productosUnidad: [],
+            tiposProductos: [],
+            paisesProductos: [],
             nombreActual: "",
             tipoProducto: "",
             descripcion: "",
@@ -18,13 +21,15 @@ const app = createApp({
             esPorPeso: false,
             imagen: "",
             nuevoNombre: "",
-            tiposProductos: [],
+            valorDescuento: "",
+
         }
     },
     created(){
         this.cargarProductosUnidad(),
         this.cargarProductosPeso(),
-        this.cargarTiposProductos()
+        this.cargarTiposProductos(),
+        this.cargarPaisesProductos()
     },
 
     methods: {
@@ -55,6 +60,15 @@ const app = createApp({
             .catch(error => console.log("error"))
         },
 
+        cargarPaisesProductos(){
+            axios.get("/api/pais-producto")
+            .then(response => {
+                this.paisesProductos = response.data;
+                console.log(this.paisesProductos)
+            })
+            .catch(error => console.log("error"))
+        },
+
         crearProducto(){
             axios.post('/api/crear-producto','nombre=' + this.nombreActual 
             + '&tipoProducto=' + this.tipoProducto + 
@@ -66,6 +80,21 @@ const app = createApp({
             '&url=' + this.imagen)
             .then(response => {
                 console.log("producto creado")
+                window.location.href = "/web/admin/admin.html"
+            })
+            
+            .catch(error => Swal.fire({
+                title: 'Error',
+                text: error.response.data,
+                icon: 'error'
+            }))
+        },
+
+        crearDescuentoProducto(){
+            axios.post('/api/crear-descuento-producto','nombreProducto=' + this.nombreActual + '&valorDescuento=' + this.valorDescuento)
+            .then(response => {
+                console.log("producto con descuento")
+                window.location.href = "/web/admin/admin.html"
             })
             
             .catch(error => Swal.fire({
@@ -79,12 +108,15 @@ const app = createApp({
             axios.post('/api/modificar-producto',{
                 "nombre": this.nombreActual,
                 "nuevoNombre": this.nuevoNombre,
+                "tipo": this.tipoProducto,
                 "descripcion": this.descripcion,
                 "stock": this.stock, 
                 "precio": this.precio,
+                "origen": this.paisProducto,
                 "url": this.imagen})
             .then(response => {
                 console.log("producto modificado")
+                window.location.href = "/web/admin/admin.html"
             })
             
             .catch(error => Swal.fire({
@@ -98,6 +130,7 @@ const app = createApp({
             axios.post('/api/desactivar-producto','nombre=' + this.nombreActual)
             .then(response => {
                 console.log("producto desactivado")
+                window.location.href = "/web/admin/admin.html"
             })
             
             .catch(error => Swal.fire({
@@ -111,6 +144,7 @@ const app = createApp({
             axios.post('/api/activar-producto','nombre=' + this.nombreActual)
             .then(response => {
                 console.log("producto activado")
+                window.location.href = "/web/admin/admin.html"
             })
             
             .catch(error => Swal.fire({
@@ -122,6 +156,15 @@ const app = createApp({
 
         seleccionarFormCrear(){
             this.mostrarFormCrear = true;
+            this.mostrarFormCrearDescuento = false;
+            this.mostrarFormActivar = false;
+            this.mostrarFormDesactivar = false;
+            this.mostrarFormModificar = false;
+        },
+
+        seleccionarFormCrearDescuento(){
+            this.mostrarFormCrear = false;
+            this.mostrarFormCrearDescuento = true;
             this.mostrarFormActivar = false;
             this.mostrarFormDesactivar = false;
             this.mostrarFormModificar = false;
@@ -129,6 +172,7 @@ const app = createApp({
 
         seleccionarFormModificar(){
             this.mostrarFormCrear = false;
+            this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = true;
             this.mostrarFormDesactivar = false;
             this.mostrarFormActivar = false;
@@ -136,6 +180,7 @@ const app = createApp({
 
         seleccionarFormDesactivar(){
             this.mostrarFormCrear = false;
+            this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = false;
             this.mostrarFormDesactivar = true;
             this.mostrarFormActivar = false;
@@ -143,6 +188,7 @@ const app = createApp({
 
         seleccionarFormActivar(){
             this.mostrarFormCrear = false;
+            this.mostrarFormCrearDescuento = false;
             this.mostrarFormModificar = false;
             this.mostrarFormDesactivar = false;
             this.mostrarFormActivar = true;
