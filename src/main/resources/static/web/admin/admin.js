@@ -155,7 +155,33 @@ const app = createApp({
                 }))
         },
 
+<<<<<<< HEAD
         seleccionarFormCrear() {
+=======
+        cerrarSesion(){
+            Swal.fire({
+                title: '¿Estas seguro de salir?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Cerrar sesion'
+              }).then(result => {
+                    if (result.isConfirmed){
+                        axios.post('/api/logout')
+                        .then(response =>  window.location.href="/web/index.html")
+                        .catch(error => Swal.fire({
+                            title: 'Error',
+                            text: error.response.data,
+                            icon: 'error'
+                        }))   
+                    }
+            })
+        },
+
+        seleccionarFormCrear(){
+>>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
             this.mostrarFormCrear = true;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormActivar = false;
