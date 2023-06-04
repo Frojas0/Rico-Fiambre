@@ -111,10 +111,11 @@ header {
 
 .iconoBusqueda {
     position: absolute;
-    left: 1rem;
+    top: 3px;
+    left: 7px;
     fill: black;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* ---------- MAIN ---------- */
@@ -258,8 +259,8 @@ main {
 
 .product-box {
     position: relative;
-    border: 1.5px solid black;
-    height: 29rem;
+    /* border: 1.5px solid black; */
+    height: 23rem;
     width: 18rem;
     background-color: #ededed;
     overflow: hidden;
@@ -270,8 +271,6 @@ main {
 
 .product-box:hover {
     transform: scale(1.05);
-
-
 }
 
 .product-box:hover img {
@@ -297,11 +296,14 @@ main {
     margin-top: 0.5rem;
     background-color: #ededed;
     width: 100%;
+    padding-top: .5rem;
 }
 
 .price {
     font-weight: 300;
-    margin-left: 2.5rem;
+    margin: auto;
+    font-weight: bolder;
+    padding-bottom: 1rem;
 }
 
 .add-cart {

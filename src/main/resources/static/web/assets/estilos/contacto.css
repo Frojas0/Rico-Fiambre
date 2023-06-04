@@ -105,10 +105,11 @@ header {
 
 .iconoBusqueda {
   position: absolute;
-  left: 1rem;
+  top: 3px;
+  left: 7px;
   fill: black;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* ---------- MAIN ---------- */
