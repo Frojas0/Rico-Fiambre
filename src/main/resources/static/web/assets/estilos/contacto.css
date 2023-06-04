@@ -141,13 +141,13 @@ footer {
   color: white;
   width: 97%;
   border-radius: 2rem;
-  height: 15rem;
+  height: 12rem;
 }
 
 .input-container {
   position: relative;
   display: flex;
-  height: 2.8rem;
+  height: 2rem;
   width: 100%;
   min-width: 200px;
   max-width: 250px;
@@ -211,6 +211,79 @@ footer {
   background-color: gray;
   opacity: 0.5;
 }
+
+.footerInfoContainer {
+  height: 10rem;
+}
+
+
+
+
+
+
+
+/* Boton sociales */
+.link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.nombreLink {
+  margin-top: .5rem;
+}
+
+.social-links,
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.social-btn svg {
+  height: 24px;
+  width: 24px;
+}
+
+.social-btn span {
+  width: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.social-btn:hover {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.social-btn:hover span {
+  padding: 2px;
+  width: 80px;
+}
+
+#linkedin svg {
+  fill: #0e76a8;
+}
+
+#github {
+  fill: #333;
+}
+
 
 /*---------------------*/
 
@@ -437,7 +510,7 @@ hr {
   width: fit-content;
 }
 
-/* Begin Media Queries*/
+/* Media Queries*/
 @media screen and (max-width: 850px) {
   .contact-wrapper {
     display: flex;
@@ -538,5 +611,76 @@ hr {
 
   .form-horizontal {
     max-width: 300px;
+  }
+}
+
+
+
+
+
+
+
+/* PANTALLA DE CARGA */
+[v-cloak] {
+  display: none;
+}
+
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dots-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #b3d4fc;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+  margin-right: 0;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.3s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.1s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-color: #6793fb;
+    box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    background-color: #b3d4fc;
+    box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
   }
 }

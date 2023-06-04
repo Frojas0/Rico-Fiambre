@@ -34,7 +34,7 @@ header {
 #navbarNav {
     justify-content: end;
     align-items: center;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .container-fluid {

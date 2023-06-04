@@ -213,7 +213,7 @@ label.radio input:checked+span {
 }
 
 .credit-card-label {
-  font-size: 9px;
+  font-size: 15px;
   font-weight: 300;
 }
 
@@ -264,4 +264,13 @@ label.radio input:checked+span {
   background-position-y: 45%;
   height: 100%;
   ;
+}
+
+/* .span{
+  font-size: 15px !important;
+} */
+.cart-remove {
+  font-size: 24px;
+  color: var(--main-color);
+  cursor: pointer;
 }
