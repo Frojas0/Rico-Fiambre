@@ -24,7 +24,8 @@ const app = createApp({
       mostrarProductosUnidad: false,
       tipoDeProductos: [],
       selectedTipoProducto: undefined,
-      isLoading: true
+      isLoading: true,
+      blurONoBluEsaEsLaCuestion : 'clase-no-blur'
     }
   },
   created() {
@@ -115,11 +116,13 @@ const app = createApp({
       let cart = document.querySelector(".cart");
       cart.classList.add('active');
       this.carritoPendientes = JSON.parse(localStorage.getItem('carritoDeCompras')) || []
+      this.blurONoBluEsaEsLaCuestion = 'clase-blur';
       this.updatetotal()
     },
     cerrarCarrito() {
       let cart = document.querySelector(".cart");
       cart.classList.remove("active");
+      this.blurONoBluEsaEsLaCuestion = 'clase-no-blur'
     },
     removeCartItem(nombre) {
       console.log('funciona borrar')
@@ -250,9 +253,9 @@ const app = createApp({
   },
 
   computed: {
-    actualizarLocalStorage() {
-      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-    },
+    // actualizarLocalStorage() {
+    //   localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
+    // },
     filtro() {
       try {
         this.productos = this.todosLosProductos.filter(producto => producto.nombre.toUpperCase().includes(this.busquedaSeleccionada.toUpperCase()))

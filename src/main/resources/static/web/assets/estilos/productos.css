@@ -870,6 +870,10 @@ section {
   }
 } */
 
-.blur {
+.clase-blur {
   filter: blur(5px);
+}
+.clase-no-blur{
+  filter: none;
+
 }
