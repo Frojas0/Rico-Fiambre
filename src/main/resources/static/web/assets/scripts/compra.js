@@ -12,7 +12,7 @@ const app = createApp({
         traerDatos() {
             this.itemsParaPagar = JSON.parse(localStorage.getItem('carritoDeCompras'))
             console.log(this.itemsParaPagar)
-        }
+        },
     }
 })
 app.mount('#vueApp')

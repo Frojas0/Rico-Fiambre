@@ -17,7 +17,14 @@ const app = createApp({
           carritoPendientes:[],
           totalItems:0,
           listaModalDetalles: [],
-          busquedaSeleccionada: undefined
+          busquedaSeleccionada: undefined,
+          inputs: [],
+          cantidadSeleccionada : Number,
+          checkboxChecked: false,
+          mostrarProductosUnidad: false,
+          tipoDeProductos : [],
+          selectedTipoProducto:undefined
+
         }
     },
     created() {
@@ -27,6 +34,8 @@ const app = createApp({
         axios.get('/api/productoPeso')
         .then(response => {
           this.todosLosProductos = this.todosLosProductos.concat(response.data);
+          this.productos = this.todosLosProductos.filter(producto => producto.nombre.includes(nombreURL))
+          console.log(this.productos)
         })
         .then(response => {
           console.log(this.productos)
@@ -38,163 +47,215 @@ const app = createApp({
         })
         .then(response => {
           this.productos = this.todosLosProductos.filter(producto => producto.nombre.includes(nombreURL))
+          console.log(nombreURL)
+          console.log(this.productos)
+
         })
       }
+      axios.get('/api/tipos-producto')
+      .then(response =>  {
+        this.tipoDeProductos = response.data
+        console.log(response.data)
+      }
+      ) 
     },
     methods: {
-        ejecutarPrograma() {
-          axios.get('/api/productoPeso')
-          .then(response => {
-            this.todosLosProductos = this.todosLosProductos.concat(response.data);
-            this.productos = this.todosLosProductos
-          })
-          .then(response => {
-            console.log(this.productos)
-          })
-        
-        axios.get('/api/productoUni')
-          .then(response => {
-            this.todosLosProductos = this.todosLosProductos.concat(response.data);
-            this.productos = this.todosLosProductos
-          })
-          .then(response => {
-            console.log(nombreURL)
-            this.productos = this.todosLosProductos
-          })
+      filtrarPor(){
+        this.productos = this.todosLosProductos
+        if (this.selectedTipoProducto === 'TODOS'){
+          this.productos = this.todosLosProductos
+        }else if(this.selectedTipoProducto === 'precioMayor'){
+          this.productos.sort((a, b) => b.precio - a.precio)
+        } else if (this.selectedTipoProducto === 'precioMenor'){
+          this.productos.sort((a, b) => a.precio - b.precio)
+        } else if ( this.selectedTipoProducto === 'productoPeso'){
+          this.productos = this.todosLosProductos.filter(producto => producto.esPorPeso)
+        } else if(this.selectedTipoProducto === 'productoUni'){
+          this.productos = this.todosLosProductos.filter(producto => !producto.esPorPeso)
+        } else {
+          this.productos = this.todosLosProductos
+          productoTipo = []
+          for (let i = 0; i < this.productos.length; i++) {
+            if (this.productos[i].tipo === this.selectedTipoProducto) {
+              productoTipo.push(this.productos[i])
+            }
+          }
+          this.productos = productoTipo
+        }
+      },
+      ejecutarPrograma() {
+        axios.get('/api/productoPeso')
+        .then(response => {
+          this.todosLosProductos = this.todosLosProductos.concat(response.data);
+          this.productos = this.todosLosProductos
+        })
+        .then(response => {
+          console.log(this.productos)
+        })
+      
+      axios.get('/api/productoUni')
+        .then(response => {
+          this.todosLosProductos = this.todosLosProductos.concat(response.data);
+          this.productos = this.todosLosProductos
+        })
+        .then(response => {
+          console.log(nombreURL)
+          this.productos = this.todosLosProductos
+        })
 
-        },
-        mostrarProductosPorPeso(){
-          this.productos = this.todosLosProductos
-          productoPeso1 = []
-          for (let i = 0; i < this.productos.length; i++) {
-            if (this.productos[i].esPorPeso) {
-              productoPeso1.push(this.productos[i])
-            }
+      },
+      actualizarCantidad(cantidad){
+        let numero = parseFloat(cantidad);
+        this.cantidadSeleccionada = numero
+      },
+      abrirCarrito(){
+          let cart = document.querySelector(".cart");
+          cart.classList.add('active');
+          this.carritoPendientes = JSON.parse(localStorage.getItem('carritoDeCompras')) || []
+          this.updatetotal()
+      },
+      cerrarCarrito(){
+          let cart = document.querySelector(".cart");
+          cart.classList.remove("active");
+      },
+      removeCartItem(nombre) {
+      console.log('funciona borrar')
+      console.log(nombre)
+
+      let contador =0
+      for(let element of this.carritoPendientes){
+          if(element.nombre === nombre){
+              console.log(element.nombre)
+              break;
           }
-          this.productos = productoPeso1
-        },
-        mostrarProductosPorUnidad(){
-          this.productos = this.todosLosProductos
-          productoUni1 = []
-          for (let i = 0; i < this.productos.length; i++) {
-            if (this.productos[i].esPorPeso == false) {
-              productoUni1.push(this.productos[i])
-            }
-          }
-          this.productos = productoUni1
-        },
-        mostrarDetails(valor) {
-          for (let i of this.todosLosProductos) {
-              if (valor == i.nombre) {
-                  this.listaModalDetalles = i
-              }
-          }
+          contador++
+      }
+
+      console.log(contador)
+      this.carritoPendientes.splice(contador,1)
+
+      console.log(this.carritoPendientes)
+      this.updatetotal()
+      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
       },
 
+    cantidadMas(nombre, valor) {
+      for(let elemento of this.carritoPendientes){
+        if(elemento.nombre === nombre) {
+          if(valor == 1){
+            elemento.precio += (elemento.precio / elemento.cantidad)
+            elemento.cantidad =  elemento.cantidad + valor
+          } else {
+            elemento.precio += ((50 * elemento.precio) / elemento.cantidad) 
+            elemento.cantidad = elemento.cantidad + valor
+          }
+        }
+      }
+      this.updatetotal()
+      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
+    },
 
+    cantidadMenos(nombre, valor) {
+      for(let elemento of this.carritoPendientes){
+        if(elemento.nombre === nombre && elemento.cantidad - valor >= 1){
+          if(valor == 1){
+            elemento.precio -= (elemento.precio / elemento.cantidad) * valor
+            elemento.cantidad = elemento.cantidad - valor
+          } else {
+            elemento.precio -= ((50 * elemento.precio) / elemento.cantidad) 
+            elemento.cantidad = elemento.cantidad - valor
+          }
+        }
+      }
+      this.updatetotal()
+      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
 
-        abrirCarrito(){
-            let cart = document.querySelector(".cart");
-            cart.classList.add('active');
-            // console.log(cart)
+    },
 
+// ------------------------------------------------------------------------------------------------
+//               ESTO SOLO VA EN PRODUCTO.JS, LOS DEMAS JS NO LO NECESITAN
 
-            this.carritoPendientes = JSON.parse(localStorage.getItem('carritoDeCompras')) || []
-            console.log(JSON.parse(localStorage.getItem('carritoDeCompras')) || [])
-        },
-        cerrarCarrito(){
-            let cart = document.querySelector(".cart");
-            cart.classList.remove("active");
-        },
-        removeCartItem(nombre) {
-        console.log('funciona borrar')
-        console.log(nombre)
+    addCartClicked(imagen, nombrePorParametro, precio, esPorPeso) {
+      let encontrado = false;
 
-        let contador =0
-        for(let element of this.carritoPendientes){
-            if(element.nombre === nombre){
-                console.log(element.nombre)
-                break;
-            }
-            contador++
+      for (let i = 0; i < this.carritoPendientes.length; i++) {
+        if (this.carritoPendientes[i].nombre === nombrePorParametro) {
+          if(esPorPeso){
+            this.cantidadMas(nombrePorParametro, 50)
+            encontrado = true;
+            break;
+          } else {
+            this.cantidadMas(nombrePorParametro, 1)
+            encontrado = true;
+            break;
+          }
+        }
+      }
+    
+      if (!encontrado) {
+        if(esPorPeso){
+          let itemNuevo = {
+            url: imagen,
+            nombre: nombrePorParametro,
+            precio: precio * (this.cantidadSeleccionada / 1000),
+            cantidad: this.cantidadSeleccionada,
+            esPorPeso: esPorPeso
+          }
+          this.carritoPendientes.push(itemNuevo);
+        } else {
+          let itemNuevo = {
+            url: imagen,
+            nombre: nombrePorParametro,
+            precio: precio * this.cantidadSeleccionada,
+            cantidad: this.cantidadSeleccionada,
+            esPorPeso: esPorPeso
+          }
+          this.carritoPendientes.push(itemNuevo);
         }
 
-        console.log(contador)
-        this.carritoPendientes.splice(contador,1)
-
-        console.log(this.carritoPendientes)
-        this.updatetotal()
-        localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-        },
-          cantidadMas(nombre) {
-
-          for(let elemento of this.carritoPendientes){
-            if(elemento.nombre === nombre)
-              elemento.cantidad =  elemento.cantidad + 1
-          }
-
-
-          this.updatetotal()
-          localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-
-        },
-
-        cantidadMenos(nombre) {
-          for(let elemento of this.carritoPendientes){
-            if(elemento.nombre === nombre)
-              elemento.cantidad = elemento.cantidad - 1
-          }
-
-
-          this.updatetotal()
-          localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-
-        },
-
-            addCartClicked(imagen, nombre, precio) {
-            let itemNuevo = {
-              url: imagen,
-              nombre: nombre,
-              precio: precio,
-              cantidad: 1
-            }
-
-            this.carritoPendientes.push(itemNuevo)
-
-            console.log( this.carritoPendientes)
-
-            // this.addProductToCart()
-            this.updatetotal()
-            localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-          },
-
-
-            updatetotal() {
-            console.log(this.totalItem)
-
-            this.totalItems =0
-            for(let element of this.carritoPendientes){
-              this.totalItems = this.totalItems + parseInt(element.precio)*element.cantidad
-
-            }
-            console.log(this.contador)
-            console.log(this.totalItems)
-          }
-      },
-
-      computed:{
-          actualizarLocalStorage(){
-            localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-          },
-          filtro() {
-            
-            try {
-              this.productos = this.todosLosProductos.filter(producto => producto.nombre.toUpperCase().includes(this.busquedaSeleccionada.toUpperCase()))
-            } catch (error) {
-            }
-          
-          
-          },
       }
+
+      // console.log( this.carritoPendientes)
+      this.updatetotal()
+      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
+    },
+
+// ------------------------------------------------------------------------------------------------
+
+    updatetotal() {
+      this.totalItems =0;
+      console.log(this.carritoPendientes);
+      for(let element of this.carritoPendientes){
+        this.totalItems += element.precio
+      }
+
+    },
+
+    irAComprar(){
+      axios.get('/api/clientes/actual')
+      .then(response => {
+          window.location.replace('./compra.html')
+      })
+      .catch(error => {
+        console.log(error)
+        Swal.fire({
+          icon: 'info',
+          text: 'Tienes que estar logueado para comprar',
+        })
+      })
+    }
+  },
+
+  computed:{
+    actualizarLocalStorage(){
+      localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
+    },
+    filtro() {
+      try {
+        this.productos = this.todosLosProductos.filter(producto => producto.nombre.toUpperCase().includes(this.busquedaSeleccionada.toUpperCase()))
+      } catch (error) {
+      }
+    }
+  }
 })
 app.mount('#vueApp')

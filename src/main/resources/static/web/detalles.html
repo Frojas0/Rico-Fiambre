@@ -37,24 +37,20 @@
               <li class="nav-item">
                 <a class="nav-link estilo-hover" href="./contacto.htm">CONTACTO</a>
               </li>
-              <!-- <li class="nav-item" v-on:click="logOut">
-                  <button class="nav-link outButton">LOG OUT</button>
-                </li> -->
-
-              <div class="input-group-sm d-flex">
-                <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
-                  aria-describedby="button-addon2">
-                <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
-                    id="button-addon2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
-                      width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                      <path d="M21 21l-6 -6" />
-                    </svg>
-                  </button></a>
+              <li class="nav-item">
+                <a class="nav-link estilo-hover active" href="./detalles.html">DETALLE</a>
+              </li>
+              <div class="grupo">
+                <svg type="button" class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
+                  <g>
+                    <path
+                      d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                    </path>
+                  </g>
+                </svg>
+                <input class="inputBusqueda" placeholder="Search" type="search" class="input">
               </div>
+
               <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                 <li class="nav-item">
                   <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
@@ -69,17 +65,16 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart svg-hover"
-                      width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                      stroke-linecap="round" stroke-linejoin="round">
+                  <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round">
                       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                       <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                       <path d="M17 17h-11v-14h-2" />
                       <path d="M6 5l14 1l-1 7h-13" />
-                    </svg>
-                  </a>
+                    </svg></a>
                 </li>
               </div>
             </ul>
@@ -89,7 +84,7 @@
     </header>
 
     <main>
-      <div class="d-flex justify-content-center align-items-center">
+      <!-- <div class="d-flex justify-content-center align-items-center">
         <div>
           <div class="foto-redes">
             <img v-bind:src="productoFiltrado.url" alt="">
@@ -113,13 +108,6 @@
             <input type="number">
             <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
               <div class="alt-send-button">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="24" height="24"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 14l11 -11" />
-                    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                  </svg> -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart svg-hover"
                   width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -130,12 +118,71 @@
                   <path d="M6 5l14 1l-1 7h-13" />
                 </svg>
                 <span class="send-text">SEND</span>
-                <!-- <i class="fa fa-paper-plane"></i> -->
               </div>
             </button>
           </div>
         </div>
+      </div> -->
+
+
+
+
+      <div class="d-flex flex-column justify-content-around align-items-center">
+        <div class="contenedorImgInfo d-flex justify-content-center gap-5 flex-wrap">
+          <div class="contenedorImagen">
+            <img class="imagenProducto" :src="productoFiltrado.url" :alt="productoFiltrado.nombre">
+          </div>
+          <div class="contenedorInfo">
+            <h2>{{productoFiltrado.nombre}}</h2>
+            <h2 class="precioProducto">{{productoFiltrado.precio.toLocaleString("es-AR", { style:
+              "currency", currency:
+              "ARS" })}}</h2>
+            <div class="cantidad d-flex justify-content-center flex-column align-items-center">
+              <p>CANTIDAD</p>
+              <div v-if="productoFiltrado.esPorPeso">
+                <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
+                  style="width: 6rem; text-align: end;" placeholder="150g" />/g
+              </div>
+              <div v-else>
+                <input type="number" id="quantity" name="quantity" min="0" max="100000" step="1"
+                  style="width: 6rem; text-align: end;" placeholder="2 unidades" />/u
+              </div>
+            </div>
+            <div class="contenedorCarrito">
+              <button class="botCarrito d-flex justify-content-center align-items-center">
+                <div class="botonDefecto">
+                  <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
+                    stroke="white" height="25" width="25" viewBox="0 0 24 24">
+                    <circle r="1" cy="21" cx="9"></circle>
+                    <circle r="1" cy="21" cx="20"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                  </svg>
+                  <span style="margin-top: 5px;">COMPRAR</span>
+                </div>
+                <div class=" hoverBtn">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30" width="30">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
+                        fill="#f6be5f"></path>
+                    </g>
+                  </svg>
+                  <span style="margin-top: 5px;">+CARRITO</span>
+                </div>
+              </button>
+            </div>
+            <div class="contenedorTexto">
+              <p>{{productoFiltrado.descripcion}}</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="d-flex justify-content-center">
+        <h2 class="productosRelacionados">PRODUCTOS RELACIONADOS</h2>
+      </div>
+
 
       <div class="contenedorProductos">
         <template v-for="producto in todosLosProductos">
@@ -143,283 +190,65 @@
             style="display: flex; justify-content: space-between !important; flex-direction: column;"
             v-if="productoFiltrado.tipo === producto.tipo && producto.nombre !== productoFiltrado.nombre">
             <div>
-              <img v-bind:src="producto.url" alt="" class="product-img">
+              <a :href="`./detalles.html?nombre=`+producto.nombre"><img v-bind:src="producto.url" :alt="producto.nombre"
+                  class="product-img"></a>
             </div>
-            <div>
+            <div class="d-flex flex-column gap-1 justify-content-between" style="height: 100%;">
               <h2 class="product-title">{{producto.nombre}}</h2>
               <div style="display: flex; justify-content: space-between;" v-if="producto.esPorPeso">
-                <span class="price">kg: {{producto.precio.toLocaleString("es-AR", { style:
+                <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
                   "currency", currency:
-                  "ARS" })}} </span>
+                  "ARS" })}} /Kg</span>
               </div>
               <div style="display: flex; justify-content: space-between;" v-else>
                 <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}} </span>
               </div>
-              <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
+              <div class="d-flex justify-content-around">
                 <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
                 <div v-if="producto.esPorPeso">
                   <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
-                    style="width: 6rem; text-align: end;" placeholder="150g" />g
+                    style="width: 6rem; text-align: end;" placeholder="150g" />/g
                 </div>
                 <div v-else>
                   <input type="number" id="quantity" name="quantity" min="0" max="100000" step="1"
-                    style="width: 6rem; text-align: end;" placeholder="2 unidades" />u
+                    style="width: 6rem; text-align: end;" placeholder="2 unidades" />/u
                 </div>
-                <!-- <i class='bx bx-shopping-bag add-cart'
-                  v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i> -->
               </div>
-              <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-                <div class="alt-send-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="24"
-                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 14l11 -11" />
-                    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                  </svg>
-                  <span class="send-text">SEND</span>
-                  <!-- <i class="fa fa-paper-plane"></i> -->
-                </div>
-              </button>
+              <div class="d-flex justify-content-center">
+                <button class="botonCarrito d-flex justify-content-center align-items-center">
+                  <div class="default-btn">
+                    <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2"
+                      stroke="white" height="25" width="25" viewBox="0 0 24 24">
+                      <circle r="1" cy="21" cx="9"></circle>
+                      <circle r="1" cy="21" cx="20"></circle>
+                      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                  </div>
+                  <div class="hover-btn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" height="30" width="30">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M10.39 11.5C10.39 11.09 10.73 10.75 11.14 10.75H12.39V9.5C12.39 9.09 12.73 8.75 13.14 8.75C13.55 8.75 13.89 9.09 13.89 9.5V10.75H15.14C15.55 10.75 15.89 11.09 15.89 11.5C15.89 11.91 15.55 12.25 15.14 12.25H13.89V13.5C13.89 13.91 13.55 14.25 13.14 14.25C12.73 14.25 12.39 13.91 12.39 13.5V12.25H11.14C10.73 12.25 10.39 11.91 10.39 11.5ZM11.25 18.75C11.25 19.58 10.58 20.25 9.75 20.25C8.92 20.25 8.25 19.58 8.25 18.75C8.25 17.92 8.92 17.25 9.75 17.25C10.58 17.25 11.25 17.92 11.25 18.75ZM17.75 18.75C17.75 19.58 17.08 20.25 16.25 20.25C15.42 20.25 14.75 19.58 14.75 18.75C14.75 17.92 15.42 17.25 16.25 17.25C17.08 17.25 17.75 17.92 17.75 18.75ZM20.73 7.68L18.73 15.68C18.65 16.01 18.35 16.25 18 16.25H8C7.64 16.25 7.33 15.99 7.26 15.63L5.37 5.25H4C3.59 5.25 3.25 4.91 3.25 4.5C3.25 4.09 3.59 3.75 4 3.75H6C6.36 3.75 6.67 4.01 6.74 4.37L7.17 6.75H20C20.23 6.75 20.45 6.86 20.59 7.04C20.73 7.22 20.78 7.46 20.73 7.68ZM19.04 8.25H7.44L8.62 14.75H17.41L19.03 8.25H19.04Z"
+                          fill="#f6be5f"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+
+
+
             </div>
           </div>
         </template>
       </div>
-
-      <div>
-        <h3>PRODUCTOS RELACIONADOS</h3>
-        <!-- v-if=productoFiltrado.tipo === producto.tipo -->
-        <!-- <template v-for="producto of todosLosProductos">
-          <div class="product-box"
-            style="display: flex; justify-content: space-between !important; flex-direction: column;"
-            v-if="producto.tipo === productoFiltrado.tipo">
-            <div>
-              IMAGEN
-              <img v-bind:src="producto.url" alt="" class="product-img">
-            </div>
-            <div>
-              <h2 class="product-title">{{producto.nombre}}</h2>
-              <div style="display: flex; justify-content: space-between;">
-                <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
-                  "currency", currency:
-                  "ARS" })}}</span>
-              </div>
-              <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                <p style="padding: 0; margin-bottom: 0; margin-left: 1rem;">Cantidad: </p>
-                <div>
-                  <input type="number" id="quantity" name="quantity" min="0" max="100000" step="50"
-                    style="width: 6rem; text-align: end;" />gr
-                </div>
-                <i class='bx bx-shopping-bag add-cart'
-                  v-on:click="addCartClicked(producto.url,producto.nombre,producto.precio)"></i>
-              </div>
-            </div>
-          </div>
-        </template> -->
-      </div>
     </main>
     <footer>
-      <div class="d-flex justify-content-between flex-wrap">
-        <div class="d-flex flex-column">
-          <h6>Contactanos</h6>
-          <a href="https://web.whatsapp.com/" style="text-decoration: none; color: white;">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30"
-              height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-              <path
-                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-            </svg>1134873497</a>
 
-          <a href="mailto:info@ricofiambre.com" style="text-decoration: none; color: white;"><svg
-              xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-question" width="30"
-              height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 19h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4.5" />
-              <path d="M19 22v.01" />
-              <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
-              <path d="M3 7l9 6l9 -6" />
-            </svg>info@ricofiambre.com</a>
-
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="30" height="30"
-              viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-              <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-            </svg>Corrientes 1669(CABA)</p>
-        </div>
-
-        <div class="d-flex flex-column" style="gap: 0.3rem;">
-          <div class="d-flex" style="gap: 0.3rem;">
-            <button class="btn-cssbuttons">
-              <span>Agustin Martinez</span><span>
-                <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                  class="icon">
-                  <path fill="#ffffff"
-                    d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                  </path>
-                </svg>
-              </span>
-              <ul>
-                <li>
-                  <a href="https://www.linkedin.com/in/agustin-martinez-b26978217"><svg class="icon" fill="currentColor"
-                      height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="white"
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                      </path>
-                    </svg></a>
-                </li>
-
-                <li>
-                  <a href="https://github.com/guttiAle"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                      version="1.1" viewBox="0 0 1024 1024" class="icon">
-                      <path fill="white"
-                        d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                      </path>
-                    </svg></a>
-                </li>
-              </ul>
-            </button>
-
-            <button class="btn-cssbuttons">
-              <span>Facundo Rojas</span><span>
-                <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                  class="icon">
-                  <path fill="#ffffff"
-                    d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                  </path>
-                </svg>
-              </span>
-              <ul>
-                <li>
-                  <a href="https://www.linkedin.com/in/facundorojas"><svg class="icon" fill="currentColor" height="18"
-                      width="18" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="white"
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                      </path>
-                    </svg></a>
-                </li>
-
-                <li>
-                  <a href="https://github.com/Frojas0"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                      version="1.1" viewBox="0 0 1024 1024" class="icon">
-                      <path fill="white"
-                        d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                      </path>
-                    </svg></a>
-                </li>
-              </ul>
-            </button>
-          </div>
-
-          <div class="d-flex" style="gap: 0.3rem;">
-            <button class="btn-cssbuttons">
-              <span>German Gonzalez</span><span>
-                <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                  class="icon">
-                  <path fill="#ffffff"
-                    d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                  </path>
-                </svg>
-              </span>
-              <ul>
-                <li>
-                  <a href="https://ar.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><svg class="icon"
-                      fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="white"
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                      </path>
-                    </svg></a>
-                </li>
-
-                <li>
-                  <a href="https://github.com/5ag5"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                      version="1.1" viewBox="0 0 1024 1024" class="icon">
-                      <path fill="white"
-                        d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                      </path>
-                    </svg></a>
-                </li>
-              </ul>
-            </button>
-
-            <button class="btn-cssbuttons">
-              <span>Jennifer Mota</span><span>
-                <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                  class="icon">
-                  <path fill="#ffffff"
-                    d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                  </path>
-                </svg>
-              </span>
-              <ul>
-                <li>
-                  <a href="https://ar.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><svg class="icon"
-                      fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                      <path fill="white"
-                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                      </path>
-                    </svg></a>
-                </li>
-
-                <li>
-                  <a href="https://github.com/Jennifermotaochoa"><svg height="18" width="18"
-                      xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" class="icon">
-                      <path fill="white"
-                        d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                      </path>
-                    </svg></a>
-                </li>
-              </ul>
-            </button>
-          </div>
-        </div>
-
-        <div class="d-flex flex-column">
-          <div class="d-flex flex-column">
-            <h6>Redes sociales</h6>
-            <div class="d-flex">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="30"
-                height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-              </svg>
-
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="30"
-                height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                <path d="M16.5 7.5l0 .01" />
-              </svg>
-            </div>
-          </div>
-
-          <div class="d-flex flex-column">
-            <h6>Recibi nuestras promociones</h6>
-            <div class="input-group-sm mb-3 d-flex">
-              <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username"
-                aria-describedby="button-addon2">
-              <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="20" height="20"
-                  viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M10 14l11 -11" />
-                  <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
   </div>
 </body>

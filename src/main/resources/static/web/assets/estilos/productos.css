@@ -351,12 +351,13 @@ section {
 
 .product-box {
   position: relative;
+  padding-bottom: 0.5rem;
 }
 
 .product-box {
   position: relative;
   border: 1px solid black;
-  height: 26rem;
+  height: 27rem;
   width: 18rem;
   background-color: #eae6e6;
   overflow: hidden;
@@ -488,3 +489,8 @@ section {
     height: 33rem;
   }
 } */
+
+.cart-content {
+  height: 67vh; /* altura máxima del div */
+  overflow: auto; /* añade scroll automáticamente cuando sea necesario */
+}
