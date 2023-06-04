@@ -2,6 +2,7 @@ package com.ricofiambre.ecomerce.controladores;
 
 import com.ricofiambre.ecomerce.dtos.ModificarProductoDTO;
 import com.ricofiambre.ecomerce.dtos.ProductoPesoDTO;
+import com.ricofiambre.ecomerce.dtos.ProductoUniDTO;
 import com.ricofiambre.ecomerce.modelos.*;
 import com.ricofiambre.ecomerce.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -24,12 +26,50 @@ public class AdminControlador {
     private ProductoUniServicio productoUniServicio;
 
     //OBTENER PRODUCTOS ACTIVOS
+<<<<<<< HEAD
 //    @GetMapping("/api/productos-activos")
 //    public List<Object> getProductosActivos(Authentication authentication){
 //        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
 //
 //        return
 //    }
+=======
+    @GetMapping("/api/productos-activos")
+    public ResponseEntity<Object> getProductosActivos(Authentication authentication){
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
+
+        if (!cliente.getEmail().equals("admin@admin.com")) {
+            return new ResponseEntity<>("Debes ser un administrador!", HttpStatus.FORBIDDEN);
+        }
+
+        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
+        List < ProductoUniDTO> productounis = productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo()).collect(Collectors.toList());
+
+        List<Object> combinacion = new ArrayList<>();
+        combinacion.addAll(productoPesos);
+        combinacion.addAll(productounis);
+
+        return new ResponseEntity<>(combinacion, HttpStatus.CREATED);
+    }
+    //OBTENER PRODUCTOS INACTIVOS
+    @GetMapping("/api/productos-inactivos")
+    public ResponseEntity<Object> getProductosInactivos(Authentication authentication){
+        Cliente cliente = clienteServicio.findByEmail(authentication.getName());
+
+        if (!cliente.getEmail().equals("admin@admin.com")) {
+            return new ResponseEntity<>("Debes ser un administrador!", HttpStatus.FORBIDDEN);
+        }
+
+        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo() == false).collect(Collectors.toList());
+        List < ProductoUniDTO> productounis = productoUniServicio.getProductoUni().stream().filter(productoUni -> productoUni.getEstaActivo() == false).collect(Collectors.toList());
+
+        List<Object> combinacion = new ArrayList<>();
+        combinacion.addAll(productoPesos);
+        combinacion.addAll(productounis);
+
+        return new ResponseEntity<>(combinacion, HttpStatus.CREATED);
+    }
+>>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
     //CREAR DESCUENTO EN PRODUCTO
     @PostMapping("/api/crear-descuento-producto")
     public ResponseEntity<Object> descuentoProducto(Authentication authentication,
