@@ -10,6 +10,8 @@ const app = createApp({
             mostrarFormActivar: false,
             productosPeso: [],
             productosUnidad: [],
+            productosActivos: [],
+            productosInactivos: [],
             tiposProductos: [],
             paisesProductos: [],
             nombreActual: "",
@@ -29,7 +31,9 @@ const app = createApp({
         this.cargarProductosUnidad(),
         this.cargarProductosPeso(),
         this.cargarTiposProductos(),
-        this.cargarPaisesProductos()
+        this.cargarPaisesProductos(),
+        this.cargarProductosActivos(),
+        this.cargarProductosInactivos()
     },
 
     methods: {
@@ -47,6 +51,24 @@ const app = createApp({
             .then(response => {
                 this.productosPeso = response.data;
                 console.log(this.productosPeso)
+            })
+            .catch(error => console.log("error"))
+        },
+
+        cargarProductosActivos(){
+            axios.get("/api/productos-activos")
+            .then(response => {
+                this.productosActivos = response.data;
+                console.log(this.productosActivos)
+            })
+            .catch(error => console.log("error"))
+        },
+
+        cargarProductosInactivos(){
+            axios.get("/api/productos-inactivos")
+            .then(response => {
+                this.productosInactivos = response.data;
+                console.log(this.productosInactivos)
             })
             .catch(error => console.log("error"))
         },
