@@ -64,6 +64,56 @@ header {
     color: #f6be5f !important;
 }
 
+
+
+
+
+
+
+.grupo {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+    margin-bottom: 0.2rem;
+}
+
+.inputBusqueda {
+    width: 100%;
+    height: 1.8rem;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+.inputBusqueda::placeholder {
+    color: #9e9ea7;
+}
+
+.inputBusqueda:focus,
+.inputBusqueda:hover {
+    outline: none;
+    border-color: #f6be5f;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.iconoBusqueda {
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    fill: black;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 /* ---------- CONTROLES VIDEO ---------- */
 
 video::-webkit-media-controls {

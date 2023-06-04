@@ -40,7 +40,7 @@ header {
 #navbarNav {
     justify-content: end;
     align-items: center;
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .container-fluid {
@@ -70,12 +70,55 @@ header {
     color: #f6be5f !important;
 }
 
-/* ---------- MAIN ---------- */
 
-body {
-    height: 100%;
-    width: 100%;
+
+
+
+.grupo {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+    margin-bottom: 0.2rem;
 }
+
+.inputBusqueda {
+    width: 100%;
+    height: 1.8rem;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+
+.inputBusqueda::placeholder {
+    color: #9e9ea7;
+}
+
+.inputBusqueda:focus,
+.inputBusqueda:hover {
+    outline: none;
+    border-color: #f6be5f;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.iconoBusqueda {
+    position: absolute;
+    top: 3px;
+    left: 7px;
+    fill: black;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* ---------- MAIN ---------- */
 
 main {
     min-height: 80vh;
@@ -85,11 +128,126 @@ main {
     color: black;
 }
 
-img {
-    width: 10rem;
-    height: 10rem;
+.contenedorImgInfo {
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 2rem;
 }
 
+.contenedorImagen {
+    overflow: hidden;
+    border-radius: 2rem;
+    border: solid 2px black;
+}
+
+.imagenProducto {
+    width: 30rem !important;
+    transition: transform 0.5s ease;
+}
+
+.imagenProducto:hover {
+    transform: scale(1.3);
+}
+
+.contenedorInfo {
+    /* width: 20rem; */
+    margin-top: 1rem;
+}
+
+.precioProducto {
+    font-weight: bolder;
+    font-size: 250%;
+}
+
+.cantidad {
+    width: 10rem;
+    margin-left: 2rem;
+    margin-top: 3rem;
+}
+
+.contenedorCarrito {
+    width: 10rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.contenedorTexto {
+    margin-top: 4rem;
+    font-weight: 130%;
+    font-weight: bold;
+    width: 20rem;
+}
+
+.botCarrito {
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: black;
+    border: solid 1px #f6be5f;
+    font-family: inherit;
+    height: 2rem;
+}
+
+.botonDefecto,
+.hoverBtn {
+    background-color: black;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.hoverBtn {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    transform: translate(0%, 100%);
+    width: 20rem;
+}
+
+.botonDefecto span {
+    color: hsl(0, 0%, 100%);
+}
+
+.hoverBtn span {
+    color: #f6be5f;
+}
+
+.botCarrito:hover .botonDefecto {
+    transform: translate(0%, -100%);
+}
+
+.botCarrito:hover .hoverBtn {
+    transform: translate(0%, 0%);
+    width: 20rem;
+}
+
+.productosRelacionados {
+    margin-top: 3rem;
+    font-size: 160%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+/* TARJETAS PRODUCTOS */
 .contenedorProductos {
     display: flex;
     flex-wrap: wrap;
@@ -101,19 +259,18 @@ img {
 
 .product-box {
     position: relative;
-    border: 1px solid black;
-    height: 28rem;
+    /* border: 1.5px solid black; */
+    height: 23rem;
     width: 18rem;
-    background-color: #eae6e6;
+    background-color: #ededed;
     overflow: hidden;
     transition: .3s ease;
     padding-bottom: .5rem;
+    border-radius: 1rem;
 }
 
 .product-box:hover {
     transform: scale(1.05);
-    border: 1.5px solid black;
-
 }
 
 .product-box:hover img {
@@ -135,15 +292,18 @@ img {
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    height: 2rem;
     margin-top: 0.5rem;
-    background-color: #eae6e6;
+    background-color: #ededed;
     width: 100%;
+    padding-top: .5rem;
 }
 
 .price {
     font-weight: 300;
-    margin-left: 0.5rem;
+    margin: auto;
+    font-weight: bolder;
+    padding-bottom: 1rem;
 }
 
 .add-cart {
@@ -162,32 +322,81 @@ img {
 
 
 
-.send-button {
-    margin-top: 15px;
-    height: 34px;
-    width: 10rem;
+/* CLASE BOTON DE COMPRA */
+.botonCarrito {
+    position: relative;
     overflow: hidden;
-    transition: all .2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: black;
+    border: solid 1px #f6be5f;
+    font-family: inherit;
+    height: 2rem;
 }
 
-.alt-send-button {
-    width: 10rem;
-    height: 34px;
-    transition: all .2s ease-in-out;
+.default-btn,
+.hover-btn {
+    background-color: black;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .3s ease;
 }
 
-#submit {
-    width: 10rem;
+.hover-btn {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    transform: translate(0%, 100%);
 }
 
-#submit {
-    background-color: #b36311;
-    border: none;
+.default-btn span {
+    color: hsl(0, 0%, 100%);
 }
 
-.send-text {
-    display: block;
-    margin-top: 10px;
-    font: 700 12px 'Lato', sans-serif;
-    letter-spacing: 2px;
+.hover-btn span {
+    color: #f6be5f;
+}
+
+.botonCarrito:hover .default-btn {
+    transform: translate(0%, -100%);
+    /* width: 10rem; */
+}
+
+.botonCarrito:hover .hover-btn {
+    transform: translate(0%, 0%);
+}
+
+@media (max-width: 550px) {
+    .imagenProducto {
+        width: 25rem !important;
+    }
+}
+
+@media (max-width: 470px) {
+    .imagenProducto {
+        width: 22rem !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .imagenProducto {
+        width: 18rem !important;
+    }
+}
+
+@media (max-width: 355px) {
+    .imagenProducto {
+        width: 16rem !important;
+    }
 }

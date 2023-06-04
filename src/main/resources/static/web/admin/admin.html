@@ -51,10 +51,10 @@
                 <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
                     <span class="heading">Administrar productos</span>
                     <div class="d-flex justify-content-center flex-wrap gap-3">
-                        <button @click="seleccionarFormCrear" type="submit">Crear</button>
-                        <button @click="seleccionarFormModificar" type="submit">Modificar</button>
-                        <button @click="seleccionarFormDesactivar" type="submit">Desactivar producto</button>
-                        <button @click="seleccionarFormActivar" type="submit">Activar producto</button>
+                        <button @click="seleccionarFormCrear" type="button">Crear</button>
+                        <button @click="seleccionarFormModificar" type="button">Modificar</button>
+                        <button @click="seleccionarFormDesactivar" type="button">Desactivar producto</button>
+                        <button @click="seleccionarFormActivar" type="button">Activar producto</button>
                     </div>
 
                     <!-- CREAR PRODUCTO -->
@@ -63,12 +63,12 @@
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required="" v-model="nombreActual">
 
-                        <!-- <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="tipoProducto">
                             <option disabled value>Selecciona el tipo de producto</option>
-                            <template  v-for="">
-                                <option :value=""></option>
+                            <template  v-for="tipo in tiposProductos">
+                                <option :value="tipo">{{tipo}}</option>
                             </template>
-                        </select> -->
+                        </select>
 
                         <div class="d-flex flex-wrap gap-2">
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
@@ -97,12 +97,12 @@
 
                         <div class="d-flex justify-content-around">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" v-model="esPorPeso">
                                 <label class="form-check-label" for="inlineRadio1">Es por peso</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" v-model="esPorPeso">
                                 <label class="form-check-label" for="inlineRadio2">No es por peso</label>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                         <input type="text" id="imagen-producto" required="" v-model="imagen">
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit">Añadir producto</button>
+                            <button @click="crearProducto" type="button" >Añadir producto</button>
                         </div>
                     </form>
 
@@ -119,32 +119,32 @@
                     <form v-if="mostrarFormModificar" class="d-flex justify-content-center p-3">
                         
                         <label for="nombreActual">Nombre actual:</label>
-                        <input type="text"  id="nombreActual" name="nombreActual" required="">
+                        <input type="text"  id="nombreActual" name="nombreActual" required="" v-model="nombreActual">
 
                         <label for="nuevoNombre">Nuevo nombre:</label>
-                        <input type="text" id="nuevoNombre" name="nuevoNombre" required="">
+                        <input type="text" id="nuevoNombre" name="nuevoNombre" required="" v-model="nuevoNombre">
 
                         <div class="d-flex flex-wrap gap-2">
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Precio:</label>
-                                <input type="number" id="stock" required="">
+                                <input type="number" id="stock" required="" v-model="precio">
                                 
                             </div>
 
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Stock:</label>
-                                <input type="number" id="stock" required="">
+                                <input type="number" id="stock" required="" v-model="precio">
                             </div>
                         </div>
 
                         <label for="descripcion">Descripcion:</label>
-                        <input  type="text" id="descripcion" name="descripcion" required=""></input>
+                        <input  type="text" id="descripcion" name="descripcion" required="" v-model="descripcion"></input>
 
                         <label for="imagen-producto">Imagen del producto:</label>
-                        <input type="text" id="imagen-producto" required="">
+                        <input type="text" id="imagen-producto" required="" v-model="imagen">
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit">Añadir producto</button>
+                            <button @click="modificarProducto" type="button">Modificar producto</button>
                         </div>
                     </form>
 
@@ -152,10 +152,10 @@
                     <form v-if="mostrarFormDesactivar" class="d-flex justify-content-center p-3">
                         
                         <label for="nombreDesactivar">Nombre:</label>
-                        <input type="text" id="nombreDesactivar" name="nombreDesactivar" required="">
+                        <input type="text" id="nombreDesactivar" name="nombreDesactivar" required="" v-model="nombreActual">
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit">Añadir producto</button>
+                            <button @click="desactivarProducto" type="button">Desactivar producto</button>
                         </div>
                     </form>
 
@@ -163,10 +163,10 @@
                     <form v-if="mostrarFormActivar" class="d-flex justify-content-center p-3">
                         
                         <label for="nombreActivar">Nombre:</label>
-                        <input type="text"  id="nombreActivar" name="nombreActivar" required="">
+                        <input type="text"  id="nombreActivar" name="nombreActivar" required="" v-model="nombreActual">
 
                         <div class="d-flex justify-content-center">
-                            <button type="submit">Añadir producto</button>
+                            <button @click="activarProducto" type="button">Activar producto</button>
                         </div>
                     </form>
                 </div>

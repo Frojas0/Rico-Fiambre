@@ -70,6 +70,53 @@ header {
   color: #f6be5f !important;
 }
 
+
+
+
+.grupo {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+  margin-bottom: 0.2rem;
+}
+
+.inputBusqueda {
+  width: 100%;
+  height: 1.8rem;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
+}
+
+.inputBusqueda::placeholder {
+  color: #9e9ea7;
+}
+
+.inputBusqueda:focus,
+.inputBusqueda:hover {
+  outline: none;
+  border-color: #f6be5f;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.iconoBusqueda {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  fill: black;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* ---------- MAIN ---------- */
 
 body {
@@ -86,6 +133,13 @@ main {
 }
 
 /* ---------- MAIN ---------- */
+.contenedorFiltros {
+  padding-top: 2rem;
+}
+
+.selectFiltros {
+  height: 2rem;
+}
 
 .section-title {
   text-align: center;
@@ -331,25 +385,164 @@ section {
   margin-top: 2rem;
 }
 
-/* Shop Content */
-.shop-content {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TARJETAS PRODUCTOS */
+.contenedorProductos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(220px, auto)); */
   gap: 1.5rem;
   padding: 3%;
 }
 
-
-
-
-
-
-
 .product-box {
+  position: relative;
+  /* border: 1.5px solid black; */
+  height: 29rem;
+  width: 18rem;
+  background-color: #ededed;
+  overflow: hidden;
+  transition: .3s ease;
+  padding-bottom: .5rem;
+  border-radius: 1rem;
+}
+
+.product-box:hover {
+  transform: scale(1.05);
+}
+
+.product-box:hover img {
+  transform: scale(1.2);
+}
+
+.product-img {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0.5rem;
+  transition: 1s ease;
+}
+
+.product-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 2rem;
+  margin-top: 0.5rem;
+  background-color: #ededed;
+  width: 100%;
+  padding-top: .5rem;
+}
+
+.price {
+  font-weight: 300;
+  margin-left: 2.5rem;
+}
+
+.add-cart {
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.add-cart:hover {
+  background: hsl(249, 32%, 17%);
+}
+
+
+/* CLASE BOTON DE COMPRA */
+.botonCarrito {
+  position: relative;
+  overflow: hidden;
+  left: -55px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: black;
+  border: solid 1px #f6be5f;
+  font-family: inherit;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+.default-btn,
+.hover-btn {
+  background-color: black;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+.hover-btn {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  transform: translate(0%, 100%);
+}
+
+.default-btn span {
+  color: hsl(0, 0%, 100%);
+}
+
+.hover-btn span {
+  color: #f6be5f;
+}
+
+.botonCarrito:hover .default-btn {
+  transform: translate(0%, -100%);
+  /* width: 10rem; */
+}
+
+.botonCarrito:hover .hover-btn {
+  transform: translate(0%, 0%);
+}
+
+
+/* Shop Content */
+/* .shop-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1.5rem;
+  padding: 3%;
+} */
+
+
+
+
+
+
+
+/* .product-box {
   position: relative;
   padding-bottom: 0.5rem;
 }
@@ -409,7 +602,7 @@ section {
 
 .add-cart:hover {
   background: hsl(249, 32%, 17%);
-}
+} */
 
 /* Breakpoints / Making Responsive */
 @media (max-width: 1080px) {
@@ -491,6 +684,127 @@ section {
 } */
 
 .cart-content {
-  height: 67vh; /* altura máxima del div */
-  overflow: auto; /* añade scroll automáticamente cuando sea necesario */
+  height: 67vh;
+  /* altura máxima del div */
+  overflow: auto;
+  /* añade scroll automáticamente cuando sea necesario */
+}
+
+
+[v-cloak] {
+  display: none;
+}
+
+.loading-screen {
+  /* Estilos para centrar el contenido en la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.dot-spinner {
+  /* Estilos del spinner */
+  --uib-size: 2.8rem;
+  --uib-speed: .9s;
+  --uib-color: #183153;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--uib-size);
+  width: var(--uib-size);
+}
+
+.dot-spinner__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.dot-spinner__dot::before {
+  content: '';
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
+  transform: scale(0);
+  opacity: 0.5;
+  animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+}
+
+.dot-spinner__dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.dot-spinner__dot:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+.dot-spinner__dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dot-spinner__dot:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot-spinner__dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+
+.dot-spinner__dot:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot-spinner__dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+
+.dot-spinner__dot:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot-spinner__dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+
+.dot-spinner__dot:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot-spinner__dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+
+.dot-spinner__dot:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot-spinner__dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+.dot-spinner__dot:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+@keyframes pulse0112 {
+
+  0%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

@@ -36,36 +36,21 @@
                 <a class="nav-link estilo-hover" href="./productos.html">PRODUCTOS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link estilo-hover active" href="./contacto.htm">CONTACTO</a>
+                <a class="nav-link estilo-hover active" href="./contacto.html">CONTACTO</a>
               </li>
-              <!-- <li class="nav-item" v-on:click="logOut">
-                <button class="nav-link outButton">LOG OUT</button>
-              </li> -->
-
-              <!-- <div class="input-group-sm d-flex">
-                <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
-                  aria-describedby="button-addon2">
-                <a href="./busqueda.html"><button class="btn btn-outline-secondary btn-sm" type="button"
-                    id="button-addon2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
-                      width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                      <path d="M21 21l-6 -6" />
-                    </svg>
-                  </button></a>
-                    
-              </div> -->
               <div class="grupo">
-                <svg type="button" class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
-                  <g>
-                    <path
-                      d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                    </path>
-                  </g>
-                </svg>
-                <input class="inputBusqueda" placeholder="Search" type="search" class="input">
+                <a :href="'./productos.html?nombre='+valorSeleccionado">
+                  <svg class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
+                    <g>
+                      <path
+                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                      </path>
+                    </g>
+                  </svg>
+                </a>
+                <input class="inputBusqueda" placeholder="Search" type="search" class="input"
+                  v-model="valorSeleccionado">
+                {{filtro}}
               </div>
 
               <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
@@ -166,19 +151,22 @@
     </main>
     <footer>
       <div class="d-flex flex-column justify-content-between flex-wrap">
-        <div class="d-flex flex-column align-items-center justify-content-center subscribite">
-          <h3 class="incentivo">Se el primero en enterarte</h3>
-          <p class="incentivo">Recibe promociones exclusivas, recetas innovadoras y sorpresas deliciosas en tu bandeja
-            de entrada.</p>
-          <p class="incentivo">Únete ahora y no te pierdas ninguna novedad.</p>
-          <p class="incentivo">¡El placer de los fiambres te espera!</p>
-          <div class="input-container">
-            <input required="" placeholder="Email Address" type="email">
-            <button class="invite-btn" type="button">
-              enviar
-            </button>
+        <div class="d-flex justify-content-center" style="width: 100%;">
+          <div class="d-flex flex-column align-items-center justify-content-center subscribite">
+            <h3 class="incentivo" style="margin-bottom: 1rem;">Se el primero en enterarte</h3>
+            <p class="incentivo">Recibe promociones exclusivas, recetas innovadoras y sorpresas deliciosas en tu bandeja
+              de entrada.</p>
+            <p class="incentivo">Únete ahora y no te pierdas ninguna novedad.</p>
+            <p class="incentivo">¡El placer de los fiambres te espera!</p>
+            <div class="input-container">
+              <input placeholder="Email Address" type="email" required>
+              <button class="invite-btn" type="button">
+                enviar
+              </button>
+            </div>
           </div>
         </div>
+
         <p>asd</p>
         <p>asd</p>
         <p>asd</p>

@@ -47,6 +47,10 @@ public class ProductoControlador {
     public List<TipoProducto> getTiposDeProducto() {
         return TipoProducto.obtenerTiposDeProducto();
     }
+    @GetMapping("/api/pais-producto")
+    public List<PaisProducto> getPaaisProducto() {
+        return PaisProducto.obtenerPaisProducto();
+    }
 
 
     //    COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE

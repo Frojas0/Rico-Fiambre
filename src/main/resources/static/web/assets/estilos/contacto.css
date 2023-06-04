@@ -105,10 +105,11 @@ header {
 
 .iconoBusqueda {
   position: absolute;
-  left: 1rem;
+  top: 3px;
+  left: 7px;
   fill: black;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* ---------- MAIN ---------- */
@@ -138,6 +139,9 @@ footer {
 .subscribite {
   background-color: black;
   color: white;
+  width: 97%;
+  border-radius: 2rem;
+  height: 15rem;
 }
 
 .input-container {
@@ -150,6 +154,7 @@ footer {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+  margin-top: 1rem;
 }
 
 .input-container input {
@@ -168,7 +173,7 @@ footer {
 }
 
 .input-container input:focus {
-  border: 1px solid rgb(236 72 153);
+  border: 1px solid #f6be5f;
 }
 
 .invite-btn {
@@ -179,7 +184,7 @@ footer {
   bottom: 4px;
   z-index: 10;
   border-radius: 4px;
-  background-color: rgb(236 72 153);
+  background-color: #f6be5f;
   color: #fff;
   padding-top: .25rem;
   padding-bottom: .25rem;
