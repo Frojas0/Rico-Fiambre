@@ -23,7 +23,7 @@
   <div id="vueApp" v-cloak>
     <div v-if="isLoading">
       <div class="loading-screen">
-        <div class="dot-spinner">
+        <!-- <div class="dot-spinner">
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
@@ -32,7 +32,14 @@
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
           <div class="dot-spinner__dot"></div>
-        </div>
+        </div> -->
+        <section class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </section>
       </div>
     </div>
     <div v-else>

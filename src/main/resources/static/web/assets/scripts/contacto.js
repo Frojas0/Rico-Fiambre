@@ -2,7 +2,8 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
-            valorSeleccionado: ""
+            valorSeleccionado: "",
+            isLoading: true
         }
     },
     created() {
@@ -10,7 +11,7 @@ const app = createApp({
     },
     methods: {
         metodoejemplo() {
-
+            this.isLoading = false
         }
     }
 })
