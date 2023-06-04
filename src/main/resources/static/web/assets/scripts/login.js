@@ -12,7 +12,7 @@ const app = createApp({
             axios.post('/api/login','email=' + this.email + '&contrasena=' + this.contrasena)
             .then(response => {
                 if(this.email == "admin@admin.com"){
-                    window.location.href = "/admin/admi.html"
+                    window.location.href = "/web/admin/admin.html"
                 }
                 else{
                     window.location.href = "/web/index.html"

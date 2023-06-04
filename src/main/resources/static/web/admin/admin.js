@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+console.log("Hola")
 const app = createApp({
     data() {
         return {
@@ -6,24 +7,70 @@ const app = createApp({
             mostrarFormModificar: false,
             mostrarFormDesactivar: false,
             mostrarFormActivar: false,
+            productosPeso: [],
+            productosUnidad: [],
+            nombreActual: "",
+            tipoProducto: "",
+            descripcion: "",
+            stock: 0,
+            paisProducto: "",
+            precio: 0,
+            esPorPeso: "",
+            noEsPorPeso: "",
+            imagen: "",
+            nuevoNombre: "",
         }
+    },
+    created(){
+        this.cargarProductosUnidad(),
+        this.cargarProductosPeso()
     },
 
     methods: {
+        cargarProductosUnidad(){
+            axios.get("/api/productoUni")
+            .then(response => {
+                this.productosUnidad = response.data;
+                console.log(this.productosUnidad)
+            })
+            .catch(error => console.log("error"))
+        },
+
+        cargarProductosPeso(){
+            axios.get("/api/productoPeso")
+            .then(response => {
+                this.productosPeso = response.data;
+                console.log(this.productosPeso)
+            })
+            .catch(error => console.log("error"))
+        },
+
         seleccionarFormCrear(){
-            this.mostrarFormCrear =! this.mostrarFormCrear;
+            this.mostrarFormCrear = true;
+            this.mostrarFormActivar = false;
+            this.mostrarFormDesactivar = false;
+            this.mostrarFormModificar = false;
         },
 
         seleccionarFormModificar(){
-            this.mostrarFormModificar =! this.mostrarFormModificar;
+            this.mostrarFormCrear = false;
+            this.mostrarFormModificar = true;
+            this.mostrarFormDesactivar = false;
+            this.mostrarFormActivar = false;
         },
 
         seleccionarFormDesactivar(){
-            this.mostrarFormDesactivar =! this.mostrarFormDesactivar;
+            this.mostrarFormCrear = false;
+            this.mostrarFormModificar = false;
+            this.mostrarFormDesactivar = true;
+            this.mostrarFormActivar = false;
         },
 
         seleccionarFormActivar(){
-            this.mostrarFormActivar =! this.mostrarFormActivar;
+            this.mostrarFormCrear = false;
+            this.mostrarFormModificar = false;
+            this.mostrarFormDesactivar = false;
+            this.mostrarFormActivar = true;
         }
     }
 })
