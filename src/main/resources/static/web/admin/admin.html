@@ -52,6 +52,7 @@
                     <span class="heading">Administrar productos</span>
                     <div class="d-flex justify-content-center flex-wrap gap-3">
                         <button @click="seleccionarFormCrear" type="button">Crear</button>
+                        <button @click="seleccionarFormCrearDescuento" type="button">Crear descuento</button>
                         <button @click="seleccionarFormModificar" type="button">Modificar</button>
                         <button @click="seleccionarFormDesactivar" type="button">Desactivar producto</button>
                         <button @click="seleccionarFormActivar" type="button">Activar producto</button>
@@ -82,28 +83,29 @@
                             </div>
                         </div>
 
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="paisProducto">
+                            <option disabled value>Selecciona el pais de procedencia</option>
+                            <template  v-for="pais in paisesProductos">
+                                <option :value="pais">{{pais}}</option>
+                            </template>
+                        </select>
+
                         <div class="d-flex flex-wrap gap-2">
-                            <div class="d-flex flex-wrap" style="gap: 0.2rem;">
-                                <label for="paisProducto">Pais producto:</label>
-                                <input type="text" id="paisProducto" required="" v-model="paisProducto">
-
-                            </div>
-
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Precio:</label>
                                 <input type="number" id="stock" required="" v-model="precio">
                             </div>
-                        </div>
 
-                        <div class="d-flex justify-content-around">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" v-model="esPorPeso">
-                                <label class="form-check-label" for="inlineRadio1">Es por peso</label>
-                            </div>
-
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" v-model="esPorPeso">
-                                <label class="form-check-label" for="inlineRadio2">No es por peso</label>
+                            <div class="d-flex justify-content-around">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" v-model="esPorPeso">
+                                    <label class="form-check-label" for="inlineRadio1">Es por peso</label>
+                                </div>
+    
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" v-model="esPorPeso">
+                                    <label class="form-check-label" for="inlineRadio2">No es por peso</label>
+                                </div>
                             </div>
                         </div>
 
@@ -112,6 +114,20 @@
 
                         <div class="d-flex justify-content-center">
                             <button @click="crearProducto" type="button" >Añadir producto</button>
+                        </div>
+                    </form>
+
+                    <!-- CREAR DESCUENTO PRODUCTO -->
+                    <form v-if="mostrarFormCrearDescuento" class="d-flex justify-content-center p-3">
+                        
+                        <label for="nombreCrearDescuento">Nombre:</label>
+                        <input type="text" id="nombreCrearDescuento" name="nombreCrearDescuento" required="" v-model="nombreActual">
+
+                        <label for="valorDescuento">Descuento:</label>
+                        <input type="number" id="valorDescuento" required="" v-model="valorDescuento">
+
+                        <div class="d-flex justify-content-center">
+                            <button @click="crearDescuentoProducto" type="button">Descuento producto</button>
                         </div>
                     </form>
 
@@ -124,6 +140,13 @@
                         <label for="nuevoNombre">Nuevo nombre:</label>
                         <input type="text" id="nuevoNombre" name="nuevoNombre" required="" v-model="nuevoNombre">
 
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="tipoProducto">
+                            <option disabled value>Selecciona el tipo de producto</option>
+                            <template  v-for="tipo in tiposProductos">
+                                <option :value="tipo">{{tipo}}</option>
+                            </template>
+                        </select>
+
                         <div class="d-flex flex-wrap gap-2">
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Precio:</label>
@@ -133,9 +156,16 @@
 
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Stock:</label>
-                                <input type="number" id="stock" required="" v-model="precio">
+                                <input type="number" id="stock" required="" v-model="stock">
                             </div>
                         </div>
+
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="paisProducto">
+                            <option disabled value>Selecciona el pais de procedencia</option>
+                            <template  v-for="pais in paisesProductos">
+                                <option :value="pais">{{pais}}</option>
+                            </template>
+                        </select>
 
                         <label for="descripcion">Descripcion:</label>
                         <input  type="text" id="descripcion" name="descripcion" required="" v-model="descripcion"></input>
@@ -171,8 +201,58 @@
                     </form>
                 </div>
             </div>
-            <div>
-
+            <div class="d-flex flex-wrap justify-content-around p-1">
+                <div class="d-flex flex-column">
+                    <h2 class="d-flex justify-content-center">Productos activados</h2>
+                    <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">
+                        <template v-for="producto in productosUnidad">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img :src="producto.url" class="img-fluid rounded-start" alt="...">
+                                    </div>      
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
+                                            <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="card-text">Precio: ${{producto.precio}}</p>
+                                                <p class="card-text">Stock: {{producto.stock}}</p>
+                                                <p class="card-text">Descuento: {{producto.descuento}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                
+                <div class="d-flex flex-column">
+                    <h2 class="d-flex justify-content-center">Productos desactivados</h2>
+                    <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">      
+                        <template v-for="producto in productosPeso">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img :src="producto.url" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
+                                        <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="card-text">Precio: ${{producto.precio}}</p>
+                                            <p class="card-text">Stock: {{producto.stock}}</p>
+                                            <p class="card-text">Descuento: {{producto.descuento}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
