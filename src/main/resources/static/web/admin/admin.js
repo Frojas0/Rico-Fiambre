@@ -10,6 +10,8 @@ const app = createApp({
             mostrarFormActivar: false,
             productosPeso: [],
             productosUnidad: [],
+            productosActivos: [],
+            productosInactivos: [],
             tiposProductos: [],
             paisesProductos: [],
             nombreActual: "",
@@ -27,9 +29,11 @@ const app = createApp({
     },
     created() {
         this.cargarProductosUnidad(),
-            this.cargarProductosPeso(),
-            this.cargarTiposProductos(),
-            this.cargarPaisesProductos()
+        this.cargarProductosPeso(),
+        this.cargarTiposProductos(),
+        this.cargarPaisesProductos(),
+        this.cargarProductosActivos(),
+        this.cargarProductosInactivos()
     },
 
     methods: {
@@ -51,7 +55,25 @@ const app = createApp({
                 .catch(error => console.log("error"))
         },
 
-        cargarTiposProductos() {
+        cargarProductosActivos(){
+            axios.get("/api/productos-activos")
+            .then(response => {
+                this.productosActivos = response.data;
+                console.log(this.productosActivos)
+            })
+            .catch(error => console.log("error"))
+        },
+
+        cargarProductosInactivos(){
+            axios.get("/api/productos-inactivos")
+            .then(response => {
+                this.productosInactivos = response.data;
+                console.log(this.productosInactivos)
+            })
+            .catch(error => console.log("error"))
+        },
+
+        cargarTiposProductos(){
             axios.get("/api/tipos-producto")
                 .then(response => {
                     this.tiposProductos = response.data;
@@ -155,9 +177,6 @@ const app = createApp({
                 }))
         },
 
-<<<<<<< HEAD
-        seleccionarFormCrear() {
-=======
         cerrarSesion(){
             Swal.fire({
                 title: '¿Estas seguro de salir?',
@@ -181,7 +200,6 @@ const app = createApp({
         },
 
         seleccionarFormCrear(){
->>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
             this.mostrarFormCrear = true;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormActivar = false;
