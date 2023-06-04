@@ -115,7 +115,7 @@ main {
   transition: transform 0.3s ease-in-out;
 }
 
-.contact-form button[type="submit"] {
+.contact-form button[type="button"] {
   background-color: black;
   color: #fff;
   border: none;
@@ -125,12 +125,12 @@ main {
   cursor: pointer;
 }
 
-.contact-form button[type="submit"]:hover {
+.contact-form button[type="button"]:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease-in-out;
 }
 
-.contact-form button[type="submit"]:active{
+.contact-form button[type="button"]:active{
   background-color: blue;
   color: blue;
 }
