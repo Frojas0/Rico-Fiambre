@@ -127,7 +127,8 @@ main {
   color: black;
 }
 
-ol, ul{
+ol,
+ul {
   padding-left: 0 !important;
 }
 
@@ -301,10 +302,8 @@ footer {
 }
 
 
-.section-header {
+/* .section-header {
   text-align: center;
-  /* margin: 0 auto; */
-  /* padding: 60px 0; */
   font: 300 60px 'Oswald', sans-serif;
   color: #fff;
   text-transform: uppercase;
@@ -314,8 +313,15 @@ footer {
   height: 30rem;
   width: 100%;
   background-size: 100%;
-  /* background-position-x: 55%; */
   background-position-y: 60%;
+} */
+
+.section-header {
+  background-image: url(../imagenes/Banner\ Horizontal\ Pizzas\ Degradado\ Azul\ y\ Verde.png);
+  background-position-x: 50%;
+  background-position-y: 50%;
+  background-size: 100%;
+  height: 40vw;
 }
 
 .contact-wrapper {
@@ -393,7 +399,7 @@ footer {
   position: absolute;
   display: flex;
   flex-direction: row;
-  align-items:center;
+  align-items: center;
   inset: 0;
   background-color: black;
   transform: translate(0%, 100%);
@@ -642,9 +648,9 @@ hr {
     font-size: larger;
   }
 
-  .section-header{
+  /* .section-header {
     height: 18rem;
-  }
+  } */
 
   .form-control,
   textarea {
@@ -667,9 +673,9 @@ hr {
     font-family: 'Josefin Sans';
   }
 
-  .section-header{
+  /* .section-header {
     height: 13rem;
-  }
+  } */
 
 
   .name,
@@ -707,11 +713,11 @@ hr {
     width: 99%;
   }
 
-  .section-header{
+  /* .section-header {
     height: 13rem;
-  }
+  } */
 
-  #mapaBuenosAires{
+  #mapaBuenosAires {
     width: 80% !important;
   }
 
@@ -721,7 +727,7 @@ hr {
     font-family: 'Josefin Sans';
   }
 
-  .subscribite{
+  .subscribite {
     height: 16rem;
   }
 }
@@ -733,14 +739,14 @@ hr {
     max-width: 300px;
   }
 
-  #mapaBuenosAires{
+  #mapaBuenosAires {
     width: 100% !important;
   }
 
-  .section-header{
-    object-fit:fill;
+  /* .section-header {
+    object-fit: fill;
     height: 09rem;
-  }
+  } */
 
   .incentivo {
     margin: 0;
@@ -768,18 +774,18 @@ hr {
     max-width: 300px;
   }
 
-  .section-header{
-    object-fit:fill;
+  /* .section-header {
+    object-fit: fill;
     height: 12rem;
-    background-position-y:100%
-  }
+    background-position-y: 100%
+  } */
 
   .incentivo {
     margin: 0;
     font-size: small;
   }
 
-  #mapaBuenosAires{
+  #mapaBuenosAires {
     width: 100% !important;
   }
 
@@ -863,17 +869,18 @@ hr {
 
 /* ESTILO SCROLL PAGINA */
 ::-webkit-scrollbar {
-  width: 8px; 
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #f6be5f; 
+  background-color: #f6be5f;
   border-radius: 10px;
 }
+
 /* FIN ESTILO SCROLL PAGINA */
 
 /* BLUR */
@@ -1027,25 +1034,25 @@ hr {
 
 @media (max-width: 400px) {
   .nav {
-      padding: 11px;
+    padding: 11px;
   }
 
   .logo {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   .cart {
-      width: 320px;
+    width: 320px;
   }
 }
 
 @media (max-width: 360px) {
   .shop {
-      margin-top: 1rem !important;
+    margin-top: 1rem !important;
   }
 
   .cart {
-      width: 280px;
+    width: 280px;
   }
 }
 
