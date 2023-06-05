@@ -116,8 +116,12 @@
                         class="font-weight-bold d-block">{{item.nombre}}</span></div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
-                    <span class="d-block">Cantidad: {{item.cantidad}}</span>
-                    <span class="d-block ml-5 font-weight-bold">Total: ${{item.precio}}</span>
+                    <span class="d-block">Cantidad: {{item.cantidad.toLocaleString("es-AR", { style:
+                      "currency", currency:
+                      "ARS" })}}</span>
+                    <span class="d-block ml-5 font-weight-bold">Total: {{item.precio.toLocaleString("es-AR", { style:
+                      "currency", currency:
+                      "ARS" })}}</span>
                     <i class="fa fa-trash-o ml-3 text-black-50"></i>
                   </div>
 
@@ -129,7 +133,7 @@
             <div class="payment-info">
               <div id="separacionComps" class="d-flex justify-content-between align-items-center"><span
                   style="font-size: 18px !important;">Detalles Tarjeta</span></div><span class="type d-block mt-3 mb-1"
-                style="font-size: 15px !important;">Card type</span>
+                style="font-size: 15px !important;">Tipo de Tarjeta</span>
               <div id="separacionComps">
                   <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
                       src="https://img.icons8.com/color/48/000000/mastercard.png" /></span></label>
@@ -171,7 +175,7 @@
                   "currency", currency:
                   "ARS" })}}</span></div>
               <div class="contenedorCarrito">
-                <button @click="pagar" class="botCarrito d-flex justify-content-center align-items-center">
+                <button id="separacionComps" @click="pagar" class="botCarrito d-flex justify-content-center align-items-center">
                   <div class="botonDefecto">
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="white" width="30" height="30">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

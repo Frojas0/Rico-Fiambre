@@ -32,7 +32,7 @@ const app = createApp({
             this.isLoading = false;  // Establecemos isLoading en false al finalizar la petición
         })
         .catch(error => {
-            console.error(error);
+            console.log(error);
             this.isLoading = false;  // Manejamos el error y establecemos isLoading en false
         })
     },
