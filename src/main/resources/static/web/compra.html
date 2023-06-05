@@ -53,7 +53,7 @@
 
               <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                 <li class="nav-item" v-if="mostrarBoton">
-                  <button class="nav-link" @click="cerrarSesion" >
+                  <button class="nav-link" @click="cerrarSesion">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
                       width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -64,9 +64,11 @@
                     </svg></button>
                 </li>
                 <li class="nav-item" v-if="mostrarBotonLogIn">
-                  <button class="nav-link" @click="irALogin" >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <button class="nav-link" @click="irALogin">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover"
+                      width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                       <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                       <path d="M20 12h-13l3 -3m0 6l-3 -3" />
                     </svg></button>
@@ -98,7 +100,7 @@
           <div class="col-md-8">
             <div class="product-details mr-2">
               <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i>
-              <a href="./productos.html" style="text-decoration: none; color: black;">Continua comprando</a>
+                <a href="./productos.html" style="text-decoration: none; color: black;">Continua comprando</a>
               </div>
               <hr>
               <!-- <h6 class="mb-0">Shopping cart</h6> -->
@@ -106,9 +108,9 @@
               </div>
               <template v-for="item of itemsParaPagar">
                 <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                  <div class="d-flex flex-row item-description"><img class="rounded" v-bind:src="item.url"
-                      width="40">
-                    <div class="ml-2" style="display: flex; justify-content: center; align-items: center;"><span class="font-weight-bold d-block">{{item.nombre}}</span></div>
+                  <div class="d-flex flex-row item-description"><img class="rounded" v-bind:src="item.url" width="40">
+                    <div class="ml-2" style="display: flex; justify-content: center; align-items: center;"><span
+                        class="font-weight-bold d-block">{{item.nombre}}</span></div>
                   </div>
                   <div class="d-flex flex-column align-items-center">
                     <span class="d-block">Cantidad: {{item.cantidad}}</span>
@@ -121,10 +123,11 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="payment-info" >
-              <div class="d-flex justify-content-between align-items-center" ><span style="font-size: 18px !important;">Detalles Tarjeta</span></div><span
-                class="type d-block mt-3 mb-1" style="font-size: 15px !important;" >Card type</span><label class="radio"> <input type="radio" name="card"
-                  value="payment" checked> <span><img width="30"
+            <div class="payment-info">
+              <div class="d-flex justify-content-between align-items-center"><span
+                  style="font-size: 18px !important;">Detalles Tarjeta</span></div><span class="type d-block mt-3 mb-1"
+                style="font-size: 15px !important;">Card type</span><label class="radio"> <input type="radio"
+                  name="card" value="payment" checked> <span><img width="30"
                     src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
 
               <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
@@ -136,7 +139,7 @@
                     src="./assets/imagenes/tarjeta3.png" /></span> </label>
 
 
-              <div><label class="credit-card-label" >Nombre en la Tarjeta</label><input type="text"
+              <div><label class="credit-card-label">Nombre en la Tarjeta</label><input type="text"
                   class="form-control credit-inputs" placeholder="Nombre" v-model="nombreTarjeta"></div>
               <div><label class="credit-card-label">Numero de la Tarjeta</label><input type="text"
                   class="form-control credit-inputs" placeholder="0000 0000 0000 0000" v-model="numeroTarjeta"></div>
@@ -147,18 +150,76 @@
                     class="form-control credit-inputs" placeholder="342" v-model="cvvTarjeta"></div>
               </div>
               <hr class="line">
-              <div class="d-flex justify-content-between information" ><span style="font-size: 15px !important;">Subtotal</span><span style="font-size: 15px !important;">{{total.toLocaleString("es-AR", { style:
-                "currency", currency:
-                "ARS" })}}</span></div>
-              <div class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Envio</span><span style="font-size: 15px !important;">{{costoEnvio.toLocaleString("es-AR", { style:
-                "currency", currency:
-                "ARS" })}}</span></div>
-              <div class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Total (Incl.
-                  Impuestos)</span><span style="font-size: 15px !important;">{{(total + costoEnvio).toLocaleString("es-AR", { style:
-                    "currency", currency:
-                    "ARS" })}}</span></div><button
-                class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button" @click="pagar"><span style="font-size: 15px !important;">
-                </span><span> Pagar<i class="fa fa-long-arrow-right ml-1"></i></span></button>
+              <div class="d-flex justify-content-between information"><span
+                  style="font-size: 15px !important;">Subtotal</span><span
+                  style="font-size: 15px !important;">{{total.toLocaleString("es-AR", { style:
+                  "currency", currency:
+                  "ARS" })}}</span></div>
+              <div class="d-flex justify-content-between information"><span
+                  style="font-size: 15px !important;">Envio</span><span
+                  style="font-size: 15px !important;">{{costoEnvio.toLocaleString("es-AR", { style:
+                  "currency", currency:
+                  "ARS" })}}</span></div>
+              <div class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Total
+                  (Incl.
+                  Impuestos)</span><span style="font-size: 15px !important;">{{(total +
+                  costoEnvio).toLocaleString("es-AR", { style:
+                  "currency", currency:
+                  "ARS" })}}</span></div>
+              <div class="contenedorCarrito">
+                <button @click="pagar" class="botCarrito d-flex justify-content-center align-items-center">
+                  <div class="botonDefecto">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="white" width="30" height="30">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <g id="Layer_2" data-name="Layer 2">
+                          <g id="invisible_box" data-name="invisible box">
+                            <rect width="48" height="48" fill="none"></rect>
+                          </g>
+                          <g id="Icons">
+                            <g>
+                              <path
+                                d="M42.2,31.7a4.6,4.6,0,0,0-4-1.1l-9.9,1.7A4.7,4.7,0,0,0,26.9,29l-7.1-7H5a2,2,0,0,0,0,4H18.2l5.9,5.9a.8.8,0,0,1,0,1.1.9.9,0,0,1-1.2,0l-3.5-3.5a2.1,2.1,0,0,0-2.8,0,2.1,2.1,0,0,0,0,2.9l3.5,3.4a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1,1,0,0,1,.8.2,1.1,1.1,0,0,1,.3.7,1,1,0,0,1-.8,1L20.6,39.8,9.7,30.9H5a2,2,0,0,0,0,4H8.3L19.4,44l20.5-3.7A4.9,4.9,0,0,0,44,35.4,4.6,4.6,0,0,0,42.2,31.7Z">
+                              </path>
+                              <path
+                                d="M34.3,20.1h0a6.7,6.7,0,0,1-4.1-1.3,2,2,0,0,0-2.8.6,1.8,1.8,0,0,0,.3,2.6A10.9,10.9,0,0,0,32,23.8V26a2,2,0,0,0,4,0V23.8a6.3,6.3,0,0,0,3-1.3,4.9,4.9,0,0,0,2-4h0c0-3.7-3.4-4.9-6.3-5.5s-3.5-1.3-3.5-1.8.2-.6.5-.9a3.4,3.4,0,0,1,1.8-.4,6.3,6.3,0,0,1,3.3.9,1.8,1.8,0,0,0,2.7-.5,1.9,1.9,0,0,0-.4-2.8A9.1,9.1,0,0,0,36,6.3V4a2,2,0,0,0-4,0V6.2c-3,.5-5,2.5-5,5.2s3.3,4.9,6.5,5.5,3.3,1.3,3.3,1.8S35.7,20.1,34.3,20.1Z">
+                              </path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <span style="margin-top: 5px;">Pagar</span>
+                  </div>
+                  <div class=" hoverBtn">
+                    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#f6be5f" width="30" height="30">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <g id="Layer_2" data-name="Layer 2">
+                          <g id="invisible_box" data-name="invisible box">
+                            <rect width="48" height="48" fill="none"></rect>
+                          </g>
+                          <g id="Icons">
+                            <g>
+                              <path
+                                d="M42.2,31.7a4.6,4.6,0,0,0-4-1.1l-9.9,1.7A4.7,4.7,0,0,0,26.9,29l-7.1-7H5a2,2,0,0,0,0,4H18.2l5.9,5.9a.8.8,0,0,1,0,1.1.9.9,0,0,1-1.2,0l-3.5-3.5a2.1,2.1,0,0,0-2.8,0,2.1,2.1,0,0,0,0,2.9l3.5,3.4a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1,1,0,0,1,.8.2,1.1,1.1,0,0,1,.3.7,1,1,0,0,1-.8,1L20.6,39.8,9.7,30.9H5a2,2,0,0,0,0,4H8.3L19.4,44l20.5-3.7A4.9,4.9,0,0,0,44,35.4,4.6,4.6,0,0,0,42.2,31.7Z">
+                              </path>
+                              <path
+                                d="M34.3,20.1h0a6.7,6.7,0,0,1-4.1-1.3,2,2,0,0,0-2.8.6,1.8,1.8,0,0,0,.3,2.6A10.9,10.9,0,0,0,32,23.8V26a2,2,0,0,0,4,0V23.8a6.3,6.3,0,0,0,3-1.3,4.9,4.9,0,0,0,2-4h0c0-3.7-3.4-4.9-6.3-5.5s-3.5-1.3-3.5-1.8.2-.6.5-.9a3.4,3.4,0,0,1,1.8-.4,6.3,6.3,0,0,1,3.3.9,1.8,1.8,0,0,0,2.7-.5,1.9,1.9,0,0,0-.4-2.8A9.1,9.1,0,0,0,36,6.3V4a2,2,0,0,0-4,0V6.2c-3,.5-5,2.5-5,5.2s3.3,4.9,6.5,5.5,3.3,1.3,3.3,1.8S35.7,20.1,34.3,20.1Z">
+                              </path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <span style="margin-top: 5px;">Pagar</span>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -167,7 +228,79 @@
 
 
     </main>
+    <footer>
+      <div class="d-flex flex-column justify-content-between flex-wrap">
+        <div class="d-flex justify-content-center" style="width: 100%;">
+          <div class="d-flex flex-column align-items-center justify-content-center subscribite">
+            <h3 class="incentivo">SE EL PRIMERO EN ENTERARTE</h3>
+            <p class="incentivo">Recibe promociones exclusivas, recetas innovadoras y sorpresas deliciosas en tu
+              correo.</p>
+            <p class="incentivo">Únete ahora y no te pierdas ninguna novedad.</p>
+            <p class="incentivo">¡El placer de los fiambres te espera!</p>
+            <div class="input-container">
+              <input placeholder="correo@email.com" type="email" required>
+              <button class="invite-btn" type="button">
+                enviar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="footerInfoContainer">
+          <div class="sociales">
+            <div class="social-links">
+              <a class="link" href="https://www.linkedin.com/in/agustin-martinez-b26978217/">
+                <div id="linkedin" class="social-btn flex-center">
+                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                    </path>
+                  </svg><span class="nombreLink">/Agustin</span>
+                </div>
+              </a>
 
+              <a class="link" href="https://www.linkedin.com/in/facundorojas/">
+                <div id="linkedin" class="social-btn flex-center">
+                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                    </path>
+                  </svg><span class="nombreLink">/Facundo</span>
+                </div>
+              </a>
+
+              <a class="link" href="">
+                <div id="linkedin" class="social-btn flex-center">
+                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                    </path>
+                  </svg><span class="nombreLink">/German</span>
+                </div>
+              </a>
+
+              <a class="link" href="">
+                <div id="linkedin" class="social-btn flex-center">
+                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                    </path>
+                  </svg><span class="nombreLink">/Jennifer</span>
+                </div>
+              </a>
+
+              <a class="link" href="https://github.com/Frojas0/Rico-Fiambre/tree/master">
+                <div id="github" class="social-btn flex-center">
+                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                    </path>
+                  </svg><span>Rico Fiambre</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+    </footer>
   </div>
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
