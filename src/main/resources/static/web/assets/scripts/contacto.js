@@ -186,6 +186,16 @@ const app = createApp({
             })
         },
 
+        enviarSuscripcion(){
+            Swal.fire({
+                title: '¡Suscripcion exitosa!',
+                text: 'A partir de ahora recibirás todas nuestras novedades.',
+                icon: 'success',
+                confirmButtonText: 'CERRAR',
+                confirmButtonColor: 'black',
+            })
+        },
+
         metodoejemplo() {
             this.isLoading = false
         },
