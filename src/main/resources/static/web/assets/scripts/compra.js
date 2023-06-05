@@ -36,6 +36,15 @@ const app = createApp({
         console.log(this.itemsParaPagar);
         },
         pagar(){
+            const inputOptions = new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({
+                    '#ff0000': 'Red',
+                    '#00ff00': 'Green',
+                    '#0000ff': 'Blue'
+                    })
+                }, 1000)
+            })
             lista = []
             if(this.fecha == undefined || this.nombreTarjeta == undefined || this.cvvTarjeta == undefined || this.numeroTarjeta == undefined){
                 Swal.fire({
@@ -50,12 +59,19 @@ const app = createApp({
                         lista.push(i.nombre + "-" + i.cantidad)
                     }
                 }
-    
+                Swal.fire({
+                    title: 'Realizando pago, por favor espere',
+                    allowEscapeKey: false,
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
                 axios.post('/api/carrito-compra',{ productos: lista, numero: this.numeroTarjeta, cvv: this.cvvTarjeta, descripcion: "Rico Fiambre - COMPRA"})
                 .then(response => {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Compra realizada con éxito',
+                        title: 'Gracias por su compra!',
                         showConfirmButton: false,
                         timer: 1500
                     })
