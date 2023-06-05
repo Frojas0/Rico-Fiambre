@@ -117,6 +117,17 @@ const app = createApp({
             }
             )
         },
+
+        enviarSuscripcion(){
+            Swal.fire({
+                title: '¡Suscripcion exitosa!',
+                text: 'A partir de ahora recibirás todas nuestras novedades.',
+                icon: 'success',
+                confirmButtonText: 'CERRAR',
+                confirmButtonColor: 'black',
+            })
+        },
+        
         irALogin(){
             window.location.href = "/web/login.html"
         },
