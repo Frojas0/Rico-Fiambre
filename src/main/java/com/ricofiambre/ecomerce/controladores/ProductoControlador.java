@@ -299,7 +299,7 @@ public class ProductoControlador {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo("gutin97agustin.martinez@gmail.com");
+        helper.setTo("melba@mindhub.com");
         helper.setSubject("Ticket compra - RICO FIAMBRE");
         helper.setText("Adjunto encontrarás el TICKET de compra.");
 
