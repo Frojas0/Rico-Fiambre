@@ -2,6 +2,7 @@ const { createApp } = Vue;
 const app = createApp({
     data() {
         return {
+        valorSeleccionado: "",
         itemsParaPagar: [],
         numDeProductos: Number,
         total: Number,
@@ -10,11 +11,19 @@ const app = createApp({
         numeroTarjeta: undefined,
         cvvTarjeta: undefined,
         nombreTarjeta: undefined,
-        fecha:undefined
+        fecha:undefined,
+
+        
+        // MOSTRAR BOTON LOGOUT
+
+        mostrarBoton : false,
+        mostrarBotonLogIn : true
+        // FIN MOSTRAR BOTON LOGOUT
         }
     },
     created() {
-        this.traerDatos();
+        this.estaLogueado()
+        this.traerDatos()
         axios.get('/api/clientes/actual')
         .then(response => {
             this.clienteActual = response.data;
@@ -94,7 +103,45 @@ const app = createApp({
                     })
                 })
             }
-        }
+        },
+        // METODO PARA SABER SI ESTA LOGUEADO O NO
+        estaLogueado(){
+            axios.get('/api/clientes/actual')
+            .then(response => {
+                this.mostrarBoton = true
+                this.mostrarBotonLogIn = false
+            })
+            .catch(error => {
+                this.mostrarBoton = false
+                this.mostrarBotonLogIn = true
+            }
+            )
+        },
+        irALogin(){
+            window.location.href = "/web/login.html"
+        },
+        //FIN  METODO PARA SABER SI ESTA LOGUEADO O NO
+        cerrarSesion() {
+            Swal.fire({
+                title: '¿Estas seguro de salir?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Cerrar sesion'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                        .then(response => window.location.href = "/web/index.html")
+                        .catch(error => Swal.fire({
+                            title: 'Error',
+                            text: error.response.data,
+                            icon: 'error'
+                        }))
+                }
+            })
+        },
     }
 });
 app.mount('#vueApp');

@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Josefin Sans', sans-serif;
+  /* background-color: whitesmoke; */
 }
 
 /* ---------- HEADER ---------- */
@@ -34,7 +35,7 @@ header {
 #navbarNav {
   justify-content: end;
   align-items: center;
-  font-size: 1rem;
+  font-size: .9rem;
 }
 
 .container-fluid {
@@ -64,11 +65,63 @@ header {
   color: #f6be5f !important;
 }
 
+
+
+
+
+
+
+.grupo {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+  margin-bottom: 0.2rem;
+}
+
+.inputBusqueda {
+  width: 100%;
+  height: 1.8rem;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #f3f3f4;
+  color: #0d0c22;
+  transition: .3s ease;
+}
+
+.inputBusqueda::placeholder {
+  color: #9e9ea7;
+}
+
+.inputBusqueda:focus,
+.inputBusqueda:hover {
+  outline: none;
+  border-color: #f6be5f;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.iconoBusqueda {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  fill: black;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* ---------- MAIN ---------- */
 
 body {
   height: 100%;
   width: 100%;
+  background-color: whitesmoke;
+
 }
 
 main {
@@ -121,8 +174,7 @@ footer {
 
 .navbar,
 .container-fluid {
-  background-color: #f6be5f !important;
-
+  background-color: black !important;
 }
 
 #logo01 {
@@ -250,21 +302,7 @@ label.radio input:checked+span {
 
 /************************* OTROS/*/
 
-.section-header {
-  text-align: center;
-  margin: 0 auto;
-  padding: 60px 0;
-  font: 300 60px 'Oswald', sans-serif;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  background: linear-gradient(rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26)), url(../imagenes/carrito\ de\ compras.jpg);
-  background-size: cover;
-  background-position-x: 65%;
-  background-position-y: 45%;
-  height: 100%;
-  ;
-}
+
 
 /* .span{
   font-size: 15px !important;
@@ -273,4 +311,28 @@ label.radio input:checked+span {
   font-size: 24px;
   color: var(--main-color);
   cursor: pointer;
+}
+
+/* BANNER */
+
+.bannerCompra {
+  background-image: url(../imagenes/Banner-compras-opcion2.gif);
+  height: 35vw;
+  background-size: 100%;
+  background-position-y: 70%;
+  background-position-x: 50%;
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6be5f;
+  border-radius: 10px;
 }
