@@ -215,9 +215,9 @@
                 <div class="col-sm-9 col-12" style="  min-height: 20rem;  display: flex; align-items: center; justify-content: center; flex-direction: column;  gap: 2rem;" >
                     <div class="flex-column" style=" max-height: 28rem; width: 80%;  display: flex; align-items: center;  border-radius: 10px; background-color: rgb(213, 213, 213);" v-for="orden of historialDeordenes">
                         <div style=" width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; height: 4rem; align-items: center;">
-                            <h5 style="margin-bottom: 0;">Fecha: {{orden.fecha.slice(0,10)}} a las {{orden.fecha.slice(11,16)}} hs.</h5>
+                            <h5 id="tituloComprado" style="margin-bottom: 0;">Fecha: {{orden.fecha.slice(0,10)}} a las {{orden.fecha.slice(11,16)}} hs.</h5>
                             <!-- <p style="margin-bottom: 0;">Hora: {{orden.fecha.slice(11,16)}}</p> -->
-                            <h5 style="margin:0;">Total: {{orden.total.toLocaleString("es-AR", { style:
+                            <h5 id="tituloComprado" style="margin:0;">Total: {{orden.total.toLocaleString("es-AR", { style:
                                 "currency", currency:
                                 "ARS" })}}</h5>
                         </div>
@@ -242,7 +242,7 @@
                             </div>
                             <div class="col-12" style="border-bottom: 1px solid black; height: 4rem; display: flex; align-items: center; justify-content: space-between;" v-for="producto of orden.ordenProductoPesos">
                                 <p id="tituloProductoHistorial" style="margin: 0; font-size: 1rem; margin-left: 0.2rem;">{{producto.nombreProductoPeso}}</p>
-                                <div style="width: 60%; display: flex; justify-content: space-between; flex-wrap: wrap;">
+                                <div style="width: 60%; display: flex; justify-content: space-around; flex-wrap: wrap;">
                                     <p id="contenidoProductoHistorial" style="margin: 0; font-size: 1rem;">Cantidad:  {{producto.cantidadKg*1000}} g</p>
                                     <p id="contenidoProductoHistorial" style="margin: 0; font-size: 1rem; font-weight: 600; margin-right: 0.2rem;">Sub total: {{producto.total.toLocaleString("es-AR", { style:
                                         "currency", currency:

@@ -433,6 +433,10 @@ footer {
     #contenidoProductoHistorial{
       font-size: 0.7rem !important;
     }
+
+    #tituloComprado{
+      font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 360px) {
@@ -450,6 +454,10 @@ footer {
 
     #contenidoProductoHistorial{
       font-size: 0.7rem !important;
+    }
+
+    #tituloComprado{
+      font-size: 0.8rem;
     }
 }
 
