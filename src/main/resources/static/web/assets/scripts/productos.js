@@ -26,9 +26,16 @@ const app = createApp({
       selectedTipoProducto: undefined,
       isLoading: true,
       blurONoBluEsaEsLaCuestion: 'clase-no-blur',
+
+      // MOSTRAR BOTON LOGOUT
+
+      mostrarBoton : false,
+      mostrarBotonLogIn : true
+      // FIN MOSTRAR BOTON LOGOUT
     }
   },
   created() {
+    this.estaLogueado()
     if (nombreURL === null || nombreURL === undefined || nombreURL === "") {
       this.ejecutarPrograma()
     } else {
@@ -270,7 +277,24 @@ const app = createApp({
             text: 'Tienes que estar logueado para comprar',
           })
         })
+      },
+      // METODO PARA SABER SI ESTA LOGUEADO O NO
+    estaLogueado(){
+      axios.get('/api/clientes/actual')
+      .then(response => {
+          this.mostrarBoton = true
+          this.mostrarBotonLogIn = false
+      })
+      .catch(error => {
+          this.mostrarBoton = false
+          this.mostrarBotonLogIn = true
+      }
+      )
+    },
+    irALogin(){
+        window.location.href = "/web/login.html"
     }
+    //FIN  METODO PARA SABER SI ESTA LOGUEADO O NO
   },
 
   computed: {
