@@ -27,6 +27,7 @@ public class AdminControlador {
 
     //OBTENER PRODUCTOS ACTIVOS
 
+<<<<<<< HEAD
 //    @GetMapping("/api/productos-activos")
 //    public List<Object> getProductosActivos(Authentication authentication){
 //        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
@@ -34,6 +35,8 @@ public class AdminControlador {
 //        return
 //    }
 
+=======
+>>>>>>> 4b755c72a4661bb65d274d6e31d247b889921afb
     @GetMapping("/api/productos-activos")
     public ResponseEntity<Object> getProductosActivos(Authentication authentication){
         Cliente cliente = clienteServicio.findByEmail(authentication.getName());
