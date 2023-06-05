@@ -12,18 +12,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <title>Detalles Producto</title>
+  <title>Rico Fiambre | Detalle producto</title>
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-  <div id="vueApp">
+  <div id="vueApp" v-cloak>
     <div :class="blurONoBluEsaEsLaCuestion">
       <header class="d-flex justify-content-center align-items-center">
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header-nav">
           <div class="container-fluid justify-content-between">
             <a class="navbar-brand" href="#">
-              <img class="logo-header" src="./assets/imagenes/logo-05.png" alt="fiambreria-logo">
+              <img class="logo-header" src="./assets/imagenes/logo-nuevo-cortado.png" alt="fiambreria-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,27 +58,20 @@
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                   <li class="nav-item" v-if="mostrarBoton">
                     <button class="nav-link" @click="cerrarSesion">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
-                        width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                      <svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-logout svg-hover" width="30" height="30"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                        <path
+                            d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                         <path d="M9 12h12l-3 -3" />
                         <path d="M18 15l3 -3" />
                       </svg></button>
                   </li>
                   <li class="nav-item" v-if="mostrarBotonLogIn">
                     <button class="nav-link" @click="irALogin">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover"
-                        width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                        <path d="M20 12h-13l3 -3m0 6l-3 -3" />
-                      </svg></button>
-                  </li>
-                  <li class="nav-item" v-if="mostrarBoton">
-                    <a class="nav-link" href="./historialCompras.html"><svg xmlns="http://www.w3.org/2000/svg"
+                      <svg xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -86,7 +79,18 @@
                         <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                         <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                         <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-                      </svg></a>
+                      </svg></button>
+                  </li>
+                  <li class="nav-item" v-if="mostrarBoton">
+                    <a class="nav-link" href="./historialCompras.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-list-details svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M13 5h8" />
+                      <path d="M13 9h5" />
+                      <path d="M13 15h8" />
+                      <path d="M13 19h5" />
+                      <path d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                      <path d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                    </svg></a>
                   </li>
 
                   <li class="nav-item">
@@ -203,50 +207,7 @@
 
     <!-- FIN CARRITO -->
 
-
     <main>
-      <!-- <div class="d-flex justify-content-center align-items-center">
-        <div>
-          <div class="foto-redes">
-            <img v-bind:src="productoFiltrado.url" alt="">
-            <div>
-              FACEBOOK
-              TWITTER
-              INSTAGRAM
-            </div>
-          </div>
-          <div class="ingredientes">
-            <h5>Ingredientes</h5>
-            <p>{{productoFiltrado.descripcion}}</p>
-          </div>
-          <div>
-            <h2>PICADA SELECCIÓN DE QUESOS (PARA 2/3)</h2>
-            <h3>$15.250</h3>
-            <p>Ver Medio de Pagos????</p>
-          </div>
-          <div>
-            <h6>CANTIDAD</h6>
-            <input type="number">
-            <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-              <div class="alt-send-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart svg-hover"
-                  width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                  <path d="M17 17h-11v-14h-2" />
-                  <path d="M6 5l14 1l-1 7h-13" />
-                </svg>
-                <span class="send-text">SEND</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div> -->
-
-
-
       <div :class="blurONoBluEsaEsLaCuestion">
         <div class="contenedorFiltros d-flex justify-content-start align-items-center flex-wrap">
           <p style="margin: 0; font-weight: bold; font-size: 120%;">
