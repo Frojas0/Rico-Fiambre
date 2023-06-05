@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/estilos/detalles.css">
+  <link rel="shortcut icon" href="./assets/imagenes/logo02.png" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
@@ -39,9 +40,6 @@
                 <li class="nav-item">
                   <a class="nav-link estilo-hover" href="./contacto.html">CONTACTO</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link estilo-hover active" href="./detalles.html">DETALLE</a>
-                </li>
                 <div class="grupo">
                   <a :href="'./productos.html?nombre='+valorSeleccionado">
                     <svg class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
@@ -52,14 +50,33 @@
                       </g>
                     </svg>
                   </a>
-                  <input class="inputBusqueda" placeholder="Search" type="search" class="input"
+                  <input class="inputBusqueda" placeholder="Buscar" type="search" class="input"
                     v-model="valorSeleccionado">
                   {{filtro}}
                 </div>
 
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
-                  <li class="nav-item">
-                    <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
+                  <li class="nav-item" v-if="mostrarBoton">
+                    <button class="nav-link" @click="cerrarSesion" >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
+                        width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                        <path d="M9 12h12l-3 -3" />
+                        <path d="M18 15l3 -3" />
+                      </svg></button>
+                  </li>
+                  <li class="nav-item" v-if="mostrarBotonLogIn">
+                    <button class="nav-link" @click="irALogin" >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                        <path d="M20 12h-13l3 -3m0 6l-3 -3" />
+                      </svg></button>
+                  </li>
+                  <li class="nav-item" v-if="mostrarBoton">
+                    <a class="nav-link" href="./historialCompras.html"><svg xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -71,10 +88,10 @@
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="#" @click="abrirCarrito"><svg xmlns="http://www.w3.org/2000/svg"
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round">
+                        stroke-linejoin="round" @click="abrirCarrito">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
                         <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
