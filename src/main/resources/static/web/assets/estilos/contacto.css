@@ -127,6 +127,10 @@ main {
   color: black;
 }
 
+ol, ul{
+  padding-left: 0 !important;
+}
+
 /* ---------- FOOTER ---------- */
 footer {
   background-color: white;
@@ -134,6 +138,7 @@ footer {
 
 .incentivo {
   margin: 0;
+  text-align: center;
 }
 
 .subscribite {
@@ -298,16 +303,17 @@ footer {
 .section-header {
   text-align: center;
   /* margin: 0 auto; */
-  padding: 60px 0;
+  /* padding: 60px 0; */
   font: 300 60px 'Oswald', sans-serif;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  background: linear-gradient(rgba(255, 245, 245, 0.199), rgba(255, 245, 245, 0.26)), url(../imagenes/pexels-chevanon-photography-323503.jpg);
-  background-size: cover;
-  background-position-x: 65%;
-  background-position-y: 55%;
-  height: 100%;
+  /* background: url(../imagenes/Banner\ Horizontal\ Pizzas\ Degradado\ Azul\ y\ Verde.png); */
+  object-fit: fill;
+  height: 30rem;
+  width: 100%;
+  /* background-position-x: 95%;
+  background-position-y: 55%; */
 }
 
 .contact-wrapper {
@@ -333,6 +339,7 @@ footer {
   max-width: 400px;
   font-family: 'Lato';
   font-weight: 400;
+  width: 100%;
 }
 
 .form-group {
@@ -340,9 +347,96 @@ footer {
 }
 
 #submit {
-  background-color: #b36311;
-  border: none;
+  /* background-color: #b36311;
+  border: none; */
+  /* overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: black;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  border: solid 1px #f6be5f;
+  font-family: inherit;
+  height: 2rem; */
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: black;
+  border: solid 1px #f6be5f;
+  font-family: inherit;
+  height: 2rem;
 }
+
+/* ------------BOTTON ENVIAR-------------------------- */
+.botCarrito {
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: black;
+  border: solid 1px #f6be5f;
+  font-family: inherit;
+  height: 2rem;
+  width: 100%;
+}
+
+.hoverBtn {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  inset: 0;
+  background-color: black;
+  transform: translate(0%, 100%);
+  width: 20rem;
+}
+
+.botonDefecto,
+.hoverBtn {
+  background-color: black;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  /* gap: 15px;
+  padding: 15px 20px; */
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+.botonDefecto span {
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hoverBtn span {
+  color: #f6be5f;
+}
+
+.botCarrito:hover .botonDefecto {
+  transform: translate(0%, -100%);
+}
+
+.botCarrito:hover .hoverBtn {
+  transform: translate(0%, 0%);
+  width: 100%;
+}
+
+/* ------------------------------------------- */
 
 .form-control,
 textarea {
@@ -367,7 +461,7 @@ textarea {
 }
 
 #submit {
-  width: 400px;
+  width: 100%;
 }
 
 #mapaBuenosAires {
@@ -398,41 +492,41 @@ textarea {
 /* Location, Phone, Email Section */
 .contact-list {
   list-style-type: none;
-  margin-left: -30px;
-  padding-right: 20px;
+  margin: 0;
+  margin-left: 0;
+  text-align: center;
+  /* margin-left: -30px;
+  padding-right: 20px; */
 }
 
 .list-item {
   line-height: 4;
-  color: #aaa;
+  width: 100%;
+  color: #000000;
 }
 
 .contact-text {
   font: 300 18px 'Lato', sans-serif;
   letter-spacing: 1.9px;
-  color: #bbb;
+  color: #000000;
 }
 
 .place {
-  margin-left: 62px;
-}
-
-.phone {
-  margin-left: 56px;
+  color: #000000;
 }
 
 .gmail {
-  margin-left: 53px;
+  color: #000000;
 }
 
 .contact-text a {
-  color: #bbb;
+  color: black;
   text-decoration: none;
   transition-duration: 0.2s;
 }
 
 .contact-text a:hover {
-  color: #fff;
+  color: #ffffff83;
   text-decoration: none;
 }
 
@@ -520,6 +614,7 @@ hr {
   .direct-contact-container,
   .form-horizontal {
     margin: 0 auto;
+    width: 100%;
   }
 
   .direct-contact-container {
@@ -585,9 +680,17 @@ hr {
 
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 435px) {
   .send-button {
     width: 99%;
+  }
+
+  .section-header{
+    height: 15rem;
+  }
+
+  #mapaBuenosAires{
+    width: 80% !important;
   }
 }
 
@@ -596,6 +699,20 @@ hr {
 @media only screen and (min-width: 300px) and (max-width: 320px) {
   .alt-send-button {
     max-width: 300px;
+  }
+
+  #mapaBuenosAires{
+    width: 100% !important;
+  }
+
+  .section-header{
+    object-fit:fill;
+    height: 15rem;
+  }
+
+  .incentivo {
+    margin: 0;
+    font-size: small;
   }
 
 
@@ -611,6 +728,20 @@ hr {
 
   .form-horizontal {
     max-width: 300px;
+  }
+
+  .section-header{
+    object-fit:fill;
+    height: 20rem;
+  }
+
+  .incentivo {
+    margin: 0;
+    font-size: small;
+  }
+
+  #mapaBuenosAires{
+    width: 100% !important;
   }
 }
 
