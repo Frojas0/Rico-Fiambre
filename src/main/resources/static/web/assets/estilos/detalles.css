@@ -119,6 +119,11 @@ header {
 }
 
 /* ---------- MAIN ---------- */
+.contenedorFiltros {
+    padding-top: 2rem;
+    margin-left: 2rem;
+    width: 100%;
+}
 
 main {
     min-height: 80vh;
@@ -137,8 +142,17 @@ main {
 
 .contenedorImagen {
     overflow: hidden;
-    border-radius: 2rem;
-    border: solid 2px black;
+    /* border-radius: 2rem; */
+    /* border: solid 2px black; */
+    padding-top: 2rem;
+}
+
+.contenedorValor {
+    position: relative;
+    color: white;
+    width: fit-content;
+    bottom: 450px;
+    left: 420px;
 }
 
 .imagenProducto {
@@ -381,17 +395,32 @@ main {
     .imagenProducto {
         width: 25rem !important;
     }
+
+    .contenedorValor {
+        bottom: 380px;
+        left: 350px;
+    }
 }
 
 @media (max-width: 470px) {
     .imagenProducto {
         width: 22rem !important;
     }
+
+    .contenedorValor {
+        bottom: 330px;
+        left: 300px;
+    }
 }
 
 @media (max-width: 420px) {
     .imagenProducto {
         width: 18rem !important;
+    }
+
+    .contenedorValor {
+        bottom: 250px;
+        left: 210px;
     }
 }
 
@@ -416,16 +445,16 @@ main {
     margin-top: 1.5rem;
     border-top: 1px solid var(--text-color);
     color: black;
-  }
-  
-  .total-title {
+}
+
+.total-title {
     font-size: 1rem;
     font-weight: 600;
-  }
-  
-  .total-price {
+}
+
+.total-price {
     margin-left: 0.5rem;
-  }
+}
 
 
 
@@ -448,11 +477,11 @@ main {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-  }
-  
-  .btn-buy:hover {
+}
+
+.btn-buy:hover {
     background: var(--text-color);
-  }
+}
 
 
 #cart-icon {
@@ -471,121 +500,136 @@ main {
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     transition: 0.3s;
     z-index: 2;
-  }
-  
-  .cart.active {
+}
+
+.cart.active {
     right: 0;
-  }
-  
-  .cart-title {
+}
+
+.cart-title {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 2rem;
     color: black;
-  }
-  
-  .cart-box {
+}
+
+.cart-box {
     display: grid;
     grid-template-columns: 32% 50% 18%;
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
-  }
-  
-  .item-cart {
+}
+
+.item-cart {
     color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .cart-img {
+}
+
+.cart-img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     padding: 10px;
-  }
+}
 
-  .cart-product-title {
+.cart-product-title {
     font-size: 1rem;
     text-transform: uppercase;
-  }
-  
-  .cart-price {
+}
+
+.cart-price {
     font-weight: 500;
-  }
-  
-  .cart-quantity {
+}
+
+.cart-quantity {
     border: 1px solid var(--text-color);
     outline-color: var(--main-color);
     width: 2.4rem;
     text-align: center;
     font-size: 1rem;
-  }
-  
-  .cart-remove {
+}
+
+.cart-remove {
     font-size: 24px;
     color: var(--main-color);
     cursor: pointer;
-  }
-  #close-cart {
+}
+
+#close-cart {
     position: absolute;
     top: 1rem;
     right: 0.8rem;
     font-size: 2rem;
     color: var(--text-color);
     cursor: pointer;
-  }
+}
 
-  @media (max-width: 400px) {
+@media (max-width: 400px) {
     .nav {
-      padding: 11px;
+        padding: 11px;
     }
-  
+
     .logo {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     .cart {
-      width: 320px;
+        width: 320px;
     }
-  }
-  
-  @media (max-width: 360px) {
+}
+
+@media (max-width: 360px) {
     .shop {
-      margin-top: 1rem !important;
+        margin-top: 1rem !important;
     }
-  
+
     .cart {
-      width: 280px;
+        width: 280px;
     }
-  }
+}
 
 .cart-quantity {
-  border: 1px solid var(--text-color);
-  outline-color: var(--main-color);
-  width: 5rem;
-  text-align: center;
-  font-size: 1rem;
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 5rem;
+    text-align: center;
+    font-size: 1rem;
 }
 
 
-  .cart-content {
+.cart-content {
     height: 67vh;
     /* altura máxima del div */
     overflow: auto;
     /* añade scroll automáticamente cuando sea necesario */
-  }
+}
 
 
 
-  /* BLUR */
-  .clase-blur {
+/* BLUR */
+.clase-blur {
     filter: blur(5px);
-  }
-  .clase-no-blur{
+}
+
+.clase-no-blur {
     filter: none;
-  
-  }
+
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #f6be5f;
+    border-radius: 10px;
+}

@@ -544,6 +544,14 @@ section {
   padding: 3%;
 }
 
+.contenedorValor {
+  position: absolute;
+  color: white;
+  width: fit-content;
+  top: 10px;
+  left: 245px;
+}
+
 .product-box {
   position: relative;
   /* border: 1.5px solid black; */
@@ -1011,4 +1019,17 @@ section {
 .clase-no-blur {
   filter: none;
 
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6be5f;
+  border-radius: 10px;
 }

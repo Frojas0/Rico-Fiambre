@@ -29,11 +29,11 @@ const app = createApp({
     },
     created() {
         this.cargarProductosUnidad(),
-        this.cargarProductosPeso(),
-        this.cargarTiposProductos(),
-        this.cargarPaisesProductos(),
-        this.cargarProductosActivos(),
-        this.cargarProductosInactivos()
+            this.cargarProductosPeso(),
+            this.cargarTiposProductos(),
+            this.cargarPaisesProductos(),
+            this.cargarProductosActivos(),
+            this.cargarProductosInactivos()
     },
 
     methods: {
@@ -55,25 +55,25 @@ const app = createApp({
                 .catch(error => console.log("error"))
         },
 
-        cargarProductosActivos(){
+        cargarProductosActivos() {
             axios.get("/api/productos-activos")
-            .then(response => {
-                this.productosActivos = response.data;
-                console.log(this.productosActivos)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.productosActivos = response.data;
+                    console.log(this.productosActivos)
+                })
+                .catch(error => console.log("error"))
         },
 
-        cargarProductosInactivos(){
+        cargarProductosInactivos() {
             axios.get("/api/productos-inactivos")
-            .then(response => {
-                this.productosInactivos = response.data;
-                console.log(this.productosInactivos)
-            })
-            .catch(error => console.log("error"))
+                .then(response => {
+                    this.productosInactivos = response.data;
+                    console.log(this.productosInactivos)
+                })
+                .catch(error => console.log("error"))
         },
 
-        cargarTiposProductos(){
+        cargarTiposProductos() {
             axios.get("/api/tipos-producto")
                 .then(response => {
                     this.tiposProductos = response.data;
@@ -177,7 +177,7 @@ const app = createApp({
                 }))
         },
 
-        cerrarSesion(){
+        cerrarSesion() {
             Swal.fire({
                 title: '¿Estas seguro de salir?',
                 icon: 'question',
@@ -186,20 +186,20 @@ const app = createApp({
                 cancelButtonColor: '#d33',
                 cancelButtonText: 'Cancelar',
                 confirmButtonText: 'Cerrar sesion'
-              }).then(result => {
-                    if (result.isConfirmed){
-                        axios.post('/api/logout')
-                        .then(response =>  window.location.href="/web/index.html")
+            }).then(result => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                        .then(response => window.location.href = "/web/index.html")
                         .catch(error => Swal.fire({
                             title: 'Error',
                             text: error.response.data,
                             icon: 'error'
-                        }))   
-                    }
+                        }))
+                }
             })
         },
 
-        seleccionarFormCrear(){
+        seleccionarFormCrear() {
             this.mostrarFormCrear = true;
             this.mostrarFormCrearDescuento = false;
             this.mostrarFormActivar = false;

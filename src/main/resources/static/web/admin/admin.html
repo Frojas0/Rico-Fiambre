@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,41 +11,47 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
+
 <body>
     <div id="vueApp">
         <header class="d-flex justify-content-center align-items-center">
             <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header-nav">
-              <div class="container-fluid justify-content-between">
-                <a class="navbar-brand" href="#">
-                  <img class="logo-header" src="../assets/imagenes/logo-05.png" alt="fiambreria-logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon custom-icon"></i></span>
-                </button>
-                <div class=" collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item">
-                      <a class="nav-link estilo-hover" href="../productos.html">PRODUCTOS</a>
-                    </li>
-    
-                    <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
-                        <li class="nav-item">
-                            <button class="nav-link" @click="cerrarSesion"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
-                                <path d="M9 12h12l-3 -3" />
-                                <path d="M18 15l3 -3" />
-                              </svg></button>
-                        </li>
+                <div class="container-fluid justify-content-between">
+                    <a class="navbar-brand" href="#">
+                        <img class="logo-header" src="../assets/imagenes/logo-05.png" alt="fiambreria-logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon custom-icon"></i></span>
+                    </button>
+                    <div class=" collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link estilo-hover" href="../productos.html">PRODUCTOS</a>
+                            </li>
+
+                            <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
+                                <li class="nav-item">
+                                    <button class="nav-link" @click="cerrarSesion">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon icon-tabler icon-tabler-logout svg-hover" width="30" height="30"
+                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                                            <path d="M9 12h12l-3 -3" />
+                                            <path d="M18 15l3 -3" />
+                                        </svg></button>
+                                </li>
+                            </div>
+                        </ul>
                     </div>
-                  </ul>
                 </div>
-              </div>
             </nav>
         </header>
 
-        <main >          
+        <main>
             <div class="d-flex flex-column align-content-center flex-wrap justify-content-center p-3">
                 <div class="contact-form d-flex flex-column align-items-center" style="max-width: 44rem;">
                     <span class="heading">Administrar productos</span>
@@ -58,13 +65,14 @@
 
                     <!-- CREAR PRODUCTO -->
                     <form v-if="mostrarFormCrear" class="d-flex justify-content-center p-3">
-                        
+
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre" required="" v-model="nombreActual">
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="tipoProducto">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            v-model="tipoProducto">
                             <option disabled value>Selecciona el tipo de producto</option>
-                            <template  v-for="tipo in tiposProductos">
+                            <template v-for="tipo in tiposProductos">
                                 <option :value="tipo">{{tipo}}</option>
                             </template>
                         </select>
@@ -72,7 +80,8 @@
                         <div class="d-flex flex-wrap gap-2">
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="descripcion">Descripcion:</label>
-                                <input  type="text" id="descripcion" name="descripcion" required="" v-model="descripcion"></input>
+                                <input type="text" id="descripcion" name="descripcion" required=""
+                                    v-model="descripcion"></input>
                             </div>
 
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
@@ -81,9 +90,10 @@
                             </div>
                         </div>
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="paisProducto">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            v-model="paisProducto">
                             <option disabled value>Selecciona el pais de procedencia</option>
-                            <template  v-for="pais in paisesProductos">
+                            <template v-for="pais in paisesProductos">
                                 <option :value="pais">{{pais}}</option>
                             </template>
                         </select>
@@ -96,12 +106,14 @@
 
                             <div class="d-flex justify-content-around">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" v-model="esPorPeso">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="true" v-model="esPorPeso">
                                     <label class="form-check-label" for="inlineRadio1">Es por peso</label>
                                 </div>
-    
+
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" v-model="esPorPeso">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="false" v-model="esPorPeso">
                                     <label class="form-check-label" for="inlineRadio2">No es por peso</label>
                                 </div>
                             </div>
@@ -111,15 +123,16 @@
                         <input type="text" id="imagen-producto" required="" v-model="imagen">
 
                         <div class="d-flex justify-content-center">
-                            <button @click="crearProducto" type="button" >Añadir producto</button>
+                            <button @click="crearProducto" type="button">Añadir producto</button>
                         </div>
                     </form>
 
                     <!-- CREAR DESCUENTO PRODUCTO -->
                     <form v-if="mostrarFormCrearDescuento" class="d-flex justify-content-center p-3">
-                        
+
                         <label for="nombreCrearDescuento">Nombre:</label>
-                        <input type="text" id="nombreCrearDescuento" name="nombreCrearDescuento" required="" v-model="nombreActual">
+                        <input type="text" id="nombreCrearDescuento" name="nombreCrearDescuento" required=""
+                            v-model="nombreActual">
 
                         <label for="valorDescuento">Descuento:</label>
                         <input type="number" id="valorDescuento" required="" v-model="valorDescuento">
@@ -131,16 +144,17 @@
 
                     <!-- MODIFICAR PRODUCTO -->
                     <form v-if="mostrarFormModificar" class="d-flex justify-content-center p-3">
-                        
+
                         <label for="nombreActual">Nombre actual:</label>
-                        <input type="text"  id="nombreActual" name="nombreActual" required="" v-model="nombreActual">
+                        <input type="text" id="nombreActual" name="nombreActual" required="" v-model="nombreActual">
 
                         <label for="nuevoNombre">Nuevo nombre:</label>
                         <input type="text" id="nuevoNombre" name="nuevoNombre" required="" v-model="nuevoNombre">
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="tipoProducto">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            v-model="tipoProducto">
                             <option disabled value>Selecciona el tipo de producto</option>
-                            <template  v-for="tipo in tiposProductos">
+                            <template v-for="tipo in tiposProductos">
                                 <option :value="tipo">{{tipo}}</option>
                             </template>
                         </select>
@@ -149,7 +163,7 @@
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
                                 <label for="stock">Precio:</label>
                                 <input type="number" id="stock" required="" v-model="precio">
-                                
+
                             </div>
 
                             <div class="d-flex flex-wrap" style="gap: 0.2rem;">
@@ -158,15 +172,17 @@
                             </div>
                         </div>
 
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" v-model="paisProducto">
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            v-model="paisProducto">
                             <option disabled value>Selecciona el pais de procedencia</option>
-                            <template  v-for="pais in paisesProductos">
+                            <template v-for="pais in paisesProductos">
                                 <option :value="pais">{{pais}}</option>
                             </template>
                         </select>
 
                         <label for="descripcion">Descripcion:</label>
-                        <input  type="text" id="descripcion" name="descripcion" required="" v-model="descripcion"></input>
+                        <input type="text" id="descripcion" name="descripcion" required=""
+                            v-model="descripcion"></input>
 
                         <label for="imagen-producto">Imagen del producto:</label>
                         <input type="text" id="imagen-producto" required="" v-model="imagen">
@@ -178,9 +194,10 @@
 
                     <!-- DESACTIVAR PRODUCTO -->
                     <form v-if="mostrarFormDesactivar" class="d-flex justify-content-center p-3">
-                        
+
                         <label for="nombreDesactivar">Nombre:</label>
-                        <input type="text" id="nombreDesactivar" name="nombreDesactivar" required="" v-model="nombreActual">
+                        <input type="text" id="nombreDesactivar" name="nombreDesactivar" required=""
+                            v-model="nombreActual">
 
                         <div class="d-flex justify-content-center">
                             <button @click="desactivarProducto" type="button">Desactivar producto</button>
@@ -189,9 +206,9 @@
 
                     <!-- ACTIVAR PRODUCTO -->
                     <form v-if="mostrarFormActivar" class="d-flex justify-content-center p-3">
-                        
+
                         <label for="nombreActivar">Nombre:</label>
-                        <input type="text"  id="nombreActivar" name="nombreActivar" required="" v-model="nombreActual">
+                        <input type="text" id="nombreActivar" name="nombreActivar" required="" v-model="nombreActual">
 
                         <div class="d-flex justify-content-center">
                             <button @click="activarProducto" type="button">Activar producto</button>
@@ -208,11 +225,12 @@
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img :src="producto.url" class="img-fluid rounded-start" alt="...">
-                                    </div>      
+                                    </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
-                                            <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
+                                            <p class="card-text" style="height: 5rem; overflow: auto;">
+                                                {{producto.descripcion}}</p>
                                             <div class="d-flex justify-content-between">
                                                 <p class="card-text">Precio:{{producto.precio.toLocaleString("es-AR", {
                                                     style:"currency",
@@ -223,7 +241,7 @@
 
                                                 <div v-else>
                                                     <p class="card-text">Stock:{{producto.stock}}Unds</p>
-                                                </div>    
+                                                </div>
                                                 <p class="card-text">Descuento:{{producto.descuento}}</p>
                                             </div>
                                         </div>
@@ -233,35 +251,36 @@
                         </template>
                     </div>
                 </div>
-                
+
                 <div class="d-flex flex-column">
                     <h2 class="d-flex justify-content-center">Productos desactivados</h2>
-                    <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">      
+                    <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">
                         <template v-for="producto in productosInactivos">
                             <div class="card mb-3" style="max-width: 560px;">
                                 <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img :src="producto.url" class="img-fluid rounded-start" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
-                                        <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
-                                        <div class="d-flex justify-content-between">
-                                            <p class="card-text">Precio: {{producto.precio.toLocaleString("es-AR", {
-                                                style:"currency",
-                                                currency: "ARS" })}}</p>
+                                    <div class="col-md-4">
+                                        <img :src="producto.url" class="img-fluid rounded-start" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
+                                            <p class="card-text" style="height: 5rem; overflow: auto;">
+                                                {{producto.descripcion}}</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="card-text">Precio: {{producto.precio.toLocaleString("es-AR", {
+                                                    style:"currency",
+                                                    currency: "ARS" })}}</p>
                                                 <div v-if="producto.esPorPeso == true">
                                                     <p class="card-text">Stock:{{producto.stock}}Kg</p>
                                                 </div>
 
                                                 <div v-else>
                                                     <p class="card-text">Stock:{{producto.stock}}Unds</p>
-                                                </div>  
-                                            <p class="card-text">Descuento: {{producto.descuento}}</p>
+                                                </div>
+                                                <p class="card-text">Descuento: {{producto.descuento}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                         </template>
@@ -273,8 +292,8 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -284,4 +303,5 @@
 
     <script src="./admin.js"></script>
 </body>
+
 </html>

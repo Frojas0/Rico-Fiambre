@@ -60,12 +60,23 @@
                       </g>
                     </svg>
                   </a>
-                  <input class="inputBusqueda" placeholder="Search" type="search" class="input"
+                  <input class="inputBusqueda" placeholder="Buscar" type="search" class="input"
                     v-model="valorSeleccionado">
                   {{filtro}}
                 </div>
 
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
+                  <li class="nav-item">
+                    <button class="nav-link" @click="cerrarSesion">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
+                        width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                        <path d="M9 12h12l-3 -3" />
+                        <path d="M18 15l3 -3" />
+                      </svg></button>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
@@ -114,47 +125,27 @@
                 </div>
               </div>
               <textarea class="form-control" rows="10" placeholder="MENSAJE" name="message" required></textarea>
- 
-              <!-- <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-                <div class="alt-send-button">
-
-
-
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="24"
-                    height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 14l11 -11" />
-                    <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-                  </svg>
-
-
-
-                  <span class="send-text">SEND</span>
-                  <i class="fa fa-paper-plane"></i>
-                </div>
-              </button> -->
-
               <button class="botCarrito d-flex justify-content-center align-items-center">
                 <div class="botonDefecto">
-
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" 
-                  width="25" height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="25"
+                    height="25" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M10 14l11 -11" />
                     <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
                   </svg>
                 </div>
                 <div class="hoverBtn">
-                  <svg Style="margin-left: 38%;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="25" height="25" 
-                  viewBox="0 0 24 24" stroke-width="1.5" stroke="#f6be5f" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <svg Style="margin-left: 38%;" xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-send" width="25" height="25" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="#f6be5f" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M10 14l11 -11" />
                     <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
                   </svg>
                   <span style="margin-top: 5px;">ENVIAR</span>
                 </div>
-    </button>
+              </button>
             </form>
             <div class="direct-contact-container">
               <ul class="contact-list">

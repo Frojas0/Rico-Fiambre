@@ -3,7 +3,7 @@ const app = createApp({
     data() {
         return {
             valorSeleccionado: "",
-
+            listaTop10: [],
             // DATOS CARRITO
             todosLosProductos: [],
             productos: [],
@@ -21,7 +21,7 @@ const app = createApp({
             tipoDeProductos: [],
             selectedTipoProducto: undefined,
             isLoading: true,
-            blurONoBluEsaEsLaCuestion: 'clase-no-blur'
+            blurONoBluEsaEsLaCuestion: 'clase-no-blur',
             // FIN DATO CARRITO
 
         }
@@ -36,31 +36,62 @@ const app = createApp({
         this.metodosIniciales()
     },
     methods: {
+        top10() {
+            this.listaTop10 = []
+            this.todosLosProductos.sort((a, b) => b.puntuaciones - a.puntuaciones)
+            for (let i = 0; i < 10; i++) {
+                this.listaTop10.push(this.todosLosProductos[i])
+                // console.log(this.listaTop10);
+            }
+        },
+        cerrarSesion() {
+            Swal.fire({
+                title: '¿Estas seguro de salir?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Cerrar sesion'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                        .then(response => window.location.href = "/web/index.html")
+                        .catch(error => Swal.fire({
+                            title: 'Error',
+                            text: error.response.data,
+                            icon: 'error'
+                        }))
+                }
+            })
+        },
         // METODOS DEL CARRITO DE COMPRAS
         metodosIniciales() {
             axios.get('/api/productoPeso')
                 .then(response => {
                     this.todosLosProductos = this.todosLosProductos.concat(response.data);
                     this.productos = this.todosLosProductos
+                    this.top10()
                 })
                 .then(response => {
-                    console.log(this.productos)
+                    // console.log(this.productos)
                 })
 
             axios.get('/api/productoUni')
                 .then(response => {
                     this.todosLosProductos = this.todosLosProductos.concat(response.data);
                     this.productos = this.todosLosProductos
+                    this.top10()
                 })
                 .then(response => {
-                    console.log(nombreURL)
+                    // console.log(nombreURL)
                     this.productos = this.todosLosProductos
                 })
 
             axios.get('/api/tipos-producto')
                 .then(response => {
                     this.tipoDeProductos = response.data
-                    console.log(response.data)
+                    // console.log(response.data)
                     this.isLoading = false
                 }
                 )
