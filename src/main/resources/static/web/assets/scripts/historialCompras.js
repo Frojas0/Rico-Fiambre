@@ -25,7 +25,9 @@ const app = createApp({
             // FIN DATO CARRITO
 
             // HISTORIAL DE COMPRAS - CLIENTE
-            historialDeordenes : []
+            historialDeordenes : [],
+            productoAValorar : '',
+            valoracionProducto : undefined
             // FIN HISTORIAL DE COMRPAS CLIENTE
 
 
@@ -165,13 +167,42 @@ const app = createApp({
             axios.get('/api/ordenes-cliente')
             .then(response => {
                 this.historialDeordenes = response.data.sort((a, b) => b.fecha - a.fecha)
-                // response.data.sort((a, b) => b.fecha - a.fecha)
                 console.log(response.data.sort((a, b) => b.id - a.id))
             })
-            // console.log("hola hola");
         },
-        valorarProducto(nombre){
+        valorarProducto(nombre, valoracion){
 
+        },
+        abrirModal(nombre){
+            this.productoAValorar = nombre
+        },
+        estrellaElegida(num){
+            this.valoracionProducto = num
+        },
+        enviarValoracion(){
+            axios.post('/api/valorar-producto', 
+            'nombre=' + this.productoAValorar
+            + '&valor=' + this.valoracionProducto)
+            .then(response => {
+                Swal.fire({
+                    icon: 'success',
+                    text: "Gracias por valorar nuestro producto!",
+                })
+                setTimeout(() => {
+                    window.location.replace('./historialCompras.html');
+                }, 2000);
+            })
+            .catch(error => {
+                if (error.response.status === 403) {
+                    Swal.fire({
+                        icon: 'error',
+                        text: error.response.data,
+                    })
+                } else {
+                    console.log(error)
+                }
+            }
+            )
         }
         // FIN METODOS HISTORIAL DE COMPRAS
     }
