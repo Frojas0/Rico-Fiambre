@@ -7,6 +7,11 @@
   /* background-color: whitesmoke; */
 }
 
+/* PANTALLA DE CARGA */
+[v-cloak] {
+  display: none;
+}
+
 /* ---------- HEADER ---------- */
 header {
   min-height: 15vh;
