@@ -318,10 +318,10 @@ footer {
 
 .section-header {
   background-image: url(../imagenes/Banner\ Horizontal\ Pizzas\ Degradado\ Azul\ y\ Verde.png);
-  background-position-x: 50%;
-  background-position-y: 50%;
   background-size: 100%;
-  height: 40vw;
+  background-position-x: 50%;
+  background-position-y: 60%;
+  height: 35vw;
 }
 
 .contact-wrapper {

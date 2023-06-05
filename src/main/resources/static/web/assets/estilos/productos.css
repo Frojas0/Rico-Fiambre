@@ -134,7 +134,13 @@ main {
 }
 
 /* ---------- MAIN ---------- */
-
+.bannerProductos {
+  background-image: url(../imagenes/_Banner\ de\ YouTube\ Comida\ Blanco\ Sencillo\ Vídeo\ Inspirador.png);
+  height: 30vw;
+  background-size: 100%;
+  background-position-y: 10%;
+  background-position-x: 50%;
+}
 
 
 
