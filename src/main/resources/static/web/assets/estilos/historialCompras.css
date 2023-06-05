@@ -369,3 +369,18 @@ header {
     box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
     }
 }
+
+
+/* Estilos para la barra de desplazamiento en navegadores WebKit */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo de la pista de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #f6be5f; /* Color del pulgar (la parte arrastrable) de la barra de desplazamiento */
+    border-radius: 10px;
+  }

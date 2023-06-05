@@ -21,19 +21,25 @@ const app = createApp({
             tipoDeProductos: [],
             selectedTipoProducto: undefined,
             isLoading: true,
-            blurONoBluEsaEsLaCuestion: 'clase-no-blur'
+            blurONoBluEsaEsLaCuestion: 'clase-no-blur',
             // FIN DATO CARRITO
+
+            // HISTORIAL DE COMPRAS - CLIENTE
+            historialDeordenes : []
+            // FIN HISTORIAL DE COMRPAS CLIENTE
+
 
         }
     },
     mounted() {
-        this.$nextTick(() => {
-            const video = this.$refs.myVideo;
-            video.play();
-        });
+        // this.$nextTick(() => {
+        //     const video = this.$refs.myVideo;
+        //     video.play();
+        // });
     },
     created() {
         this.metodosIniciales()
+        this.cargarHistorialDeCompra()
     },
     methods: {
         // METODOS DEL CARRITO DE COMPRAS
@@ -53,7 +59,6 @@ const app = createApp({
                     this.productos = this.todosLosProductos
                 })
                 .then(response => {
-                    console.log(nombreURL)
                     this.productos = this.todosLosProductos
                 })
 
@@ -152,10 +157,23 @@ const app = createApp({
                         text: 'Tienes que estar logueado para comprar',
                     })
                 })
-        }
-
-
+        },
         // FIN METODOS DEL CARRITO DE COMPRAS
+
+        // METODOS HISTORIAL DE COMPRAS
+        cargarHistorialDeCompra(){
+            axios.get('/api/ordenes-cliente')
+            .then(response => {
+                this.historialDeordenes = response.data.sort((a, b) => b.fecha - a.fecha)
+                // response.data.sort((a, b) => b.fecha - a.fecha)
+                console.log(response.data.sort((a, b) => b.id - a.id))
+            })
+            // console.log("hola hola");
+        },
+        valorarProducto(nombre){
+
+        }
+        // FIN METODOS HISTORIAL DE COMPRAS
     }
 })
 app.mount('#vueApp')
