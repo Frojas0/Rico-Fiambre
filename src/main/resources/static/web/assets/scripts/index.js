@@ -50,6 +50,17 @@ const app = createApp({
                 // console.log(this.listaTop10);
             }
         },
+
+        enviarSuscripcion(){
+            Swal.fire({
+                title: '¡Suscripcion exitosa!',
+                text: 'A partir de ahora recibirás todas nuestras novedades.',
+                icon: 'success',
+                confirmButtonText: 'CERRAR',
+                confirmButtonColor: 'black',
+            })
+        },
+
         cerrarSesion() {
             Swal.fire({
                 title: '¿Estas seguro de salir?',
@@ -206,6 +217,7 @@ const app = createApp({
             }
             )
         },
+
         irALogin(){
             window.location.href = "/web/login.html"
         }
