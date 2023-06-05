@@ -262,7 +262,10 @@ main {
     text-decoration: underline;
 }
 
-
+PANTALLA DE CARGA
+[v-cloak] {
+    display: none;
+}
 
 
 
