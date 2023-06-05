@@ -175,6 +175,17 @@ const app = createApp({
                 }
             })
         },
+
+        enviarMensaje(){
+            Swal.fire({
+                title: 'Mensaje enviado!',
+                text: 'A la brevedad te estaremos respondiendo',
+                icon: 'success',
+                confirmButtonText: 'CERRAR',
+                confirmButtonColor: 'black',
+            })
+        },
+
         metodoejemplo() {
             this.isLoading = false
         },

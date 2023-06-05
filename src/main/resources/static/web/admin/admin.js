@@ -92,89 +92,183 @@ const app = createApp({
         },
 
         crearProducto() {
-            axios.post('/api/crear-producto', 'nombre=' + this.nombreActual
-                + '&tipoProducto=' + this.tipoProducto +
-                '&descripcion=' + this.descripcion +
-                '&stock=' + this.stock +
-                '&precio=' + this.precio +
-                '&paisProducto=' + this.paisProducto +
-                '&esPorPeso=' + this.esPorPeso +
-                '&url=' + this.imagen)
-                .then(response => {
-                    console.log("producto creado")
-                    window.location.href = "/web/admin/admin.html"
-                })
+            Swal.fire({
+                title: '¿Estas seguro de crear este producto?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Crear'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Producto creado',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })
 
-                .catch(error => Swal.fire({
-                    title: 'Error',
-                    text: error.response.data,
-                    icon: 'error'
-                }))
+                axios.post('/api/crear-producto', 'nombre=' + this.nombreActual
+                    + '&tipoProducto=' + this.tipoProducto +
+                    '&descripcion=' + this.descripcion +
+                    '&stock=' + this.stock +
+                    '&precio=' + this.precio +
+                    '&paisProducto=' + this.paisProducto +
+                    '&esPorPeso=' + this.esPorPeso +
+                    '&url=' + this.imagen)
+                    .then(response => {
+                        console.log("producto creado")
+                        window.location.href = "/web/admin/admin.html"
+                    })
+
+                    .catch(error => Swal.fire({
+                        title: 'Error',
+                        text: error.response.data,
+                        icon: 'error'
+                    }))
+                }
+            })
         },
 
         crearDescuentoProducto() {
-            axios.post('/api/crear-descuento-producto', 'nombreProducto=' + this.nombreActual + '&valorDescuento=' + this.valorDescuento)
-                .then(response => {
-                    console.log("producto con descuento")
-                    window.location.href = "/web/admin/admin.html"
-                })
+            Swal.fire({
+                title: '¿Estas seguro de crear este descuento?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Crear'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Descuento aplicado',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })
 
-                .catch(error => Swal.fire({
-                    title: 'Error',
-                    text: error.response.data,
-                    icon: 'error'
-                }))
+                axios.post('/api/crear-descuento-producto', 'nombreProducto=' + this.nombreActual + '&valorDescuento=' + this.valorDescuento)
+                    .then(response => {
+                        console.log("producto con descuento")
+                        window.location.href = "/web/admin/admin.html"
+                    })
+
+                    .catch(error => Swal.fire({
+                        title: 'Error',
+                        text: error.response.data,
+                        icon: 'error'
+                    }))
+                }
+            })
         },
 
         modificarProducto() {
-            axios.post('/api/modificar-producto', {
-                "nombre": this.nombreActual,
-                "nuevoNombre": this.nuevoNombre,
-                "tipo": this.tipoProducto,
-                "descripcion": this.descripcion,
-                "stock": this.stock,
-                "precio": this.precio,
-                "origen": this.paisProducto,
-                "url": this.imagen
-            })
-                .then(response => {
-                    console.log("producto modificado")
-                    window.location.href = "/web/admin/admin.html"
-                })
+            Swal.fire({
+                title: '¿Estas seguro de modificar este producto?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Modificar'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Producto modificado',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })
 
-                .catch(error => Swal.fire({
-                    title: 'Error',
-                    text: error.response.data,
-                    icon: 'error'
-                }))
+                axios.post('/api/modificar-producto', {
+                    "nombre": this.nombreActual,
+                    "nuevoNombre": this.nuevoNombre,
+                    "tipo": this.tipoProducto,
+                    "descripcion": this.descripcion,
+                    "stock": this.stock,
+                    "precio": this.precio,
+                    "origen": this.paisProducto,
+                    "url": this.imagen
+                })
+                    .then(response => {
+                        console.log("producto modificado")
+                        window.location.href = "/web/admin/admin.html"
+                    })
+
+                    .catch(error => Swal.fire({
+                        title: 'Error',
+                        text: error.response.data,
+                        icon: 'error'
+                    }))
+                }
+            })
         },
 
         desactivarProducto() {
-            axios.post('/api/desactivar-producto', 'nombre=' + this.nombreActual)
-                .then(response => {
-                    console.log("producto desactivado")
-                    window.location.href = "/web/admin/admin.html"
-                })
+            Swal.fire({
+                title: '¿Estas seguro de desactivar este producto?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Desactivar'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Producto desactivado',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })
+                axios.post('/api/desactivar-producto', 'nombre=' + this.nombreActual)
+                    .then(response => {
+                        console.log("producto desactivado")
+                        window.location.href = "/web/admin/admin.html"
+                    })
 
-                .catch(error => Swal.fire({
-                    title: 'Error',
-                    text: error.response.data,
-                    icon: 'error'
-                }))
+                    .catch(error => Swal.fire({
+                        title: 'Error',
+                        text: error.response.data,
+                        icon: 'error'
+                    }))
+                }
+            })
         },
 
         activarProducto() {
-            axios.post('/api/activar-producto', 'nombre=' + this.nombreActual)
-                .then(response => {
-                    console.log("producto activado")
-                    window.location.href = "/web/admin/admin.html"
-                })
+            Swal.fire({
+                title: '¿Estas seguro de activar este producto?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Activar'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Producto activado',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })
 
-                .catch(error => Swal.fire({
-                    title: 'Error',
-                    text: error.response.data,
-                    icon: 'error'
-                }))
+                axios.post('/api/activar-producto', 'nombre=' + this.nombreActual)
+                    .then(response => {
+                        console.log("producto activado")
+                        window.location.href = "/web/admin/admin.html"
+                    })
+
+                    .catch(error => Swal.fire({
+                        title: 'Error',
+                        text: error.response.data,
+                        icon: 'error'
+                    }))
+                }
+            })
         },
 
         cerrarSesion() {
@@ -188,6 +282,13 @@ const app = createApp({
                 confirmButtonText: 'Cerrar sesion'
             }).then(result => {
                 if (result.isConfirmed) {
+                    Swal.fire({
+                        title: '¡Hasta pronto!',
+                        icon: 'success',
+                        confirmButtonText: 'CERRAR',
+                        confirmButtonColor: 'black',
+                    })     
+
                     axios.post('/api/logout')
                         .then(response => window.location.href = "/web/index.html")
                         .catch(error => Swal.fire({
