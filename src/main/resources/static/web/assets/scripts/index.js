@@ -39,7 +39,7 @@ const app = createApp({
         top10() {
             this.listaTop10 = []
             this.todosLosProductos.sort((a, b) => b.puntuaciones - a.puntuaciones)
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 4; i++) {
                 this.listaTop10.push(this.todosLosProductos[i])
                 // console.log(this.listaTop10);
             }
@@ -73,9 +73,6 @@ const app = createApp({
                     this.productos = this.todosLosProductos
                     this.top10()
                 })
-                .then(response => {
-                    // console.log(this.productos)
-                })
 
             axios.get('/api/productoUni')
                 .then(response => {
@@ -83,10 +80,12 @@ const app = createApp({
                     this.productos = this.todosLosProductos
                     this.top10()
                 })
-                .then(response => {
-                    // console.log(nombreURL)
-                    this.productos = this.todosLosProductos
-                })
+            // .then(response => {
+            //     // console.log(nombreURL)
+            //     this.productos = this.todosLosProductos
+
+            //     this.top10()
+            // })
 
             axios.get('/api/tipos-producto')
                 .then(response => {

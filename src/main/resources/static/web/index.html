@@ -213,13 +213,14 @@
         </nav>
       </header>
       <main>
-        <!-- <div>
-          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index">
-        </div> -->
+        <div class="contenedorBanner">
 
-        <div>
-          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index" style="width: 100%;">
         </div>
+
+
+        <!-- <div>
+          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index" style="width: 100%;">
+        </div> -->
 
 
 
@@ -263,7 +264,9 @@
             <p>TODOS LOS MEDIOS DE PAGO</p>
           </div>
         </div>
-
+        <div class="d-flex justify-content-center">
+          <h2 class="textoTop10">TOP 10</h2>
+        </div>
         <div class="contenedorProductos">
           <template v-for="producto in listaTop10" v-if="productos.length > 0" :key="index">
             <div class="product-box"
