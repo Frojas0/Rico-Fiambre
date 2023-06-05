@@ -170,22 +170,158 @@ main {
 
 /* ---------- FOOTER ---------- */
 footer {
-  background-color: #b36311;
-  min-height: 10vh;
-  /* height: 1; */
-  /*Ajustar*/
+  background-color: white;
+}
 
-  /*Ajustar*/
+.incentivo {
+  margin: 0;
+}
+
+.subscribite {
+  background-color: black;
   color: white;
-  padding: 1rem;
+  width: 97%;
+  border-radius: 2rem;
+  height: 12rem;
 }
 
-
-.tarjetas {
+.input-container {
+  position: relative;
+  display: flex;
   height: 2rem;
-  padding: 0.1rem;
-  ;
+  width: 100%;
+  min-width: 200px;
+  max-width: 250px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+  margin-top: 1rem;
 }
+
+.input-container input {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgb(176 190 197);
+  background-color: transparent;
+  padding: 0.625rem 70px 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  color: rgb(69 90 100);
+  outline: none;
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-container input:focus {
+  border: 1px solid #f6be5f;
+}
+
+.invite-btn {
+  position: absolute;
+  width: 65px;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  z-index: 10;
+  border-radius: 4px;
+  background-color: #f6be5f;
+  color: #fff;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: none;
+  transition: .6s ease;
+}
+
+.invite-btn:hover {
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  border-radius: 8px;
+}
+
+.input-container input:placeholder-shown~.invite-btn {
+  pointer-events: none;
+  background-color: gray;
+  opacity: 0.5;
+}
+
+.footerInfoContainer {
+  height: 10rem;
+}
+
+/* Boton sociales */
+.link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.nombreLink {
+  margin-top: .5rem;
+}
+
+.social-links,
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.social-btn svg {
+  height: 24px;
+  width: 24px;
+}
+
+.social-btn span {
+  width: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.social-btn:hover {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.social-btn:hover span {
+  padding: 2px;
+  width: 80px;
+}
+
+#linkedin svg {
+  fill: #0e76a8;
+}
+
+#github {
+  fill: #333;
+}
+
+
+
+
 
 /* ---------- FORMULARIO LOGIN---------- */
 #logo-login-register {
@@ -215,9 +351,7 @@ footer {
   --bg-color: #fff;
 }
 
-/* img {
-   width: 100%; 
-} */
+
 body {
   color: var(--text-color);
 }
@@ -873,7 +1007,8 @@ section {
 .clase-blur {
   filter: blur(5px);
 }
-.clase-no-blur{
+
+.clase-no-blur {
   filter: none;
 
 }

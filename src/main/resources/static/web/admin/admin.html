@@ -203,8 +203,8 @@
                 <div class="d-flex flex-column">
                     <h2 class="d-flex justify-content-center">Productos activados</h2>
                     <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">
-                        <template v-for="producto in productosUnidad">
-                            <div class="card mb-3" style="max-width: 540px;">
+                        <template v-for="producto in productosActivos">
+                            <div class="card mb-3" style="max-width: 560px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img :src="producto.url" class="img-fluid rounded-start" alt="...">
@@ -214,9 +214,17 @@
                                             <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
                                             <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
                                             <div class="d-flex justify-content-between">
-                                                <p class="card-text">Precio: ${{producto.precio}}</p>
-                                                <p class="card-text">Stock: {{producto.stock}}</p>
-                                                <p class="card-text">Descuento: {{producto.descuento}}</p>
+                                                <p class="card-text">Precio:{{producto.precio.toLocaleString("es-AR", {
+                                                    style:"currency",
+                                                    currency: "ARS" })}}</p>
+                                                <div v-if="producto.esPorPeso == true">
+                                                    <p class="card-text">Stock:{{producto.stock}}Kg</p>
+                                                </div>
+
+                                                <div v-else>
+                                                    <p class="card-text">Stock:{{producto.stock}}Unds</p>
+                                                </div>    
+                                                <p class="card-text">Descuento:{{producto.descuento}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -229,8 +237,8 @@
                 <div class="d-flex flex-column">
                     <h2 class="d-flex justify-content-center">Productos desactivados</h2>
                     <div class="d-flex flex-column" style="height: 50rem; overflow: auto;">      
-                        <template v-for="producto in productosPeso">
-                            <div class="card mb-3" style="max-width: 540px;">
+                        <template v-for="producto in productosInactivos">
+                            <div class="card mb-3" style="max-width: 560px;">
                                 <div class="row g-0">
                                 <div class="col-md-4">
                                     <img :src="producto.url" class="img-fluid rounded-start" alt="...">
@@ -240,8 +248,16 @@
                                         <h5 class="card-title" style="font-weight: bold;">{{producto.nombre}}</h5>
                                         <p class="card-text" style="height: 5rem; overflow: auto;">{{producto.descripcion}}</p>
                                         <div class="d-flex justify-content-between">
-                                            <p class="card-text">Precio: ${{producto.precio}}</p>
-                                            <p class="card-text">Stock: {{producto.stock}}</p>
+                                            <p class="card-text">Precio: {{producto.precio.toLocaleString("es-AR", {
+                                                style:"currency",
+                                                currency: "ARS" })}}</p>
+                                                <div v-if="producto.esPorPeso == true">
+                                                    <p class="card-text">Stock:{{producto.stock}}Kg</p>
+                                                </div>
+
+                                                <div v-else>
+                                                    <p class="card-text">Stock:{{producto.stock}}Unds</p>
+                                                </div>  
                                             <p class="card-text">Descuento: {{producto.descuento}}</p>
                                         </div>
                                     </div>

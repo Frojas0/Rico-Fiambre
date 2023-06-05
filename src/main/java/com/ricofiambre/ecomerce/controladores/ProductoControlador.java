@@ -1,5 +1,13 @@
 package com.ricofiambre.ecomerce.controladores;
 
+
+import com.lowagie.text.*;
+import com.lowagie.text.Font;
+import com.lowagie.text.Image;
+import com.lowagie.text.Rectangle;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import com.ricofiambre.ecomerce.dtos.CarritoCompraDTO;
 import com.ricofiambre.ecomerce.dtos.ProductoPesoDTO;
 import com.ricofiambre.ecomerce.dtos.ProductoUniDTO;
@@ -7,15 +15,33 @@ import com.ricofiambre.ecomerce.modelos.*;
 import com.ricofiambre.ecomerce.servicios.*;
 import com.ricofiambre.ecomerce.utilidades.NumerosUtilidad;
 import com.ricofiambre.ecomerce.utilidades.PagarConTarjetaUtilidad;
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.pdmodel.PDPage;
+//import org.apache.pdfbox.pdmodel.PDPageContentStream;
+//import org.apache.pdfbox.pdmodel.common.PDRectangle;
+//import org.apache.pdfbox.pdmodel.font.PDFontFactory;
+//import org.apache.pdfbox.pdmodel.font.PDType1Font;
+//import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.Authentication;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -32,6 +58,10 @@ public class ProductoControlador {
     private OrdenProductoUniServicio ordenProductoUniServicio;
     @Autowired
     private OrdenProductoPesoServicio ordenProductoPesoServicio;
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    private JavaMailSender mailSender;
 
 
     @GetMapping("/api/productoPeso")
@@ -55,7 +85,7 @@ public class ProductoControlador {
     //COMPRAR LOS PRODUCTOS DEL CARRITO DE COMPRA - CLIENTE
     @Transactional
     @PostMapping("/api/carrito-compra")
-    public ResponseEntity<Object> compraProducto(Authentication authentication, @RequestBody CarritoCompraDTO carritoCompraDTO){
+    public ResponseEntity<Object> compraProducto(HttpServletResponse response, Authentication authentication, @RequestBody CarritoCompraDTO carritoCompraDTO){
 
         Cliente cliente = clienteServicio.findByEmail(authentication.getName());
         String numero;
@@ -130,12 +160,175 @@ public class ProductoControlador {
         if (pagarConTarjeta.getStatusCode() == HttpStatus.CREATED){
             orden.setTotal(totalCompra);
             ordenServicio.saveNewOrden(orden);
+//            sendMail(orden);
+
+            String headerKey = "Content-Disposition";
+            String headerValue = "attachment; filename=MB-TICKET.pdf";
+            response.setHeader(headerKey, headerValue);
+            sendMail(response, orden);
+
         } else {
             throw new RuntimeException("Se produjo un error");
         }
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
+    public ResponseEntity<Object> sendMail(HttpServletResponse response, Orden orden){
+        try {
+            // Crear el documento PDF
+            Document document = new Document(PageSize.A4);
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            PdfWriter.getInstance(document, outputStream);
+            document.open();
+
+            // Agregar contenido al documento
+            Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.BOLD, new Color(18, 22, 42));
+            fontTitle.setSize(18);
+            Font fontTableTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(18, 22, 42));
+            fontTableTitle.setSize(12);
+            Font fontBody = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(18, 22, 42));
+            fontBody.setSize(12);
+//LOGO
+            Image img = Image.getInstance("src/main/resources/static/web/assets/imagenes/logo01.png");
+            img.scaleAbsoluteWidth(100);
+            img.scaleAbsoluteHeight(100);
+            document.add(img);
+
+// titulo
+            Paragraph title = new Paragraph("RICO FIAMBRE", fontTitle);
+            title.setAlignment(Element.ALIGN_LEFT);
+            title.setSpacingAfter(10);
+            document.add(title);
+
+            Paragraph paragraph = new Paragraph("Tu ticket de compra N°: " + orden.getNumeroDeOrden());
+            paragraph.setAlignment(Element.ALIGN_CENTER);
+            paragraph.setSpacingAfter(10);
+            document.add(paragraph);
+
+//            tabla
+
+            PdfPTable pdfPTable = new PdfPTable(2);
+
+            PdfPCell headerCell2 = new PdfPCell(new Paragraph("PRODUCTO", fontTableTitle));
+            PdfPCell headerCell3 = new PdfPCell(new Paragraph("MONTO", fontTableTitle));
+
+
+
+            headerCell2.setBackgroundColor(new Color(192, 192, 192));
+            headerCell2.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell2.setBorderColor(Color.BLACK);
+            headerCell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell2.setFixedHeight(25f);
+
+            headerCell3.setBackgroundColor(new Color(192, 192, 192));
+            headerCell3.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell3.setBorderColor(Color.BLACK);
+            headerCell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell3.setFixedHeight(25f);
+
+            pdfPTable.addCell(headerCell2);
+            pdfPTable.addCell(headerCell3);
+
+            Set<OrdenProductoPeso> productoPesos = orden.getOrdenProductoPesos();
+            Set<OrdenProductoUni> productoUni = orden.getOrdenProductoUnis();
+
+            for (OrdenProductoUni elemento : productoUni) {
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(elemento.getProductoUni().getNombre(), fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph(String.valueOf(elemento.getTotal()), fontBody));
+
+                pdfPCell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell5.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
+
+                pdfPCell5.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell5.setBorderColor(Color.BLACK);
+                pdfPCell5.setFixedHeight(40f);
+
+                pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell6.setBorderColor(Color.BLACK);
+                pdfPCell6.setFixedHeight(40f);
+
+                pdfPTable.addCell(pdfPCell5);
+                pdfPTable.addCell(pdfPCell6);
+            }
+            for (OrdenProductoPeso elemento : productoPesos) {
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(elemento.getProductoPeso().getNombre(), fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph(String.valueOf(elemento.getTotal()), fontBody));
+
+                pdfPCell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell5.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
+
+                pdfPCell5.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell5.setBorderColor(Color.BLACK);
+                pdfPCell5.setFixedHeight(40f);
+
+                pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell6.setBorderColor(Color.BLACK);
+                pdfPCell6.setFixedHeight(40f);
+
+                pdfPTable.addCell(pdfPCell5);
+                pdfPTable.addCell(pdfPCell6);
+            }
+            document.add(pdfPTable);
+
+            Paragraph total = new Paragraph("TOTAL: " + String.valueOf(orden.getTotal()), fontBody);
+            total.setAlignment(Element.ALIGN_CENTER);
+            total.setSpacingAfter(10);
+            document.add(total);
+
+
+            document.close();
+
+            // Enviar el correo electrónico con el PDF adjunto
+            sendConfirmationEmailWithAttachment(outputStream.toByteArray());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        return new ResponseEntity<>("Ticket enviado!", HttpStatus.CREATED);
+    }
+
+    private void sendConfirmationEmailWithAttachment(byte[] pdfBytes) throws MessagingException {
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo("melba@mindhub.com");
+        helper.setSubject("Ticket compra - RICO FIAMBRE");
+        helper.setText("Adjunto encontrarás el TICKET de compra.");
+
+        // Adjuntar el PDF al correo electrónico
+        helper.addAttachment("ticket.pdf", new ByteArrayResource(pdfBytes));
+
+        mailSender.send(message);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //    VALORAR UN PRODUCTO - CLIENTE

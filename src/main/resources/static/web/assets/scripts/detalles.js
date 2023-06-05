@@ -12,7 +12,7 @@ const app = createApp({
             tipoProducto: undefined,
             todosLosProductosDetalles: [],
 
-
+            // DATOS CARRITO
             todosLosProductos: [],
             productos: [],
             imagenPro: undefined,
@@ -30,7 +30,7 @@ const app = createApp({
             selectedTipoProducto: undefined,
             isLoading: true,
             blurONoBluEsaEsLaCuestion : 'clase-no-blur'
-
+            // FIN DATO CARRITO
 
 
         }
