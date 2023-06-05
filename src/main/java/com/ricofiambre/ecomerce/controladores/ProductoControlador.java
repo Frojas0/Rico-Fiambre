@@ -101,6 +101,8 @@ public class ProductoControlador {
             return new ResponseEntity<>("Tienes que agregar productos al carrito", HttpStatus.FORBIDDEN);
         }
 
+        String mailUsuario = cliente.getEmail();
+
         Double totalCompra = 0.0;
 
         Orden orden = (new Orden(LocalDateTime.now(), false, true, totalCompra, numero));
@@ -165,7 +167,7 @@ public class ProductoControlador {
             String headerKey = "Content-Disposition";
             String headerValue = "attachment; filename=MB-TICKET.pdf";
             response.setHeader(headerKey, headerValue);
-            sendMail(response, orden);
+            sendMail(response, orden, mailUsuario);
 
         } else {
             throw new RuntimeException("Se produjo un error");
@@ -175,7 +177,7 @@ public class ProductoControlador {
     }
 
 
-    public ResponseEntity<Object> sendMail(HttpServletResponse response, Orden orden){
+    public ResponseEntity<Object> sendMail(HttpServletResponse response, Orden orden, String mailUsuario){
         try {
             // Crear el documento PDF
             Document document = new Document(PageSize.A4);
@@ -184,11 +186,11 @@ public class ProductoControlador {
             document.open();
 
             // Agregar contenido al documento
-            Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.BOLD, new Color(18, 22, 42));
-            fontTitle.setSize(18);
-            Font fontTableTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(18, 22, 42));
+            Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, Font.BOLD, new Color(0, 0, 0));
+            fontTitle.setSize(16);
+            Font fontTableTitle = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(0, 0, 0));
             fontTableTitle.setSize(12);
-            Font fontBody = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(18, 22, 42));
+            Font fontBody = FontFactory.getFont(FontFactory.HELVETICA, Font.DEFAULTSIZE, new Color(0, 0, 0));
             fontBody.setSize(12);
 //LOGO
             Image img = Image.getInstance("src/main/resources/static/web/assets/imagenes/logo01.png");
@@ -198,7 +200,7 @@ public class ProductoControlador {
 
 // titulo
             Paragraph title = new Paragraph("RICO FIAMBRE", fontTitle);
-            title.setAlignment(Element.ALIGN_LEFT);
+            title.setAlignment(Element.ALIGN_CENTER);
             title.setSpacingAfter(10);
             document.add(title);
 
@@ -209,57 +211,96 @@ public class ProductoControlador {
 
 //            tabla
 
-            PdfPTable pdfPTable = new PdfPTable(2);
+            PdfPTable pdfPTable = new PdfPTable(4);
 
-            PdfPCell headerCell2 = new PdfPCell(new Paragraph("PRODUCTO", fontTableTitle));
-            PdfPCell headerCell3 = new PdfPCell(new Paragraph("MONTO", fontTableTitle));
+            PdfPCell headerCell2 = new PdfPCell(new Paragraph("CANTIDAD", fontTableTitle));
+            PdfPCell headerCell4 = new PdfPCell(new Paragraph("PRODUCTO", fontTableTitle));
+            PdfPCell headerCell9 = new PdfPCell(new Paragraph("PRECIO", fontTableTitle));
+            PdfPCell headerCell3 = new PdfPCell(new Paragraph("SUBTOTAL", fontTableTitle));
 
 
 
-            headerCell2.setBackgroundColor(new Color(192, 192, 192));
+            headerCell2.setBackgroundColor(new Color(255, 255, 255));
             headerCell2.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
             headerCell2.setBorderColor(Color.BLACK);
             headerCell2.setHorizontalAlignment(Element.ALIGN_CENTER);
             headerCell2.setFixedHeight(25f);
 
-            headerCell3.setBackgroundColor(new Color(192, 192, 192));
+            headerCell4.setBackgroundColor(new Color(255, 255, 255));
+            headerCell4.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell4.setBorderColor(Color.BLACK);
+            headerCell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell4.setFixedHeight(25f);
+
+            headerCell9.setBackgroundColor(new Color(255, 255, 255));
+            headerCell9.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
+            headerCell9.setBorderColor(Color.BLACK);
+            headerCell9.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headerCell9.setFixedHeight(25f);
+
+            headerCell3.setBackgroundColor(new Color(255, 255, 255));
             headerCell3.setBorder(com.lowagie.text.Rectangle.TOP | com.lowagie.text.Rectangle.BOTTOM | com.lowagie.text.Rectangle.LEFT | com.lowagie.text.Rectangle.RIGHT);
             headerCell3.setBorderColor(Color.BLACK);
             headerCell3.setHorizontalAlignment(Element.ALIGN_CENTER);
             headerCell3.setFixedHeight(25f);
 
             pdfPTable.addCell(headerCell2);
+            pdfPTable.addCell(headerCell4);
+            pdfPTable.addCell(headerCell9);
             pdfPTable.addCell(headerCell3);
 
             Set<OrdenProductoPeso> productoPesos = orden.getOrdenProductoPesos();
             Set<OrdenProductoUni> productoUni = orden.getOrdenProductoUnis();
 
             for (OrdenProductoUni elemento : productoUni) {
-                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(elemento.getProductoUni().getNombre(), fontBody));
-                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph(String.valueOf(elemento.getTotal()), fontBody));
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(String.valueOf(elemento.getCantidadUni() + " u"), fontBody));
+                PdfPCell pdfPCell7 = new PdfPCell(new Paragraph(elemento.getProductoUni().getNombre(), fontBody));
+                PdfPCell pdfPCell9 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getProductoUni().getPrecio()) + " /u", fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getTotal()), fontBody));
 
                 pdfPCell5.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell5.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setVerticalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
+
 
                 pdfPCell5.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell5.setBorderColor(Color.BLACK);
                 pdfPCell5.setFixedHeight(40f);
+
+                pdfPCell7.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell7.setBorderColor(Color.BLACK);
+                pdfPCell7.setFixedHeight(40f);
+
+                pdfPCell9.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell9.setBorderColor(Color.BLACK);
+                pdfPCell9.setFixedHeight(40f);
 
                 pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell6.setBorderColor(Color.BLACK);
                 pdfPCell6.setFixedHeight(40f);
 
                 pdfPTable.addCell(pdfPCell5);
+                pdfPTable.addCell(pdfPCell7);
+                pdfPTable.addCell(pdfPCell9);
                 pdfPTable.addCell(pdfPCell6);
             }
             for (OrdenProductoPeso elemento : productoPesos) {
-                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(elemento.getProductoPeso().getNombre(), fontBody));
-                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph(String.valueOf(elemento.getTotal()), fontBody));
+                PdfPCell pdfPCell5 = new PdfPCell(new Paragraph(String.valueOf(elemento.getCantidadKg()) + " kg", fontBody));
+                PdfPCell pdfPCell7 = new PdfPCell(new Paragraph(elemento.getProductoPeso().getNombre(), fontBody));
+                PdfPCell pdfPCell9 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getProductoPeso().getPrecio()) + " /kg", fontBody));
+                PdfPCell pdfPCell6 = new PdfPCell(new Paragraph("$" + String.valueOf(elemento.getTotal()), fontBody));
 
                 pdfPCell5.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell5.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell7.setVerticalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfPCell9.setVerticalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfPCell6.setVerticalAlignment(Element.ALIGN_CENTER);
 
@@ -267,16 +308,26 @@ public class ProductoControlador {
                 pdfPCell5.setBorderColor(Color.BLACK);
                 pdfPCell5.setFixedHeight(40f);
 
+                pdfPCell7.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell7.setBorderColor(Color.BLACK);
+                pdfPCell7.setFixedHeight(40f);
+
+                pdfPCell9.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
+                pdfPCell9.setBorderColor(Color.BLACK);
+                pdfPCell9.setFixedHeight(40f);
+
                 pdfPCell6.setBorder(Rectangle.TOP | Rectangle.BOTTOM | Rectangle.LEFT | Rectangle.RIGHT);
                 pdfPCell6.setBorderColor(Color.BLACK);
                 pdfPCell6.setFixedHeight(40f);
 
                 pdfPTable.addCell(pdfPCell5);
+                pdfPTable.addCell(pdfPCell7);
+                pdfPTable.addCell(pdfPCell9);
                 pdfPTable.addCell(pdfPCell6);
             }
             document.add(pdfPTable);
 
-            Paragraph total = new Paragraph("TOTAL: " + String.valueOf(orden.getTotal()), fontBody);
+            Paragraph total = new Paragraph("TOTAL: $" + String.valueOf(orden.getTotal()), fontBody);
             total.setAlignment(Element.ALIGN_CENTER);
             total.setSpacingAfter(10);
             document.add(total);
@@ -285,7 +336,7 @@ public class ProductoControlador {
             document.close();
 
             // Enviar el correo electrónico con el PDF adjunto
-            sendConfirmationEmailWithAttachment(outputStream.toByteArray());
+            sendConfirmationEmailWithAttachment(outputStream.toByteArray(), mailUsuario);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -295,11 +346,11 @@ public class ProductoControlador {
         return new ResponseEntity<>("Ticket enviado!", HttpStatus.CREATED);
     }
 
-    private void sendConfirmationEmailWithAttachment(byte[] pdfBytes) throws MessagingException {
+    private void sendConfirmationEmailWithAttachment(byte[] pdfBytes, String mailUsuario) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo("melba@mindhub.com");
+        helper.setTo(mailUsuario);
         helper.setSubject("Ticket compra - RICO FIAMBRE");
         helper.setText("Adjunto encontrarás el TICKET de compra.");
 
@@ -308,8 +359,6 @@ public class ProductoControlador {
 
         mailSender.send(message);
     }
-
-
 
 
 
