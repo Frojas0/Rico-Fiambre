@@ -133,11 +133,9 @@
                 <li class="nav-item">
                   <a class="nav-link estilo-hover active" href="./index.html">INICIO</a>
                 </li>
-
                 <li class="nav-item">
                   <a class="nav-link estilo-hover" href="./productos.html">PRODUCTOS</a>
                 </li>
-
                 <li class="nav-item">
                   <a class="nav-link estilo-hover" href="./contacto.html">CONTACTO</a>
                 </li>
@@ -155,24 +153,10 @@
                     v-model="valorSeleccionado">
                   {{filtro}}
                 </div>
-                <!-- <div class="input-group-sm d-flex">
-                <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
-                  aria-describedby="button-addon2" v-model="valorSeleccionado">
-                <a :href="'./productos.html?nombre='+valorSeleccionado"><button class="btn btn-outline-secondary btn-sm"
-                    type="button" id="button-addon2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search svg-hover"
-                      width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none"
-                      stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                      <path d="M21 21l-6 -6" />
-                    </svg>
-                  </button></a>
-              </div> -->
 
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
-                  <li class="nav-item">
-                    <button class="nav-link" @click="cerrarSesion">
+                  <li class="nav-item" v-if="mostrarBoton">
+                    <button class="nav-link" @click="cerrarSesion" >
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
                         width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -182,8 +166,16 @@
                         <path d="M18 15l3 -3" />
                       </svg></button>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
+                  <li class="nav-item" v-if="mostrarBotonLogIn">
+                    <button class="nav-link" @click="irALogin" >
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                        <path d="M20 12h-13l3 -3m0 6l-3 -3" />
+                      </svg></button>
+                  </li>
+                  <li class="nav-item" v-if="mostrarBoton">
+                    <a class="nav-link" href="./historialCompras.html"><svg xmlns="http://www.w3.org/2000/svg"
                         class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
                         viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -265,7 +257,7 @@
           </div>
         </div>
         <div class="d-flex justify-content-center">
-          <h2 class="textoTop10">TOP 10</h2>
+          <h2 class="textoTop10" style="text-decoration: none;">LOS MAS ELEGIDOS</h2>
         </div>
         <div class="contenedorProductos">
           <template v-for="producto in listaTop10" v-if="productos.length > 0" :key="index">

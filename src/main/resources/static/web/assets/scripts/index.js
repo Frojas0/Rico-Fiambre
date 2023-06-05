@@ -24,6 +24,11 @@ const app = createApp({
             blurONoBluEsaEsLaCuestion: 'clase-no-blur',
             // FIN DATO CARRITO
 
+            // MOSTRAR BOTON LOGOUT
+
+            mostrarBoton : false,
+            mostrarBotonLogIn : true
+            // FIN MOSTRAR BOTON LOGOUT
         }
     },
     mounted() {
@@ -34,6 +39,7 @@ const app = createApp({
     },
     created() {
         this.metodosIniciales()
+        this.estaLogueado()
     },
     methods: {
         top10() {
@@ -182,10 +188,28 @@ const app = createApp({
                         text: 'Tienes que estar logueado para comprar',
                     })
                 })
-        }
-
+        },
 
         // FIN METODOS DEL CARRITO DE COMPRAS
+
+
+        // METODO PARA SABER SI ESTA LOGUEADO O NO
+        estaLogueado(){
+            axios.get('/api/clientes/actual')
+            .then(response => {
+                this.mostrarBoton = true
+                this.mostrarBotonLogIn = false
+            })
+            .catch(error => {
+                this.mostrarBoton = false
+                this.mostrarBotonLogIn = true
+            }
+            )
+        },
+        irALogin(){
+            window.location.href = "/web/login.html"
+        }
+        //FIN  METODO PARA SABER SI ESTA LOGUEADO O NO
     }
 })
 app.mount('#vueApp')

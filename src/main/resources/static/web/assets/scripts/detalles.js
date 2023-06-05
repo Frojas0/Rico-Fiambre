@@ -6,6 +6,7 @@ const { createApp } = Vue
 const app = createApp({
     data() {
         return {
+            valorSeleccionado : '',
             productosPeso: [],
             productoUni: [],
             productoFiltrado: undefined,
@@ -29,8 +30,14 @@ const app = createApp({
             tipoDeProductos: [],
             selectedTipoProducto: undefined,
             isLoading: true,
-            blurONoBluEsaEsLaCuestion : 'clase-no-blur'
+            blurONoBluEsaEsLaCuestion : 'clase-no-blur',
             // FIN DATO CARRITO
+
+            // MOSTRAR BOTON LOGOUT
+
+            mostrarBoton : false,
+            mostrarBotonLogIn : true
+            // FIN MOSTRAR BOTON LOGOUT
 
 
         }
@@ -40,6 +47,8 @@ const app = createApp({
         this.getProductoPeso()
         this.getProductoUni()
         this.metodosIniciales()
+
+        this.estaLogueado()
     },
 
     methods: {
@@ -173,22 +182,61 @@ const app = createApp({
 
             },
 
-            irAComprar() {
-            axios.get('/api/clientes/actual')
-                .then(response => {
-                window.location.replace('./compra.html')
-                })
-                .catch(error => {
-                console.log(error)
-                Swal.fire({
-                    icon: 'info',
-                    text: 'Tienes que estar logueado para comprar',
-                })
-                })
-            }
+        irAComprar() {
+        axios.get('/api/clientes/actual')
+            .then(response => {
+            window.location.replace('./compra.html')
+            })
+            .catch(error => {
+            console.log(error)
+            Swal.fire({
+                icon: 'info',
+                text: 'Tienes que estar logueado para comprar',
+            })
+            })
+        },
 
 
         // FIN METODOS DEL CARRITO DE COMPRAS
+        cerrarSesion() {
+            Swal.fire({
+                title: '¿Estas seguro de salir?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: 'black',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                confirmButtonText: 'Cerrar sesion'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    axios.post('/api/logout')
+                        .then(response => window.location.href = "/web/index.html")
+                        .catch(error => Swal.fire({
+                            title: 'Error',
+                            text: error.response.data,
+                            icon: 'error'
+                        }))
+                }
+            })
+        },
+        // METODO PARA SABER SI ESTA LOGUEADO O NO
+        estaLogueado(){
+            axios.get('/api/clientes/actual')
+            .then(response => {
+                this.mostrarBoton = true
+                this.mostrarBotonLogIn = false
+            })
+            .catch(error => {
+                this.mostrarBoton = false
+                this.mostrarBotonLogIn = true
+            }
+            )
+        },
+        irALogin(){
+            window.location.href = "/web/login.html"
+        }
+        //FIN  METODO PARA SABER SI ESTA LOGUEADO O NO
+
     },
 
 })
