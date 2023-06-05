@@ -127,43 +127,44 @@
           </div>
           <div class="col-md-4">
             <div class="payment-info">
-              <div class="d-flex justify-content-between align-items-center"><span
+              <div id="separacionComps" class="d-flex justify-content-between align-items-center"><span
                   style="font-size: 18px !important;">Detalles Tarjeta</span></div><span class="type d-block mt-3 mb-1"
-                style="font-size: 15px !important;">Card type</span><label class="radio"> <input type="radio"
-                  name="card" value="payment" checked> <span><img width="30"
-                    src="https://img.icons8.com/color/48/000000/mastercard.png" /></span> </label>
+                style="font-size: 15px !important;">Card type</span>
+              <div id="separacionComps">
+                  <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
+                      src="https://img.icons8.com/color/48/000000/mastercard.png" /></span></label>
 
-              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-                    src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                      src="https://img.icons8.com/officel/48/000000/visa.png" /></span> </label>
 
-              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
-                    src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
-              <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" height="30"
-                    src="./assets/imagenes/tarjeta3.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
+                      src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span> </label>
+                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30" height="30"
+                      src="./assets/imagenes/tarjeta3.png" /></span> </label>
+              </div>
 
-
-              <div><label class="credit-card-label">Nombre en la Tarjeta</label><input type="text"
+              <div id="separacionComps"><label class="credit-card-label">Nombre en la Tarjeta</label><input type="text"
                   class="form-control credit-inputs" placeholder="Nombre" v-model="nombreTarjeta"></div>
-              <div><label class="credit-card-label">Numero de la Tarjeta</label><input type="text"
+              <div id="separacionComps"><label class="credit-card-label">Numero de la Tarjeta</label><input type="text"
                   class="form-control credit-inputs" placeholder="0000 0000 0000 0000" v-model="numeroTarjeta"></div>
               <div class="row">
-                <div class="col-md-6"><label class="credit-card-label">Fecha</label><input type="text"
+                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">Fecha</label><input type="text"
                     class="form-control credit-inputs" placeholder="12/24" v-model="fecha"></div>
-                <div class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
+                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
                     class="form-control credit-inputs" placeholder="342" v-model="cvvTarjeta"></div>
               </div>
               <hr class="line">
-              <div class="d-flex justify-content-between information"><span
+              <div id="separacionComps" class="d-flex justify-content-between information"><span
                   style="font-size: 15px !important;">Subtotal</span><span
                   style="font-size: 15px !important;">{{total.toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}}</span></div>
-              <div class="d-flex justify-content-between information"><span
+              <div id="separacionComps" class="d-flex justify-content-between information"><span
                   style="font-size: 15px !important;">Envio</span><span
                   style="font-size: 15px !important;">{{costoEnvio.toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}}</span></div>
-              <div class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Total
+              <div id="separacionComps" class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Total
                   (Incl.
                   Impuestos)</span><span style="font-size: 15px !important;">{{(total +
                   costoEnvio).toLocaleString("es-AR", { style:
