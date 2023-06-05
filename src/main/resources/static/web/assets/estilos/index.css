@@ -128,6 +128,13 @@ header {
     /* background-repeat: no-repeat; */
 }
 
+.promoBanner {
+    background-image: url(../imagenes/Dia\ del\ padre\ promocion.png);
+    background-size: 100%;
+    background-position-x: 50%;
+    background-position-y: 65%;
+    height: 30vw;
+}
 
 
 /* TARJETAS PRODUCTOS */
@@ -325,8 +332,8 @@ footer {
 .subscribite {
     background-color: black;
     color: white;
-    width: 97%;
-    border-radius: 2rem;
+    width: 100%;
+    /* border-radius: 2rem; */
     height: 12rem;
 }
 
@@ -398,9 +405,9 @@ footer {
     opacity: 0.5;
 }
 
-.footerInfoContainer {
+/* .footerInfoContainer {
     height: 10rem;
-}
+} */
 
 /* Boton sociales */
 .link {
