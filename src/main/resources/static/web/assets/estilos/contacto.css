@@ -146,7 +146,8 @@ footer {
   color: white;
   width: 97%;
   border-radius: 2rem;
-  height: 12rem;
+  height: 14rem;
+
 }
 
 .input-container {
@@ -308,12 +309,13 @@ footer {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 6px;
-  /* background: url(../imagenes/Banner\ Horizontal\ Pizzas\ Degradado\ Azul\ y\ Verde.png); */
+  background: url(../imagenes/Banner\ Horizontal\ Pizzas\ Degradado\ Azul\ y\ Verde.png);
   object-fit: fill;
   height: 30rem;
   width: 100%;
-  /* background-position-x: 95%;
-  background-position-y: 55%; */
+  background-size: 100%;
+  /* background-position-x: 55%; */
+  background-position-y: 60%;
 }
 
 .contact-wrapper {
@@ -444,6 +446,7 @@ textarea {
   background-color: #000;
   color: #fff;
   letter-spacing: 1px;
+  font-family: inherit;
 }
 
 .send-button {
@@ -506,7 +509,7 @@ textarea {
 }
 
 .contact-text {
-  font: 300 18px 'Lato', sans-serif;
+  font: 300 18px 'Josefin Sans', sans-serif;
   letter-spacing: 1.9px;
   color: #000000;
 }
@@ -526,7 +529,7 @@ textarea {
 }
 
 .contact-text a:hover {
-  color: #ffffff83;
+  color: grey;
   text-decoration: none;
 }
 
@@ -633,6 +636,21 @@ hr {
     height: 60px;
     line-height: 60px;
   }
+
+  .incentivo {
+    padding: 3px;
+    font-size: larger;
+  }
+
+  .section-header{
+    height: 18rem;
+  }
+
+  .form-control,
+  textarea {
+    margin: 0 auto;
+    font-family: 'Josefin Sans';
+  }
 }
 
 @media screen and (max-width: 569px) {
@@ -645,8 +663,12 @@ hr {
 
   .form-control,
   textarea {
-
     margin: 0 auto;
+    font-family: 'Josefin Sans';
+  }
+
+  .section-header{
+    height: 13rem;
   }
 
 
@@ -686,11 +708,21 @@ hr {
   }
 
   .section-header{
-    height: 15rem;
+    height: 13rem;
   }
 
   #mapaBuenosAires{
     width: 80% !important;
+  }
+
+  .form-control,
+  textarea {
+    margin: 0 auto;
+    font-family: 'Josefin Sans';
+  }
+
+  .subscribite{
+    height: 16rem;
   }
 }
 
@@ -707,7 +739,7 @@ hr {
 
   .section-header{
     object-fit:fill;
-    height: 15rem;
+    height: 09rem;
   }
 
   .incentivo {
@@ -718,6 +750,12 @@ hr {
 
   .form-horizontal {
     max-width: 300px;
+  }
+
+  .form-control,
+  textarea {
+    margin: 0 auto;
+    font-family: 'Josefin Sans';
   }
 }
 
@@ -732,7 +770,8 @@ hr {
 
   .section-header{
     object-fit:fill;
-    height: 20rem;
+    height: 12rem;
+    background-position-y:100%
   }
 
   .incentivo {
@@ -742,6 +781,12 @@ hr {
 
   #mapaBuenosAires{
     width: 100% !important;
+  }
+
+  .form-control,
+  textarea {
+    margin: 0 auto;
+    font-family: 'Josefin Sans';
   }
 }
 
