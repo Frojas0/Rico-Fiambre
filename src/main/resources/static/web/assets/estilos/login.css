@@ -8,61 +8,63 @@
 
 /* ---------- HEADER ---------- */
 header {
-    min-height: 19vh;
-    background-color: #f6be5f;
-}
-
-#header-nav {
-    background-color: #f6be5f !important;
+    min-height: 15vh;
+    background-color: black;
+  }
+  
+  #header-nav {
+    background-color: black !important;
     min-height: 14vh;
     z-index: 1;
-}
-
-.navbar {
+  }
+  
+  .navbar {
     height: 15vh;
-    width: 95vw;
-}
-
-.logo-header {
-    width: 7rem;
-}
-
-.nav-link {
-    color: #2c3e50 !important;
-}
-
-#navbarNav {
+    width: 100%;
+  }
+  
+  .logo-header {
+    width: 10rem;
+  }
+  
+  .nav-link {
+    color: white !important;
+  }
+  
+  #navbarNav {
     justify-content: end;
     align-items: center;
-}
-
-.navbar-nav {
-    background-color: #f6be5f;
+    font-size: .9rem;
+  }
+  
+  .container-fluid {
+    background-color: black;
+  }
+  
+  .navbar-nav {
+    background-color: black;
     font-size: 120%;
     gap: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
     align-items: center !important;
-}
-
-a:hover {
-    color: white !important;
+    padding: 1rem;
+    margin-bottom: .5rem;
+  }
+  
+  .estilo-hover:hover {
+    color: #f6be5f !important;
     transition: all 0.3s;
-}
-
-.active {
-    color: white !important;
-}
-
-.outButton:hover {
-    color: white !important;
+  }
+  
+  .svg-hover:hover {
+    stroke: #f6be5f !important;
     transition: all 0.3s;
-}
+  }
+  
 
 /* ---------- MAIN ---------- */
 
 main {
-    min-height: 70vw;
+    min-height: 38.9vw;
     background-color: whitesmoke;
     color: black;
 }
