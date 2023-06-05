@@ -138,14 +138,6 @@ header {
 
 
 /* TARJETAS PRODUCTOS */
-.contenedorProductos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: 1.5rem;
-    padding: 3%;
-}
 
 .contenedorValor {
     position: absolute;
@@ -155,10 +147,19 @@ header {
     left: 245px;
 }
 
+.contenedorProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 1.5rem;
+    padding: 3%;
+}
+
 .product-box {
     position: relative;
     /* border: 1.5px solid black; */
-    height: 29rem;
+    height: 23rem;
     width: 18rem;
     background-color: #ededed;
     overflow: hidden;
@@ -199,7 +200,9 @@ header {
 
 .price {
     font-weight: 300;
-    margin-left: 2.5rem;
+    margin: auto;
+    font-weight: bolder;
+    padding-bottom: 1rem;
 }
 
 .add-cart {
@@ -213,61 +216,10 @@ header {
     background: hsl(249, 32%, 17%);
 }
 
-.botonCarrito {
-    position: relative;
-    overflow: hidden;
-    left: -55px;
-    outline: none;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: black;
-    border: solid 1px #f6be5f;
-    font-family: inherit;
-    height: 2rem;
-    margin-top: 1rem;
-}
 
-.default-btn,
-.hover-btn {
-    background-color: black;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px 20px;
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: all .3s ease;
-}
 
-.hover-btn {
-    position: absolute;
-    inset: 0;
-    background-color: black;
-    transform: translate(0%, 100%);
-}
 
-.default-btn span {
-    color: hsl(0, 0%, 100%);
-}
 
-.hover-btn span {
-    color: #f6be5f;
-}
-
-.botonCarrito:hover .default-btn {
-    transform: translate(0%, -100%);
-    /* width: 10rem; */
-}
-
-.botonCarrito:hover .hover-btn {
-    transform: translate(0%, 0%);
-}
 
 .textoTop10 {
     margin-top: 3rem;
@@ -333,8 +285,8 @@ footer {
     background-color: black;
     color: white;
     width: 100%;
-    /* border-radius: 2rem; */
-    height: 12rem;
+    min-height: 12rem;
+    text-align: center;
 }
 
 .input-container {
@@ -405,9 +357,6 @@ footer {
     opacity: 0.5;
 }
 
-/* .footerInfoContainer {
-    height: 10rem;
-} */
 
 /* Boton sociales */
 .link {
@@ -424,6 +373,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 
 .social-btn {

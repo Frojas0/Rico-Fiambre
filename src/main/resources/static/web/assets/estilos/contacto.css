@@ -139,16 +139,14 @@ footer {
 
 .incentivo {
   margin: 0;
-  text-align: center;
 }
 
 .subscribite {
   background-color: black;
   color: white;
-  width: 97%;
-  border-radius: 2rem;
-  height: 14rem;
-
+  width: 100%;
+  min-height: 12rem;
+  text-align: center;
 }
 
 .input-container {
@@ -219,15 +217,6 @@ footer {
   opacity: 0.5;
 }
 
-.footerInfoContainer {
-  height: 10rem;
-}
-
-
-
-
-
-
 
 /* Boton sociales */
 .link {
@@ -244,6 +233,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .social-btn {
@@ -643,10 +633,10 @@ hr {
     line-height: 60px;
   }
 
-  .incentivo {
+  /* .incentivo {
     padding: 3px;
     font-size: larger;
-  }
+  } */
 
   /* .section-header {
     height: 18rem;
@@ -727,9 +717,9 @@ hr {
     font-family: 'Josefin Sans';
   }
 
-  .subscribite {
+  /* .subscribite {
     height: 16rem;
-  }
+  } */
 }
 
 /* @media only screen and (min-width: 768px) and (max-width: 1023px) { */
@@ -748,10 +738,10 @@ hr {
     height: 09rem;
   } */
 
-  .incentivo {
+  /* .incentivo {
     margin: 0;
     font-size: small;
-  }
+  } */
 
 
   .form-horizontal {
@@ -780,10 +770,10 @@ hr {
     background-position-y: 100%
   } */
 
-  .incentivo {
+  /* .incentivo {
     margin: 0;
     font-size: small;
-  }
+  } */
 
   #mapaBuenosAires {
     width: 100% !important;

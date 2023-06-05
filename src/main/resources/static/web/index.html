@@ -156,7 +156,7 @@
 
                 <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
                   <li class="nav-item" v-if="mostrarBoton">
-                    <button class="nav-link" @click="cerrarSesion" >
+                    <button class="nav-link" @click="cerrarSesion">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout svg-hover"
                         width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -167,9 +167,11 @@
                       </svg></button>
                   </li>
                   <li class="nav-item" v-if="mostrarBotonLogIn">
-                    <button class="nav-link" @click="irALogin" >
-                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <button class="nav-link" @click="irALogin">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login svg-hover"
+                        width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                         <path d="M20 12h-13l3 -3m0 6l-3 -3" />
                       </svg></button>
@@ -259,7 +261,56 @@
         <div class="d-flex justify-content-center">
           <h2 class="textoTop10" style="text-decoration: none;">LOS MAS ELEGIDOS</h2>
         </div>
+
+
         <div class="contenedorProductos">
+          <template v-for="producto in listaTop10">
+            <div class="product-box"
+              style="display: flex; justify-content: space-between !important; flex-direction: column;">
+              <div>
+                <a :href="`./detalles.html?nombre=`+producto.nombre"><img v-bind:src="producto.url"
+                    :alt="producto.nombre" class="product-img"></a>
+              </div>
+              <div class="d-flex flex-column gap-1 justify-content-between" style="height: 100%;">
+                <h2 class="product-title">{{producto.nombre}}</h2>
+                <div style="display: flex; justify-content: space-between;" v-if="producto.esPorPeso">
+                  <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                    "currency", currency:
+                    "ARS" })}} /Kg</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;" v-else>
+                  <span class="price">{{producto.precio.toLocaleString("es-AR", { style:
+                    "currency", currency:
+                    "ARS" })}} </span>
+                </div>
+              </div>
+              <div class="contenedorValor d-flex align-items-center" style="background-color: black; width: 5rem;">
+                <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 64 64"
+                  enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <path fill="black"
+                        d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478 M31.998,0 c-0.775,0-1.48,0.448-1.811,1.15l-8.815,18.778L1.698,22.935c-0.741,0.113-1.356,0.632-1.595,1.343 c-0.238,0.71-0.059,1.494,0.465,2.031l14.294,14.657L11.484,61.67c-0.124,0.756,0.195,1.517,0.822,1.957 c0.344,0.243,0.747,0.366,1.151,0.366c0.332,0,0.666-0.084,0.968-0.25l17.572-9.719l17.572,9.719 c0.302,0.166,0.636,0.25,0.968,0.25c0.404,0,0.808-0.123,1.151-0.366c0.627-0.44,0.946-1.201,0.822-1.957l-3.378-20.704 l14.294-14.657c0.523-0.537,0.703-1.321,0.465-2.031c-0.238-0.711-0.854-1.229-1.595-1.343l-19.674-3.006L33.809,1.15 C33.479,0.448,32.773,0,31.998,0L31.998,0z">
+                      </path>
+                      <path fill="gold"
+                        d="M31.998,2.478c0.279,0,0.463,0.509,0.463,0.509l8.806,18.759l20.729,3.167l-14.999,15.38l3.541,21.701 l-18.54-10.254l-18.54,10.254l3.541-21.701L2,24.912l20.729-3.167l8.798-18.743C31.527,3.002,31.719,2.478,31.998,2.478">
+                      </path>
+                    </g>
+                  </g>
+                </svg>
+                <p style="margin: 0; margin-top: 4px;">
+                  {{Math.round(producto.puntuaciones * 10) / 10}}
+                </p>
+              </div>
+            </div>
+          </template>
+        </div>
+
+
+        <!-- <div class="contenedorProductos">
           <template v-for="producto in listaTop10" v-if="productos.length > 0" :key="index">
             <div class="product-box"
               style="display: flex; justify-content: space-between !important; flex-direction: column;">
@@ -377,7 +428,7 @@
           <div v-else style="height: 50vh; display: flex; align-items: center;">
             <h2>PRODUCTO NO ENCONTRADO</h2>
           </div>
-        </div>
+        </div> -->
         <div class="promoBanner">
 
         </div>
@@ -395,7 +446,7 @@
               <p class="incentivo">Únete ahora y no te pierdas ninguna novedad.</p>
               <p class="incentivo">¡El placer de los fiambres te espera!</p>
               <div class="input-container">
-                <input placeholder="Email Address" type="email" required>
+                <input placeholder="correo@email.com" type="email" required>
                 <button class="invite-btn" type="button">
                   enviar
                 </button>
