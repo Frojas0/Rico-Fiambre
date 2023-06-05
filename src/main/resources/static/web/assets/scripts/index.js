@@ -3,7 +3,7 @@ const app = createApp({
     data() {
         return {
             valorSeleccionado: "",
-            
+
             // DATOS CARRITO
             todosLosProductos: [],
             productos: [],
@@ -21,43 +21,49 @@ const app = createApp({
             tipoDeProductos: [],
             selectedTipoProducto: undefined,
             isLoading: true,
-            blurONoBluEsaEsLaCuestion : 'clase-no-blur'
+            blurONoBluEsaEsLaCuestion: 'clase-no-blur'
             // FIN DATO CARRITO
 
         }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            const video = this.$refs.myVideo;
+            video.play();
+        });
     },
     created() {
         this.metodosIniciales()
     },
     methods: {
         // METODOS DEL CARRITO DE COMPRAS
-        metodosIniciales(){
+        metodosIniciales() {
             axios.get('/api/productoPeso')
-            .then(response => {
-                this.todosLosProductos = this.todosLosProductos.concat(response.data);
-                this.productos = this.todosLosProductos
-            })
-            .then(response => {
-                console.log(this.productos)
-            })
-    
+                .then(response => {
+                    this.todosLosProductos = this.todosLosProductos.concat(response.data);
+                    this.productos = this.todosLosProductos
+                })
+                .then(response => {
+                    console.log(this.productos)
+                })
+
             axios.get('/api/productoUni')
-            .then(response => {
-                this.todosLosProductos = this.todosLosProductos.concat(response.data);
-                this.productos = this.todosLosProductos
-            })
-            .then(response => {
-                console.log(nombreURL)
-                this.productos = this.todosLosProductos
-            })
+                .then(response => {
+                    this.todosLosProductos = this.todosLosProductos.concat(response.data);
+                    this.productos = this.todosLosProductos
+                })
+                .then(response => {
+                    console.log(nombreURL)
+                    this.productos = this.todosLosProductos
+                })
 
             axios.get('/api/tipos-producto')
-            .then(response => {
-                this.tipoDeProductos = response.data
-                console.log(response.data)
-                this.isLoading = false
-            }
-            )
+                .then(response => {
+                    this.tipoDeProductos = response.data
+                    console.log(response.data)
+                    this.isLoading = false
+                }
+                )
         },
         actualizarCantidad(cantidad) {
             let numero = parseFloat(cantidad);
@@ -84,8 +90,8 @@ const app = createApp({
                 if (element.nombre === nombre) {
                     console.log(element.nombre)
                     break;
-            }
-            contador++
+                }
+                contador++
             }
             console.log(contador)
             this.carritoPendientes.splice(contador, 1)
@@ -96,34 +102,34 @@ const app = createApp({
         cantidadMas(nombre, valor) {
             for (let elemento of this.carritoPendientes) {
                 if (elemento.nombre === nombre) {
-                if (valor == 1) {
-                    elemento.precio += (elemento.precio / elemento.cantidad)
-                    elemento.cantidad = elemento.cantidad + valor
-                } else {
-                    elemento.precio += ((50 * elemento.precio) / elemento.cantidad)
-                    elemento.cantidad = elemento.cantidad + valor
-                }
+                    if (valor == 1) {
+                        elemento.precio += (elemento.precio / elemento.cantidad)
+                        elemento.cantidad = elemento.cantidad + valor
+                    } else {
+                        elemento.precio += ((50 * elemento.precio) / elemento.cantidad)
+                        elemento.cantidad = elemento.cantidad + valor
+                    }
                 }
             }
             this.updatetotal()
             localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-            },
-        
-            cantidadMenos(nombre, valor) {
+        },
+
+        cantidadMenos(nombre, valor) {
             for (let elemento of this.carritoPendientes) {
                 if (elemento.nombre === nombre && elemento.cantidad - valor >= 1) {
-                if (valor == 1) {
-                    elemento.precio -= (elemento.precio / elemento.cantidad) * valor
-                    elemento.cantidad = elemento.cantidad - valor
-                } else {
-                    elemento.precio -= ((50 * elemento.precio) / elemento.cantidad)
-                    elemento.cantidad = elemento.cantidad - valor
-                }
+                    if (valor == 1) {
+                        elemento.precio -= (elemento.precio / elemento.cantidad) * valor
+                        elemento.cantidad = elemento.cantidad - valor
+                    } else {
+                        elemento.precio -= ((50 * elemento.precio) / elemento.cantidad)
+                        elemento.cantidad = elemento.cantidad - valor
+                    }
                 }
             }
             this.updatetotal()
             localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
-        
+
         },
         updatetotal() {
             this.totalItems = 0;
@@ -132,21 +138,21 @@ const app = createApp({
                 this.totalItems += element.precio
             }
 
-            },
+        },
 
-            irAComprar() {
+        irAComprar() {
             axios.get('/api/clientes/actual')
                 .then(response => {
-                window.location.replace('./compra.html')
+                    window.location.replace('./compra.html')
                 })
                 .catch(error => {
-                console.log(error)
-                Swal.fire({
-                    icon: 'info',
-                    text: 'Tienes que estar logueado para comprar',
+                    console.log(error)
+                    Swal.fire({
+                        icon: 'info',
+                        text: 'Tienes que estar logueado para comprar',
+                    })
                 })
-                })
-            }
+        }
 
 
         // FIN METODOS DEL CARRITO DE COMPRAS

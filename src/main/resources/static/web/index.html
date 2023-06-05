@@ -48,7 +48,7 @@
                       <g id="SVGRepo_iconCarrier">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z"
-                          fill="#000000" ></path>
+                          fill="#000000"></path>
                       </g>
                     </svg>
                     <label class="cart-quantity" style="width: 30rem;"
@@ -114,48 +114,48 @@
 
     </div>
 
-<!-- FIN CARRITO -->
+    <!-- FIN CARRITO -->
 
 
-  <div :class="blurONoBluEsaEsLaCuestion">
-    <header class="d-flex justify-content-center align-items-center">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header-nav">
-        <div class="container-fluid justify-content-between">
-          <a class="navbar-brand" href="#">
-            <img class="logo-header" src="./assets/imagenes/logo-05.png" alt="fiambreria-logo">
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon custom-icon"></i></span>
-          </button>
-          <div class=" collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link estilo-hover active" href="./index.html">INICIO</a>
-              </li>
+    <div :class="blurONoBluEsaEsLaCuestion">
+      <header class="d-flex justify-content-center align-items-center">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="header-nav">
+          <div class="container-fluid justify-content-between">
+            <a class="navbar-brand" href="#">
+              <img class="logo-header" src="./assets/imagenes/logo-05.png" alt="fiambreria-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon custom-icon"></i></span>
+            </button>
+            <div class=" collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link estilo-hover active" href="./index.html">INICIO</a>
+                </li>
 
-              <li class="nav-item">
-                <a class="nav-link estilo-hover" href="./productos.html">PRODUCTOS</a>
-              </li>
+                <li class="nav-item">
+                  <a class="nav-link estilo-hover" href="./productos.html">PRODUCTOS</a>
+                </li>
 
-              <li class="nav-item">
-                <a class="nav-link estilo-hover" href="./contacto.html">CONTACTO</a>
-              </li>
-              <div class="grupo">
-                <a :href="'./productos.html?nombre='+valorSeleccionado">
-                  <svg class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
-                    <g>
-                      <path
-                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                      </path>
-                    </g>
-                  </svg>
-                </a>
-                <input class="inputBusqueda" placeholder="Search" type="search" class="input"
-                  v-model="valorSeleccionado">
-                {{filtro}}
-              </div>
-              <!-- <div class="input-group-sm d-flex">
+                <li class="nav-item">
+                  <a class="nav-link estilo-hover" href="./contacto.html">CONTACTO</a>
+                </li>
+                <div class="grupo">
+                  <a :href="'./productos.html?nombre='+valorSeleccionado">
+                    <svg class="iconoBusqueda" aria-hidden="true" viewBox="0 0 24 24">
+                      <g>
+                        <path
+                          d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                        </path>
+                      </g>
+                    </svg>
+                  </a>
+                  <input class="inputBusqueda" placeholder="Search" type="search" class="input"
+                    v-model="valorSeleccionado">
+                  {{filtro}}
+                </div>
+                <!-- <div class="input-group-sm d-flex">
                 <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
                   aria-describedby="button-addon2" v-model="valorSeleccionado">
                 <a :href="'./productos.html?nombre='+valorSeleccionado"><button class="btn btn-outline-secondary btn-sm"
@@ -170,93 +170,94 @@
                   </button></a>
               </div> -->
 
-              <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
-                <li class="nav-item">
-                  <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                      <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                      <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
-                    </svg></a>
-                </li>
+                <div class="d-flex align-items-center justify-content-center gap-3 divIconos">
+                  <li class="nav-item">
+                    <a class="nav-link" href="./login.html"><svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-user-circle svg-hover" width="30" height="30"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855" />
+                      </svg></a>
+                  </li>
 
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
-                      class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
-                      viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round"  @click="abrirCarrito">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M17 17h-11v-14h-2" />
-                      <path d="M6 5l14 1l-1 7h-13" />
-                    </svg></a>
-                </li>
-              </div>
-            </ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-shopping-cart svg-hover" width="30" height="30"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="white" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" @click="abrirCarrito">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                        <path d="M17 17h-11v-14h-2" />
+                        <path d="M6 5l14 1l-1 7h-13" />
+                      </svg></a>
+                  </li>
+                </div>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <!-- <div style="width: 100%; display: flex; justify-content: center; align-items: center; background-color: black;" class="flex-column flex-sm-column">
-        <video controls loop autoplay style=" border: 1px solid #12162A; border-radius: 10px; width: 100%;">
-            <source src="./assets/imagenes/banner-index-01.mp4" type="video/mp4">
-        </video>
-      </div> -->
-      <div>
-        <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index"
-          style="width: 100%; height: 30rem;">
-      </div>
+        </nav>
+      </header>
+      <main>
+        <!-- <div>
+          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index">
+        </div> -->
 
-      <div class="BeneficiosDIV d-flex justify-content-around flex-wrap p-1" style="background-color: whitesmoke;">
-        <div class="d-flex flex-column align-items-center" id="divPublicidad1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck" width="44" height="44"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-            <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
-          </svg>
-          <p>ENVIOS DE LUNES A SÁBADOS</p>
+        <div>
+          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index" style="width: 100%;">
         </div>
 
-        <div class="d-flex flex-column align-items-center" id="divPublicidad3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-lock" width="44" height="44"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path
-              d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027" />
-            <path d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
-            <path d="M10 15v-2a2 2 0 1 1 4 0v2" />
-          </svg>
-          <p>COMPRA CON SEGURIDAD</p>
+
+
+
+        <div class="BeneficiosDIV d-flex justify-content-around flex-wrap p-1" style="background-color: whitesmoke;">
+          <div class="d-flex flex-column align-items-center" id="divPublicidad1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck" width="44" height="44"
+              viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
+            </svg>
+            <p>ENVIOS DE LUNES A SÁBADOS</p>
+          </div>
+
+          <div class="d-flex flex-column align-items-center" id="divPublicidad3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-lock" width="44"
+              height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path
+                d="M19 18a3.5 3.5 0 0 0 0 -7h-1c.397 -1.768 -.285 -3.593 -1.788 -4.787c-1.503 -1.193 -3.6 -1.575 -5.5 -1s-3.315 2.019 -3.712 3.787c-2.199 -.088 -4.155 1.326 -4.666 3.373c-.512 2.047 .564 4.154 2.566 5.027" />
+              <path d="M8 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" />
+              <path d="M10 15v-2a2 2 0 1 1 4 0v2" />
+            </svg>
+            <p>COMPRA CON SEGURIDAD</p>
+          </div>
+
+          <div class="d-flex flex-column align-items-center" id="divPublicidad2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="44"
+              height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+              <path d="M3 10l18 0" />
+              <path d="M7 15l.01 0" />
+              <path d="M11 15l2 0" />
+            </svg>
+            <p>TODOS LOS MEDIOS DE PAGO</p>
+          </div>
+
         </div>
 
-        <div class="d-flex flex-column align-items-center" id="divPublicidad2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-credit-card" width="44"
-            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-            <path d="M3 10l18 0" />
-            <path d="M7 15l.01 0" />
-            <path d="M11 15l2 0" />
-          </svg>
-          <p>TODOS LOS MEDIOS DE PAGO</p>
-        </div>
-
-      </div>
 
 
 
-
-  <!-- <div class="d-flex justify-content-around flex-wrap p-2 gap-3">
+        <!-- <div class="d-flex justify-content-around flex-wrap p-2 gap-3">
         <div class="card" style="width: 18rem;">
           <img src="./assets/imagenes/1.png" class="card-img-top" alt="...">
           <div class="card-body">
@@ -329,212 +330,93 @@
           </div>
         </div>
       </div> -->
-  <img src="./assets/imagenes/Dia del padre promocion.png" alt="promocion" class="img-fluid">
-  </main>
-  <footer>
-    <div class="d-flex justify-content-between flex-wrap">
-      <div class="d-flex flex-column">
-        <h6>Contactanos</h6>
-        <a href="https://web.whatsapp.com/" style="text-decoration: none; color: white;">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30"
-            height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-          </svg>1134873497</a>
 
-        <a href="mailto:info@ricofiambre.com" style="text-decoration: none; color: white;"><svg
-            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail-question" width="30" height="30"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M15 19h-10a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4.5" />
-            <path d="M19 22v.01" />
-            <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
-            <path d="M3 7l9 6l9 -6" />
-          </svg>info@ricofiambre.com</a>
+        <div style="width: 100%; height: 50rem; background-color: royalblue;">
 
-        <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="30" height="30"
-            viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-          </svg>Corrientes 1669(CABA)</p>
-      </div>
-
-      <div class="d-flex flex-column" style="gap: 0.3rem;">
-        <div class="d-flex" style="gap: 0.3rem;">
-          <button class="btn-cssbuttons">
-            <span>Agustin Martinez</span><span>
-              <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                class="icon">
-                <path fill="#ffffff"
-                  d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                </path>
-              </svg>
-            </span>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/agustin-martinez-b26978217"><svg class="icon" fill="currentColor"
-                    height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white"
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                  </svg></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/guttiAle"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                    version="1.1" viewBox="0 0 1024 1024" class="icon">
-                    <path fill="white"
-                      d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                    </path>
-                  </svg></a>
-              </li>
-            </ul>
-          </button>
-
-          <button class="btn-cssbuttons">
-            <span>Facundo Rojas</span><span>
-              <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                class="icon">
-                <path fill="#ffffff"
-                  d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                </path>
-              </svg>
-            </span>
-            <ul>
-              <li>
-                <a href="https://www.linkedin.com/in/facundorojas"><svg class="icon" fill="currentColor" height="18"
-                    width="18" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white"
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                  </svg></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/Frojas0"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                    version="1.1" viewBox="0 0 1024 1024" class="icon">
-                    <path fill="white"
-                      d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                    </path>
-                  </svg></a>
-              </li>
-            </ul>
-          </button>
         </div>
 
-        <div class="d-flex" style="gap: 0.3rem;">
-          <button class="btn-cssbuttons">
-            <span>German Gonzalez</span><span>
-              <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                class="icon">
-                <path fill="#ffffff"
-                  d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                </path>
-              </svg>
-            </span>
-            <ul>
-              <li>
-                <a href="https://ar.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><svg class="icon"
-                    fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white"
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                  </svg></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/5ag5"><svg height="18" width="18" xmlns="http://www.w3.org/2000/svg"
-                    version="1.1" viewBox="0 0 1024 1024" class="icon">
-                    <path fill="white"
-                      d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                    </path>
-                  </svg></a>
-              </li>
-            </ul>
-          </button>
-
-          <button class="btn-cssbuttons">
-            <span>Jennifer Mota</span><span>
-              <svg height="18" width="18" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"
-                class="icon">
-                <path fill="#ffffff"
-                  d="M767.99994 585.142857q75.995429 0 129.462857 53.394286t53.394286 129.462857-53.394286 129.462857-129.462857 53.394286-129.462857-53.394286-53.394286-129.462857q0-6.875429 1.170286-19.456l-205.677714-102.838857q-52.589714 49.152-124.562286 49.152-75.995429 0-129.462857-53.394286t-53.394286-129.462857 53.394286-129.462857 129.462857-53.394286q71.972571 0 124.562286 49.152l205.677714-102.838857q-1.170286-12.580571-1.170286-19.456 0-75.995429 53.394286-129.462857t129.462857-53.394286 129.462857 53.394286 53.394286 129.462857-53.394286 129.462857-129.462857 53.394286q-71.972571 0-124.562286-49.152l-205.677714 102.838857q1.170286 12.580571 1.170286 19.456t-1.170286 19.456l205.677714 102.838857q52.589714-49.152 124.562286-49.152z">
-                </path>
-              </svg>
-            </span>
-            <ul>
-              <li>
-                <a href="https://ar.linkedin.com/?original_referer=https%3A%2F%2Fwww.google.com%2F"><svg class="icon"
-                    fill="currentColor" height="18" width="18" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white"
-                      d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z">
-                    </path>
-                  </svg></a>
-              </li>
-
-              <li>
-                <a href="https://github.com/Jennifermotaochoa"><svg height="18" width="18"
-                    xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024" class="icon">
-                    <path fill="white"
-                      d="M950.930286 512q0 143.433143-83.748571 257.974857t-216.283429 158.573714q-15.433143 2.852571-22.601143-4.022857t-7.168-17.115429l0-120.539429q0-55.442286-29.696-81.115429 32.548571-3.437714 58.587429-10.313143t53.686857-22.308571 46.299429-38.034286 30.281143-59.977143 11.702857-86.016q0-69.12-45.129143-117.686857 21.138286-52.004571-4.534857-116.589714-16.018286-5.12-46.299429 6.290286t-52.589714 25.161143l-21.723429 13.677714q-53.174857-14.848-109.714286-14.848t-109.714286 14.848q-9.142857-6.290286-24.283429-15.433143t-47.689143-22.016-49.152-7.68q-25.161143 64.585143-4.022857 116.589714-45.129143 48.566857-45.129143 117.686857 0 48.566857 11.702857 85.723429t29.988571 59.977143 46.006857 38.253714 53.686857 22.308571 58.587429 10.313143q-22.820571 20.553143-28.013714 58.88-11.995429 5.705143-25.746286 8.557714t-32.548571 2.852571-37.449143-12.288-31.744-35.693714q-10.825143-18.285714-27.721143-29.696t-28.306286-13.677714l-11.410286-1.682286q-11.995429 0-16.603429 2.56t-2.852571 6.582857 5.12 7.972571 7.460571 6.875429l4.022857 2.852571q12.580571 5.705143 24.868571 21.723429t17.993143 29.110857l5.705143 13.165714q7.460571 21.723429 25.161143 35.108571t38.253714 17.115429 39.716571 4.022857 31.744-1.974857l13.165714-2.267429q0 21.723429 0.292571 50.834286t0.292571 30.866286q0 10.313143-7.460571 17.115429t-22.820571 4.022857q-132.534857-44.032-216.283429-158.573714t-83.748571-257.974857q0-119.442286 58.88-220.306286t159.744-159.744 220.306286-58.88 220.306286 58.88 159.744 159.744 58.88 220.306286z">
-                    </path>
-                  </svg></a>
-              </li>
-            </ul>
-          </button>
+        <div>
+          <img src="./assets/imagenes/Dia del padre promocion.png" alt="promocion" class="img-fluid" style="">
         </div>
-      </div>
-
-      <div class="d-flex flex-column">
-        <div class="d-flex flex-column">
-          <h6>Redes sociales</h6>
-          <div class="d-flex">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-facebook" width="30"
-              height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
-            </svg>
-
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="30"
-              height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-              <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-              <path d="M16.5 7.5l0 .01" />
-            </svg>
+      </main>
+      <footer>
+        <div class="d-flex flex-column justify-content-between flex-wrap">
+          <div class="d-flex justify-content-center" style="width: 100%;">
+            <div class="d-flex flex-column align-items-center justify-content-center subscribite">
+              <h3 class="incentivo">SE EL PRIMERO EN ENTERARTE</h3>
+              <p class="incentivo">Recibe promociones exclusivas, recetas innovadoras y sorpresas deliciosas en tu
+                correo.</p>
+              <p class="incentivo">Únete ahora y no te pierdas ninguna novedad.</p>
+              <p class="incentivo">¡El placer de los fiambres te espera!</p>
+              <div class="input-container">
+                <input placeholder="Email Address" type="email" required>
+                <button class="invite-btn" type="button">
+                  enviar
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="footerInfoContainer">
+            <div class="sociales">
+              <div class="social-links">
+                <a class="link" href="https://www.linkedin.com/in/agustin-martinez-b26978217/">
+                  <div id="linkedin" class="social-btn flex-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                      </path>
+                    </svg><span class="nombreLink">/Agustin</span>
+                  </div>
+                </a>
 
-        <div class="d-flex flex-column">
-          <h6>Recibi nuestras promociones</h6>
-          <div class="input-group-sm mb-3 d-flex">
-            <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username"
-              aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary btn-sm" type="button" id="button-addon2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-send" width="20" height="20"
-                viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 14l11 -11" />
-                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
-              </svg>
-            </button>
+                <a class="link" href="https://www.linkedin.com/in/facundorojas/">
+                  <div id="linkedin" class="social-btn flex-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                      </path>
+                    </svg><span class="nombreLink">/Facundo</span>
+                  </div>
+                </a>
+
+                <a class="link" href="">
+                  <div id="linkedin" class="social-btn flex-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                      </path>
+                    </svg><span class="nombreLink">/German</span>
+                  </div>
+                </a>
+
+                <a class="link" href="">
+                  <div id="linkedin" class="social-btn flex-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
+                      </path>
+                    </svg><span class="nombreLink">/Jennifer</span>
+                  </div>
+                </a>
+
+                <a class="link" href="https://github.com/Frojas0/Rico-Fiambre/tree/master">
+                  <div id="github" class="social-btn flex-center">
+                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                      </path>
+                    </svg><span>Rico Fiambre</span>
+                  </div>
+                </a>
+
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      </footer>
     </div>
-  </footer>
+
   </div>
-  
-  </div>
-</div>
+  <!-- </div> -->
 </body>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

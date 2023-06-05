@@ -116,11 +116,18 @@ header {
 
 /* ---------- CONTROLES VIDEO ---------- */
 
-video::-webkit-media-controls {
-    display: none;
-}
-
 /* ---------- MAIN ---------- */
+
+
+
+
+
+
+
+
+
+
+
 
 body {
     height: 100%;
@@ -161,114 +168,157 @@ main {
 
 /* ---------- FOOTER ---------- */
 footer {
-    background-color: #b36311;
-    color: white;
-    padding: 1rem;
+    background-color: white;
 }
 
-/* ---------- Botones integrantes  ---------- */
-.btn-cssbuttons {
-    --btn-color: #b36311;
-    position: relative;
-    padding: 16px 32px;
-    font-family: Roboto, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1;
-    color: white;
-    background: none;
-    border: none;
-    outline: none;
-    overflow: hidden;
-    cursor: pointer;
-    filter: drop-shadow(0 2px 8px rgba(39, 94, 254, 0.32));
-    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.btn-cssbuttons::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background: var(--btn-color);
-    border-radius: 24px;
-    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.btn-cssbuttons span,
-.btn-cssbuttons span span {
-    display: inline-flex;
-    vertical-align: middle;
-    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.btn-cssbuttons span {
-    transition-delay: 0.05s;
-}
-
-.btn-cssbuttons span:first-child {
-    padding-right: 7px;
-}
-
-.btn-cssbuttons span span {
-    margin-left: 8px;
-    transition-delay: 0.1s;
-}
-
-.btn-cssbuttons ul {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
+.incentivo {
     margin: 0;
-    padding: 0;
-    list-style-type: none;
-    transform: translateY(-50%);
 }
 
-.btn-cssbuttons ul li {
-    flex: 1;
+.subscribite {
+    background-color: black;
+    color: white;
+    width: 97%;
+    border-radius: 2rem;
+    height: 12rem;
 }
 
-.btn-cssbuttons ul li a {
-    display: inline-flex;
+.input-container {
+    position: relative;
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    min-width: 200px;
+    max-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, .05);
+    margin-top: 1rem;
+}
+
+.input-container input {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgb(176 190 197);
+    background-color: transparent;
+    padding: 0.625rem 70px 0.625rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    color: rgb(69 90 100);
+    outline: none;
+    transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-container input:focus {
+    border: 1px solid #f6be5f;
+}
+
+.invite-btn {
+    position: absolute;
+    width: 65px;
+    right: 4px;
+    top: 4px;
+    bottom: 4px;
+    z-index: 10;
+    border-radius: 4px;
+    background-color: #f6be5f;
+    color: #fff;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: center;
     vertical-align: middle;
-    transform: translateY(55px);
-    transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    transition: .6s ease;
 }
 
-.btn-cssbuttons ul li a:hover {
+.invite-btn:hover {
+    right: 2px;
+    top: 2px;
+    bottom: 2px;
+    border-radius: 8px;
+}
+
+.input-container input:placeholder-shown~.invite-btn {
+    pointer-events: none;
+    background-color: gray;
     opacity: 0.5;
 }
 
-.btn-cssbuttons:hover::before {
-    transform: scale(1.2);
+.footerInfoContainer {
+    height: 10rem;
 }
 
-.btn-cssbuttons:hover span,
-.btn-cssbuttons:hover span span {
-    transform: translateY(-55px);
+/* Boton sociales */
+.link {
+    text-decoration: none;
+    text-align: center;
 }
 
-.btn-cssbuttons:hover ul li a {
-    transform: translateY(0);
+.nombreLink {
+    margin-top: .5rem;
 }
 
-.btn-cssbuttons:hover ul li:nth-child(1) a {
-    transition-delay: 0.15s;
+.social-links,
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.btn-cssbuttons:hover ul li:nth-child(2) a {
-    transition-delay: 0.2s;
+.social-btn {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-family: 'Titillium Web', sans-serif;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    margin: 5px;
+    transition: 0.3s;
+    justify-content: center;
 }
 
-.btn-cssbuttons:hover ul li:nth-child(3) a {
-    transition-delay: 0.25s;
+.social-btn svg {
+    height: 24px;
+    width: 24px;
 }
+
+.social-btn span {
+    width: 0px;
+    overflow: hidden;
+    transition: 0.3s;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.social-btn:hover {
+    width: 150px;
+    border-radius: 5px;
+}
+
+.social-btn:hover span {
+    padding: 2px;
+    width: 80px;
+}
+
+#linkedin svg {
+    fill: #0e76a8;
+}
+
+#github {
+    fill: #333;
+}
+
+
+
 
 
 /* CLASE BOTON DE COMPRA */
@@ -365,16 +415,16 @@ footer {
     margin-top: 1.5rem;
     border-top: 1px solid var(--text-color);
     color: black;
-  }
-  
-  .total-title {
+}
+
+.total-title {
     font-size: 1rem;
     font-weight: 600;
-  }
-  
-  .total-price {
+}
+
+.total-price {
     margin-left: 0.5rem;
-  }
+}
 
 
 
@@ -397,11 +447,11 @@ footer {
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
-  }
-  
-  .btn-buy:hover {
+}
+
+.btn-buy:hover {
     background: var(--text-color);
-  }
+}
 
 
 #cart-icon {
@@ -420,121 +470,123 @@ footer {
     box-shadow: -2px 0 4px hsl(0 4% 15% / 10%);
     transition: 0.3s;
     z-index: 2;
-  }
-  
-  .cart.active {
+}
+
+.cart.active {
     right: 0;
-  }
-  
-  .cart-title {
+}
+
+.cart-title {
     text-align: center;
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 2rem;
     color: black;
-  }
-  
-  .cart-box {
+}
+
+.cart-box {
     display: grid;
     grid-template-columns: 32% 50% 18%;
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
-  }
-  
-  .item-cart {
+}
+
+.item-cart {
     color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  }
-  
-  .cart-img {
+}
+
+.cart-img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     padding: 10px;
-  }
+}
 
-  .cart-product-title {
+.cart-product-title {
     font-size: 1rem;
     text-transform: uppercase;
-  }
-  
-  .cart-price {
+}
+
+.cart-price {
     font-weight: 500;
-  }
-  
-  .cart-quantity {
+}
+
+.cart-quantity {
     border: 1px solid var(--text-color);
     outline-color: var(--main-color);
     width: 2.4rem;
     text-align: center;
     font-size: 1rem;
-  }
-  
-  .cart-remove {
+}
+
+.cart-remove {
     font-size: 24px;
     color: var(--main-color);
     cursor: pointer;
-  }
-  #close-cart {
+}
+
+#close-cart {
     position: absolute;
     top: 1rem;
     right: 0.8rem;
     font-size: 2rem;
     color: var(--text-color);
     cursor: pointer;
-  }
+}
 
-  @media (max-width: 400px) {
+@media (max-width: 400px) {
     .nav {
-      padding: 11px;
+        padding: 11px;
     }
-  
+
     .logo {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-  
+
     .cart {
-      width: 320px;
+        width: 320px;
     }
-  }
-  
-  @media (max-width: 360px) {
+}
+
+@media (max-width: 360px) {
     .shop {
-      margin-top: 1rem !important;
+        margin-top: 1rem !important;
     }
-  
+
     .cart {
-      width: 280px;
+        width: 280px;
     }
-  }
+}
 
 .cart-quantity {
-  border: 1px solid var(--text-color);
-  outline-color: var(--main-color);
-  width: 5rem;
-  text-align: center;
-  font-size: 1rem;
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 5rem;
+    text-align: center;
+    font-size: 1rem;
 }
 
 
-  .cart-content {
+.cart-content {
     height: 67vh;
     /* altura máxima del div */
     overflow: auto;
     /* añade scroll automáticamente cuando sea necesario */
-  }
+}
 
 
 
-  /* BLUR */
-  .clase-blur {
+/* BLUR */
+.clase-blur {
     filter: blur(5px);
-  }
-  .clase-no-blur{
+}
+
+.clase-no-blur {
     filter: none;
-  
-  }
+
+}
