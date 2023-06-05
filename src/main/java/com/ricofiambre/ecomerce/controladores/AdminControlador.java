@@ -26,14 +26,14 @@ public class AdminControlador {
     private ProductoUniServicio productoUniServicio;
 
     //OBTENER PRODUCTOS ACTIVOS
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //    @GetMapping("/api/productos-activos")
 //    public List<Object> getProductosActivos(Authentication authentication){
 //        List <ProductoPesoDTO> productoPesos = productoPesoServicio.getProductoPeso().stream().filter(productoPeso -> productoPeso.getEstaActivo()).collect(Collectors.toList());
 //
 //        return
 //    }
-=======
+//=======
     @GetMapping("/api/productos-activos")
     public ResponseEntity<Object> getProductosActivos(Authentication authentication){
         Cliente cliente = clienteServicio.findByEmail(authentication.getName());
@@ -69,7 +69,7 @@ public class AdminControlador {
 
         return new ResponseEntity<>(combinacion, HttpStatus.CREATED);
     }
->>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
+//>>>>>>> 70e652a53f29935ace8e689be46f5419210ab725
     //CREAR DESCUENTO EN PRODUCTO
     @PostMapping("/api/crear-descuento-producto")
     public ResponseEntity<Object> descuentoProducto(Authentication authentication,
