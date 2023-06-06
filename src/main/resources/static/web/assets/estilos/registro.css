@@ -1,87 +1,439 @@
 /* Estilo Normalizado */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 /* ---------- HEADER ---------- */
 header {
-    min-height: 15vh;
-    background-color: black;
-  }
-  
-  #header-nav {
-    background-color: black !important;
-    min-height: 14vh;
-    z-index: 1;
-  }
-  
-  .navbar {
-    height: 15vh;
-    width: 100%;
-  }
-  
-  .logo-header {
-    width: 10rem;
-  }
-  
-  .nav-link {
-    color: white !important;
-  }
-  
-  #navbarNav {
-    justify-content: end;
-    align-items: center;
-    font-size: .9rem;
-  }
-  
-  .container-fluid {
-    background-color: black;
-  }
-  
-  .navbar-nav {
-    background-color: black;
-    font-size: 120%;
-    gap: 1rem;
-    align-items: center !important;
-    padding: 1rem;
-    margin-bottom: .5rem;
-  }
-  
-  .estilo-hover:hover {
-    color: #f6be5f !important;
-    transition: all 0.3s;
-  }
-  
-  .svg-hover:hover {
-    stroke: #f6be5f !important;
-    transition: all 0.3s;
-  }
+  min-height: 20vh;
+  background-color: black;
+}
+
+.logo-header {
+  width: 10rem;
+  transition: .3s ease-in-out;
+}
+
+.logo-header:hover {
+  transform: scale(1.2);
+}
 
 /* ---------- MAIN ---------- */
+html {
+  background-color: #eee4d4;
+}
 
 main {
-    min-height: 55vw;
-    background-color: whitesmoke;
-    color: black;
+  color: black;
+  height: max-content;
+  background-color: #eee4d4;
+}
+
+.contenedorFormulario {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: whitesmoke;
+  background-color: #eee4d4;
+  width: 100%;
+}
+
+/* ---------- FORMULARIO REGISTRO---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.4em;
+  background-color: #f3bb14;
+  border-radius: 25px;
+  transition: .3s ease-in-out;
+}
+
+.form:hover {
+  transform: scale(1.05);
+  border: 4px solid #b84729;
+}
+
+#heading {
+  text-align: center;
+  margin: 2rem;
+  color: black;
+  font-size: 150%;
+  font-weight: bolder;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  width: 18rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #eee4d4;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.field2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  width: 9rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #eee4d4;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.field3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  width: 7rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #eee4d4;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.field4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  width: 11rem;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: #eee4d4;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+}
+
+.input-icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: black;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: black;
+}
+
+.form .botones {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+
+.button1 {
+  padding: 0.5rem;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #eee4d4;
+  color: black;
+  height: 3rem;
+  text-decoration: none;
+  /* margin-bottom: 0; */
+}
+
+.button1:hover {
+  background-color: black;
+  color: #f3bb14;
+}
+
+.redireccion {
+  padding: 0.5rem;
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #eee4d4;
+  color: black;
+  height: 3rem;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.redireccion:hover {
+  background-color: black;
+  color: #f3bb14;
 }
 
 
-/* ---------- FOOTER ---------- */
-footer {
-    background-color: #b36311;
-    color: white;
-    padding: 1rem;
+/* PANTALLA DE CARGA */
+[v-cloak] {
+  display: none;
 }
 
-.tarjetas {
-    height: 2rem;
-    padding: 0.1rem;;
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-/* ---------- FORMULARIO LOGIN---------- */
-#logo-login-register{
-    width: 15rem;
+.pl {
+  width: 6em;
+  height: 6em;
+}
+
+.pl__ring {
+  animation: ringA 2s linear infinite;
+}
+
+.pl__ring--a {
+  stroke: #f42f25;
+}
+
+.pl__ring--b {
+  animation-name: ringB;
+  stroke: #f49725;
+}
+
+.pl__ring--c {
+  animation-name: ringC;
+  stroke: #255ff4;
+}
+
+.pl__ring--d {
+  animation-name: ringD;
+  stroke: #f42582;
+}
+
+/* Animations */
+@keyframes ringA {
+
+  from,
+  4% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+
+  12% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -335;
+  }
+
+  32% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -595;
+  }
+
+  40%,
+  54% {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -660;
+  }
+
+  62% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -665;
+  }
+
+  82% {
+    stroke-dasharray: 60 600;
+    stroke-width: 30;
+    stroke-dashoffset: -925;
+  }
+
+  90%,
+  to {
+    stroke-dasharray: 0 660;
+    stroke-width: 20;
+    stroke-dashoffset: -990;
+  }
+}
+
+@keyframes ringB {
+
+  from,
+  12% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -110;
+  }
+
+  20% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -115;
+  }
+
+  40% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -195;
+  }
+
+  48%,
+  62% {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  70% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  90% {
+    stroke-dasharray: 20 200;
+    stroke-width: 30;
+    stroke-dashoffset: -305;
+  }
+
+  98%,
+  to {
+    stroke-dasharray: 0 220;
+    stroke-width: 20;
+    stroke-dashoffset: -330;
+  }
+}
+
+@keyframes ringC {
+  from {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  8% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  28% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  36%,
+  58% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  66% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  86% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  94%,
+  to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+@keyframes ringD {
+
+  from,
+  8% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: 0;
+  }
+
+  16% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -5;
+  }
+
+  36% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -175;
+  }
+
+  44%,
+  50% {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -220;
+  }
+
+  58% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -225;
+  }
+
+  78% {
+    stroke-dasharray: 40 400;
+    stroke-width: 30;
+    stroke-dashoffset: -395;
+  }
+
+  86%,
+  to {
+    stroke-dasharray: 0 440;
+    stroke-width: 20;
+    stroke-dashoffset: -440;
+  }
+}
+
+/* SCROLLS */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6be5f;
+  border-radius: 10px;
 }
