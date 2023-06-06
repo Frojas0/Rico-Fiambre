@@ -61,7 +61,7 @@ public class ClienteControlador {
             return new ResponseEntity<>("Falta el código postal", HttpStatus.FORBIDDEN);
         }
         if (clienteRegistroDTO.getTelefono().isBlank()) {
-            return new ResponseEntity<>("Falta el tel{efono", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Falta el teléfono", HttpStatus.FORBIDDEN);
         }
         if (clienteRegistroDTO.getCiudad().isBlank()) {
             return new ResponseEntity<>("Falta la ciudad", HttpStatus.FORBIDDEN);
