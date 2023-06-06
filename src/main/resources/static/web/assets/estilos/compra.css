@@ -311,6 +311,8 @@ footer {
   border-radius: 6px;
   color: black;
   font-weight: bold;
+  top: 1rem;
+  
 }
 
 .product-details {
@@ -424,8 +426,8 @@ label.radio input:checked+span {
 /* boton pagar */
 .contenedorCarrito {
   width: 10rem;
-  margin-left: 2rem;
-  margin-top: 1rem;
+  /* margin-left: 2rem;
+  margin-top: 1rem; */
 }
 
 .contenedorTexto {
@@ -498,6 +500,10 @@ label.radio input:checked+span {
   font-size: 24px;
   color: var(--main-color);
   cursor: pointer;
+}
+
+#separacionComps{
+  margin-top: 1rem;
 }
 
 /* BANNER */
