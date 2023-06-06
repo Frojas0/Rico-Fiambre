@@ -123,6 +123,57 @@ const app = createApp({
             cart.classList.remove("active");
             this.blurONoBluEsaEsLaCuestion = 'clase-no-blur'
         },
+
+        // ------------------------------------------------------------------------------------------------
+        //               ESTO SOLO VA EN PRODUCTO.JS, LOS DEMAS JS NO LO NECESITAN
+
+        addCartClicked(imagen, nombrePorParametro, precio, esPorPeso) {
+            let encontrado = false;
+
+            for (let i = 0; i < this.carritoPendientes.length; i++) {
+                if (this.carritoPendientes[i].nombre === nombrePorParametro) {
+                if (esPorPeso) {
+                    this.cantidadMas(nombrePorParametro, 50)
+                    encontrado = true;
+                    break;
+                } else {
+                    this.cantidadMas(nombrePorParametro, 1)
+                    encontrado = true;
+                    break;
+                }
+                }
+            }
+
+            if (!encontrado) {
+                if (esPorPeso) {
+                let itemNuevo = {
+                    url: imagen,
+                    nombre: nombrePorParametro,
+                    precio: precio * (this.cantidadSeleccionada / 1000),
+                    cantidad: this.cantidadSeleccionada,
+                    esPorPeso: esPorPeso
+                }
+                this.carritoPendientes.push(itemNuevo);
+                } else {
+                let itemNuevo = {
+                    url: imagen,
+                    nombre: nombrePorParametro,
+                    precio: precio * this.cantidadSeleccionada,
+                    cantidad: this.cantidadSeleccionada,
+                    esPorPeso: esPorPeso
+                }
+                this.carritoPendientes.push(itemNuevo);
+                }
+
+            }
+
+            // console.log( this.carritoPendientes)
+            this.updatetotal()
+            localStorage.setItem('carritoDeCompras', JSON.stringify(this.carritoPendientes))
+            },
+
+      // ------------------------------------------------------------------------------------------------
+
         removeCartItem(nombre) {
             console.log('funciona borrar')
             console.log(nombre)

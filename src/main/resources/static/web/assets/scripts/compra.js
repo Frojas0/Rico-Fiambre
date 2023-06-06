@@ -32,7 +32,7 @@ const app = createApp({
             this.isLoading = false;  // Establecemos isLoading en false al finalizar la petición
         })
         .catch(error => {
-            console.error(error);
+            console.log(error);
             this.isLoading = false;  // Manejamos el error y establecemos isLoading en false
         })
     },
@@ -117,6 +117,17 @@ const app = createApp({
             }
             )
         },
+
+        enviarSuscripcion(){
+            Swal.fire({
+                title: '¡Suscripcion exitosa!',
+                text: 'A partir de ahora recibirás todas nuestras novedades.',
+                icon: 'success',
+                confirmButtonText: 'CERRAR',
+                confirmButtonColor: 'black',
+            })
+        },
+        
         irALogin(){
             window.location.href = "/web/login.html"
         },
