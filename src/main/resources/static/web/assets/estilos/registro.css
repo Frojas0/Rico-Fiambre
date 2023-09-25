@@ -55,8 +55,7 @@ main {
 }
 
 .form:hover {
-  transform: scale(1.05);
-  border: 4px solid #b84729;
+  border: 2px solid #b84729;
 }
 
 #heading {

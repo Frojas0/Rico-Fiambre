@@ -50,11 +50,10 @@ main {
   padding-bottom: 0.4em;
   background-color: #f3bb14;
   border-radius: 25px;
-  transition: .3s ease-in-out;
+  transition: .3s ease;
 }
 
 .form:hover {
-  transform: scale(1.05);
   border: 4px solid #b84729;
 }
 

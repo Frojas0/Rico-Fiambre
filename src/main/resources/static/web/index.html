@@ -35,7 +35,6 @@
                 <div class="cart-price">{{items.precio.toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}}</div>
-                <!-- <input type="number" v-bind:value="items.cantidad" class="cart-quantity"> -->
                 <div>
                   <div class="MasOMenos" v-if="items.esPorPeso">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +85,6 @@
                     </svg>
                   </div>
                 </div>
-                <!-- v-bind:value="items.cantidad"  -->
               </div>
               <!-- Remove Cart -->
               <i class='bx bxs-trash-alt cart-remove' v-on:click="removeCartItem(items.nombre)"></i>
@@ -211,14 +209,6 @@
         <div class="contenedorBanner">
 
         </div>
-
-
-        <!-- <div>
-          <img src="./assets/imagenes/banner-index-02.gif" class="img-fluid" alt="banner-index" style="width: 100%;">
-        </div> -->
-
-
-
 
         <div class="BeneficiosDIV d-flex justify-content-around flex-wrap p-1 animate__animated animate__fadeIn"
           style="background-color: whitesmoke;">
@@ -356,26 +346,6 @@
                         d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
                       </path>
                     </svg><span class="nombreLink">/Facundo</span>
-                  </div>
-                </a>
-
-                <a class="link" href="https://www.linkedin.com/in/german-andres-gonzalez-ortega-2a8a7a112/">
-                  <div id="linkedin" class="social-btn flex-center">
-                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
-                      </path>
-                    </svg><span class="nombreLink">/German</span>
-                  </div>
-                </a>
-
-                <a class="link" href="https://www.linkedin.com/in/jennifer-mota-ochoa-64384922b">
-                  <div id="linkedin" class="social-btn flex-center">
-                    <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
-                      </path>
-                    </svg><span class="nombreLink">/Jennifer</span>
                   </div>
                 </a>
 

@@ -75,17 +75,17 @@
                 </li>
                 <li class="nav-item" v-if="mostrarBoton">
                   <a class="nav-link" href="./historialCompras.html"><svg xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-list-details svg-hover" width="30" height="30"
-                    viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M13 5h8" />
-                    <path d="M13 9h5" />
-                    <path d="M13 15h8" />
-                    <path d="M13 19h5" />
-                    <path d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                    <path d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-                  </svg></a>
+                      class="icon icon-tabler icon-tabler-list-details svg-hover" width="30" height="30"
+                      viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M13 5h8" />
+                      <path d="M13 9h5" />
+                      <path d="M13 15h8" />
+                      <path d="M13 19h5" />
+                      <path d="M3 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                      <path d="M3 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                    </svg></a>
                 </li>
               </div>
             </ul>
@@ -135,7 +135,7 @@
                   style="font-size: 18px !important;">Detalles Tarjeta</span></div><span class="type d-block mt-3 mb-1"
                 style="font-size: 15px !important;">Tipo de Tarjeta</span>
               <div id="separacionComps">
-                  <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
+                <label class="radio"> <input type="radio" name="card" value="payment" checked> <span><img width="30"
                       src="https://img.icons8.com/color/48/000000/mastercard.png" /></span></label>
 
                 <label class="radio"> <input type="radio" name="card" value="payment"> <span><img width="30"
@@ -152,10 +152,10 @@
               <div id="separacionComps"><label class="credit-card-label">Numero de la Tarjeta</label><input type="text"
                   class="form-control credit-inputs" placeholder="0000 0000 0000 0000" v-model="numeroTarjeta"></div>
               <div class="row">
-                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">Fecha</label><input type="text"
-                    class="form-control credit-inputs" placeholder="12/24" v-model="fecha"></div>
-                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">CVV</label><input type="text"
-                    class="form-control credit-inputs" placeholder="342" v-model="cvvTarjeta"></div>
+                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">Fecha</label><input
+                    type="text" class="form-control credit-inputs" placeholder="12/24" v-model="fecha"></div>
+                <div id="separacionComps" class="col-md-6"><label class="credit-card-label">CVV</label><input
+                    type="text" class="form-control credit-inputs" placeholder="342" v-model="cvvTarjeta"></div>
               </div>
               <hr class="line">
               <div id="separacionComps" class="d-flex justify-content-between information"><span
@@ -168,14 +168,16 @@
                   style="font-size: 15px !important;">{{costoEnvio.toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}}</span></div>
-              <div id="separacionComps" class="d-flex justify-content-between information"><span style="font-size: 15px !important;">Total
+              <div id="separacionComps" class="d-flex justify-content-between information"><span
+                  style="font-size: 15px !important;">Total
                   (Incl.
                   Impuestos)</span><span style="font-size: 15px !important;">{{(total +
                   costoEnvio).toLocaleString("es-AR", { style:
                   "currency", currency:
                   "ARS" })}}</span></div>
               <div class="contenedorCarrito">
-                <button id="separacionComps" @click="pagar" class="botCarrito d-flex justify-content-center align-items-center">
+                <button id="separacionComps" @click="pagar"
+                  class="botCarrito d-flex justify-content-center align-items-center">
                   <div class="botonDefecto">
                     <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="white" width="30" height="30">
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -273,26 +275,6 @@
                       d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
                     </path>
                   </svg><span class="nombreLink">/Facundo</span>
-                </div>
-              </a>
-
-              <a class="link" href="">
-                <div id="linkedin" class="social-btn flex-center">
-                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
-                    </path>
-                  </svg><span class="nombreLink">/German</span>
-                </div>
-              </a>
-
-              <a class="link" href="">
-                <div id="linkedin" class="social-btn flex-center">
-                  <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
-                    </path>
-                  </svg><span class="nombreLink">/Jennifer</span>
                 </div>
               </a>
 
