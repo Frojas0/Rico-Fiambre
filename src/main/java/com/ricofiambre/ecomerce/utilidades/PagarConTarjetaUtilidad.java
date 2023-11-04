@@ -32,7 +32,7 @@ public final class PagarConTarjetaUtilidad {
         }
 
         try {
-            URL url = new URL("https://mindhub-brothershomebanking-production.up.railway.app/api/card/payment");
+            URL url = new URL("https://homebanking-v3ar.onrender.com/api/card/payment");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/json");
